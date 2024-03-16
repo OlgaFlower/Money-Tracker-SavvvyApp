@@ -12,12 +12,14 @@ struct LoginView: View {
     // MARK: - Properties
     @State private var username: String = ""
     @State private var password: String = ""
+    @State private var showRegistrationView = false
     
     var body: some View {
         
         VStack {
             /// Login View
             VStack(spacing: 12) {
+                
                 Text("Welcome!")
                     .font(.title.bold())
                 
@@ -26,26 +28,32 @@ struct LoginView: View {
                     Text("Username")
                         .font(.callout.bold())
                     
-                    CustomTextField(hint: "iNick", value: $username)
+                    CustomTextField(hint: "", value: $username)
                     
                     Text("Password")
                         .font(.callout.bold())
                         .padding(.top, 16)
                     
-                    CustomTextField(hint: "•••••••", value: $password, isPassword: true)
-                    
-                    self.loginButton
-                        .padding(.top, 30)
-                    
-                    /// Other Login Options
-                    HStack(spacing: 12) {
-                        self.loginWithEmailButton
-                        
-                        self.loginWithAppleButton
-                    }
-                    .foregroundStyle(.white)
-                    .padding(.top, 16)
+                    CustomTextField(hint: "", value: $password, isPassword: true)
                 })
+                
+                HStack {
+                    Spacer()
+                    Button(action: {}, label: {
+                        Text("Forgot password?")
+                            .font(.callout)
+                    })
+                }
+                
+                self.loginButton
+                    .padding(.top, 30)
+                
+                
+                self.createNewAccountButton
+                    .padding(.top, 12)
+                    .fullScreenCover(isPresented: $showRegistrationView) {
+                        RegistrationView()
+                    }
             }
             .foregroundStyle(.white)
             .padding(.horizontal, 30)
@@ -95,36 +103,16 @@ struct LoginView: View {
         })
     }
     
-    private var loginWithEmailButton: some View {
-        Button(action: {}, label: {
-            Label("Email", systemImage: "envelope.fill")
-                .fontWeight(.semibold)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 10)
-            /// Adding Transparent Blur
-                .background {
-                    TransparentBlurView(removeAllFilters: false)
-                        .background(.white.opacity(0.2))
-                }
-                .clipShape(.rect(cornerRadius: 8, style: .continuous))
+    private var createNewAccountButton: some View {
+        Button(action: {
+            self.showRegistrationView.toggle()
+        }, label: {
+            Text("Create new account")
+                .font(.callout.bold())
         })
     }
     
-    private var loginWithAppleButton: some View {
-        Button(action: {}, label: {
-            Label("Apple", systemImage: "applelogo")
-                .fontWeight(.semibold)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 10)
-            /// Adding Transparent Blur
-                .background {
-                    TransparentBlurView(removeAllFilters: false)
-                        .background(.white.opacity(0.2))
-                }
-                .clipShape(.rect(cornerRadius: 8, style: .continuous))
-        })
-    }
-    
+    /// Background
     private var backgroundCircle1: some View {
         ZStack {
             Circle()
@@ -177,7 +165,7 @@ struct LoginView: View {
             if isPassword {
                 SecureField(hint, text: value)
             } else {
-                TextField(hint, text: value)
+                TextField("", text: value)
             }
         }
         .environment(\.colorScheme, .dark)

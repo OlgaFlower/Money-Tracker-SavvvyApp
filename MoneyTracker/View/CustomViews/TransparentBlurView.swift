@@ -15,9 +15,7 @@ struct TransparentBlurView: UIViewRepresentable {
         return TransparentBlurViewHelper(removeAllFilters: self.removeAllFilters)
     }
     
-    func updateUIView(_ uiView: TransparentBlurViewHelper, context: Context) {
-        
-    }
+    func updateUIView(_ uiView: TransparentBlurViewHelper, context: Context) {}
 }
 
 // MARK: - TransparentBlurViewHelper
