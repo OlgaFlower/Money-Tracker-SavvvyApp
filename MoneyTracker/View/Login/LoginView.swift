@@ -20,20 +20,16 @@ struct LoginView: View {
         VStack {
             /// Login View
             VStack(spacing: 32) {
-                
                 Text("Welcome!")
                     .font(.title.bold())
                 
                 VStack(alignment: .leading, spacing: 8, content: {
-                    
                     Text("Username")
                         .font(.callout)
-                    
                     CustomTextField(hint: "", value: $username)
                     
                     Text("Password")
                         .font(.callout)
-                    
                     CustomTextField(hint: "", value: $password, isPassword: true)
                     
                     HStack {
@@ -63,7 +59,7 @@ struct LoginView: View {
             .background {
                 TransparentBlurView(removeAllFilters: true)
                     .blur(radius: 9, opaque: true)
-                    .background(.white.opacity(0.05))
+                    .background(.mainNavy.opacity(0.3))
             }
             .clipShape(.rect(cornerRadius: 10, style: .continuous))
             ///Light White Border
@@ -72,7 +68,7 @@ struct LoginView: View {
                     .stroke(.white.opacity(0.4), lineWidth: 1.5)
             }
             /// Adding Shadow
-            .shadow(color: .black.opacity(0.2), radius: 10)
+            .shadow(color: .black.opacity(0.4), radius: 10, x: 7, y: 7)
             .padding(.horizontal, 38)
             .background {
                 self.backgroundCircle1
@@ -82,7 +78,7 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
-            BackgroundGradientView()
+            BackgroundArt()
         }
     }
     
@@ -177,7 +173,6 @@ struct LoginView: View {
         .background(.white.opacity(0.12))
         .clipShape(.rect(cornerRadius: 8, style: .continuous))
     }
-    
 }
 
 #Preview {

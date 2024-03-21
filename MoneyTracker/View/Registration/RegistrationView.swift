@@ -40,12 +40,10 @@ struct RegistrationView: View {
             VStack {
                 /// Registration View
                 VStack(spacing: 32) {
-                    
                     Text("Registration")
                         .font(.title.bold())
                     
                     VStack(alignment: .leading, spacing: 8, content: {
-                        
                         Text("Username")
                             .font(.callout)
                         CustomTextField(hint: "", value: $username)
@@ -58,7 +56,6 @@ struct RegistrationView: View {
                             .font(.callout)
                         CustomTextField(hint: "", value: $password, isPassword: true)
                     })
-                    
                     self.confirmButton
                 }
                 .foregroundStyle(.white)
@@ -68,16 +65,16 @@ struct RegistrationView: View {
                 .background {
                     TransparentBlurView(removeAllFilters: true)
                         .blur(radius: 9, opaque: true)
-                        .background(.white.opacity(0.05))
+                        .background(.mainNavy.opacity(0.15))
                 }
                 .clipShape(.rect(cornerRadius: 10, style: .continuous))
                 ///Light White Border
                 .background {
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .stroke(.white.opacity(0.4), lineWidth: 1.5)
+                        .stroke(.white.opacity(0.4), lineWidth: 1)
                 }
                 /// Adding Shadow
-                .shadow(color: .black.opacity(0.2), radius: 10)
+                .shadow(color: .black.opacity(0.4), radius: 10, x: 7, y: 7)
                 .padding(.horizontal, 38)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

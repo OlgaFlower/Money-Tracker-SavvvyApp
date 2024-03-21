@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4241F4642BAC9B1B0048A29B /* BackgroundArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */; };
 		4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */; };
 		4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242750B2BA4FF72001873A3 /* ContentView.swift */; };
 		4242750E2BA4FF73001873A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4242750D2BA4FF73001873A3 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundArt.swift; sourceTree = "<group>"; };
 		424275062BA4FF72001873A3 /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
 		4242750B2BA4FF72001873A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4241F4622BAC6A320048A29B /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */,
+				4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */,
+			);
+			path = Backgrounds;
+			sourceTree = "<group>";
+		};
 		424274FD2BA4FF71001873A3 = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				4251FA4C2BAB2B5E0087ABE7 /* BankCardView.swift */,
-				42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */,
+				4241F4622BAC6A320048A29B /* Backgrounds */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -367,6 +378,7 @@
 				42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */,
 				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,
 				4251FA472BA63F6D0087ABE7 /* RegistrationView.swift in Sources */,
+				4241F4642BAC9B1B0048A29B /* BackgroundArt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

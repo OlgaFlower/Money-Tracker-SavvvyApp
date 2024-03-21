@@ -11,31 +11,19 @@ struct HomeView: View {
     var body: some View {
         
         NavigationStack {
-            
-            ZStack {
-                /// Background
-                Rectangle()
-//                    .fill(.navy)
-                    .ignoresSafeArea()
-                
-                
                 
                 ScrollView {
                     
-                    VStack(spacing: 16) {
+                    VStack() {
                         /// Bank Card
                         BankCardView()
-                            .padding(.horizontal, 22)
-                        
-                        
+                            .padding(.horizontal, 12)
                         Spacer()
                     }
                     .padding(.top, 22)
                 }
-            }
             .navigationTitle("Today")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitleTextColor(.white)
         }
     }
     
