@@ -13,6 +13,7 @@ struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var showRegistrationView = false
+    @State private var showHomeView = false
     
     var body: some View {
         
@@ -47,6 +48,10 @@ struct LoginView: View {
                 
                 self.loginButton
                     .padding(.top, 30)
+                    .fullScreenCover(isPresented: $showHomeView) {
+                        // TODO: - split for opening after logging in and for saved login data
+                        HomeView()
+                    }
                 
                 
                 self.createNewAccountButton
@@ -91,7 +96,9 @@ struct LoginView: View {
     // MARK: - Views
     
     private var loginButton: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            self.showHomeView.toggle()
+        }, label: {
             Text("Login")
                 .font(.title3)
                 .fontWeight(.semibold)
