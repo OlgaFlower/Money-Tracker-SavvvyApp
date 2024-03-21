@@ -15,7 +15,7 @@ struct HomeView: View {
             ZStack {
                 /// Background
                 Rectangle()
-                    .fill(.navy)
+//                    .fill(.navy)
                     .ignoresSafeArea()
                 
                 

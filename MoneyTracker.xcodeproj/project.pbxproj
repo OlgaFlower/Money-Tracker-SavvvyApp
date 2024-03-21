@@ -19,6 +19,7 @@
 		4251FA4A2BAB22C00087ABE7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA492BAB22C00087ABE7 /* HomeView.swift */; };
 		4251FA4D2BAB2B5E0087ABE7 /* BankCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4C2BAB2B5E0087ABE7 /* BankCardView.swift */; };
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
+		42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */; };
 		42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD6DBD2BA606E100B9DC70 /* TransparentBlurView.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		4251FA492BAB22C00087ABE7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4251FA4C2BAB2B5E0087ABE7 /* BankCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCardView.swift; sourceTree = "<group>"; };
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
+		42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientView.swift; sourceTree = "<group>"; };
 		42FD6DBD2BA606E100B9DC70 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				4251FA4C2BAB2B5E0087ABE7 /* BankCardView.swift */,
+				42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				4251FA4A2BAB22C00087ABE7 /* HomeView.swift in Sources */,
+				42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */,
 				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,
 				4251FA472BA63F6D0087ABE7 /* RegistrationView.swift in Sources */,
 			);

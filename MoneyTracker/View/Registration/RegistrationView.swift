@@ -19,9 +19,7 @@ struct RegistrationView: View {
         
         ZStack {
             /// Background
-            Rectangle()
-                .fill(.navy)
-                .ignoresSafeArea()
+            BackgroundGradientView()
             
             /// X Button
             VStack {
@@ -41,34 +39,32 @@ struct RegistrationView: View {
             
             VStack {
                 /// Registration View
-                VStack(spacing: 12) {
+                VStack(spacing: 32) {
                     
                     Text("Registration")
                         .font(.title.bold())
-                        .padding(.bottom, 16)
                     
                     VStack(alignment: .leading, spacing: 8, content: {
                         
                         Text("Username")
-                            .font(.callout.bold())
+                            .font(.callout)
                         CustomTextField(hint: "", value: $username)
                         
                         Text("Email")
-                            .font(.callout.bold())
+                            .font(.callout)
                         CustomTextField(hint: "", value: $email)
                         
                         Text("Password")
-                            .font(.callout.bold())
+                            .font(.callout)
                         CustomTextField(hint: "", value: $password, isPassword: true)
-                        
-                        self.confirmButton
-                            .padding(.top, 30)
                     })
+                    
+                    self.confirmButton
                 }
                 .foregroundStyle(.white)
                 .padding(.horizontal, 30)
                 .padding(.top, 36)
-                .padding(.bottom, 26)
+                .padding(.bottom, 32)
                 .background {
                     TransparentBlurView(removeAllFilters: true)
                         .blur(radius: 9, opaque: true)
@@ -78,7 +74,7 @@ struct RegistrationView: View {
                 ///Light White Border
                 .background {
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .stroke(.white.opacity(0.3), lineWidth: 1.5)
+                        .stroke(.white.opacity(0.4), lineWidth: 1.5)
                 }
                 /// Adding Shadow
                 .shadow(color: .black.opacity(0.2), radius: 10)
@@ -97,13 +93,15 @@ struct RegistrationView: View {
         }, label: {
             Text("Confirm")
                 .font(.title3)
-                .fontWeight(.semibold)
-                .foregroundStyle(.navy)
-                .padding(.vertical, 12)
+                .fontWeight(.bold)
+                .padding(.vertical, 8)
                 .frame(maxWidth: .infinity)
-                .background(.white)
                 .clipShape(.rect(cornerRadius: 8, style: .continuous))
         })
+        .background {
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .stroke(.white.opacity(0.3), lineWidth: 1)
+        }
     }
     
     /// Custom Text Field

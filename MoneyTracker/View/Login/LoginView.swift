@@ -19,7 +19,7 @@ struct LoginView: View {
         
         VStack {
             /// Login View
-            VStack(spacing: 12) {
+            VStack(spacing: 32) {
                 
                 Text("Welcome!")
                     .font(.title.bold())
@@ -27,35 +27,31 @@ struct LoginView: View {
                 VStack(alignment: .leading, spacing: 8, content: {
                     
                     Text("Username")
-                        .font(.callout.bold())
+                        .font(.callout)
                     
                     CustomTextField(hint: "", value: $username)
                     
                     Text("Password")
-                        .font(.callout.bold())
-                        .padding(.top, 16)
+                        .font(.callout)
                     
                     CustomTextField(hint: "", value: $password, isPassword: true)
+                    
+                    HStack {
+                        Spacer()
+                        Button(action: {}, label: {
+                            Text("Forgot password?")
+                                .font(.callout)
+                        })
+                    }
                 })
                 
-                HStack {
-                    Spacer()
-                    Button(action: {}, label: {
-                        Text("Forgot password?")
-                            .font(.callout)
-                    })
-                }
-                
                 self.loginButton
-                    .padding(.top, 30)
                     .fullScreenCover(isPresented: $showHomeView) {
                         // TODO: - split for opening after logging in and for saved login data
                         HomeView()
                     }
                 
-                
                 self.createNewAccountButton
-                    .padding(.top, 12)
                     .fullScreenCover(isPresented: $showRegistrationView) {
                         RegistrationView()
                     }
@@ -63,7 +59,7 @@ struct LoginView: View {
             .foregroundStyle(.white)
             .padding(.horizontal, 30)
             .padding(.top, 36)
-            .padding(.bottom, 26)
+            .padding(.bottom, 22)
             .background {
                 TransparentBlurView(removeAllFilters: true)
                     .blur(radius: 9, opaque: true)
@@ -73,7 +69,7 @@ struct LoginView: View {
             ///Light White Border
             .background {
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .stroke(.white.opacity(0.3), lineWidth: 1.5)
+                    .stroke(.white.opacity(0.4), lineWidth: 1.5)
             }
             /// Adding Shadow
             .shadow(color: .black.opacity(0.2), radius: 10)
@@ -84,12 +80,9 @@ struct LoginView: View {
                 self.backgroundCircle3
             }
         }
-        
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
-            Rectangle()
-                .fill(.navy)
-                .ignoresSafeArea()
+            BackgroundGradientView()
         }
     }
     
@@ -101,13 +94,16 @@ struct LoginView: View {
         }, label: {
             Text("Login")
                 .font(.title3)
-                .fontWeight(.semibold)
-                .foregroundStyle(.navy)
-                .padding(.vertical, 12)
+                .fontWeight(.bold)
+                .foregroundStyle(.white)
+                .padding(.vertical, 8)
                 .frame(maxWidth: .infinity)
-                .background(.white)
                 .clipShape(.rect(cornerRadius: 8, style: .continuous))
         })
+        .background {
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .stroke(.white.opacity(0.3), lineWidth: 1)
+        }
     }
     
     private var createNewAccountButton: some View {
@@ -115,7 +111,7 @@ struct LoginView: View {
             self.showRegistrationView.toggle()
         }, label: {
             Text("Create new account")
-                .font(.callout.bold())
+                .font(.callout)
         })
     }
     
