@@ -9,11 +9,11 @@ import SwiftUI
 
 struct BankCardModel: Identifiable {
     let id = UUID()
-    let cardCoverImage: Image?
-    let cardCoverColor: Color? = .gray
+    var cardCoverImage: Image?
+    var cardCoverColor: Color? = .gray
     
-    let bankName: String?
-    let cardholderName: String?
-    let balance: Double = 0.00
-    let currency: String
+    var bankName: String?
+    var cardholderName: String?
+    var balance: Double = 0.00
+    var currency: String
 }

@@ -13,7 +13,7 @@ class HomeViewModel: ObservableObject {
     
     // TODO: - Remove bank card mock
     init() {
-        self.bankCards.append(BankCardModel(cardCoverImage: Image("art_4"), bankName: "Deutsche Bank", cardholderName: "Patrick", currency: "€"))
-        self.bankCards.append(BankCardModel(cardCoverImage: Image("art_1"), bankName: "N26", cardholderName: "YEVA", currency: "€"))
+        self.bankCards.append(BankCardModel(cardCoverImage: Image("art_4"), bankName: "Deutsche Bank", cardholderName: "Housekeeping", balance: 1365.3498, currency: "€"))
+        self.bankCards.append(BankCardModel(cardCoverImage: Image("art_1"), bankName: "N26", cardholderName: "YEVA", balance: 95.85456, currency: "€"))
     }
 }

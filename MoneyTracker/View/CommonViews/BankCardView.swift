@@ -34,16 +34,24 @@ struct BankCardView: View {
                                 .background(.black.opacity(0.1))
                         }
                     
-                    VStack {
+                    VStack(spacing: 12) {
                         HStack {
                             Text(self.bankCard.bankName ?? "")
                             Spacer()
                             Text(self.bankCard.cardholderName ?? "")
                         }
                         .font(.title3.bold())
-                        Text("Your Balance")
-                        Text("\(self.bankCard.balance)" + " " + self.bankCard.currency)
-                            .font(.title.bold())
+                        .opacity(0.8)
+                        
+                        HStack {
+                            Text("\(self.bankCard.balance, specifier: "%.2f")")
+                                .font(.title)
+                            
+                            Text(self.bankCard.currency)
+                                .font(.title)
+                                .opacity(0.8)
+                        }
+                        .padding(.bottom, 4)
                     }
                     .padding(.horizontal, 22)
                 }
@@ -64,6 +72,10 @@ struct BankCardView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
+    
+//    private var currencyView: some View {
+//        
+//    }
 }
 
 // MARK: - Preview

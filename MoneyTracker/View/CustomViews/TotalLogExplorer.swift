@@ -26,21 +26,21 @@ struct TotalLogExplorer: View {
                 VStack {
                     self.dailyButton
                     self.separatorView
-                        .foregroundColor(selectedRange == .daily ? .orange : .clear)
+                        .foregroundColor(selectedRange == .daily ? .mainOrange : .clear)
                 }
                 
                 /// Monthly
                 VStack {
                     self.monthlyButton
                     self.separatorView
-                        .foregroundColor(selectedRange == .monthly ? .orange : .clear)
+                        .foregroundColor(selectedRange == .monthly ? .mainOrange : .clear)
                 }
                 
                 /// Calendar
                 VStack {
                     self.calendarButton
                     self.separatorView
-                        .foregroundColor(selectedRange == .calendar ? .orange : .clear)
+                        .foregroundColor(selectedRange == .calendar ? .mainOrange : .clear)
                 }
             }
             
@@ -54,7 +54,7 @@ struct TotalLogExplorer: View {
             self.selectedRange = .daily
         }, label: {
             Text("Daily")
-                .foregroundColor(self.selectedRange == .daily ? .mainNavy : .gray)
+                .foregroundColor(self.selectedRange == .daily ? .mainNavy : .mainNavy.opacity(0.5))
                 .fontWeight(self.selectedRange == .daily ? .semibold : .regular)
                 .animation(.easeInOut(duration: 0.1), value: self.selectedRange)
         })
@@ -69,7 +69,7 @@ struct TotalLogExplorer: View {
         }, label: {
             
             Text("Monthly")
-                .foregroundColor(self.selectedRange == .monthly ? .mainNavy : .gray)
+                .foregroundColor(self.selectedRange == .monthly ? .mainNavy : .mainNavy.opacity(0.5))
                 .fontWeight(self.selectedRange == .monthly ? .semibold : .regular)
                 .animation(.easeInOut(duration: 0.1), value: self.selectedRange)
         })
@@ -80,7 +80,7 @@ struct TotalLogExplorer: View {
             self.selectedRange = .calendar
         }, label: {
             Text("Calendar")
-                .foregroundColor(self.selectedRange == .calendar ? .mainNavy : .gray)
+                .foregroundColor(self.selectedRange == .calendar ? .mainNavy : .mainNavy.opacity(0.5))
                 .fontWeight(self.selectedRange == .calendar ? .semibold : .regular)
                 .animation(.easeInOut(duration: 0.1), value: self.selectedRange)
         })
@@ -88,7 +88,7 @@ struct TotalLogExplorer: View {
     
     private var separatorView: some View {
         Rectangle()
-            .frame(height: 3)
+            .frame(height: 1.5)
     }
 }
 

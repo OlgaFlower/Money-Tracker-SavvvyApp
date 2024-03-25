@@ -25,9 +25,13 @@ struct HomeView: View {
                     ///Custom Date Picker
                     CustomDatePicker(currentDate: self.$currentDate)
                     
-                    /// Bank Card
+                    /// Bank Cards
                     self.makeCardsView()
                         .padding(.top, 8)
+                    
+                    if self.viewModel.bankCards.count > 1 {
+                        self.sliderDotsIndicatorView
+                    }
                     
                     /// Log Range Explorer Picker
                     TotalLogExplorer()
@@ -57,12 +61,11 @@ struct HomeView: View {
     private func makeCardsView() -> some View {
             if self.viewModel.bankCards.count == 1, let card = self.viewModel.bankCards.first {
                 self.makeOneBankCardView(card: card)
-                    .padding(.horizontal, 12)
+                    .padding(.vertical)
             } else {
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 0) {
                         self.makeManyBankCardsView()
-                            .padding(.horizontal, 12)
                             .containerRelativeFrame(.horizontal)
                             .scrollTransition(.animated, axis: .horizontal) { content, phase in
                                 content
@@ -70,10 +73,29 @@ struct HomeView: View {
                                     .scaleEffect(phase.isIdentity ? 1.0 : 0.8)
                             }
                     }
-                    .padding(.vertical)
+                    .padding(.bottom, 35)
+                    .scrollTargetLayout()
+                    .overlay(alignment: .bottom) {
+                        PagingIndicator(
+                            activeTint: .mainOrange,
+                            inactiveTint: .mainNavy.opacity(0.3),
+                            opacityEffect: true,
+                            clipEdges: true
+                            )
+                        .offset(y: 15)
+                    }
                 }
-                .scrollTargetBehavior(.paging)
+                .scrollTargetBehavior(.viewAligned)
             }
+    }
+    
+    @ViewBuilder
+    private var sliderDotsIndicatorView: some View {
+        LazyHStack {
+            ForEach(self.viewModel.bankCards) { card in
+                
+            }
+        }
     }
 }
 
