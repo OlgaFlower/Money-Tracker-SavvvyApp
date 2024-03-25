@@ -11,7 +11,7 @@ struct BankCardView: View {
     
     //MARK: - Properties
     private let width = UIScreen.main.bounds.width - 42
-    private let height = UIScreen.main.bounds.width * 0.5
+    private let height = UIScreen.main.bounds.width * 0.55
     let bankCard: BankCardModel
     
     init(bankCard: BankCardModel) {
