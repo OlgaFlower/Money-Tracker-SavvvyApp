@@ -8,22 +8,35 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    // MARK: - Properties
+    @State private var currentDate : Date = Date()
+    
+    // MARK: - Body
     var body: some View {
         
         NavigationStack {
+            
+            ScrollView(showsIndicators: false) {
                 
-                ScrollView {
+                VStack(spacing: 8) {
+                    ///Custom Date Picker
+                    CustomDatePicker(currentDate: self.$currentDate)
                     
-                    VStack() {
-                        /// Bank Card
-                        BankCardView()
-                            .padding(.horizontal, 12)
-                        Spacer()
-                    }
-                    .padding(.top, 22)
+                    /// Bank Card
+                    BankCardView()
+                        .padding(.horizontal, 12)
+                    
+                    /// Date Range Picker
+                    TotalLogExplorer()
+                        .padding()
+                    
+                    Spacer()
                 }
-            .navigationTitle("Today")
+            }
+            .navigationTitle("March 2024")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleTextColor(.mainNavy)
         }
     }
     

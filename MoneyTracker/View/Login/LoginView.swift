@@ -165,6 +165,7 @@ struct LoginView: View {
                 SecureField(hint, text: value)
             } else {
                 TextField("", text: value)
+                    .autocorrectionDisabled()
             }
         }
         .environment(\.colorScheme, .dark)
