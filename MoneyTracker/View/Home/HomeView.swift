@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     // MARK: - Properties
+    @ObservedObject var viewModel: HomeViewModel
     @State private var currentDate : Date = Date()
     
     // MARK: - Body
@@ -19,17 +20,17 @@ struct HomeView: View {
             
             ScrollView(showsIndicators: false) {
                 
-                VStack(spacing: 8) {
+                VStack(alignment: .center) {
+                    
                     ///Custom Date Picker
                     CustomDatePicker(currentDate: self.$currentDate)
                     
                     /// Bank Card
-                    BankCardView()
-                        .padding(.horizontal, 12)
+                    self.makeCardsView()
+                        .padding(.top, 8)
                     
-                    /// Date Range Picker
+                    /// Log Range Explorer Picker
                     TotalLogExplorer()
-                        .padding()
                     
                     Spacer()
                 }
@@ -41,9 +42,41 @@ struct HomeView: View {
     }
     
     // MARK: - Views
+    private func makeOneBankCardView(card: BankCardModel) -> some View {
+        BankCardView(bankCard: card)
+    }
     
+    
+    private func makeManyBankCardsView() -> some View {
+        ForEach(self.viewModel.bankCards) { card in
+            BankCardView(bankCard: card)
+        }
+    }
+    
+    @ViewBuilder
+    private func makeCardsView() -> some View {
+            if self.viewModel.bankCards.count == 1, let card = self.viewModel.bankCards.first {
+                self.makeOneBankCardView(card: card)
+                    .padding(.horizontal, 12)
+            } else {
+                ScrollView(.horizontal) {
+                    LazyHStack(spacing: 0) {
+                        self.makeManyBankCardsView()
+                            .padding(.horizontal, 12)
+                            .containerRelativeFrame(.horizontal)
+                            .scrollTransition(.animated, axis: .horizontal) { content, phase in
+                                content
+                                    .opacity(phase.isIdentity ? 1.0 : 0.8)
+                                    .scaleEffect(phase.isIdentity ? 1.0 : 0.8)
+                            }
+                    }
+                    .padding(.vertical)
+                }
+                .scrollTargetBehavior(.paging)
+            }
+    }
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: HomeViewModel())
 }

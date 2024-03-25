@@ -10,12 +10,13 @@ import SwiftUI
 struct BankCardView: View {
     
     //MARK: - Properties
-    private let width = UIScreen.main.bounds.width - 24
-    private let height = UIScreen.main.bounds.width * 0.6
-    let bankName = "N26"
-    let cardholderName = "YEVA"
-    let balance = "3542,67"
-    let currency = "€"
+    private let width = UIScreen.main.bounds.width - 42
+    private let height = UIScreen.main.bounds.width * 0.5
+    let bankCard: BankCardModel
+    
+    init(bankCard: BankCardModel) {
+        self.bankCard = bankCard
+    }
     
     // MARK: - Body
     var body: some View {
@@ -33,15 +34,15 @@ struct BankCardView: View {
                                 .background(.black.opacity(0.1))
                         }
                     
-                    VStack(spacing: 10) {
+                    VStack {
                         HStack {
-                            Text(self.bankName)
+                            Text(self.bankCard.bankName ?? "")
                             Spacer()
-                            Text(self.cardholderName)
+                            Text(self.bankCard.cardholderName ?? "")
                         }
                         .font(.title3.bold())
                         Text("Your Balance")
-                        Text(self.balance + " " + self.currency)
+                        Text("\(self.bankCard.balance)" + " " + self.bankCard.currency)
                             .font(.title.bold())
                     }
                     .padding(.horizontal, 22)
@@ -50,8 +51,7 @@ struct BankCardView: View {
             .foregroundStyle(.white)
             .frame(width: self.width, height: self.height)
             .background {
-                Image("art_1")
-                
+                self.bankCard.cardCoverImage
             }
             .clipShape(.rect(cornerRadius: 10, style: .continuous))
             ///Light White Border
@@ -60,7 +60,7 @@ struct BankCardView: View {
                     .stroke(.black.opacity(0.5), lineWidth: 1.3)
             }
             /// Adding Shadow
-            .shadow(color: .black.opacity(0.5), radius: 10, x: 7, y: 7)
+            .shadow(color: .black.opacity(0.35), radius: 4, x: 6, y: 6)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
@@ -68,5 +68,5 @@ struct BankCardView: View {
 
 // MARK: - Preview
 #Preview {
-    BankCardView()
+    BankCardView(bankCard: BankCardModel(cardCoverImage: Image("art_1"), bankName: "N26", cardholderName: "YEVA", currency: "€"))
 }

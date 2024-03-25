@@ -44,7 +44,7 @@ struct LoginView: View {
                 self.loginButton
                     .fullScreenCover(isPresented: $showHomeView) {
                         // TODO: - split for opening after logging in and for saved login data
-                        HomeView()
+                        HomeView(viewModel: HomeViewModel())
                     }
                 
                 self.createNewAccountButton

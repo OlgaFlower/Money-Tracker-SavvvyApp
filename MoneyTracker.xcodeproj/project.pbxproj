@@ -10,6 +10,8 @@
 		4241F4642BAC9B1B0048A29B /* BackgroundArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */; };
 		4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */; };
 		4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */; };
+		4241F46C2BB1C6210048A29B /* BankCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F46B2BB1C6210048A29B /* BankCardModel.swift */; };
+		4241F46E2BB1CBBF0048A29B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F46D2BB1CBBF0048A29B /* HomeViewModel.swift */; };
 		4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */; };
 		4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242750B2BA4FF72001873A3 /* ContentView.swift */; };
 		4242750E2BA4FF73001873A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4242750D2BA4FF73001873A3 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundArt.swift; sourceTree = "<group>"; };
 		4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalLogExplorer.swift; sourceTree = "<group>"; };
+		4241F46B2BB1C6210048A29B /* BankCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCardModel.swift; sourceTree = "<group>"; };
+		4241F46D2BB1CBBF0048A29B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		424275062BA4FF72001873A3 /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
 		4242750B2BA4FF72001873A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		424275342BA503BF001873A3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4241F46B2BB1C6210048A29B /* BankCardModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 		424275362BA503D8001873A3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4241F46D2BB1CBBF0048A29B /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -378,11 +384,13 @@
 				4251FA4D2BAB2B5E0087ABE7 /* BankCardView.swift in Sources */,
 				424275392BA50522001873A3 /* LoginView.swift in Sources */,
 				4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */,
+				4241F46C2BB1C6210048A29B /* BankCardModel.swift in Sources */,
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				4251FA4A2BAB22C00087ABE7 /* HomeView.swift in Sources */,
+				4241F46E2BB1CBBF0048A29B /* HomeViewModel.swift in Sources */,
 				42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */,
 				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,
 				4251FA472BA63F6D0087ABE7 /* RegistrationView.swift in Sources */,

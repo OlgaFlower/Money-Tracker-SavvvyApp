@@ -40,7 +40,7 @@ struct CustomDatePicker: View {
                         .font(.headline)
                 })
             }
-            .padding()
+            .padding(.top)
         }
         .padding(.horizontal, 12)
         .foregroundStyle(.mainNavy)
@@ -48,5 +48,5 @@ struct CustomDatePicker: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: HomeViewModel())
 }
