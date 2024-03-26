@@ -14,6 +14,14 @@ struct BankCardModel: Identifiable {
     
     var bankName: String?
     var cardholderName: String?
+    var cardType: BankCardType
     var balance: Double = 0.00
     var currency: String
+}
+
+enum BankCardType: String {
+    case debit = "Debit"
+    case credit = "Credit"
+    case debt = "Debt"
+    case moneybox = "Moneybox"
 }

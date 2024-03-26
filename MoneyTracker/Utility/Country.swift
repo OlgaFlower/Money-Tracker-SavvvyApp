@@ -8,7 +8,6 @@
 import Foundation
 
 enum Country: String {
-    
     ///Europe
     case euro = "Euro"
     case albania = "Albania"

@@ -34,21 +34,33 @@ struct BankCardView: View {
                                 .background(.black.opacity(0.1))
                         }
                     
-                    VStack(spacing: 12) {
+                    VStack(spacing: 4) {
                         HStack {
                             Text(self.bankCard.bankName ?? "")
+                                .fontDesign(.monospaced)
+                            
                             Spacer()
                             Text(self.bankCard.cardholderName ?? "")
+                                .fontDesign(.monospaced)
                         }
-                        .font(.title3.bold())
+                        .font(.headline.bold())
                         .opacity(0.8)
                         
                         HStack {
+                            Text(self.bankCard.cardType.rawValue)
+                                .fontDesign(.monospaced)
+                                .font(.subheadline)
+                            Spacer()
+                        }
+                        HStack {
                             Text("\(self.bankCard.balance, specifier: "%.2f")")
                                 .font(.title)
+                                .fontDesign(.monospaced)
+                            
                             
                             Text(self.bankCard.currency)
                                 .font(.title)
+                                .fontDesign(.monospaced)
                                 .opacity(0.8)
                         }
                         .padding(.bottom, 4)
@@ -72,13 +84,9 @@ struct BankCardView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
-    
-//    private var currencyView: some View {
-//        
-//    }
 }
 
 // MARK: - Preview
 #Preview {
-    BankCardView(bankCard: BankCardModel(cardCoverImage: Image("art_1"), bankName: "N26", cardholderName: "YEVA", currency: "€"))
+    BankCardView(bankCard: BankCardModel(cardCoverImage: Image("art_1"), bankName: "N26", cardholderName: "YEVA", cardType: .debit, balance: 1458.98, currency: Country.euro.currencySymbol))
 }
