@@ -74,6 +74,7 @@ struct HomeView: View {
                             }
                     }
                     .padding(.bottom, 35)
+                    .padding(.top, 4)
                     .scrollTargetLayout()
                     .overlay(alignment: .bottom) {
                         PagingIndicator(

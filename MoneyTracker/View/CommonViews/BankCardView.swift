@@ -50,6 +50,7 @@ struct BankCardView: View {
                             Text(self.bankCard.cardType.rawValue)
                                 .fontDesign(.monospaced)
                                 .font(.subheadline)
+                                .opacity(0.8)
                             Spacer()
                         }
                         HStack {
@@ -71,7 +72,7 @@ struct BankCardView: View {
             .foregroundStyle(.white)
             .frame(width: self.width, height: self.height)
             .background {
-                self.bankCard.cardCoverImage
+                self.bankCard.cardCoverImage?.resizable()
             }
             .clipShape(.rect(cornerRadius: 10, style: .continuous))
             ///Light White Border
@@ -88,5 +89,5 @@ struct BankCardView: View {
 
 // MARK: - Preview
 #Preview {
-    BankCardView(bankCard: BankCardModel(cardCoverImage: Image("art_1"), bankName: "N26", cardholderName: "YEVA", cardType: .debit, balance: 1458.98, currency: Country.euro.currencySymbol))
+    BankCardView(bankCard: BankCardModel(cardCoverImage: Image("art_7"), bankName: "N26", cardholderName: "YEVA", cardType: .debit, balance: 1458.98, currency: Country.euro.currencySymbol))
 }
