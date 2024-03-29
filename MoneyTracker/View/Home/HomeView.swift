@@ -15,23 +15,15 @@ struct HomeView: View {
     
     // MARK: - Body
     var body: some View {
-        
         NavigationStack {
-            
             ScrollView(showsIndicators: false) {
                 
-                VStack(alignment: .center) {
-                    
+                VStack(alignment: .center, spacing: 24) {
                     ///Custom Date Picker
                     CustomDatePicker(currentDate: self.$currentDate)
                     
                     /// Bank Cards
                     self.makeCardsView()
-                        .padding(.top, 8)
-                    
-                    if self.viewModel.bankCards.count > 1 {
-                        self.sliderDotsIndicatorView
-                    }
                     
                     /// Log Range Explorer Picker
                     TotalLogExplorer()
@@ -50,7 +42,6 @@ struct HomeView: View {
         BankCardView(bankCard: card)
     }
     
-    
     private func makeManyBankCardsView() -> some View {
         ForEach(self.viewModel.bankCards) { card in
             BankCardView(bankCard: card)
@@ -59,43 +50,34 @@ struct HomeView: View {
     
     @ViewBuilder
     private func makeCardsView() -> some View {
-            if self.viewModel.bankCards.count == 1, let card = self.viewModel.bankCards.first {
-                self.makeOneBankCardView(card: card)
-                    .padding(.vertical)
-            } else {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 0) {
-                        self.makeManyBankCardsView()
-                            .containerRelativeFrame(.horizontal)
-                            .scrollTransition(.animated, axis: .horizontal) { content, phase in
-                                content
-                                    .opacity(phase.isIdentity ? 1.0 : 0.8)
-                                    .scaleEffect(phase.isIdentity ? 1.0 : 0.8)
-                            }
-                    }
-                    .padding(.bottom, 35)
-                    .padding(.top, 4)
-                    .scrollTargetLayout()
-                    .overlay(alignment: .bottom) {
-                        PagingIndicator(
-                            activeTint: .mainOrange,
-                            inactiveTint: .mainNavy.opacity(0.3),
-                            opacityEffect: true,
-                            clipEdges: true
-                            )
-                        .offset(y: 15)
-                    }
+        if self.viewModel.bankCards.count == 1, let card = self.viewModel.bankCards.first {
+            self.makeOneBankCardView(card: card)
+                .padding(.vertical)
+        } else {
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 0) {
+                    self.makeManyBankCardsView()
+                        .containerRelativeFrame(.horizontal)
+                        .scrollTransition(.animated, axis: .horizontal) { content, phase in
+                            content
+                                .opacity(phase.isIdentity ? 1.0 : 0.8)
+                                .scaleEffect(phase.isIdentity ? 1.0 : 0.8)
+                        }
                 }
-                .scrollTargetBehavior(.viewAligned)
+                .padding(.bottom, 35)
+                .padding(.top, 4)
+                .scrollTargetLayout()
+                .overlay(alignment: .bottom) {
+                    PagingIndicator(
+                        activeTint: .mainOrange,
+                        inactiveTint: .mainNavy.opacity(0.3),
+                        opacityEffect: true,
+                        clipEdges: true
+                    )
+                    .offset(y: 15)
+                }
             }
-    }
-    
-    @ViewBuilder
-    private var sliderDotsIndicatorView: some View {
-        LazyHStack {
-            ForEach(self.viewModel.bankCards) { card in
-                
-            }
+            .scrollTargetBehavior(.viewAligned)
         }
     }
 }
