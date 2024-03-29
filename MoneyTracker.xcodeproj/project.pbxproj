@@ -125,7 +125,6 @@
 		4241F46F2BB1E61A0048A29B /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				4241F47C2BB577700048A29B /* CustomSlidingButtonUnderline */,
 				4241F4702BB1E62E0048A29B /* Country.swift */,
 			);
 			path = Utility;
@@ -138,7 +137,8 @@
 				4241F47F2BB5784D0048A29B /* SlidingUnderline.swift */,
 				4241F4812BB5A2E70048A29B /* CustomUnderlineView.swift */,
 			);
-			path = CustomSlidingButtonUnderline;
+			name = CustomSlidingButtonUnderline;
+			path = ../../Utility/CustomSlidingButtonUnderline;
 			sourceTree = "<group>";
 		};
 		424274FD2BA4FF71001873A3 = {
@@ -286,6 +286,7 @@
 		42FD6DB82BA5094B00B9DC70 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				4241F47C2BB577700048A29B /* CustomSlidingButtonUnderline */,
 				42FD6DBD2BA606E100B9DC70 /* TransparentBlurView.swift */,
 				4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */,
 				4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */,
