@@ -28,6 +28,9 @@ struct HomeView: View {
                     /// Log Range Explorer Picker
                     TotalLogExplorer()
                     
+                    ///Daily Log View
+                    DailyLogView()
+                    
                     Spacer()
                 }
             }

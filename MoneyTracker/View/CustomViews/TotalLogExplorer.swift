@@ -68,5 +68,5 @@ struct TotalLogExplorer: View {
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewModel())
+    TotalLogExplorer()
 }
