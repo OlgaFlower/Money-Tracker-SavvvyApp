@@ -10,10 +10,11 @@ import SwiftUI
 struct BackgroundArt: View {
     var body: some View {
             Image("background_art")
-                .resizable()
+            .resizable()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                
                 .ignoresSafeArea()
-                .aspectRatio(contentMode: .fit)
+//                .aspectRatio(contentMode: .fill)
     }
 }
 

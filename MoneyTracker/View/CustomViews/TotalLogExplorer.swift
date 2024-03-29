@@ -15,48 +15,44 @@ enum LogDateRange {
 
 struct TotalLogExplorer: View {
     
+    // MARK: - Properties
     @State private var selectedRange: LogDateRange = .daily
+    @State private var activeIdx: Int = 0
+    private let activeWidth = UIScreen.main.bounds.width / 3
     
+    // MARK: - Body
     var body: some View {
-        
-        ScrollView {
+        VStack(alignment: .underlineLeading, spacing: 0) {
             HStack(spacing: 0) {
-                
                 /// Daily
-                VStack {
-                    self.dailyButton
-                    self.separatorView
-                        .foregroundColor(selectedRange == .daily ? .mainOrange : .clear)
-                }
-                
+                self.dailyButton
                 /// Monthly
-                VStack {
-                    self.monthlyButton
-                    self.separatorView
-                        .foregroundColor(selectedRange == .monthly ? .mainOrange : .clear)
-                }
-                
+                self.monthlyButton
                 /// Calendar
-                VStack {
-                    self.calendarButton
-                    self.separatorView
-                        .foregroundColor(selectedRange == .calendar ? .mainOrange : .clear)
-                }
+                self.calendarButton
             }
+            .padding(.bottom, 8)
             
+            Rectangle()
+                .foregroundColor(.accent)
+                .alignmentGuide(.underlineLeading) { dimenssion in dimenssion[.leading]  }
+                .frame(width: self.activeWidth,  height: 1.2)
+                .animation(.linear, value: self.activeIdx)
         }
     }
     
     // MARK: - Views
-    
     private var dailyButton: some View {
         Button(action: {
             self.selectedRange = .daily
         }, label: {
             Text("Daily")
-                .foregroundColor(self.selectedRange == .daily ? .mainNavy : .mainNavy.opacity(0.5))
-                .fontWeight(self.selectedRange == .daily ? .semibold : .regular)
-                .animation(.easeInOut(duration: 0.1), value: self.selectedRange)
+                .foregroundColor(.mainNavy)
+                .opacity(self.selectedRange == .daily ? 1.0 : 0.4)
+                .frame(width: activeWidth)
+                .modifier(SlidingUnderline(activeIdx: $activeIdx, idx: 0))
+                .foregroundColor(.mainNavy)
+                .background(CustomUnderlineView())
         })
     }
     
@@ -65,13 +61,13 @@ struct TotalLogExplorer: View {
             withAnimation {
                 self.selectedRange = .monthly
             }
-            
         }, label: {
-            
             Text("Monthly")
-                .foregroundColor(self.selectedRange == .monthly ? .mainNavy : .mainNavy.opacity(0.5))
-                .fontWeight(self.selectedRange == .monthly ? .semibold : .regular)
-                .animation(.easeInOut(duration: 0.1), value: self.selectedRange)
+                .foregroundColor(.mainNavy)
+                .opacity(self.selectedRange == .daily ? 1.0 : 0.4)
+                .frame(width: activeWidth)
+                .modifier(SlidingUnderline(activeIdx: $activeIdx, idx: 1))
+                .background(CustomUnderlineView())
         })
     }
     
@@ -80,15 +76,12 @@ struct TotalLogExplorer: View {
             self.selectedRange = .calendar
         }, label: {
             Text("Calendar")
-                .foregroundColor(self.selectedRange == .calendar ? .mainNavy : .mainNavy.opacity(0.5))
-                .fontWeight(self.selectedRange == .calendar ? .semibold : .regular)
-                .animation(.easeInOut(duration: 0.1), value: self.selectedRange)
+                .foregroundColor(.mainNavy)
+                .opacity(self.selectedRange == .daily ? 1.0 : 0.4)
+                .frame(width: activeWidth)
+                .modifier(SlidingUnderline(activeIdx: $activeIdx, idx: 2))
+                .background(CustomUnderlineView())
         })
-    }
-    
-    private var separatorView: some View {
-        Rectangle()
-            .frame(height: 1.5)
     }
 }
 

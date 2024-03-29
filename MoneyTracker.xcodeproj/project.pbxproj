@@ -14,6 +14,12 @@
 		4241F46E2BB1CBBF0048A29B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F46D2BB1CBBF0048A29B /* HomeViewModel.swift */; };
 		4241F4712BB1E62E0048A29B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4702BB1E62E0048A29B /* Country.swift */; };
 		4241F4732BB22B030048A29B /* PagingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4722BB22B030048A29B /* PagingIndicator.swift */; };
+		4241F4772BB3703E0048A29B /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4762BB3703E0048A29B /* TestView2.swift */; };
+		4241F4792BB370540048A29B /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4782BB370540048A29B /* TestView.swift */; };
+		4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F47A2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift */; };
+		4241F47E2BB577BB0048A29B /* WidthPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F47D2BB577BB0048A29B /* WidthPreferenceKey.swift */; };
+		4241F4802BB5784D0048A29B /* SlidingUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F47F2BB5784D0048A29B /* SlidingUnderline.swift */; };
+		4241F4822BB5A2E70048A29B /* CustomUnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4812BB5A2E70048A29B /* CustomUnderlineView.swift */; };
 		4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */; };
 		4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242750B2BA4FF72001873A3 /* ContentView.swift */; };
 		4242750E2BA4FF73001873A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4242750D2BA4FF73001873A3 /* Assets.xcassets */; };
@@ -55,6 +61,12 @@
 		4241F46D2BB1CBBF0048A29B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4241F4702BB1E62E0048A29B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		4241F4722BB22B030048A29B /* PagingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingIndicator.swift; sourceTree = "<group>"; };
+		4241F4762BB3703E0048A29B /* TestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
+		4241F4782BB370540048A29B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		4241F47A2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalAlignment+UnderlineLeading.swift"; sourceTree = "<group>"; };
+		4241F47D2BB577BB0048A29B /* WidthPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidthPreferenceKey.swift; sourceTree = "<group>"; };
+		4241F47F2BB5784D0048A29B /* SlidingUnderline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingUnderline.swift; sourceTree = "<group>"; };
+		4241F4812BB5A2E70048A29B /* CustomUnderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUnderlineView.swift; sourceTree = "<group>"; };
 		424275062BA4FF72001873A3 /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
 		4242750B2BA4FF72001873A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,9 +123,20 @@
 		4241F46F2BB1E61A0048A29B /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				4241F47C2BB577700048A29B /* CustomSlidingButtonUnderline */,
 				4241F4702BB1E62E0048A29B /* Country.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		4241F47C2BB577700048A29B /* CustomSlidingButtonUnderline */ = {
+			isa = PBXGroup;
+			children = (
+				4241F47D2BB577BB0048A29B /* WidthPreferenceKey.swift */,
+				4241F47F2BB5784D0048A29B /* SlidingUnderline.swift */,
+				4241F4812BB5A2E70048A29B /* CustomUnderlineView.swift */,
+			);
+			path = CustomSlidingButtonUnderline;
 			sourceTree = "<group>";
 		};
 		424274FD2BA4FF71001873A3 = {
@@ -181,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				4242750B2BA4FF72001873A3 /* ContentView.swift */,
+				4241F4762BB3703E0048A29B /* TestView2.swift */,
+				4241F4782BB370540048A29B /* TestView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -250,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */,
+				4241F47A2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -396,14 +422,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4251FA4D2BAB2B5E0087ABE7 /* BankCardView.swift in Sources */,
+				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
 				424275392BA50522001873A3 /* LoginView.swift in Sources */,
 				4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */,
+				4241F4822BB5A2E70048A29B /* CustomUnderlineView.swift in Sources */,
 				4241F4732BB22B030048A29B /* PagingIndicator.swift in Sources */,
 				4241F46C2BB1C6210048A29B /* BankCardModel.swift in Sources */,
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
+				4241F4802BB5784D0048A29B /* SlidingUnderline.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				4241F4712BB1E62E0048A29B /* Country.swift in Sources */,
 				4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */,
+				4241F47E2BB577BB0048A29B /* WidthPreferenceKey.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				4251FA4A2BAB22C00087ABE7 /* HomeView.swift in Sources */,
 				4241F46E2BB1CBBF0048A29B /* HomeViewModel.swift in Sources */,
@@ -411,6 +441,8 @@
 				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,
 				4251FA472BA63F6D0087ABE7 /* RegistrationView.swift in Sources */,
 				4241F4642BAC9B1B0048A29B /* BackgroundArt.swift in Sources */,
+				4241F4772BB3703E0048A29B /* TestView2.swift in Sources */,
+				4241F4792BB370540048A29B /* TestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

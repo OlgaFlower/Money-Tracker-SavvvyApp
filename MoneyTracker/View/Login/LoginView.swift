@@ -177,5 +177,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    ContentView()
+    LoginView()
 }
