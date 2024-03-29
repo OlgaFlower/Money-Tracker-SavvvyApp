@@ -10,8 +10,8 @@ import SwiftUI
 struct SlidingUnderline: ViewModifier {
     
     /// x - coordinate
-    @Binding var activeIdx: Int
-    let idx: Int
+    @Binding var activeIdx: LogDateRange
+    let idx: LogDateRange
 
     func body(content: Content) -> some View {
             Group {
