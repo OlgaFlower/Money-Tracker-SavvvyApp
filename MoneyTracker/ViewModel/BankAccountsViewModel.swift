@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  BankAccountsViewModel.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 25.03.24.
