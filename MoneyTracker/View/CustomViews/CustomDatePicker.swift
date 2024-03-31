@@ -48,5 +48,5 @@ struct CustomDatePicker: View {
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewModel())
+    BankAccountsView(viewModel: BankAccountsViewModel())
 }

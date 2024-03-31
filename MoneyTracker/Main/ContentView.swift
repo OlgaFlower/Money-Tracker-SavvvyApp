@@ -12,7 +12,7 @@ struct ContentView: View {
         TabView {
             ///Home
             NavigationStack {
-                HomeView(viewModel: HomeViewModel())
+                
             }
             .tabItem {
                 Label(
@@ -26,7 +26,7 @@ struct ContentView: View {
             
             ///Test
             NavigationStack {
-                TestView()
+                BankAccountsView(viewModel: BankAccountsViewModel())
             }
             .tabItem {
                 Label(

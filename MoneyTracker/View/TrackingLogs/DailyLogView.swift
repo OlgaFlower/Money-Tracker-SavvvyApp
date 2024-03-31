@@ -40,5 +40,5 @@ struct DailyLogView: View {
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewModel())
+    BankAccountsView(viewModel: BankAccountsViewModel())
 }

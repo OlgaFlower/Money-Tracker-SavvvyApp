@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct BankAccountsView: View {
     
     // MARK: - Properties
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var viewModel: BankAccountsViewModel
     @State private var currentDate : Date = Date()
     
     // MARK: - Body
@@ -86,5 +86,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewModel())
+    BankAccountsView(viewModel: BankAccountsViewModel())
 }

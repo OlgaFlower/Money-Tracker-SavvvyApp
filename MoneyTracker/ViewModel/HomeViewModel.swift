@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
+class BankAccountsViewModel: ObservableObject {
     
     @Published var bankCards: [BankCardModel] = []
     
