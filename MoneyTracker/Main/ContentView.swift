@@ -12,7 +12,7 @@ struct ContentView: View {
         TabView {
             ///Home
             NavigationStack {
-                
+                DailyBalanceChartView()
             }
             .tabItem {
                 Label(
