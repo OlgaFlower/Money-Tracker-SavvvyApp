@@ -12,8 +12,9 @@ struct DailyBalanceChartView: View {
     
     // MARK: - Properties
     private let minValue: Double = 0.00
-    private var startBalance: Double = 9999.99
-    @State private var currentBalance: Double = 9999.99
+    private var startBalance: Double = 9.99
+    @State private var currentBalance: Double = 9.99
+    @State private var showingAddExpensesView = false
     
     // MARK: - Body
     var body: some View {
@@ -25,28 +26,6 @@ struct DailyBalanceChartView: View {
                 VStack(spacing: 24) {
                     self.makeChart()
                         .padding(.top)
-                    
-                    HStack {
-                        Button(action: {
-                            currentBalance = startBalance
-                        }, label: {
-                            Image(systemName: "arrow.counterclockwise")
-                                .foregroundColor(.mainNavy)
-                                .fontWeight(.bold)
-                                .font(.largeTitle)
-                        })
-                        Spacer()
-                        Button(action: {
-                            currentBalance -= 13.45
-                        }, label: {
-                            Image(systemName: "minus")
-                                .foregroundColor(.mainNavy)
-                                .fontWeight(.bold)
-                                .font(.largeTitle)
-                        })
-                    }
-                    .padding(.horizontal, 52)
-                .padding(.top, 25)
             }
             .padding(.top, 25)
         }

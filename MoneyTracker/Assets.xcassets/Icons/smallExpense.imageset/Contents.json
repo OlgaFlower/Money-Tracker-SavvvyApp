@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "chipCard.png",
+      "filename" : "smallExpense.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "chipCard 1.png",
+      "filename" : "smallExpense@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "chipCard 2.png",
+      "filename" : "smallExpense@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

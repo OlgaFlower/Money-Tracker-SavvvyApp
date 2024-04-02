@@ -13,6 +13,7 @@ struct ContentView: View {
             ///Home
             NavigationStack {
                 DailyBalanceChartView()
+                    .navigationTitle("Today's budget")
             }
             .tabItem {
                 Label(
