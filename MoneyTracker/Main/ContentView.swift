@@ -12,8 +12,10 @@ struct ContentView: View {
         TabView {
             ///Home
             NavigationStack {
-                DailyBalanceChartView()
+                HomeView()
                     .navigationTitle("Today's budget")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .foregroundStyle(.mainNavy)
             }
             .tabItem {
                 Label(

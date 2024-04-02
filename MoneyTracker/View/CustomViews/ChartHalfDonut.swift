@@ -16,7 +16,7 @@ struct ChartHalfDonut: GaugeStyle {
         ZStack {
             Circle()
                 .trim(from: 0, to: 0.65 * configuration.value)
-                .stroke(gradient, style: StrokeStyle(lineWidth: 24, lineCap: .round))
+                .stroke(gradient, style: StrokeStyle(lineWidth: 28, lineCap: .round))
                 .rotationEffect(.degrees(153))
             
             Circle()
@@ -41,5 +41,5 @@ struct ChartHalfDonut: GaugeStyle {
 }
 
 #Preview {
-    DailyBalanceChartView()
+    HomeView()
 }

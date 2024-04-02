@@ -29,7 +29,7 @@ struct MenuView: View {
                     self.makeMenuItem(type: .income)
                 }
                 .padding(.vertical)
-                .background(Color.blue.opacity(0.1))
+                .background(Color.white.opacity(0.6))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             }
         }
