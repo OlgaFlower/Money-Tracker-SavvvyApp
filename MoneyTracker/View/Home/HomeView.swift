@@ -13,35 +13,59 @@ struct HomeView: View {
     private let minValue: Double = 0.00
     private var startDailyBalance: Double = 9.99
     @State private var currentBalance: Double = 9.99
-    @State private var showingAddExpensesView = false
-    @State private var isMenuViewVisible = false
+    @State private var isAddIncomeShowing = false
+    @State private var isAddExpensesShowing = false
     
     // MARK: - Body
     var body: some View {
         ZStack {
             self.background
-            VStack(spacing: 100) {
+            VStack(spacing: 80) {
                 self.makeChart()
-                self.makeAddExpenseItemView()
+                HStack {
+                    self.makeAddIncomeView()
+                        .frame(width: 30)
+                    Spacer()
+                    self.makeAddExpenseView()
+                        .frame(width: 30)
+                }
+                .frame(height: 30)
+                .padding(.horizontal, 80)
+                .padding(.top, 40)
                 Spacer()
             }
-            .padding(.top, 100)
+            .padding(.top, 80)
         }
     }
     
     // MARK: - Views
     
-    private func makeAddExpenseItemView() -> some View {
+    private func makeAddExpenseView() -> some View {
             Button(action: {
-                
+                self.isAddExpensesShowing.toggle()
             }, label: {
-                Image(systemName: "plus")
-                    .resizable()
-                    .frame(width: 30, height: 30)
+                Image(systemName: "minus")
                     .foregroundStyle(.mainNavy)
                     .font(.title)
                     .fontWeight(.medium)
         })
+            .sheet(isPresented: $isAddExpensesShowing) {
+                
+            }
+    }
+    
+    private func makeAddIncomeView() -> some View {
+            Button(action: {
+                self.isAddIncomeShowing.toggle()
+            }, label: {
+                Image(systemName: "plus")
+                    .foregroundStyle(.mainNavy)
+                    .font(.title)
+                    .fontWeight(.medium)
+        })
+            .sheet(isPresented: $isAddIncomeShowing) {
+                AddIncomeView()
+            }
     }
     
     private func makeChart() -> some View {

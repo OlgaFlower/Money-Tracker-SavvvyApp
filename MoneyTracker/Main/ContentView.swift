@@ -14,7 +14,7 @@ struct ContentView: View {
             NavigationStack {
                 HomeView()
                     .navigationTitle("Today's budget")
-                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarTitleDisplayMode(.large)
                     .foregroundStyle(.mainNavy)
             }
             .tabItem {
