@@ -37,7 +37,7 @@ struct LogItemView: View {
                 }
                 
                 Spacer()
-                Text("\(record.recordType == .income ? "+" : "-") \(record.sum, specifier: "%.2f")")
+                Text("\(record.recordType == .income ? "+" : "-") \(record.sum)")
                 Text(Country.euro.currencySymbol)
             }
             .padding(.vertical, 4)
@@ -58,7 +58,7 @@ struct LogItemView: View {
             recordType: .expenses,
             icon: "cross.case",
             title: "Medicines",
-            sum: 34.87,
+            sum: "34.87",
             description: "Drops for eyes rfer erfger verger ergverb  ervgerb ebergve erf."
         )
     )

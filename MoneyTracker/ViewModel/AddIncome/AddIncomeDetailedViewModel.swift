@@ -9,7 +9,7 @@ import Foundation
 
 class AddIncomeDetailedViewModel: ObservableObject {
     
-    @Published var selectedIncomeType: IncomeModel
+    private var selectedIncomeType: IncomeModel
     
     init(selectedIncomeType: IncomeModel) {
         self.selectedIncomeType = selectedIncomeType

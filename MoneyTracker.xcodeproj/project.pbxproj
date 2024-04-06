@@ -35,7 +35,6 @@
 		42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */; };
 		42714FC72BBB28680085FA7C /* StringToNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FC62BBB28680085FA7C /* StringToNumberFormatter.swift */; };
 		42714FC92BBB2E150085FA7C /* AddExpenseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FC82BBB2E150085FA7C /* AddExpenseDetailView.swift */; };
-		42714FCE2BBC21B50085FA7C /* MenuRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FCD2BBC21B50085FA7C /* MenuRecordItem.swift */; };
 		42714FD22BBEF6440085FA7C /* AddIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD12BBEF6440085FA7C /* AddIncomeView.swift */; };
 		42714FD42BBEF6A40085FA7C /* AddExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD32BBEF6A40085FA7C /* AddExpensesView.swift */; };
 		42714FD62BBF1D230085FA7C /* AddIncomeDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD52BBF1D230085FA7C /* AddIncomeDetailedView.swift */; };
@@ -102,7 +101,6 @@
 		42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHalfDonut.swift; sourceTree = "<group>"; };
 		42714FC62BBB28680085FA7C /* StringToNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringToNumberFormatter.swift; sourceTree = "<group>"; };
 		42714FC82BBB2E150085FA7C /* AddExpenseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseDetailView.swift; sourceTree = "<group>"; };
-		42714FCD2BBC21B50085FA7C /* MenuRecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRecordItem.swift; sourceTree = "<group>"; };
 		42714FD12BBEF6440085FA7C /* AddIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeView.swift; sourceTree = "<group>"; };
 		42714FD32BBEF6A40085FA7C /* AddExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesView.swift; sourceTree = "<group>"; };
 		42714FD52BBF1D230085FA7C /* AddIncomeDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeDetailedView.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 				4241F46B2BB1C6210048A29B /* BankCardModel.swift */,
 				42A11C242BB6F670003B617D /* LogDateRange.swift */,
 				42A11C292BB7173B003B617D /* MoneyModel.swift */,
-				42714FCD2BBC21B50085FA7C /* MenuRecordItem.swift */,
 				42714FDD2BC123AB0085FA7C /* Income */,
 			);
 			path = Model;
@@ -555,7 +552,6 @@
 				4241F4642BAC9B1B0048A29B /* BackgroundArt.swift in Sources */,
 				42A11C252BB6F670003B617D /* LogDateRange.swift in Sources */,
 				42A11C272BB6FB93003B617D /* DailyLogView.swift in Sources */,
-				42714FCE2BBC21B50085FA7C /* MenuRecordItem.swift in Sources */,
 				4241F4772BB3703E0048A29B /* TestView2.swift in Sources */,
 				42714FD42BBEF6A40085FA7C /* AddExpensesView.swift in Sources */,
 				42714FE42BC1580E0085FA7C /* AddIncomeDetailedViewModel.swift in Sources */,

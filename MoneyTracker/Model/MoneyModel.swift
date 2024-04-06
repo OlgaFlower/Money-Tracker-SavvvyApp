@@ -10,9 +10,9 @@ import SwiftUI
 struct MoneyModel: Identifiable {
     let id = UUID()
     let recordType: RecordType
-    let icon: String?
+    let icon: String
     let title: String
-    let sum: Float
+    let sum: String
     let description: String?
 }
 
