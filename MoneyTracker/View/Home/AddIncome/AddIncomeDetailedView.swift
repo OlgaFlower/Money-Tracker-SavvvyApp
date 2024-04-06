@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddIncomeDetailedView: View {
     // MARK: - Properties
-    var incomeType: String
+    var incomeTitle: String
     @State private var incomeValue: String = "0,00"
     @State private var manuallyNamedIncome: String = ""
     
@@ -36,7 +36,7 @@ struct AddIncomeDetailedView: View {
                         .frame(width: 28, height: 28)
                 }
                 
-                TextField(self.incomeType, text: self.$manuallyNamedIncome)
+                TextField(self.incomeTitle, text: self.$manuallyNamedIncome)
             }
             Spacer()
         }
@@ -47,5 +47,5 @@ struct AddIncomeDetailedView: View {
 
 // MARK: - Preview
 #Preview {
-    AddIncomeDetailedView(incomeType: "Salary")
+    AddIncomeDetailedView(incomeTitle: "Salary")
 }

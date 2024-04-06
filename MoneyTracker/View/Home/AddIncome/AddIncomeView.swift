@@ -17,34 +17,27 @@ struct AddIncomeView: View {
         
         NavigationView {
             Form {
+                /// REGULAR INCOME
                 Section {
-                    NavigationLink(destination: AddExpenseDetailView()) {
-                        self.makeIncomeRow(icon: "heart.circle", title: "Salary")
-                    }
-                    NavigationLink(destination: AddExpenseDetailView()) {
-                        self.makeIncomeRow(icon: "cross.case.circle", title: "Pension")
-                    }
-                    NavigationLink(destination: AddExpenseDetailView()) {
-                        self.makeIncomeRow(icon: "bubbles.and.sparkles", title: "Bonus")
+                    ForEach(Income.shared.incomeRegular) { income in
+                        NavigationLink(destination: AddIncomeDetailedView(incomeTitle: income.title)) {
+                            self.makeIncomeRow(icon: income.icon, title: income.title)
+                        }
                     }
                 } header: {
-                    Text("STABLE INCOME")
+                    Text("REGULAR INCOME")
                 }
                 
+                /// TEMPORARY INCOME
                 Section {
-                    NavigationLink(destination: AddExpenseDetailView()) {
-                        self.makeIncomeRow(icon: "homekit", title: "Rent")
-                    }
-                    NavigationLink(destination: AddExpenseDetailView()) {
-                        self.makeIncomeRow(icon: "lightbulb.max", title: "Bonus")
-                    }
-                    NavigationLink(destination: AddExpenseDetailView()) {
-                        self.makeIncomeRow(icon: "figure.equestrian.sports", title: "Stocks")
+                    ForEach(Income.shared.incomeTemporary) { income in
+                        NavigationLink(destination: AddIncomeDetailedView(incomeTitle: income.title)) {
+                            self.makeIncomeRow(icon: income.icon, title: income.title)
+                        }
                     }
                 } header: {
                     Text("TEMPORARY INCOME")
                 }
-                
             }
             .navigationTitle("Income")
             .navigationBarTitleDisplayMode(.large)
@@ -57,6 +50,7 @@ struct AddIncomeView: View {
         }
     }
     
+    // MARK: - Views
     private func makeIncomeRow(icon: String, title: String) -> some View {
         HStack {
             Image(systemName: icon)
@@ -66,6 +60,7 @@ struct AddIncomeView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     AddIncomeView()
 }
