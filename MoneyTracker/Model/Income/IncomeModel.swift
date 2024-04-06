@@ -9,6 +9,6 @@ import Foundation
 
 struct IncomeModel: Identifiable {
     let id = UUID()
-    let title: String
-    let icon: String
+    let incomeRegular: RegularIncome?
+    let incomeTemporary: TemporaryIncome?
 }

@@ -10,18 +10,26 @@ import SwiftUI
 struct AddIncomeView: View {
     // MARK: - Properties
     @Environment(\.dismiss) var dismiss
-    @State var selectedIcome: String = ""
+    let currency = Country.euro.currencySymbol // TODO: - add from user data
     
     // MARK: - Body
     var body: some View {
+        
+        
         
         NavigationView {
             Form {
                 /// REGULAR INCOME
                 Section {
-                    ForEach(Income.shared.incomeRegular) { income in
-                        NavigationLink(destination: AddIncomeDetailedView(incomeTitle: income.title)) {
-                            self.makeIncomeRow(icon: income.icon, title: income.title)
+                    ForEach(IncomeTypes.shared.incomeRegular) { income in
+                        NavigationLink(
+                            destination: AddIncomeDetailedView(
+                                viewModel: AddIncomeDetailedViewModel(selectedIncomeType: income)
+                            )
+                        ) {
+                            if let income = income.incomeRegular {
+                                self.makeIncomeRow(icon: income.icon, title: income.title)
+                            }
                         }
                     }
                 } header: {
@@ -30,9 +38,15 @@ struct AddIncomeView: View {
                 
                 /// TEMPORARY INCOME
                 Section {
-                    ForEach(Income.shared.incomeTemporary) { income in
-                        NavigationLink(destination: AddIncomeDetailedView(incomeTitle: income.title)) {
-                            self.makeIncomeRow(icon: income.icon, title: income.title)
+                    ForEach(IncomeTypes.shared.incomeTemporary) { income in
+                        NavigationLink(
+                            destination: AddIncomeDetailedView(
+                                viewModel: AddIncomeDetailedViewModel(selectedIncomeType: income)
+                            )
+                        ) {
+                            if let income = income.incomeTemporary {
+                                self.makeIncomeRow(icon: income.icon, title: income.title)
+                            }
                         }
                     }
                 } header: {
@@ -51,7 +65,7 @@ struct AddIncomeView: View {
     }
     
     // MARK: - Views
-    private func makeIncomeRow(icon: String, title: String) -> some View {
+    func makeIncomeRow(icon: String, title: String) -> some View {
         HStack {
             Image(systemName: icon)
             Text(title)

@@ -41,8 +41,9 @@
 		42714FD62BBF1D230085FA7C /* AddIncomeDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD52BBF1D230085FA7C /* AddIncomeDetailedView.swift */; };
 		42714FD82BC11D4F0085FA7C /* RegularIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD72BC11D4F0085FA7C /* RegularIncome.swift */; };
 		42714FDC2BC1200C0085FA7C /* TemporaryIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FDB2BC1200C0085FA7C /* TemporaryIncome.swift */; };
-		42714FDF2BC123CB0085FA7C /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FDE2BC123CB0085FA7C /* IncomeModel.swift */; };
-		42714FE12BC124070085FA7C /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE02BC124070085FA7C /* Income.swift */; };
+		42714FE12BC124070085FA7C /* IncomeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE02BC124070085FA7C /* IncomeTypes.swift */; };
+		42714FE42BC1580E0085FA7C /* AddIncomeDetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE32BC1580E0085FA7C /* AddIncomeDetailedViewModel.swift */; };
+		42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE52BC16BC10085FA7C /* IncomeModel.swift */; };
 		42A11C252BB6F670003B617D /* LogDateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C242BB6F670003B617D /* LogDateRange.swift */; };
 		42A11C272BB6FB93003B617D /* DailyLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C262BB6FB93003B617D /* DailyLogView.swift */; };
 		42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C292BB7173B003B617D /* MoneyModel.swift */; };
@@ -107,8 +108,9 @@
 		42714FD52BBF1D230085FA7C /* AddIncomeDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeDetailedView.swift; sourceTree = "<group>"; };
 		42714FD72BC11D4F0085FA7C /* RegularIncome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularIncome.swift; sourceTree = "<group>"; };
 		42714FDB2BC1200C0085FA7C /* TemporaryIncome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryIncome.swift; sourceTree = "<group>"; };
-		42714FDE2BC123CB0085FA7C /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
-		42714FE02BC124070085FA7C /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
+		42714FE02BC124070085FA7C /* IncomeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeTypes.swift; sourceTree = "<group>"; };
+		42714FE32BC1580E0085FA7C /* AddIncomeDetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeDetailedViewModel.swift; sourceTree = "<group>"; };
+		42714FE52BC16BC10085FA7C /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
 		42A11C242BB6F670003B617D /* LogDateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDateRange.swift; sourceTree = "<group>"; };
 		42A11C262BB6FB93003B617D /* DailyLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogView.swift; sourceTree = "<group>"; };
 		42A11C292BB7173B003B617D /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
@@ -157,7 +159,7 @@
 			children = (
 				4241F4702BB1E62E0048A29B /* Country.swift */,
 				42714FC62BBB28680085FA7C /* StringToNumberFormatter.swift */,
-				42714FE02BC124070085FA7C /* Income.swift */,
+				42714FE02BC124070085FA7C /* IncomeTypes.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -273,6 +275,7 @@
 		424275362BA503D8001873A3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				42714FE22BC157E40085FA7C /* AddIncome */,
 				4241F46D2BB1CBBF0048A29B /* BankAccountsViewModel.swift */,
 			);
 			path = ViewModel;
@@ -342,11 +345,19 @@
 		42714FDD2BC123AB0085FA7C /* Income */ = {
 			isa = PBXGroup;
 			children = (
-				42714FDE2BC123CB0085FA7C /* IncomeModel.swift */,
+				42714FE52BC16BC10085FA7C /* IncomeModel.swift */,
 				42714FD72BC11D4F0085FA7C /* RegularIncome.swift */,
 				42714FDB2BC1200C0085FA7C /* TemporaryIncome.swift */,
 			);
 			path = Income;
+			sourceTree = "<group>";
+		};
+		42714FE22BC157E40085FA7C /* AddIncome */ = {
+			isa = PBXGroup;
+			children = (
+				42714FE32BC1580E0085FA7C /* AddIncomeDetailedViewModel.swift */,
+			);
+			path = AddIncome;
 			sourceTree = "<group>";
 		};
 		42A11C282BB6FB9F003B617D /* TrackingLogs */ = {
@@ -523,7 +534,6 @@
 				4241F46C2BB1C6210048A29B /* BankCardModel.swift in Sources */,
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				4241F4802BB5784D0048A29B /* SlidingUnderline.swift in Sources */,
-				42714FDF2BC123CB0085FA7C /* IncomeModel.swift in Sources */,
 				42714FD22BBEF6440085FA7C /* AddIncomeView.swift in Sources */,
 				42714FDC2BC1200C0085FA7C /* TemporaryIncome.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
@@ -535,18 +545,20 @@
 				4241F47E2BB577BB0048A29B /* WidthPreferenceKey.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				4251FA4A2BAB22C00087ABE7 /* BankAccountsView.swift in Sources */,
+				42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */,
 				4241F46E2BB1CBBF0048A29B /* BankAccountsViewModel.swift in Sources */,
 				42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */,
 				42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */,
 				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,
 				4251FA472BA63F6D0087ABE7 /* RegistrationView.swift in Sources */,
-				42714FE12BC124070085FA7C /* Income.swift in Sources */,
+				42714FE12BC124070085FA7C /* IncomeTypes.swift in Sources */,
 				4241F4642BAC9B1B0048A29B /* BackgroundArt.swift in Sources */,
 				42A11C252BB6F670003B617D /* LogDateRange.swift in Sources */,
 				42A11C272BB6FB93003B617D /* DailyLogView.swift in Sources */,
 				42714FCE2BBC21B50085FA7C /* MenuRecordItem.swift in Sources */,
 				4241F4772BB3703E0048A29B /* TestView2.swift in Sources */,
 				42714FD42BBEF6A40085FA7C /* AddExpensesView.swift in Sources */,
+				42714FE42BC1580E0085FA7C /* AddIncomeDetailedViewModel.swift in Sources */,
 				4241F4792BB370540048A29B /* TestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

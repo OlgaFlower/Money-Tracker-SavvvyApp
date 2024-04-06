@@ -1,5 +1,5 @@
 //
-//  RegularIncome.swift
+//  IncomeModel.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 06.04.24.
