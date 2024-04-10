@@ -10,7 +10,7 @@ import SwiftUI
 struct BankAccountsView: View {
     
     // MARK: - Properties
-    @ObservedObject var viewModel: BankAccountsViewModel
+    @StateObject var viewModel: BankAccountsViewModel
     @State private var currentDate : Date = Date()
     
     // MARK: - Body

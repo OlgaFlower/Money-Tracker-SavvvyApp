@@ -10,7 +10,7 @@ import SwiftUI
 struct AddIncomeDetailedView: View {
     // MARK: - Properties
     
-    @ObservedObject var viewModel: AddIncomeDetailedViewModel
+    @StateObject var viewModel: AddIncomeDetailedViewModel
     @State private var incomeValue: String = "0,00"
     @State private var incomeName: String = ""
     
