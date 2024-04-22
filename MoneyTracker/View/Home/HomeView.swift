@@ -11,17 +11,20 @@ struct HomeView: View {
     
     // MARK: - Properties
     private let minValue: Double = 0.00
-    private var startDailyBalance: Double = 9.99
-    @State private var currentBalance: Double = 9.99
+    private var startDailyBalance: Double = 989.99
+    @State private var currentBalance: Double = 989.99
     @State private var isAddIncomeShowing = false
     @State private var isAddExpensesShowing = false
     
     // MARK: - Body
     var body: some View {
         ZStack {
-            self.background
+            BackgroundGradView()
             VStack(spacing: 80) {
+                
                 self.makeChart()
+                    .frame(width: 300, height: 300)
+                
                 HStack {
                     self.makeAddIncomeView()
                         .frame(width: 30)
@@ -31,7 +34,7 @@ struct HomeView: View {
                 }
                 .frame(height: 30)
                 .padding(.horizontal, 80)
-                .padding(.top, 40)
+                .padding(.top, 0)
                 Spacer()
             }
             .padding(.top, 80)
@@ -45,7 +48,7 @@ struct HomeView: View {
                 self.isAddExpensesShowing.toggle()
             }, label: {
                 Image(systemName: "minus")
-                    .foregroundStyle(.mainNavy)
+                    .foregroundStyle(.white)
                     .font(.title)
                     .fontWeight(.medium)
         })
@@ -59,7 +62,7 @@ struct HomeView: View {
                 self.isAddIncomeShowing.toggle()
             }, label: {
                 Image(systemName: "plus")
-                    .foregroundStyle(.mainNavy)
+                    .foregroundStyle(.white)
                     .font(.title)
                     .fontWeight(.medium)
         })
@@ -77,15 +80,6 @@ struct HomeView: View {
             Text("\(self.currentBalance, specifier: "%.2f")")
         }
         .gaugeStyle(ChartHalfDonut())
-    }
-    
-    private var background: some View {
-        let color: Color = self.currentBalance <= 0 ? .red : .blue
-        let opacity: Double = self.currentBalance <= 0 ? 0.4 : 0.05
-        
-        return Rectangle()
-            .fill(color.opacity(opacity))
-            .ignoresSafeArea()
     }
 }
 

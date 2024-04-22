@@ -36,7 +36,6 @@ struct BankAccountsView: View {
             }
             .navigationTitle("March 2024")
             .navigationBarTitleDisplayMode(.large)
-            .navigationBarTitleTextColor(.mainNavy)
         }
     }
     

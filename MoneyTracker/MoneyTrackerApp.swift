@@ -9,6 +9,13 @@ import SwiftUI
 
 @main
 struct MoneyTrackerApp: App {
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+          /// Inline Navigation Title
+          UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

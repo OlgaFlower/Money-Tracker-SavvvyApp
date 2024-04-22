@@ -15,7 +15,6 @@ struct ContentView: View {
                 HomeView()
                     .navigationTitle("Today's budget")
                     .navigationBarTitleDisplayMode(.large)
-                    .foregroundStyle(.mainNavy)
             }
             .tabItem {
                 Label(
@@ -25,7 +24,6 @@ struct ContentView: View {
                     }
                 )
             }
-            
             
             ///Test
             NavigationStack {
@@ -52,7 +50,6 @@ struct ContentView: View {
                     }
                 )
             }
-            
         }
         .accentColor(.accent)
     }
@@ -62,7 +59,7 @@ struct ContentView: View {
     private func makeTabBarIcon(_ iconName: String) -> some View {
         Image(iconName)
             .renderingMode(.template)
-            .foregroundStyle(.accent)
+            .foregroundStyle(.white)
     }
 }
 

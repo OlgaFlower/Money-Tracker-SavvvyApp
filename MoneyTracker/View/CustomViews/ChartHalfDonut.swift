@@ -9,34 +9,48 @@ import SwiftUI
 
 struct ChartHalfDonut: GaugeStyle {
     
-    private var gradient = LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .leading, endPoint: .trailing)
-    private var width = UIScreen.main.bounds.width * 0.5
+    private var gradient = LinearGradient(gradient: Gradient(colors: [.lightBlue, .chartGreen, .red]), startPoint: .leading, endPoint: .trailing)
+    private var gradientCircleWidth = Constants.shared.screenWidth * 0.6
+    private var dashesWidth = Constants.shared.screenWidth * 0.73
+    private var thinCircleWidth = Constants.shared.screenWidth * 0.68
     
     func makeBody(configuration: Configuration) -> some View {
+        
         ZStack {
+            /// Thin circle
+            Circle()
+                .stroke(Color.white)
+                .frame(width: self.thinCircleWidth)
+            
+            /// Gradient line
             Circle()
                 .trim(from: 0, to: 0.65 * configuration.value)
-                .stroke(gradient, style: StrokeStyle(lineWidth: 28, lineCap: .round))
+                .stroke(gradient, style: StrokeStyle(lineWidth: 17, lineCap: .round))
                 .rotationEffect(.degrees(153))
+                .frame(width: self.gradientCircleWidth)
             
+            /// Dashes
             Circle()
                 .trim(from: 0, to: 0.65)
-                .stroke(Color.black, style: StrokeStyle(lineWidth: 10, lineCap: .butt, lineJoin: .round, dash: [1, 24], dashPhase: 10.0))
+                .stroke(Color.white, style: StrokeStyle(lineWidth: 9, lineCap: .butt, lineJoin: .round, dash: [1, 24], dashPhase: 10.0))
                 .rotationEffect(.degrees(153))
+                .frame(width: self.dashesWidth)
             
             VStack(spacing: 12) {
+                
+                /// Current balance
                 configuration.currentValueLabel
                     .font(.system(size: 30, weight: .bold, design: .monospaced))
-                    .foregroundColor(.mainNavy)
+                    .foregroundColor(.white)
                 
+                /// Currency
                 Text("EUR")
                     .font(.system(.title, design: .monospaced))
                     .bold()
-                    .foregroundColor(.mainNavy)
+                    .foregroundColor(.white)
             }
             .padding(.top, 24)
         }
-        .frame(width: self.width)
     }
 }
 

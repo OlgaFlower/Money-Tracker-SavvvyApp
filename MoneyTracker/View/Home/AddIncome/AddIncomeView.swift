@@ -10,67 +10,61 @@ import SwiftUI
 struct AddIncomeView: View {
     // MARK: - Properties
     @Environment(\.dismiss) var dismiss
+    @State var incomeType: IncomeType = .regular
+    @State var incomeValue: String = "0.00"
     let currency = Country.euro.currencySymbol // TODO: - add from user data
     
     // MARK: - Body
     var body: some View {
-        
-        
-        
-        NavigationView {
-            Form {
-                /// REGULAR INCOME
-                Section {
-                    ForEach(IncomeTypes.shared.incomeRegular) { income in
-                        NavigationLink(
-                            destination: AddIncomeDetailedView(
-                                viewModel: AddIncomeDetailedViewModel(selectedIncomeType: income)
-                            )
-                        ) {
-                            if let income = income.incomeRegular {
-                                self.makeIncomeRow(icon: income.icon, title: income.title)
-                            }
-                        }
-                    }
-                } header: {
-                    Text("REGULAR INCOME")
-                }
+        ZStack {
+            BackgroundGradView()
+            VStack(spacing: 35) {
                 
-                /// TEMPORARY INCOME
-                Section {
-                    ForEach(IncomeTypes.shared.incomeTemporary) { income in
-                        NavigationLink(
-                            destination: AddIncomeDetailedView(
-                                viewModel: AddIncomeDetailedViewModel(selectedIncomeType: income)
-                            )
-                        ) {
-                            if let income = income.incomeTemporary {
-                                self.makeIncomeRow(icon: income.icon, title: income.title)
-                            }
-                        }
-                    }
-                } header: {
-                    Text("TEMPORARY INCOME")
-                }
+                self.incomeTypeView
+                .padding(.horizontal, 45)
+                
+                TextField("", text: self.$incomeValue)
+                    .textFieldStyle(.plain)
+                    .padding(.horizontal, 45)
+                    .foregroundColor(.white)
+                    .keyboardType(.numberPad)
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 32))
+                    .padding(.vertical, 8)
+                    .border(.white, width: 0.2).clipShape(.capsule)
+                
+                Spacer()
             }
-            .navigationTitle("Income")
-            .navigationBarTitleDisplayMode(.large)
-            .navigationBarItems(
-                trailing:
-                    Button("Cancel") {
-                        dismiss()
-                    }
-            )
+            .padding(.top, 24)
+            .padding(.horizontal, 16)
         }
     }
     
-    // MARK: - Views
-    func makeIncomeRow(icon: String, title: String) -> some View {
+    private var incomeTypeView: some View {
         HStack {
-            Image(systemName: icon)
-            Text(title)
+            Button(action: {
+                print("REGULAR")
+            }, label: {
+                Text("REGULAR")
+                    .opacity(self.incomeType == .regular ? 1.0 : 0.5)
+            })
             Spacer()
+            
+            Button(action: {
+                print("TEMPORARY")
+            }, label: {
+                Text("TEMPORARY")
+                    .opacity(self.incomeType == .temporary ? 1.0 : 0.5)
+            })
         }
+    }
+}
+
+extension AddIncomeView {
+    
+    enum IncomeType {
+        case regular
+        case temporary
     }
 }
 

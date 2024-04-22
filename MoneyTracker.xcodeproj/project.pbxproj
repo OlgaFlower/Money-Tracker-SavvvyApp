@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */; };
+		423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4222BD6369000CBB6D5 /* Constants.swift */; };
 		4241F4642BAC9B1B0048A29B /* BackgroundArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */; };
 		4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */; };
 		4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */; };
@@ -70,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradView.swift; sourceTree = "<group>"; };
+		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundArt.swift; sourceTree = "<group>"; };
 		4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalLogExplorer.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			children = (
 				42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */,
 				4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */,
+				423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */,
 			);
 			path = Backgrounds;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				4241F4702BB1E62E0048A29B /* Country.swift */,
 				42714FC62BBB28680085FA7C /* StringToNumberFormatter.swift */,
 				42714FE02BC124070085FA7C /* IncomeTypes.swift */,
+				423DF4222BD6369000CBB6D5 /* Constants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 			files = (
 				42A11C2F2BB935E5003B617D /* HomeView.swift in Sources */,
 				4251FA4D2BAB2B5E0087ABE7 /* BankCardView.swift in Sources */,
+				423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */,
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
 				42714FC72BBB28680085FA7C /* StringToNumberFormatter.swift in Sources */,
@@ -532,6 +539,7 @@
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				4241F4802BB5784D0048A29B /* SlidingUnderline.swift in Sources */,
 				42714FD22BBEF6440085FA7C /* AddIncomeView.swift in Sources */,
+				423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */,
 				42714FDC2BC1200C0085FA7C /* TemporaryIncome.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42714FD62BBF1D230085FA7C /* AddIncomeDetailedView.swift in Sources */,
@@ -727,6 +735,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -756,6 +765,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
