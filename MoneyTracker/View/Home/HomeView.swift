@@ -15,7 +15,6 @@ struct HomeView: View {
     private let infoBoardWidth = Constants.shared.screenWidth / 2.8
     @State private var currentBalance: Double = 28.61
     @State private var isAddIncomeShowing = false
-    @State private var isAddExpensesShowing = false
     
     // MARK: - Body
     var body: some View {
@@ -28,16 +27,21 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        
+                        self.isAddIncomeShowing.toggle()
                     }, label: {
                         Image(systemName: "plus")
                             .font(Font.system(size: 36))
                             .foregroundStyle(.white)
                     })
+                    .sheet(isPresented: $isAddIncomeShowing) {
+                        AddBudgetChangeView()
+                    }
                 }
                 .padding(.trailing, 40)
                 
                 /// Chart View
+                // TODO: - Add button or tag gesture over chart - to open detailed view!
+                // TODO: - Animated changing of the budget's leftower!
                 self.makeChart()
                     .frame(width: 260, height: 260)
                 
@@ -62,6 +66,7 @@ struct HomeView: View {
                     .fontDesign(.monospaced)
                     .foregroundStyle(.white.opacity(0.8))
                 
+                // TODO: - Animated changing of the spent sum!
                 Text("36,89")
                     .font(.title2)
                     .fontDesign(.monospaced)
@@ -79,6 +84,7 @@ struct HomeView: View {
                     .fontDesign(.monospaced)
                 .foregroundStyle(.white.opacity(0.8))
                 
+                // TODO: - Animated changing of the budget sum!
                 Text("65,50")
                     .font(.title2)
                     .fontDesign(.monospaced)
@@ -87,20 +93,6 @@ struct HomeView: View {
             .frame(width: self.infoBoardWidth)
         }
     }
-    
-//    private func makeAddIncomeView() -> some View {
-//            Button(action: {
-//                self.isAddIncomeShowing.toggle()
-//            }, label: {
-//                Image(systemName: "plus")
-//                    .foregroundStyle(.white)
-//                    .font(.title)
-//                    .fontWeight(.medium)
-//        })
-//            .sheet(isPresented: $isAddIncomeShowing) {
-//                AddIncomeView()
-//            }
-//    }
     
     private func makeChart() -> some View {
         Gauge(

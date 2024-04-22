@@ -16,7 +16,21 @@ struct MoneyModel: Identifiable {
     let description: String?
 }
 
-enum RecordType {
-    case expenses
+enum RecordType: Identifiable {
+    case expense
     case income
+    
+    /// make enum conform to Idetifiable 
+    var id: Self {
+        return self
+    }
+    
+    var value: String {
+        switch self {
+        case .expense:
+            return "EXPENSE"
+        case .income:
+            return "INCOME"
+        }
+    }
 }

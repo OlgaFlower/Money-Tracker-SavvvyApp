@@ -1,5 +1,5 @@
 //
-//  AddIncomeView.swift
+//  AddBudgetChangeView.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 04.04.24.
@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct AddIncomeView: View {
+struct AddBudgetChangeView: View {
     // MARK: - Properties
     @Environment(\.dismiss) var dismiss
-    @State var incomeType: IncomeType = .regular
-    @State var incomeValue: String = "0.00"
+    @State var incomeValue: String = "0,00"
     let currency = Country.euro.currencySymbol // TODO: - add from user data
     
     // MARK: - Body
@@ -19,8 +18,14 @@ struct AddIncomeView: View {
         ZStack {
             BackgroundGradView()
             VStack(spacing: 35) {
+                HStack {
+                    Text("Add")
+                        .foregroundColor(.white)
+                        .font(.title)
+                    Spacer()
+                }
                 
-                self.incomeTypeView
+                self.recordTypeView
                 .padding(.horizontal, 45)
                 
                 TextField("", text: self.$incomeValue)
@@ -40,13 +45,12 @@ struct AddIncomeView: View {
         }
     }
     
-    private var incomeTypeView: some View {
+    private var recordTypeView: some View {
         HStack {
             Button(action: {
                 print("REGULAR")
             }, label: {
                 Text("REGULAR")
-                    .opacity(self.incomeType == .regular ? 1.0 : 0.5)
             })
             Spacer()
             
@@ -54,13 +58,12 @@ struct AddIncomeView: View {
                 print("TEMPORARY")
             }, label: {
                 Text("TEMPORARY")
-                    .opacity(self.incomeType == .temporary ? 1.0 : 0.5)
             })
         }
     }
 }
 
-extension AddIncomeView {
+extension AddBudgetChangeView {
     
     enum IncomeType {
         case regular
@@ -70,5 +73,5 @@ extension AddIncomeView {
 
 // MARK: - Preview
 #Preview {
-    AddIncomeView()
+    AddBudgetChangeView()
 }

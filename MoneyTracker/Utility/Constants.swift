@@ -15,4 +15,8 @@ final class Constants {
     private init() {
         self.screenWidth = UIScreen.main.bounds.width
     }
+    
+    // MARK: - DropDown Menu
+    /// Add new record
+    let newRecordTypes = [RecordType.expense, RecordType.income]
 }

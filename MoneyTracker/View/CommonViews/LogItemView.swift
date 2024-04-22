@@ -55,7 +55,7 @@ struct LogItemView: View {
 #Preview {
     LogItemView(
         record: MoneyModel(
-            recordType: .expenses,
+            recordType: .expense,
             icon: "cross.case",
             title: "Medicines",
             sum: "34.87",
