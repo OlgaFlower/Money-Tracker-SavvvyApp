@@ -22,7 +22,7 @@ struct LogItemView: View {
                     Rectangle()
                         .frame(width: 40, height: 40)
                         .foregroundStyle(.clear)
-                    Image(systemName: record.icon ?? "")
+                    Image(systemName: record.icon)
                         .resizable()
                         .frame(width: 25, height: 25)
                 }

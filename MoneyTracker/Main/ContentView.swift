@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = .tabBarInactive
+    }
+    
     var body: some View {
         TabView {
             ///Home
@@ -51,7 +56,7 @@ struct ContentView: View {
                 )
             }
         }
-        .accentColor(.accent)
+        .accentColor(.tabBarActive)
     }
     
     // MARK: - Views
@@ -59,7 +64,6 @@ struct ContentView: View {
     private func makeTabBarIcon(_ iconName: String) -> some View {
         Image(iconName)
             .renderingMode(.template)
-            .foregroundStyle(.white)
     }
 }
 
