@@ -346,12 +346,12 @@
 			path = AddExpenses;
 			sourceTree = "<group>";
 		};
-		42714FD02BBEF6160085FA7C /* AddIncome */ = {
+		42714FD02BBEF6160085FA7C /* AddChangeToBudget */ = {
 			isa = PBXGroup;
 			children = (
 				42714FD12BBEF6440085FA7C /* AddBudgetChangeView.swift */,
 			);
-			path = AddIncome;
+			path = AddChangeToBudget;
 			sourceTree = "<group>";
 		};
 		42714FDD2BC123AB0085FA7C /* Income */ = {
@@ -376,7 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				42A11C2E2BB935E5003B617D /* HomeView.swift */,
-				42714FD02BBEF6160085FA7C /* AddIncome */,
+				42714FD02BBEF6160085FA7C /* AddChangeToBudget */,
 				42714FCF2BBEF6050085FA7C /* AddExpenses */,
 			);
 			path = Home;

@@ -14,7 +14,7 @@ struct HomeView: View {
     private var dayBudget: Double = 65.50
     private let infoBoardWidth = Constants.shared.screenWidth / 2.8
     @State private var currentBalance: Double = 28.61
-    @State private var isAddIncomeShowing = false
+    @State private var isChangeBudgetViewShowing = false
     
     // MARK: - Body
     var body: some View {
@@ -27,15 +27,16 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.isAddIncomeShowing.toggle()
+                        self.isChangeBudgetViewShowing.toggle()
                     }, label: {
                         Image(systemName: "plus")
                             .font(Font.system(size: 36))
                             .foregroundStyle(.white)
                     })
-                    .sheet(isPresented: $isAddIncomeShowing) {
-                        AddBudgetChangeView()
-                    }
+//                    .sheet(isPresented: $isChangeBudgetViewShowing) {
+//                        AddBudgetChangeView()
+//                    }
+                    .fullScreenCover(isPresented: $isChangeBudgetViewShowing, content: AddBudgetChangeView.init)
                 }
                 .padding(.trailing, 40)
                 

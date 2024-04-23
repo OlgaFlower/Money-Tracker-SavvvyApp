@@ -10,69 +10,44 @@ import SwiftUI
 struct DropDownMenuView: View {
     
     // MARK: - Properties
-    @State var show = true
+    @State var show = false
     @State var selectedItem: RecordType = .expense
-    let cellHeight = 60
+    private let dropDownMenuWidth = UIScreen.main.bounds.width - 32
+    
     
     // MARK: - Body
     var body: some View {
-        
-        ZStack {
-            BackgroundGradView()
             VStack {
                 ZStack {
                     /// List of items
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                        ScrollView(showsIndicators: false) {
-                            VStack(spacing: 16) {
-                                ForEach(Constants.shared.newRecordTypes.indices, id: \.self) { record in
-                                    
-                                    /// Separator
-                                    if record != 0 {
-                                        Rectangle()
-                                            .frame(height: 0.5)
-                                            .foregroundColor(self.show ? .white : .clear)
-                                    }
-                                    
-                                    /// Item
-                                    Button(action: {
-                                        withAnimation {
-                                            self.selectedItem = Constants.shared.newRecordTypes[record]
-                                            self.show.toggle()
+                    HStack {
+                        ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    VStack {
+                                        ForEach(Constants.shared.newRecordTypes.indices, id: \.self) { record in
+                                            self.makeCellView(index: record)
                                         }
-                                    }, label: {
-                                        Text(Constants.shared.newRecordTypes[record].value)
-                                            .foregroundStyle(self.show ? .white : .clear)
-                                            .font(.title3)
-                                        Spacer()
-                                    })
-                                }
-                                .padding(.horizontal)
+                                    }
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.vertical, 16)
-                        }
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 0.5)
+                                    .foregroundStyle(self.show ? .white.opacity(0.3) : .clear)
+                            }
+                            .frame(width: self.dropDownMenuWidth, height: self.show ? CGFloat(Constants.shared.newRecordTypes.count) * 52 : 52)
+                            .offset(y: self.show ? -69 : -153)
+                        .foregroundStyle(self.show ? .lightBlue.opacity(0.4) : .clear)
                     }
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 0.5)
-                            .foregroundStyle(.white)
-                    }
-                    .frame(height: self.show ? CGFloat(Constants.shared.newRecordTypes.count * self.cellHeight) : 60)
-                    .offset(y: self.show ? -55 : -153)
-                    .foregroundStyle(self.show ? .white.opacity(0.05) : .clear)
                     
-                    
-                    /// Selection
+                    /// Selected item
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .frame(height: 60)
-                            .foregroundStyle(.white.opacity(0.1))
+                            .frame(height: 52)
+                            .foregroundStyle(.lightBlue.opacity(0.15))
                         
                         HStack {
                             Text(self.selectedItem.value)
-                                .font(.title3)
+                                .font(.headline)
                             Spacer()
                             
                             Image(systemName: "chevron.right")
@@ -82,8 +57,8 @@ struct DropDownMenuView: View {
                         .padding(.horizontal)
                         
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(.white, lineWidth: 0.5)
-                            .frame(height: 60)
+                            .stroke(.white.opacity(0.3), lineWidth: 0.5)
+                            .frame(height: 52)
                     }
                     .offset(y: -153)
                     .onTapGesture {
@@ -94,12 +69,40 @@ struct DropDownMenuView: View {
                 }
             }
             .padding()
-            .frame(height: 192)
+            .frame(height: 185)
         .offset(y: 90)
         }
+    
+    private func makeCellView(index: Int) -> some View {
+        
+        VStack(spacing: 0) {
+            /// Separator
+            if index != 0 {
+                Rectangle()
+                    .frame(height: 0.5)
+                    .foregroundColor(self.show ? .white : .clear)
+                    .opacity(0.3)
+                    .padding(.horizontal, 10)
+            }
+            Spacer()
+            /// Item
+            Button(action: {
+                withAnimation {
+                    self.selectedItem = Constants.shared.newRecordTypes[index]
+                    self.show.toggle()
+                }
+            }, label: {
+                // TODO: - to fix -> item name is displayed not smoothly, jumping a bit...
+                Text(Constants.shared.newRecordTypes[index].value)
+                    .foregroundStyle(self.show ? .white : .clear)
+                    .font(.subheadline)
+            })
+            .frame(height: 42)
+        }
+        .frame(width: self.dropDownMenuWidth, height: 43)
     }
 }
 
 #Preview {
-    DropDownMenuView()
+    AddBudgetChangeView()
 }
