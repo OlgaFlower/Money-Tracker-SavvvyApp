@@ -43,6 +43,7 @@
 		42714FDC2BC1200C0085FA7C /* TemporaryIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FDB2BC1200C0085FA7C /* TemporaryIncome.swift */; };
 		42714FE12BC124070085FA7C /* IncomeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE02BC124070085FA7C /* IncomeTypes.swift */; };
 		42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE52BC16BC10085FA7C /* IncomeModel.swift */; };
+		428D0FFF2BD9415600EAEC3E /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D0FFE2BD9415600EAEC3E /* Icons.swift */; };
 		42A11C252BB6F670003B617D /* LogDateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C242BB6F670003B617D /* LogDateRange.swift */; };
 		42A11C272BB6FB93003B617D /* DailyLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C262BB6FB93003B617D /* DailyLogView.swift */; };
 		42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C292BB7173B003B617D /* MoneyModel.swift */; };
@@ -109,6 +110,7 @@
 		42714FDB2BC1200C0085FA7C /* TemporaryIncome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryIncome.swift; sourceTree = "<group>"; };
 		42714FE02BC124070085FA7C /* IncomeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeTypes.swift; sourceTree = "<group>"; };
 		42714FE52BC16BC10085FA7C /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
+		428D0FFE2BD9415600EAEC3E /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		42A11C242BB6F670003B617D /* LogDateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDateRange.swift; sourceTree = "<group>"; };
 		42A11C262BB6FB93003B617D /* DailyLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogView.swift; sourceTree = "<group>"; };
 		42A11C292BB7173B003B617D /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				42714FC62BBB28680085FA7C /* StringToNumberFormatter.swift */,
 				42714FE02BC124070085FA7C /* IncomeTypes.swift */,
 				423DF4222BD6369000CBB6D5 /* Constants.swift */,
+				428D0FFE2BD9415600EAEC3E /* Icons.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				4251FA4A2BAB22C00087ABE7 /* BankAccountsView.swift in Sources */,
 				42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */,
 				4241F46E2BB1CBBF0048A29B /* BankAccountsViewModel.swift in Sources */,
+				428D0FFF2BD9415600EAEC3E /* Icons.swift in Sources */,
 				42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */,
 				42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */,
 				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,

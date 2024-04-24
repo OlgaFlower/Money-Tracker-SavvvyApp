@@ -19,4 +19,7 @@ final class Constants {
     // MARK: - DropDown Menu
     /// Add new record
     let newRecordTypes = [RecordType.expense, RecordType.income]
+    
+    let gradientForIcon: [Color] = [.gradientBottom3, .lightBlue]
+        
 }
