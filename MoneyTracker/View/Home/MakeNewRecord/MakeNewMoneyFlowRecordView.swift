@@ -95,25 +95,6 @@ struct MakeNewMoneyFlowRecordView: View {
         .padding(.horizontal, 60)
     }
     
-//    private var incomeMoneyTextField: some View {
-//        TextField(self.incomeMoneyValue, text: self.$incomeMoneyValue)
-//            .onSubmit {
-//                self.isKeyboardFocused = false
-//            }
-//            .keyboardType(.numberPad)
-//            .focused(self.$isKeyboardFocused)
-//            .frame(height: 50)
-//            .multilineTextAlignment(.center)
-//            .font(.title.monospaced())
-//            .autocorrectionDisabled(true)
-//            .background(Color.lightBlue.opacity(0.4))
-//            .onReceive(Just(incomeMoneyValue)) { _ in
-//                if incomeMoneyValue.count > 18 {
-//                    incomeMoneyValue = String(incomeMoneyValue.prefix(18))
-//                }
-//            }
-//    }
-    
     private var descriptionTextField: some View {
         ZStack {
             /// Background

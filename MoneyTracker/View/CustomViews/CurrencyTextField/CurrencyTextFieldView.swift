@@ -43,6 +43,7 @@ struct CurrencyTextFieldView: View {
                         .multilineTextAlignment(.trailing)
                         .font(.title)
                         .foregroundStyle(Color.clear)
+                        .tint(.clear)
                         .keyboardType(.decimalPad)
                         .focused(self.$isKeyboardFocused)
                         .background(.clear)
