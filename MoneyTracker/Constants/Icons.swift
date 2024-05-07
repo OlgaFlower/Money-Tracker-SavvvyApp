@@ -13,11 +13,9 @@ struct Icon {
 
 final class Icons {
     
-    static let shared = Icons()
-    
     private init() {}
     
-    let list: [Icon] = [
+    static let list: [Icon] = [
     Icon(name: "sun.min"),
     Icon(name: "sun.max"),
     Icon(name: "sunrise"),

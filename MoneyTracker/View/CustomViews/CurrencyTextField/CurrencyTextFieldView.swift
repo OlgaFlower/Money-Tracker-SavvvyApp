@@ -48,14 +48,14 @@ struct CurrencyTextFieldView: View {
                         .background(.clear)
                         .padding(.vertical)
                         .onReceive(Just(inputAmount)) { _ in /// Input Length restriction
-                            if inputAmount.count > 18 {
-                                inputAmount = String(inputAmount.prefix(18))
+                            if inputAmount.count > 15 {
+                                inputAmount = String(inputAmount.prefix(15))
                             }
                         }
                         .onChange(of: inputAmount) {
                             // Format the input amount as currency
                             if inputAmount.count > 2 {
-                                displyedNumber = formatAmount(inputAmount)
+                                displyedNumber = TextFormatter.textToCurrency(inputAmount)
                             }
                             if inputAmount.isEmpty {
                                 displyedNumber = "0\(Constants.decimalSeparator)00"
@@ -67,38 +67,9 @@ struct CurrencyTextFieldView: View {
                                 displyedNumber = "0\(Constants.decimalSeparator)\(inputAmount)"
                             }
                         }
-                    
                 }
             }
         }
-    }
-    
-    // Function to format the amount as currency
-    private func formatAmount(_ amountString: String) -> String {
-        var formattedAmount = ""
-        let decimalSeparator = Constants.decimalSeparator
-        let groupingSeparator = Constants.groupingSeparator
-        
-        // Remove non-numeric characters
-        let cleanAmount = amountString.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-        
-        // Add thousands separator
-        let length = cleanAmount.count
-        for i in 0..<length {
-            if i > 0 && ((length - 2) - i) % 3 == 0 {
-                formattedAmount += groupingSeparator
-            }
-            let index = cleanAmount.index(cleanAmount.startIndex, offsetBy: i)
-            formattedAmount += String(cleanAmount[index]).reversed()
-        }
-        
-        // Add decimal separator
-        if length >= 3 {
-            let index = formattedAmount.index(formattedAmount.endIndex, offsetBy: -2)
-            formattedAmount.insert(contentsOf: decimalSeparator, at: index)
-        }
-        
-        return formattedAmount
     }
 }
 

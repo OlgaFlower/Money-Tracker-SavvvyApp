@@ -9,9 +9,10 @@ import SwiftUI
 
 final class Constants {
     
-    static let screenWidth: CGFloat = UIScreen.main.bounds.width
-    
     private init() {}
+    
+    // MARK: - Screen Width -
+    static let screenWidth: CGFloat = UIScreen.main.bounds.width
     
     // MARK: - Currency TextField -
     static let decimalSeparator = Locale.current.decimalSeparator ?? "."
@@ -20,7 +21,5 @@ final class Constants {
     // MARK: - DropDown Menu -
     /// Add new record
     static let newRecordTypes = [RecordType.expense, RecordType.income]
-    
     static let gradientForIcon: [Color] = [.gradientBottom3, .lightBlue]
-        
 }

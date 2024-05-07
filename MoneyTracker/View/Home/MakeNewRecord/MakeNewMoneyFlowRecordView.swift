@@ -16,7 +16,7 @@ struct MakeNewMoneyFlowRecordView: View {
     @State private var recordType: RecordType = .expense
     @State private var incomeMoneyValue: String = "0,00"
     @State private var description: String = ""
-    @State var iconName: String = Icons.shared.list.first?.name ?? ""
+    @State var iconName: String = Icons.list.first?.name ?? ""
     
     // MARK: - Body
     var body: some View {
