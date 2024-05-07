@@ -12,7 +12,7 @@ struct HomeView: View {
     // MARK: - Properties
     private let minValue: Double = 0.00
     private var dayBudget: Double = 65.50
-    private let infoBoardWidth = Constants.shared.screenWidth / 2.8
+    private let infoBoardWidth = Constants.screenWidth / 2.8
     @State private var currentBalance: Double = 28.61
     @State private var isChangeBudgetViewShowing = false
     
@@ -33,10 +33,7 @@ struct HomeView: View {
                             .font(Font.system(size: 36))
                             .foregroundStyle(.white)
                     })
-//                    .sheet(isPresented: $isChangeBudgetViewShowing) {
-//                        AddBudgetChangeView()
-//                    }
-                    .fullScreenCover(isPresented: $isChangeBudgetViewShowing, content: AddBudgetChangeView.init)
+                    .fullScreenCover(isPresented: $isChangeBudgetViewShowing, content: MakeNewMoneyFlowRecordView.init)
                 }
                 .padding(.trailing, 40)
                 

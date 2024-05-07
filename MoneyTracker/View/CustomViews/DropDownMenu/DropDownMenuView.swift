@@ -24,7 +24,7 @@ struct DropDownMenuView: View {
                         ZStack {
                                 RoundedRectangle(cornerRadius: 10)
                                     VStack {
-                                        ForEach(Constants.shared.newRecordTypes.indices, id: \.self) { record in
+                                        ForEach(Constants.newRecordTypes.indices, id: \.self) { record in
                                             self.makeCellView(index: record)
                                         }
                                     }
@@ -34,7 +34,7 @@ struct DropDownMenuView: View {
                                     .stroke(lineWidth: 0.5)
                                     .foregroundStyle(self.show ? .white.opacity(0.3) : .clear)
                             }
-                            .frame(width: self.dropDownMenuWidth, height: self.show ? CGFloat(Constants.shared.newRecordTypes.count) * 52 : 52)
+                            .frame(width: self.dropDownMenuWidth, height: self.show ? CGFloat(Constants.newRecordTypes.count) * 52 : 52)
                             .offset(y: self.show ? -69 : -153)
                         .foregroundStyle(self.show ? .lightBlue.opacity(0.4) : .clear)
                     }
@@ -88,12 +88,12 @@ struct DropDownMenuView: View {
             /// Item
             Button(action: {
                 withAnimation {
-                    self.selectedItem = Constants.shared.newRecordTypes[index]
+                    self.selectedItem = Constants.newRecordTypes[index]
                     self.show.toggle()
                 }
             }, label: {
                 // TODO: - to fix -> item name is displayed not smoothly, jumping a bit...
-                Text(Constants.shared.newRecordTypes[index].value)
+                Text(Constants.newRecordTypes[index].value)
                     .foregroundStyle(self.show ? .white : .clear)
                     .font(.subheadline)
             })
@@ -104,5 +104,5 @@ struct DropDownMenuView: View {
 }
 
 #Preview {
-    AddBudgetChangeView()
+    MakeNewMoneyFlowRecordView()
 }

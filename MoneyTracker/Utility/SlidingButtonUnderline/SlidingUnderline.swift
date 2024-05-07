@@ -15,7 +15,7 @@ struct SlidingUnderline: ViewModifier {
 
     func body(content: Content) -> some View {
             Group {
-                if activeIdx == idx {
+                if self.activeIdx == idx {
                     content.alignmentGuide(.underlineLeading) { d in
                         return d[.leading]
                     }

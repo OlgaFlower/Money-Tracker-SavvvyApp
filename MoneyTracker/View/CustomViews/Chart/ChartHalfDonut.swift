@@ -11,9 +11,9 @@ struct ChartHalfDonut: GaugeStyle {
     
     // MARK: - Properties
     private var gradient = LinearGradient(gradient: Gradient(colors: [.lightBlue, .chartGreen, .red]), startPoint: .leading, endPoint: .trailing)
-    private var gradientCircleWidth = Constants.shared.screenWidth * 0.6
-    private var dashesWidth = Constants.shared.screenWidth * 0.73
-    private var thinCircleWidth = Constants.shared.screenWidth * 0.68
+    private var gradientCircleWidth = Constants.screenWidth * 0.6
+    private var dashesWidth = Constants.screenWidth * 0.73
+    private var thinCircleWidth = Constants.screenWidth * 0.68
     
     // MARK: - Views
     func makeBody(configuration: Configuration) -> some View {

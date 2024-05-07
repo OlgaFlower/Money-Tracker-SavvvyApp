@@ -1,5 +1,5 @@
 //
-//  AddBudgetChangeView.swift
+//  MakeNewMoneyFlowRecordView.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 04.04.24.
@@ -8,10 +8,11 @@
 import SwiftUI
 import Combine
 
-struct AddBudgetChangeView: View {
+struct MakeNewMoneyFlowRecordView: View {
     // MARK: - Properties
     @Environment(\.dismiss) var dismiss
-    @FocusState private var isKeyboardFocused: Bool
+    @FocusState var isKeyboardFocused: Bool
+    @FocusState var isCurrencyTextFieldKeyboardFocused: Bool
     @State private var recordType: RecordType = .expense
     @State private var incomeMoneyValue: String = "0,00"
     @State private var description: String = ""
@@ -30,7 +31,10 @@ struct AddBudgetChangeView: View {
                 self.typeSelectionView
                 
                 /// Income Money
-                self.incomeMoneyTextField
+                CurrencyTextFieldView(
+                    isKeyboardFocused: _isCurrencyTextFieldKeyboardFocused,
+                    currency: "UAH"
+                )
                 
                 /// Description
                 self.descriptionTextField
@@ -45,6 +49,7 @@ struct AddBudgetChangeView: View {
         }
         .onTapGesture {
             self.isKeyboardFocused = false
+            self.isCurrencyTextFieldKeyboardFocused = false
         }
     }
     
@@ -90,24 +95,24 @@ struct AddBudgetChangeView: View {
         .padding(.horizontal, 60)
     }
     
-    private var incomeMoneyTextField: some View {
-        TextField(self.incomeMoneyValue, text: self.$incomeMoneyValue)
-            .onSubmit {
-                self.isKeyboardFocused = false
-            }
-            .keyboardType(.numberPad)
-            .focused(self.$isKeyboardFocused)
-            .frame(height: 50)
-            .multilineTextAlignment(.center)
-            .font(.title.monospaced())
-            .autocorrectionDisabled(true)
-            .background(Color.lightBlue.opacity(0.4))
-            .onReceive(Just(incomeMoneyValue)) { _ in
-                if incomeMoneyValue.count > 18 {
-                    incomeMoneyValue = String(incomeMoneyValue.prefix(18))
-                }
-            }
-    }
+//    private var incomeMoneyTextField: some View {
+//        TextField(self.incomeMoneyValue, text: self.$incomeMoneyValue)
+//            .onSubmit {
+//                self.isKeyboardFocused = false
+//            }
+//            .keyboardType(.numberPad)
+//            .focused(self.$isKeyboardFocused)
+//            .frame(height: 50)
+//            .multilineTextAlignment(.center)
+//            .font(.title.monospaced())
+//            .autocorrectionDisabled(true)
+//            .background(Color.lightBlue.opacity(0.4))
+//            .onReceive(Just(incomeMoneyValue)) { _ in
+//                if incomeMoneyValue.count > 18 {
+//                    incomeMoneyValue = String(incomeMoneyValue.prefix(18))
+//                }
+//            }
+//    }
     
     private var descriptionTextField: some View {
         ZStack {
@@ -142,7 +147,7 @@ struct AddBudgetChangeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(
-                        .linearGradient(colors: Constants.shared.gradientForIcon, startPoint: .topLeading, endPoint: .bottomTrailing)
+                        .linearGradient(colors: Constants.gradientForIcon, startPoint: .topLeading, endPoint: .bottomTrailing)
                     )
                     .stroke(.white.opacity(0.4), lineWidth: 0.5)
                     .frame(width: 45, height: 45)
@@ -163,5 +168,5 @@ struct AddBudgetChangeView: View {
 
 // MARK: - Preview
 #Preview {
-    AddBudgetChangeView()
+    MakeNewMoneyFlowRecordView()
 }
