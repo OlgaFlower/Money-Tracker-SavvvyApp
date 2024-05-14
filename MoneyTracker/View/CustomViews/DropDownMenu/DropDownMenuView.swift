@@ -103,6 +103,3 @@ struct DropDownMenuView: View {
     }
 }
 
-#Preview {
-    MakeNewMoneyFlowRecordView()
-}

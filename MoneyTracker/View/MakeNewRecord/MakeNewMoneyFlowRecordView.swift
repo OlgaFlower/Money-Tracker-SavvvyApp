@@ -9,14 +9,17 @@ import SwiftUI
 import Combine
 
 struct MakeNewMoneyFlowRecordView: View {
-    // MARK: - Properties
+    // MARK: - Environment -
     @Environment(\.dismiss) var dismiss
+    
+    // MARK: - State -
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyTextFieldKeyboardFocused: Bool
     @State private var recordType: RecordType = .expense
+    @State private var selectedCategory = Category(name: "Category", iconName: "sun.min")
+    @State private var showCategoriesView = false
     @State private var inputMoney: String = ""
     @State private var description: String = ""
-    @State var iconName: String = Icons.list.first?.name ?? ""
     
     // MARK: - Body
     var body: some View {
@@ -30,7 +33,7 @@ struct MakeNewMoneyFlowRecordView: View {
                 /// Expense / Income
                 self.typeSelectionView
                 
-                /// Income Money
+                /// Money Field
                 CurrencyTextFieldView(
                     isKeyboardFocused: _isCurrencyTextFieldKeyboardFocused, inputAmount: $inputMoney,
                     currency: "UAH"
@@ -39,7 +42,7 @@ struct MakeNewMoneyFlowRecordView: View {
                 /// Description
                 self.descriptionTextField
                 
-                /// Icon
+                /// Category
                 self.categorySelectionView
                 
                 Spacer()
@@ -123,7 +126,7 @@ struct MakeNewMoneyFlowRecordView: View {
     }
     
     private var categorySelectionView: some View {
-        HStack(spacing: 0) {
+        HStack(spacing: 32) {
             /// Icon
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
@@ -133,17 +136,24 @@ struct MakeNewMoneyFlowRecordView: View {
                     .stroke(.white.opacity(0.4), lineWidth: 0.5)
                     .frame(width: 45, height: 45)
                 
-                Image(systemName: self.iconName)
+                Image(systemName: self.selectedCategory.iconName)
                     .font(.title)
             }
-            Spacer()
+            
             /// Category
-            Text("Category")
+            Text(self.selectedCategory.name)
                 .font(.title3.monospaced())
+                .onTapGesture {
+                    self.showCategoriesView.toggle()
+                }
+                .sheet(isPresented: self.$showCategoriesView, content: {
+                    CategoriesView(recordType: $recordType, selectedCategory: $selectedCategory)
+                })
+            
             Spacer()
-            Image(systemName: "chevron.right")
         }
         .padding(.horizontal, 60)
+        
     }
 }
 
