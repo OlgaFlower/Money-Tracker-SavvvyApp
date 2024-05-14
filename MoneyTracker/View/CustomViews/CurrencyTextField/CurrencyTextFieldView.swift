@@ -12,7 +12,7 @@ struct CurrencyTextFieldView: View {
     
     // MARK: - State -
     @FocusState var isKeyboardFocused: Bool
-    @State private var inputAmount = ""
+    @Binding var inputAmount: String
     @State private var displyedNumber = "0,00"
     
     // MARK: - Properties -
@@ -40,7 +40,7 @@ struct CurrencyTextFieldView: View {
                 HStack {
                     Spacer()
                     TextField("", text: $inputAmount)
-                        .multilineTextAlignment(.trailing)
+                        .frame(width: 1)
                         .font(.title)
                         .foregroundStyle(Color.clear)
                         .tint(.clear)
@@ -71,9 +71,12 @@ struct CurrencyTextFieldView: View {
                 }
             }
         }
+        .onTapGesture {
+            self.isKeyboardFocused = true
+        }
     }
 }
 
 #Preview {
-    CurrencyTextFieldView(currency: "UAH")
+    CurrencyTextFieldView(inputAmount: .constant("0,00"), currency: "UAH")
 }

@@ -14,7 +14,7 @@ struct MakeNewMoneyFlowRecordView: View {
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyTextFieldKeyboardFocused: Bool
     @State private var recordType: RecordType = .expense
-    @State private var incomeMoneyValue: String = "0,00"
+    @State private var inputMoney: String = ""
     @State private var description: String = ""
     @State var iconName: String = Icons.list.first?.name ?? ""
     
@@ -32,7 +32,7 @@ struct MakeNewMoneyFlowRecordView: View {
                 
                 /// Income Money
                 CurrencyTextFieldView(
-                    isKeyboardFocused: _isCurrencyTextFieldKeyboardFocused,
+                    isKeyboardFocused: _isCurrencyTextFieldKeyboardFocused, inputAmount: $inputMoney,
                     currency: "UAH"
                 )
                 
