@@ -12,7 +12,7 @@ struct HomeView: View {
     // MARK: - State -
     @State private var currentBalance: Double = 28.61
     @State private var isChangeBudgetViewShowing = false
-    @State private var spentMoneyToday: Decimal = 0.0
+    @State private var spentMoneyToday: String = "0,00"
     
     // MARK: - Properties
     private let minValue: Double = 0.00
@@ -60,6 +60,9 @@ struct HomeView: View {
                 Spacer()
             }
             .padding(.top, 25)
+        }
+        .onAppear {
+            self.calculateSpentMoneyToday()
         }
     }
     
@@ -115,15 +118,18 @@ struct HomeView: View {
     
     
     func calculateSpentMoneyToday() {
-        var intValues: [Int] = moneyRecords.compactMap { Int($0.moneyAmount) }
+        let intValues: [Int] = moneyRecords.compactMap { Int($0.moneyAmount) }
         print("Int: \(intValues)")
-        var decimalValues: [Decimal] = intValues.map { Decimal($0/100) }
-        print("Decimal: \(decimalValues)")
-        self.spentMoneyToday = sumOfDecimals(decimalValues)
-    }
-    
-    func sumOfDecimals(_ decimals: [Decimal]) -> Decimal {
-        return decimals.reduce(0, +)
+        
+        let sum = intValues.reduce(0, +)
+        print("Sum: \(sum)")
+        
+        let double = Double(sum)/100
+        
+        let str = String(describing: double).formatAsCurrency()
+        print("str: \(str)")
+        
+        self.spentMoneyToday = str
     }
 }
 
