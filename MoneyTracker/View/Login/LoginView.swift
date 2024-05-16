@@ -94,7 +94,7 @@ struct LoginView: View {
                 .foregroundStyle(.white)
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity)
-                .clipShape(.rect(cornerRadius: 8, style: .continuous))
+                .clipShape(.rect(cornerRadius: 10, style: .continuous))
         })
         .background {
             RoundedRectangle(cornerRadius: 10, style: .continuous)

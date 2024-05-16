@@ -22,4 +22,9 @@ final class Constants {
     /// Add new record
     static let newRecordTypes = [RecordType.expense, RecordType.income]
     static let gradientForIcon: [Color] = [.gradientBottom3, .lightBlue]
+    
+    // MARK: - Make Vibration -
+    static func vibrate() {
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+    }
 }

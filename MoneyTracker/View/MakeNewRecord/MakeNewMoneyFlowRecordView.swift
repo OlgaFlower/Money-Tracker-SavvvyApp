@@ -31,7 +31,7 @@ struct MakeNewMoneyFlowRecordView: View {
                     .padding(.horizontal, 24)
                 
                 /// Expense / Income
-                self.typeSelectionView
+                self.moneyTypeSelectionView
                 
                 /// Money Field
                 CurrencyTextFieldView(
@@ -45,6 +45,10 @@ struct MakeNewMoneyFlowRecordView: View {
                 /// Category
                 self.categorySelectionView
                 
+                /// Save
+                Spacer()
+                self.saveButtonView
+                
                 Spacer()
             }
             .foregroundStyle(.white)
@@ -57,6 +61,7 @@ struct MakeNewMoneyFlowRecordView: View {
     }
     
     // MARK: - Views
+    /// Cancel
     private var cancelButton: some View {
         HStack {
             Spacer()
@@ -71,7 +76,8 @@ struct MakeNewMoneyFlowRecordView: View {
         }
     }
     
-    private var typeSelectionView: some View {
+    /// Expenses | Income
+    private var moneyTypeSelectionView: some View {
         HStack {
             /// Expense
             Button(action: {
@@ -98,6 +104,7 @@ struct MakeNewMoneyFlowRecordView: View {
         .padding(.horizontal, 60)
     }
     
+    /// Description
     private var descriptionTextField: some View {
         ZStack {
             /// Background
@@ -125,6 +132,7 @@ struct MakeNewMoneyFlowRecordView: View {
         }
     }
     
+    /// Category
     private var categorySelectionView: some View {
         HStack(spacing: 32) {
             /// Icon
@@ -153,7 +161,26 @@ struct MakeNewMoneyFlowRecordView: View {
             Spacer()
         }
         .padding(.horizontal, 60)
-        
+    }
+    
+    /// Save
+    private var saveButtonView: some View {
+        Button {
+            Constants.vibrate()
+            
+        } label: {
+            Text("Add")
+                .font(.title2)
+                .fontDesign(.monospaced)
+                .foregroundStyle(.white)
+                .padding(.vertical, 8)
+                .frame(width: 130)
+                .clipShape(.rect(cornerRadius: 10, style: .continuous))
+        }
+        .background {
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .stroke(.white.opacity(0.6), lineWidth: 1)
+        }
     }
 }
 
