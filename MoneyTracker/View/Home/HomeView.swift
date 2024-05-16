@@ -9,12 +9,21 @@ import SwiftUI
 
 struct HomeView: View {
     
-    // MARK: - Properties
-    private let minValue: Double = 0.00
-    private var dayBudget: Double = 65.50
-    private let infoBoardWidth = Constants.screenWidth / 2.8
+    // MARK: - State -
     @State private var currentBalance: Double = 28.61
     @State private var isChangeBudgetViewShowing = false
+    @State private var spentMoneyToday: Decimal = 0.0
+    
+    // MARK: - Properties
+    private let minValue: Double = 0.00
+    private var dayBudget: Double = 465.00
+    private let infoBoardWidth = Constants.screenWidth / 2.8
+    
+    // MARK: - DataBase -
+    private let moneyFetchRequest = Money.basicFetchRequest()
+    var moneyRecords: FetchedResults<Money> {
+        moneyFetchRequest.wrappedValue
+    }
     
     // MARK: - Body
     var body: some View {
@@ -45,8 +54,8 @@ struct HomeView: View {
                 
                 /// Budget Information
                 self.budgetInformationView
-                .padding(.horizontal, 24)
-                .padding(.top, 35)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 35)
                 
                 Spacer()
             }
@@ -65,7 +74,7 @@ struct HomeView: View {
                     .foregroundStyle(.white.opacity(0.8))
                 
                 // TODO: - Animated changing of the spent sum!
-                Text("36,89")
+                Text(String(describing: self.spentMoneyToday))
                     .font(.title2)
                     .fontDesign(.monospaced)
                     .foregroundStyle(.white.opacity(0.8))
@@ -80,7 +89,7 @@ struct HomeView: View {
                 Text("BUDGET")
                     .font(.title2)
                     .fontDesign(.monospaced)
-                .foregroundStyle(.white.opacity(0.8))
+                    .foregroundStyle(.white.opacity(0.8))
                 
                 // TODO: - Animated changing of the budget sum!
                 Text("65,50")
@@ -92,6 +101,7 @@ struct HomeView: View {
         }
     }
     
+    /// Chart
     private func makeChart() -> some View {
         Gauge(
             value: self.currentBalance,
@@ -102,8 +112,24 @@ struct HomeView: View {
         }
         .gaugeStyle(ChartHalfDonut())
     }
+    
+    
+    func calculateSpentMoneyToday() {
+        var intValues: [Int] = moneyRecords.compactMap { Int($0.moneyAmount) }
+        print("Int: \(intValues)")
+        var decimalValues: [Decimal] = intValues.map { Decimal($0/100) }
+        print("Decimal: \(decimalValues)")
+        self.spentMoneyToday = sumOfDecimals(decimalValues)
+    }
+    
+    func sumOfDecimals(_ decimals: [Decimal]) -> Decimal {
+        return decimals.reduce(0, +)
+    }
 }
 
 #Preview {
-    HomeView()
+    let context = PersistenceController.preview.container.viewContext
+    let spentMoney = Money(context: context)
+    spentMoney.moneyAmount = "3245"
+    return HomeView()
 }

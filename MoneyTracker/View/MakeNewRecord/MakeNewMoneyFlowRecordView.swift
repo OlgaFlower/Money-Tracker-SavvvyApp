@@ -7,10 +7,12 @@
 
 import SwiftUI
 import Combine
+import CoreData
 
 struct MakeNewMoneyFlowRecordView: View {
     // MARK: - Environment -
     @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) var viewContext
     
     // MARK: - State -
     @FocusState var isKeyboardFocused: Bool
@@ -20,6 +22,9 @@ struct MakeNewMoneyFlowRecordView: View {
     @State private var showCategoriesView = false
     @State private var inputMoney: String = ""
     @State private var description: String = ""
+    
+    // MARK: - Properties -
+    let currency: String = "EUR"
     
     // MARK: - Body
     var body: some View {
@@ -36,7 +41,7 @@ struct MakeNewMoneyFlowRecordView: View {
                 /// Money Field
                 CurrencyTextFieldView(
                     isKeyboardFocused: _isCurrencyTextFieldKeyboardFocused, inputAmount: $inputMoney,
-                    currency: "UAH"
+                    currency: self.currency
                 )
                 
                 /// Description
@@ -166,7 +171,20 @@ struct MakeNewMoneyFlowRecordView: View {
     /// Save
     private var saveButtonView: some View {
         Button {
+            
+            Money.makeNewRecordWith(
+                moneyAmount: self.inputMoney,
+                currency: currency,
+                isIncome: self.recordType == .income ? true : false,
+                categoryName: self.selectedCategory.name,
+                categoryIcon: self.selectedCategory.iconName,
+                date: Date(),
+                notes: self.description,
+                using: self.viewContext
+            )
+            
             Constants.vibrate()
+            self.dismiss()
             
         } label: {
             Text("Add")
