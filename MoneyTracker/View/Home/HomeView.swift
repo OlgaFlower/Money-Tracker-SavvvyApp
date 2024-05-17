@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
-    
+//    @Environment(\.managedObjectContext) var context
     // MARK: - State -
     @State private var currentBalance: Double = 28.61
     @State private var isChangeBudgetViewShowing = false
@@ -99,6 +99,9 @@ struct HomeView: View {
             }
             .frame(width: self.infoBoardWidth)
         }
+//        .onAppear {
+//            Money.deleteAllObjects(context: self.context)
+//        }
     }
     
     /// Chart

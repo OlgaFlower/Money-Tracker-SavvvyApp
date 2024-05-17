@@ -14,7 +14,7 @@ extension Money {
     @NSManaged public var categoryIcon: String
     @NSManaged public var categoryName: String
     @NSManaged public var currency: String
-    @NSManaged public var date: Date
+    @NSManaged public var timestamp: Date
     @NSManaged public var isIncome: Bool
     @NSManaged public var moneyAmount: Int64
     @NSManaged public var notes: String?
@@ -27,12 +27,12 @@ extension Money {
         isIncome: Bool,
         categoryName: String,
         categoryIcon: String,
-        date: Date,
+        timestamp: Date,
         notes: String?,
         using managedObjectContext: NSManagedObjectContext
     ) {
         let newRecord = Money(context: managedObjectContext)
-        newRecord.date = Date()
+        newRecord.timestamp = timestamp
         newRecord.categoryIcon = categoryIcon
         newRecord.categoryName = categoryName
         newRecord.currency = currency
@@ -56,10 +56,10 @@ extension Money {
     
     // MARK: - TODO: Delete this func after all, it's for testing! -
     /// Delete ALL objects
-    static func deleteAllObjects() {
-        @Environment(\.managedObjectContext) var viewContext
+    static func deleteAllObjects(context: NSManagedObjectContext) {
         
-        let persistentStoreCoordinator = viewContext.persistentStoreCoordinator
+        
+        let persistentStoreCoordinator = context.persistentStoreCoordinator
         let entities = persistentStoreCoordinator?.managedObjectModel.entities
         
         entities?.forEach { entity in
@@ -67,8 +67,8 @@ extension Money {
             let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
             
             do {
-                try viewContext.execute(batchDeleteRequest)
-                try viewContext.save()
+                try context.execute(batchDeleteRequest)
+                try context.save()
                 print("ALL objects DELETED!")
             } catch {
                 print("Failed to delete objects for entity \(entity.name!): \(error)")

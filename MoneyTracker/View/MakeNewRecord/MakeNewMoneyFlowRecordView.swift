@@ -179,7 +179,7 @@ struct MakeNewMoneyFlowRecordView: View {
                     isIncome: self.recordType == .income ? true : false,
                     categoryName: self.selectedCategory.name,
                     categoryIcon: self.selectedCategory.iconName,
-                    date: Date(),
+                    timestamp: Date(),
                     notes: self.description,
                     using: self.viewContext
                 )
