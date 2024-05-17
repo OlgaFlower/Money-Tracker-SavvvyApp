@@ -49,11 +49,12 @@ extension Money {
         }
     }
     
-    /// Fetch Data
+    /// Fetch ALL Money records
     static func basicFetchRequest() -> FetchRequest<Money> {
         FetchRequest(entity: Money.entity(), sortDescriptors: [])
     }
     
+    /// Fetch TODAY Money records
     static func fetchTodayRecords() -> FetchRequest<Money> {
         let timestampSortDescriptor = NSSortDescriptor(keyPath: \Money.timestamp , ascending: true)
         

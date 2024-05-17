@@ -19,7 +19,7 @@ struct MakeNewMoneyFlowRecordView: View {
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyTextFieldKeyboardFocused: Bool
     @State private var recordType: RecordType = .expense
-    @State private var selectedCategory = Category(name: "Category", iconName: "sun.min")
+    @State private var selectedCategory = Category(name: "Select Category", iconName: "sun.min")
     @State private var showCategoriesView = false
     @State private var inputMoney: String = ""
     @State private var description: String = ""
@@ -156,14 +156,13 @@ struct MakeNewMoneyFlowRecordView: View {
             /// Category
             Text(self.selectedCategory.name)
                 .font(.title3.monospaced())
+                .multilineTextAlignment(.leading)
                 .onTapGesture {
                     self.showCategoriesView.toggle()
                 }
                 .sheet(isPresented: self.$showCategoriesView, content: {
                     CategoriesView(recordType: $recordType, selectedCategory: $selectedCategory)
                 })
-            
-            Spacer()
         }
         .padding(.horizontal, 60)
     }
@@ -175,7 +174,7 @@ struct MakeNewMoneyFlowRecordView: View {
             // TODO: - FOR TESTING -> create records with past Date() -
 //                let pastdate = Calendar.current.date(byAdding: .day, value: -2, to: .now)
             
-            if let intValue = Int64(inputMoney) {
+            if let intValue = Int64(inputMoney), selectedCategory.name != "Select Category" {
                 
                 Money.makeNewRecordWith(
                     moneyAmount: intValue,

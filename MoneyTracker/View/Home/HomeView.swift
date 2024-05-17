@@ -15,7 +15,8 @@ struct HomeView: View {
     @State private var isChangeBudgetViewShowing = false
     
     // MARK: - DataBase -
-//    @FetchRequest(entity: Money.entity(), sortDescriptors: []) var moneyRecords: FetchedResults<Money>
+    // TEST
+    @FetchRequest(entity: Money.entity(), sortDescriptors: []) var moneyRecords: FetchedResults<Money>
     
     var todayRecordsFetchRequest = Money.fetchTodayRecords()
     var todayRecords: FetchedResults<Money> {
@@ -108,6 +109,7 @@ struct HomeView: View {
             // TODO: - FOR TESTING -
 //            Money.deleteAllObjects(context: self.context)
             print("Today records: \(self.todayRecords)")
+            print("ALL records: \(self.moneyRecords)")
         }
     }
     
