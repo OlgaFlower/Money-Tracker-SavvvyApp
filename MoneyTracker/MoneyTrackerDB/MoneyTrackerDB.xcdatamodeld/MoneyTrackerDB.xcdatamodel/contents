@@ -6,7 +6,7 @@
         <attribute name="currency" attributeType="String"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isIncome" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="moneyAmount" attributeType="String"/>
+        <attribute name="moneyAmount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
     </entity>
 </model>

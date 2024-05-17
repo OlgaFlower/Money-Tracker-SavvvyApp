@@ -16,13 +16,13 @@ extension Money {
     @NSManaged public var currency: String
     @NSManaged public var date: Date
     @NSManaged public var isIncome: Bool
-    @NSManaged public var moneyAmount: String
+    @NSManaged public var moneyAmount: Int64
     @NSManaged public var notes: String?
     
     // MARK: - Functions -
     /// Make New Record
     static func makeNewRecordWith(
-        moneyAmount: String,
+        moneyAmount: Int64,
         currency: String,
         isIncome: Bool,
         categoryName: String,
@@ -42,7 +42,6 @@ extension Money {
         
         do {
             try managedObjectContext.save()
-            print("*** SAVED")
         } catch {
             // TODO: - let user know that smth went wrong during saving data
             let nsError = error as NSError
@@ -53,5 +52,27 @@ extension Money {
     /// Fetch Data
     static func basicFetchRequest() -> FetchRequest<Money> {
         FetchRequest(entity: Money.entity(), sortDescriptors: [])
+    }
+    
+    // MARK: - TODO: Delete this func after all, it's for testing! -
+    /// Delete ALL objects
+    static func deleteAllObjects() {
+        @Environment(\.managedObjectContext) var viewContext
+        
+        let persistentStoreCoordinator = viewContext.persistentStoreCoordinator
+        let entities = persistentStoreCoordinator?.managedObjectModel.entities
+        
+        entities?.forEach { entity in
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.name!)
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            
+            do {
+                try viewContext.execute(batchDeleteRequest)
+                try viewContext.save()
+                print("ALL objects DELETED!")
+            } catch {
+                print("Failed to delete objects for entity \(entity.name!): \(error)")
+            }
+        }
     }
 }

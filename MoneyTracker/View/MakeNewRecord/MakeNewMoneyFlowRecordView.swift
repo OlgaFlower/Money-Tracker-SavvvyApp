@@ -10,6 +10,7 @@ import Combine
 import CoreData
 
 struct MakeNewMoneyFlowRecordView: View {
+    
     // MARK: - Environment -
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var viewContext
@@ -52,8 +53,7 @@ struct MakeNewMoneyFlowRecordView: View {
                 
                 /// Save
                 Spacer()
-                self.saveButtonView
-                
+                self.addButtonView
                 Spacer()
             }
             .foregroundStyle(.white)
@@ -168,24 +168,24 @@ struct MakeNewMoneyFlowRecordView: View {
         .padding(.horizontal, 60)
     }
     
-    /// Save
-    private var saveButtonView: some View {
+    /// Add
+    private var addButtonView: some View {
         Button {
             
-            Money.makeNewRecordWith(
-                moneyAmount: self.inputMoney,
-                currency: currency,
-                isIncome: self.recordType == .income ? true : false,
-                categoryName: self.selectedCategory.name,
-                categoryIcon: self.selectedCategory.iconName,
-                date: Date(),
-                notes: self.description,
-                using: self.viewContext
-            )
-            
-            Constants.vibrate()
-            self.dismiss()
-            
+            if let intValue = Int64(inputMoney) {
+                Money.makeNewRecordWith(
+                    moneyAmount: intValue,
+                    currency: self.currency,
+                    isIncome: self.recordType == .income ? true : false,
+                    categoryName: self.selectedCategory.name,
+                    categoryIcon: self.selectedCategory.iconName,
+                    date: Date(),
+                    notes: self.description,
+                    using: self.viewContext
+                )
+                Constants.vibrate()
+                self.dismiss()
+            }
         } label: {
             Text("Add")
                 .font(.title2)

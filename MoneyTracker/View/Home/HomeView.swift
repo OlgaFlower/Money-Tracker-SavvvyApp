@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
+    
+    @Environment(\.managedObjectContext) var viewContext
     
     // MARK: - State -
     @State private var currentBalance: Double = 28.61
@@ -116,7 +119,6 @@ struct HomeView: View {
         .gaugeStyle(ChartHalfDonut())
     }
     
-    
     func calculateSpentMoneyToday() {
         /// Array of MoneyAmounts (records from DB) is converted to Int values and then we get the sum of all values in array
         /// ["1244", "54", "2"] -> [1244, 54, 2] -> 1300 (calculation: 1244+54+2 )
@@ -132,6 +134,6 @@ struct HomeView: View {
 #Preview {
     let context = PersistenceController.preview.container.viewContext
     let spentMoney = Money(context: context)
-    spentMoney.moneyAmount = "3245"
+    spentMoney.moneyAmount = 323
     return HomeView()
 }
