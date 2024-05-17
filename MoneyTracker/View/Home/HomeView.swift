@@ -118,18 +118,14 @@ struct HomeView: View {
     
     
     func calculateSpentMoneyToday() {
-        let intValues: [Int] = moneyRecords.compactMap { Int($0.moneyAmount) }
-        print("Int: \(intValues)")
+        /// Array of MoneyAmounts (records from DB) is converted to Int values and then we get the sum of all values in array
+        /// ["1244", "54", "2"] -> [1244, 54, 2] -> 1300 (calculation: 1244+54+2 )
+        let moneySum: Int = moneyRecords.compactMap { Int($0.moneyAmount) }.reduce(0, +)
         
-        let sum = intValues.reduce(0, +)
-        print("Sum: \(sum)")
-        
-        let double = Double(sum)/100
-        
-        let str = String(describing: double).formatAsCurrency()
-        print("str: \(str)")
-        
-        self.spentMoneyToday = str
+        /// Sum of money is converted from Int to Double and devided to 100 - to get currency value (with cents)
+        /// after that it formatted to String (currency format) for TextView
+        /// 1300/100 = 13.00 -> "13,00" (currency format)
+        self.spentMoneyToday = String(describing: Double(moneySum)/100).formatAsCurrency()
     }
 }
 
