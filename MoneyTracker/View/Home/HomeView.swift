@@ -12,7 +12,7 @@ struct HomeView: View {
 //    @Environment(\.managedObjectContext) var context
     // MARK: - State -
     @State private var currentBalance: Double = 28.61
-    @State private var isChangeBudgetViewShowing = false
+    @State private var isMakeNewRecordPresented = false
     
     // MARK: - DataBase -
     // TEST
@@ -42,13 +42,13 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.isChangeBudgetViewShowing.toggle()
+                        self.isMakeNewRecordPresented.toggle()
                     }, label: {
                         Image(systemName: "plus")
                             .font(Font.system(size: 36))
                             .foregroundStyle(.white)
                     })
-                    .fullScreenCover(isPresented: $isChangeBudgetViewShowing, content: MakeNewMoneyFlowRecordView.init)
+                    .fullScreenCover(isPresented: $isMakeNewRecordPresented, content: { MakeNewMoneyRecordView(viewModel: MakeNewMoneyRecordViewModel(), isPresented: $isMakeNewRecordPresented) })
                 }
                 .padding(.trailing, 40)
                 

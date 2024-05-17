@@ -1,5 +1,5 @@
 //
-//  MakeNewMoneyFlowRecordView.swift
+//  MakeNewMoneyRecordView.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 04.04.24.
@@ -9,23 +9,17 @@ import SwiftUI
 import Combine
 import CoreData
 
-struct MakeNewMoneyFlowRecordView: View {
-    
+struct MakeNewMoneyRecordView: View {
     // MARK: - Environment -
-    @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.dismiss) var dismiss
     
     // MARK: - State -
+    @ObservedObject var viewModel: MakeNewMoneyRecordViewModel
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyTextFieldKeyboardFocused: Bool
-    @State private var recordType: RecordType = .expense
-    @State private var selectedCategory = Category(name: "Select Category", iconName: "sun.min")
-    @State private var showCategoriesView = false
-    @State private var inputMoney: String = ""
-    @State private var description: String = ""
+    @Binding var isPresented: Bool
     
-    // MARK: - Properties -
-    let currency: String = "EUR"
     
     // MARK: - Body
     var body: some View {
@@ -41,8 +35,8 @@ struct MakeNewMoneyFlowRecordView: View {
                 
                 /// Money Field
                 CurrencyTextFieldView(
-                    isKeyboardFocused: _isCurrencyTextFieldKeyboardFocused, inputAmount: $inputMoney,
-                    currency: self.currency
+                    isKeyboardFocused: _isCurrencyTextFieldKeyboardFocused, inputAmount: self.$viewModel.newItem.moneyAmount,
+                    currency: self.viewModel.newItem.currency
                 )
                 
                 /// Description
@@ -63,6 +57,9 @@ struct MakeNewMoneyFlowRecordView: View {
             self.isKeyboardFocused = false
             self.isCurrencyTextFieldKeyboardFocused = false
         }
+        .onAppear {
+            self.viewModel.prepareHaptics()
+        }
     }
     
     // MARK: - Views
@@ -71,6 +68,7 @@ struct MakeNewMoneyFlowRecordView: View {
         HStack {
             Spacer()
             Button(action: {
+                self.isPresented = false
                 self.dismiss()
             }, label: {
                 Image(systemName: "plus")
@@ -86,11 +84,11 @@ struct MakeNewMoneyFlowRecordView: View {
         HStack {
             /// Expense
             Button(action: {
-                self.recordType = .expense
+                self.viewModel.newItem.recordType = .expense
             }, label: {
                 Text(RecordType.expense.value)
                     .font(.title3.monospaced())
-                    .opacity(self.recordType == .expense ? 1 : 0.4)
+                    .opacity(self.viewModel.newItem.recordType == .expense ? 1 : 0.4)
             })
             Spacer()
             Rectangle()
@@ -98,11 +96,11 @@ struct MakeNewMoneyFlowRecordView: View {
             Spacer()
             /// Income
             Button(action: {
-                self.recordType = .income
+                self.viewModel.newItem.recordType = .income
             }, label: {
                 Text(RecordType.income.value)
                     .font(.title3.monospaced())
-                    .opacity(self.recordType == .income ? 1 : 0.4)
+                    .opacity(self.viewModel.newItem.recordType == .income ? 1 : 0.4)
             })
         }
         .frame(height: 24)
@@ -117,13 +115,13 @@ struct MakeNewMoneyFlowRecordView: View {
                 .foregroundStyle(Color.lightBlue.opacity(0.4))
                 .frame(height: 92)
             /// Placeholder
-            if self.description.isEmpty {
+            if self.viewModel.newItem.description.isEmpty {
                 Text("Description")
                     .font(.title3.monospaced())
                     .foregroundStyle(.white.opacity(0.4))
             }
             
-            TextField("", text: self.$description, axis: .vertical)
+            TextField("", text: self.$viewModel.newItem.description, axis: .vertical)
                 .onSubmit {
                     self.isKeyboardFocused = false
                 }
@@ -149,19 +147,19 @@ struct MakeNewMoneyFlowRecordView: View {
                     .stroke(.white.opacity(0.4), lineWidth: 0.5)
                     .frame(width: 45, height: 45)
                 
-                Image(systemName: self.selectedCategory.iconName)
+                Image(systemName: self.viewModel.newItem.category.iconName)
                     .font(.title)
             }
             
             /// Category
-            Text(self.selectedCategory.name)
+            Text(self.viewModel.newItem.category.name)
                 .font(.title3.monospaced())
                 .multilineTextAlignment(.leading)
                 .onTapGesture {
-                    self.showCategoriesView.toggle()
+                    self.viewModel.showCategoriesView.toggle()
                 }
-                .sheet(isPresented: self.$showCategoriesView, content: {
-                    CategoriesView(recordType: $recordType, selectedCategory: $selectedCategory)
+                .sheet(isPresented: self.$viewModel.showCategoriesView, content: {
+                    CategoriesView(recordType: self.$viewModel.newItem.recordType, selectedCategory: self.$viewModel.newItem.category)
                 })
         }
         .padding(.horizontal, 60)
@@ -170,24 +168,21 @@ struct MakeNewMoneyFlowRecordView: View {
     /// Add
     private var addButtonView: some View {
         Button {
-            
-            // TODO: - FOR TESTING -> create records with past Date() -
-//                let pastdate = Calendar.current.date(byAdding: .day, value: -2, to: .now)
-            
-            if let intValue = Int64(inputMoney), selectedCategory.name != "Select Category" {
+            if !self.viewModel.newItem.moneyAmount.isEmpty {
+                self.viewModel.saveNewRecord(self.viewContext)
                 
-                Money.makeNewRecordWith(
-                    moneyAmount: intValue,
-                    currency: self.currency,
-                    isIncome: self.recordType == .income ? true : false,
-                    categoryName: self.selectedCategory.name,
-                    categoryIcon: self.selectedCategory.iconName,
-                    timestamp: Date(),
-                    notes: self.description,
-                    using: self.viewContext
-                )
-                Constants.vibrate()
-                self.dismiss()
+                self.viewModel.shortVibrate()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.viewModel.shortVibrate()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        self.dismiss()
+                    }
+                }
+            } 
+            else
+            {
+                /// Vibrate long
+                self.viewModel.longVibrate()
             }
         } label: {
             Text("Add")
@@ -207,5 +202,5 @@ struct MakeNewMoneyFlowRecordView: View {
 
 // MARK: - Preview
 #Preview {
-    MakeNewMoneyFlowRecordView()
+    MakeNewMoneyRecordView(viewModel: MakeNewMoneyRecordViewModel(), isPresented: .constant(false))
 }

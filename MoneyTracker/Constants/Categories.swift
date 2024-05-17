@@ -9,8 +9,8 @@ import Foundation
 
 struct Category: Hashable {
     let id = UUID()
-    let name: String
-    let iconName: String
+    var name: String
+    var iconName: String
 }
 
 final class Categories {

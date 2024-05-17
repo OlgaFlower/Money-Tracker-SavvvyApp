@@ -9,11 +9,12 @@ import SwiftUI
 
 struct MoneyModel: Identifiable {
     let id = UUID()
-    let recordType: RecordType
-    let icon: String
-    let title: String
-    let sum: String
-    let description: String?
+    var recordType: RecordType
+    var category: Category
+    var moneyAmount: String
+    var description: String
+    var currency: String
+    
 }
 
 enum RecordType: Identifiable {
