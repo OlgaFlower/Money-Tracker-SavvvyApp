@@ -10,22 +10,19 @@ import CoreData
 
 struct HomeView: View {
     
-    @Environment(\.managedObjectContext) var viewContext
-    
     // MARK: - State -
     @State private var currentBalance: Double = 28.61
     @State private var isChangeBudgetViewShowing = false
-    @State private var spentMoneyToday: String = "0,00"
+    
+    // MARK: - DataBase -
+    @FetchRequest(entity: Money.entity(), sortDescriptors: []) var moneyRecords: FetchedResults<Money>
     
     // MARK: - Properties
     private let minValue: Double = 0.00
     private var dayBudget: Double = 465.00
     private let infoBoardWidth = Constants.screenWidth / 2.8
-    
-    // MARK: - DataBase -
-    private let moneyFetchRequest = Money.basicFetchRequest()
-    var moneyRecords: FetchedResults<Money> {
-        moneyFetchRequest.wrappedValue
+    var spentMoneyToday: String {
+        self.calculateSpentMoneyToday()
     }
     
     // MARK: - Body
@@ -63,9 +60,6 @@ struct HomeView: View {
                 Spacer()
             }
             .padding(.top, 25)
-        }
-        .onAppear {
-            self.calculateSpentMoneyToday()
         }
     }
     
@@ -119,7 +113,7 @@ struct HomeView: View {
         .gaugeStyle(ChartHalfDonut())
     }
     
-    func calculateSpentMoneyToday() {
+    func calculateSpentMoneyToday() -> String {
         /// Array of MoneyAmounts (records from DB) is converted to Int values and then we get the sum of all values in array
         /// ["1244", "54", "2"] -> [1244, 54, 2] -> 1300 (calculation: 1244+54+2 )
         let moneySum: Int = moneyRecords.compactMap { Int($0.moneyAmount) }.reduce(0, +)
@@ -127,7 +121,7 @@ struct HomeView: View {
         /// Sum of money is converted from Int to Double and devided to 100 - to get currency value (with cents)
         /// after that it formatted to String (currency format) for TextView
         /// 1300/100 = 13.00 -> "13,00" (currency format)
-        self.spentMoneyToday = String(describing: Double(moneySum)/100).formatAsCurrency()
+        return String(describing: Double(moneySum)/100).formatAsCurrency()
     }
 }
 
