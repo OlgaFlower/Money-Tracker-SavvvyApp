@@ -54,6 +54,14 @@ extension Money {
         FetchRequest(entity: Money.entity(), sortDescriptors: [])
     }
     
+    static func fetchTodayRecords() -> FetchRequest<Money> {
+        let timestampSortDescriptor = NSSortDescriptor(keyPath: \Money.timestamp , ascending: true)
+        
+        let timestampPredicate = NSPredicate(format: "timestamp >= %@ AND timestamp < %@", Calendar.current.startOfDay(for: Date()) as NSDate, Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: Date()))! as NSDate)
+        
+        return FetchRequest<Money>(entity: Money.entity(), sortDescriptors: [timestampSortDescriptor], predicate: timestampPredicate)
+    }
+    
     // MARK: - TODO: Delete this func after all, it's for testing! -
     /// Delete ALL objects
     static func deleteAllObjects(context: NSManagedObjectContext) {

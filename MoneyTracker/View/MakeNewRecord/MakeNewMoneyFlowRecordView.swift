@@ -172,7 +172,11 @@ struct MakeNewMoneyFlowRecordView: View {
     private var addButtonView: some View {
         Button {
             
+            // TODO: - FOR TESTING -> create records with past Date() -
+//                let pastdate = Calendar.current.date(byAdding: .day, value: -2, to: .now)
+            
             if let intValue = Int64(inputMoney) {
+                
                 Money.makeNewRecordWith(
                     moneyAmount: intValue,
                     currency: self.currency,
