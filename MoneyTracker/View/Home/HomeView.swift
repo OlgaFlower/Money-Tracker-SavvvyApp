@@ -9,26 +9,24 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
-//    @Environment(\.managedObjectContext) var context
+    
     // MARK: - State -
-    @State private var currentBalance: Double = 28.61
-    @State private var isMakeNewRecordPresented = false
+    @ObservedObject var viewModel: HomeViewModel
     
     // MARK: - DataBase -
-    // TEST
+    /// TODO:  TEST
+    /// ALL Records
     @FetchRequest(entity: Money.entity(), sortDescriptors: []) var moneyRecords: FetchedResults<Money>
-    
+    /// TODAY Records
     var todayRecordsFetchRequest = Money.fetchTodayRecords()
     var todayRecords: FetchedResults<Money> {
         todayRecordsFetchRequest.wrappedValue
     }
     
     // MARK: - Properties
-    private let minValue: Double = 0.00
-    private var dayBudget: Double = 465.00
-    private let infoBoardWidth = Constants.screenWidth / 2.8
-    private var spentMoneyToday: String {
-        self.calculateSpentMoneyToday()
+     let infoBoardWidth = Constants.screenWidth / 2.8
+     var spentMoneyToday: String {
+         return self.viewModel.calculateSpentMoneyToday(records: todayRecords)
     }
     
     // MARK: - Body
@@ -42,13 +40,21 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.isMakeNewRecordPresented.toggle()
+                        self.viewModel.isMakeNewRecordViewPresented.toggle()
                     }, label: {
                         Image(systemName: "plus")
                             .font(Font.system(size: 36))
                             .foregroundStyle(.white)
                     })
-                    .fullScreenCover(isPresented: $isMakeNewRecordPresented, content: { MakeNewMoneyRecordView(viewModel: MakeNewMoneyRecordViewModel(), isPresented: $isMakeNewRecordPresented) })
+                    .fullScreenCover(
+                        isPresented: self.$viewModel.isMakeNewRecordViewPresented,
+                        content: {
+                            MakeNewMoneyRecordView(
+                                viewModel: MakeNewMoneyRecordViewModel(),
+                                isPresented: self.$viewModel.isMakeNewRecordViewPresented
+                            )
+                        }
+                    )
                 }
                 .padding(.trailing, 40)
                 
@@ -109,37 +115,27 @@ struct HomeView: View {
             // TODO: - FOR TESTING -
 //            Money.deleteAllObjects(context: self.context)
             print("Today records: \(self.todayRecords)")
-            print("ALL records: \(self.moneyRecords)")
+//            print("ALL records: \(self.moneyRecords)")
         }
     }
     
     /// Chart
-    private func makeChart() -> some View {
+     func makeChart() -> some View {
         Gauge(
-            value: self.currentBalance,
-            in: 0...self.dayBudget
+            value: self.viewModel.currentBalance,
+            in: 0...self.viewModel.todayBudget
         ) {
         } currentValueLabel: {
-            Text("\(self.currentBalance, specifier: "%.2f")")
+            Text("\(self.viewModel.currentBalance, specifier: "%.2f")")
         }
         .gaugeStyle(ChartHalfDonut())
-    }
-    
-    func calculateSpentMoneyToday() -> String {
-        /// Array of MoneyAmounts (records from DB) is converted to Int values and then we get the sum of all values in array
-        /// ["1244", "54", "2"] -> [1244, 54, 2] -> 1300 (calculation: 1244+54+2 )
-        let moneySum: Int = todayRecords.compactMap { Int($0.moneyAmount) }.reduce(0, +)
-        
-        /// Sum of money is converted from Int to Double and devided to 100 - to get currency value (with cents)
-        /// after that it formatted to String (currency format) for TextView
-        /// 1300/100 = 13.00 -> "13,00" (currency format)
-        return String(describing: Double(moneySum)/100).formatAsCurrency()
     }
 }
 
 #Preview {
+    
     let context = PersistenceController.preview.container.viewContext
     let spentMoney = Money(context: context)
     spentMoney.moneyAmount = 323
-    return HomeView()
+    return HomeView(viewModel: HomeViewModel())
 }

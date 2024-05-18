@@ -12,10 +12,35 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     
     // MARK: - Properties -
     @Published var showCategoriesView = false
-    @Published var newItem = MoneyModel(recordType: .expense, category: Category(name: "Select Category", iconName: "sun.min"), moneyAmount: "", description: "", currency: "EUR")
+    @Published var newItem: MoneyModel = MoneyModel(
+        recordType: .expense,
+        category: Category(
+            name: "",
+            iconName: ""
+        ),
+        moneyAmount: "",
+        description: "",
+        currency: ""
+    )
     @Published var engine: CHHapticEngine?
     
+    init() {
+        self.newItem = self.setDefaultValues()
+    }
+    
     // MARK: - Functions
+    func setDefaultValues() -> MoneyModel {
+        return MoneyModel(
+            recordType: .expense,
+            category: Category(
+                name: "Select Category",
+                iconName: "sun.min"
+            ),
+            moneyAmount: "",
+            description: "",
+            currency: "EUR"
+        )
+    }
     
     /// TODO: - FOR TESTING -> create records with past Date() -
     //let pastdate = Calendar.current.date(byAdding: .day, value: -2, to: .now)

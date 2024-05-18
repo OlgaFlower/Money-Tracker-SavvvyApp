@@ -55,6 +55,7 @@
 		42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */; };
 		42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */; };
 		42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */; };
+		42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE62BF86749002CD159 /* HomeViewModel.swift */; };
 		42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */; };
 		42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4FB5E2BF6415D007A580E /* PersistenceController.swift */; };
 		42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */; };
@@ -130,6 +131,7 @@
 		42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordViewModel.swift; sourceTree = "<group>"; };
+		42D45CE62BF86749002CD159 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextFieldView.swift; sourceTree = "<group>"; };
 		42F4FB5E2BF6415D007A580E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				42714FD02BBEF6160085FA7C /* MakeNewRecord */,
+				42B9F10A2BF3CE8700D719E3 /* Categories */,
 				42A11C2D2BB935D4003B617D /* Home */,
 				42A11C282BB6FB9F003B617D /* TrackingLogs */,
 				4251FA482BAB22AD0087ABE7 /* BankAcoountsView */,
@@ -366,7 +369,6 @@
 			children = (
 				42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */,
 				42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */,
-				42B9F10A2BF3CE8700D719E3 /* Categories */,
 			);
 			path = MakeNewRecord;
 			sourceTree = "<group>";
@@ -393,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				42A11C2E2BB935E5003B617D /* HomeView.swift */,
+				42D45CE62BF86749002CD159 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */,
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,
 				423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */,
+				42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */,
 				42714FDC2BC1200C0085FA7C /* TemporaryIncome.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
