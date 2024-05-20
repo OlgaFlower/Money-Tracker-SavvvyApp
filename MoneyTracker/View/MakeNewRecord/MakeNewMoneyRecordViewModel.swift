@@ -33,7 +33,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         return MoneyModel(
             recordType: .expense,
             category: Category(
-                name: "Select Category",
+                name: "Add Category",
                 iconName: "sun.min"
             ),
             moneyAmount: "",
@@ -48,7 +48,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     func saveNewRecord(_ context: NSManagedObjectContext) {
         
         if let intValue = Int64(self.newItem.moneyAmount),
-           self.newItem.category.name != "Select Category" {
+           self.newItem.category.name != "Add Category" {
             
             Money.makeNewRecordWith(
                 moneyAmount: intValue,

@@ -17,7 +17,7 @@ struct MakeNewMoneyRecordView: View {
     // MARK: - State -
     @ObservedObject var viewModel: MakeNewMoneyRecordViewModel
     @FocusState var isKeyboardFocused: Bool
-    @FocusState var isCurrencyTextFieldKeyboardFocused: Bool
+    @FocusState var isCurrencyKeyboardFocused: Bool
     @Binding var isPresented: Bool
     
     
@@ -35,7 +35,7 @@ struct MakeNewMoneyRecordView: View {
                 
                 /// Money Field
                 CurrencyTextFieldView(
-                    isKeyboardFocused: _isCurrencyTextFieldKeyboardFocused, inputAmount: self.$viewModel.newItem.moneyAmount,
+                    isKeyboardFocused: _isCurrencyKeyboardFocused, inputAmount: self.$viewModel.newItem.moneyAmount,
                     currency: self.viewModel.newItem.currency
                 )
                 
@@ -55,7 +55,7 @@ struct MakeNewMoneyRecordView: View {
         }
         .onTapGesture {
             self.isKeyboardFocused = false
-            self.isCurrencyTextFieldKeyboardFocused = false
+            self.isCurrencyKeyboardFocused = false
         }
         .onAppear {
             self.viewModel.prepareHaptics()
@@ -156,6 +156,8 @@ struct MakeNewMoneyRecordView: View {
                 .font(.title3.monospaced())
                 .multilineTextAlignment(.leading)
                 .onTapGesture {
+                    self.isKeyboardFocused = false
+                    self.isCurrencyKeyboardFocused = false
                     self.viewModel.showCategoriesView.toggle()
                 }
                 .sheet(isPresented: self.$viewModel.showCategoriesView, content: {
