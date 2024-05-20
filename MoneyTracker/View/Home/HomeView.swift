@@ -6,15 +6,28 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
     
+    // MARK: - State -
+    @ObservedObject var viewModel: HomeViewModel
+    
+    // MARK: - DataBase -
+    /// TODO:  TEST
+    /// ALL Records
+    @FetchRequest(entity: Money.entity(), sortDescriptors: []) var moneyRecords: FetchedResults<Money>
+    /// TODAY Records
+    var todayRecordsFetchRequest = Money.fetchTodayRecords()
+    var todayRecords: FetchedResults<Money> {
+        todayRecordsFetchRequest.wrappedValue
+    }
+    
     // MARK: - Properties
-    private let minValue: Double = 0.00
-    private var dayBudget: Double = 65.50
-    private let infoBoardWidth = Constants.screenWidth / 2.8
-    @State private var currentBalance: Double = 28.61
-    @State private var isChangeBudgetViewShowing = false
+     let infoBoardWidth = Constants.screenWidth / 2.8
+     var spentMoneyToday: String {
+         return self.viewModel.calculateSpentMoneyToday(records: todayRecords)
+    }
     
     // MARK: - Body
     var body: some View {
@@ -27,13 +40,21 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.isChangeBudgetViewShowing.toggle()
+                        self.viewModel.isMakeNewRecordViewPresented.toggle()
                     }, label: {
                         Image(systemName: "plus")
                             .font(Font.system(size: 36))
                             .foregroundStyle(.white)
                     })
-                    .fullScreenCover(isPresented: $isChangeBudgetViewShowing, content: MakeNewMoneyFlowRecordView.init)
+                    .fullScreenCover(
+                        isPresented: self.$viewModel.isMakeNewRecordViewPresented,
+                        content: {
+                            MakeNewMoneyRecordView(
+                                viewModel: MakeNewMoneyRecordViewModel(),
+                                isPresented: self.$viewModel.isMakeNewRecordViewPresented
+                            )
+                        }
+                    )
                 }
                 .padding(.trailing, 40)
                 
@@ -45,8 +66,8 @@ struct HomeView: View {
                 
                 /// Budget Information
                 self.budgetInformationView
-                .padding(.horizontal, 24)
-                .padding(.top, 35)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 35)
                 
                 Spacer()
             }
@@ -65,7 +86,7 @@ struct HomeView: View {
                     .foregroundStyle(.white.opacity(0.8))
                 
                 // TODO: - Animated changing of the spent sum!
-                Text("36,89")
+                Text(String(describing: self.spentMoneyToday))
                     .font(.title2)
                     .fontDesign(.monospaced)
                     .foregroundStyle(.white.opacity(0.8))
@@ -80,7 +101,7 @@ struct HomeView: View {
                 Text("BUDGET")
                     .font(.title2)
                     .fontDesign(.monospaced)
-                .foregroundStyle(.white.opacity(0.8))
+                    .foregroundStyle(.white.opacity(0.8))
                 
                 // TODO: - Animated changing of the budget sum!
                 Text("65,50")
@@ -90,20 +111,31 @@ struct HomeView: View {
             }
             .frame(width: self.infoBoardWidth)
         }
+        .onAppear {
+            // TODO: - FOR TESTING -
+//            Money.deleteAllObjects(context: self.context)
+            print("Today records: \(self.todayRecords)")
+//            print("ALL records: \(self.moneyRecords)")
+        }
     }
     
-    private func makeChart() -> some View {
+    /// Chart
+     func makeChart() -> some View {
         Gauge(
-            value: self.currentBalance,
-            in: 0...self.dayBudget
+            value: self.viewModel.currentBalance,
+            in: 0...self.viewModel.todayBudget
         ) {
         } currentValueLabel: {
-            Text("\(self.currentBalance, specifier: "%.2f")")
+            Text("\(self.viewModel.currentBalance, specifier: "%.2f")")
         }
         .gaugeStyle(ChartHalfDonut())
     }
 }
 
 #Preview {
-    HomeView()
+    
+    let context = PersistenceController.preview.container.viewContext
+    let spentMoney = Money(context: context)
+    spentMoney.moneyAmount = 323
+    return HomeView(viewModel: HomeViewModel())
 }

@@ -17,7 +17,7 @@ struct ContentView: View {
         TabView {
             ///Home
             NavigationStack {
-                HomeView()
+                HomeView(viewModel: HomeViewModel())
                     .navigationTitle("Today's budget")
                     .navigationBarTitleDisplayMode(.large)
             }
