@@ -56,6 +56,8 @@
 		42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */; };
 		42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */; };
 		42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE62BF86749002CD159 /* HomeViewModel.swift */; };
+		42EF87E72BFB6B3A009E0272 /* DropDownMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E62BFB6B3A009E0272 /* DropDownMenuButtonView.swift */; };
+		42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */; };
 		42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */; };
 		42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4FB5E2BF6415D007A580E /* PersistenceController.swift */; };
 		42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */; };
@@ -132,6 +134,8 @@
 		42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordViewModel.swift; sourceTree = "<group>"; };
 		42D45CE62BF86749002CD159 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		42EF87E62BFB6B3A009E0272 /* DropDownMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuButtonView.swift; sourceTree = "<group>"; };
+		42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesGridView.swift; sourceTree = "<group>"; };
 		42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextFieldView.swift; sourceTree = "<group>"; };
 		42F4FB5E2BF6415D007A580E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		42F75D192BAC4EBE00126417 /* BackgroundGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientView.swift; sourceTree = "<group>"; };
@@ -350,6 +354,8 @@
 				4251FA4C2BAB2B5E0087ABE7 /* BankCardView.swift */,
 				4241F4622BAC6A320048A29B /* Backgrounds */,
 				42A11C2B2BB7389C003B617D /* LogItemView.swift */,
+				42EF87E62BFB6B3A009E0272 /* DropDownMenuButtonView.swift */,
+				42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -605,6 +611,7 @@
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
 				42714FD82BC11D4F0085FA7C /* RegularIncome.swift in Sources */,
 				4241F4712BB1E62E0048A29B /* Country.swift in Sources */,
+				42EF87E72BFB6B3A009E0272 /* DropDownMenuButtonView.swift in Sources */,
 				4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */,
 				42A11C2C2BB7389C003B617D /* LogItemView.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
@@ -625,6 +632,7 @@
 				4241F4772BB3703E0048A29B /* TestView2.swift in Sources */,
 				42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */,
 				42B9F0E22BEA338400D719E3 /* IncomeTypes.swift in Sources */,
+				42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */,
 				42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */,
 				4241F4792BB370540048A29B /* TestView.swift in Sources */,
 				42B9F0E62BEA33F800D719E3 /* SlidingUnderline.swift in Sources */,

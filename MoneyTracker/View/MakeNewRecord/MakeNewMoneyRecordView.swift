@@ -90,10 +90,12 @@ struct MakeNewMoneyRecordView: View {
                     .font(.title3.monospaced())
                     .opacity(self.viewModel.newItem.recordType == .expense ? 1 : 0.4)
             })
+            
             Spacer()
             Rectangle()
                 .frame(width: 0.5)
             Spacer()
+            
             /// Income
             Button(action: {
                 self.viewModel.newItem.recordType = .income

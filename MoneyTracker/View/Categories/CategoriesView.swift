@@ -8,16 +8,25 @@
 import SwiftUI
 
 struct CategoriesView: View {
-    // MARK: - Environment -
-    @Environment(\.dismiss) var dismiss
     
     // MARK: - State -
     @Binding var recordType: RecordType
     @Binding var selectedCategory: Category
+    @State var isGeneralExpensesShowing: Bool = false
+    @State var isRecurringExpensesShowing: Bool = false
     
     // MARK: - Properties
-    private let incomeCategories = Categories.fetchIncomeCategoies()
-    private let expenseCategories = Categories.fetchExpenseCategories()
+    private let incomeCategories: [MoneyCategories] = {
+        Categories.fetchIncomeCategories()
+    }()
+    
+    private let expenseCategories: [Category] = {
+        Categories.fetchExpenseCategories()
+    }()
+    
+    private let recurringCategories: [MoneyCategories] = {
+        Categories.fetchRecurringExpenseCategories()
+    }()
     
     private let fixedColumn = [
         GridItem(.fixed(100)),
@@ -31,35 +40,67 @@ struct CategoriesView: View {
             BackgroundGradView()
             VStack {
                 ScrollView(showsIndicators: false) {
-                    
                     switch self.recordType {
+                        /// EXPENSES
                     case .expense:
-                        LazyVGrid(columns: self.fixedColumn, spacing: 30) {
-                            ForEach(self.expenseCategories, id: \.self) { item in
-                                self.makeIconsGridView(item: item)
+                        VStack {
+                            /// General
+                            DropDownMenuButtonView(
+                                title: "General Expenses",
+                                shouldRotate: self.$isGeneralExpensesShowing
+                            )
+                                .padding(.horizontal, 40)
+                                .onTapGesture {
+                                    withAnimation {
+                                        self.isGeneralExpensesShowing.toggle()
+                                    }
+                                }
+                            
+                            if self.isGeneralExpensesShowing {
+                                CategoriesGridView(categories: self.expenseCategories, selectedCategory: self.$selectedCategory)
+                                .padding(.vertical)
+                            }
+                            
+                            /// Recurring
+                            DropDownMenuButtonView(
+                                title: "Recurring Expenses",
+                                shouldRotate: self.$isRecurringExpensesShowing
+                            )
+                                .padding(.horizontal, 40)
+                                .onTapGesture {
+                                    withAnimation {
+                                        self.isRecurringExpensesShowing.toggle()
+                                    }
+                                }
+                            
+                            if self.isRecurringExpensesShowing {
+                                ForEach(self.recurringCategories, id: \.self) { categories in
+                                    
+                                    self.makeTitleView(title: categories.title)
+                                        .padding(.top, 24)
+                                    
+                                    CategoriesGridView(
+                                        categories: categories.categoryItems,
+                                        selectedCategory: self.$selectedCategory
+                                    )
+                                }
                             }
                         }
-                        .padding(.vertical)
                         
+                        /// INCOME
                     case .income:
-                        /// Permanent
-                        self.makeTitleView(title: "Permanent")
-                            .padding(.top, 24)
-                        LazyVGrid(columns: self.fixedColumn, spacing: 30) {
-                            ForEach(self.incomeCategories.permanent, id: \.self) { item in
-                                self.makeIconsGridView(item: item)
+                        VStack {
+                            ForEach(self.incomeCategories, id: \.self) { categories in
+                                
+                                self.makeTitleView(title: categories.title)
+                                    .padding(.top, 24)
+                                
+                                CategoriesGridView(
+                                    categories: categories.categoryItems,
+                                    selectedCategory: self.$selectedCategory)
                             }
                         }
-                        .padding(.vertical)
-                        
-                        /// Temporary
-                        self.makeTitleView(title: "Temporary")
-                        LazyVGrid(columns: self.fixedColumn, spacing: 30) {
-                            ForEach(self.incomeCategories.temporary, id: \.self) { item in
-                                self.makeIconsGridView(item: item)
-                            }
-                        }
-                        .padding(.vertical)
+                        .padding(.bottom, 24)
                     }
                 }
             }
@@ -67,23 +108,6 @@ struct CategoriesView: View {
     }
     
     // MARK: - Views -
-    
-    private func makeIconsGridView(item: Category) -> some View {
-        VStack {
-            Image(systemName: item.iconName)
-                .frame(width: 80, height: 80, alignment: .center)
-                .background(.blue)
-                .cornerRadius(10)
-            
-            Text(item.name)
-        }
-        .frame(width: 100, height: 100)
-        .foregroundStyle(.white)
-        .onTapGesture {
-            self.selectedCategory = item
-            self.dismiss()
-        }
-    }
     
     private func makeTitleView(title: String) -> some View {
         HStack {
