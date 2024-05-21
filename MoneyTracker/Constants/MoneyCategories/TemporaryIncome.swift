@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TemporaryIncome: String {
+enum TemporaryIncome {
     case project
     case business
     case partTime
@@ -18,8 +18,9 @@ enum TemporaryIncome: String {
     case cashOnHand
     case taxRefund
     case freelance
+    case debt
     
-    var title: String {
+    var string: String {
         switch self {
         case .project: "Project"
         case .business: "Business revenue"
@@ -31,12 +32,12 @@ enum TemporaryIncome: String {
         case .cashOnHand: "Cash on hand"
         case .taxRefund: "Tax refund"
         case .freelance: "Freelance"
+        case .debt: "Debt"
         }
     }
     
     var icon: String {
         switch self {
-            
         case .project: "lightbulb.max"
         case .business: "figure.equestrian.sports"
         case .partTime: "pill"
@@ -47,6 +48,7 @@ enum TemporaryIncome: String {
         case .cashOnHand: "yensign.arrow.circlepath"
         case .taxRefund: "waveform.path.ecg.rectangle"
         case .freelance: "banknote"
+        case .debt: "cloud.sun.bolt"
         }
     }
 }

@@ -35,16 +35,12 @@
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
 		42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */; };
 		42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */; };
-		42714FD82BC11D4F0085FA7C /* RegularIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD72BC11D4F0085FA7C /* RegularIncome.swift */; };
-		42714FDC2BC1200C0085FA7C /* TemporaryIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FDB2BC1200C0085FA7C /* TemporaryIncome.swift */; };
 		42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE52BC16BC10085FA7C /* IncomeModel.swift */; };
-		428D0FFF2BD9415600EAEC3E /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D0FFE2BD9415600EAEC3E /* Icons.swift */; };
 		42A11C252BB6F670003B617D /* LogDateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C242BB6F670003B617D /* LogDateRange.swift */; };
 		42A11C272BB6FB93003B617D /* DailyLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C262BB6FB93003B617D /* DailyLogView.swift */; };
 		42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C292BB7173B003B617D /* MoneyModel.swift */; };
 		42A11C2C2BB7389C003B617D /* LogItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C2B2BB7389C003B617D /* LogItemView.swift */; };
 		42A11C2F2BB935E5003B617D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C2E2BB935E5003B617D /* HomeView.swift */; };
-		42B9F0E22BEA338400D719E3 /* IncomeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F0E12BEA338400D719E3 /* IncomeTypes.swift */; };
 		42B9F0E62BEA33F800D719E3 /* SlidingUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F0E32BEA33F800D719E3 /* SlidingUnderline.swift */; };
 		42B9F0E72BEA33F800D719E3 /* WidthPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F0E42BEA33F800D719E3 /* WidthPreferenceKey.swift */; };
 		42B9F0E82BEA33F800D719E3 /* CustomUnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F0E52BEA33F800D719E3 /* CustomUnderlineView.swift */; };
@@ -56,6 +52,11 @@
 		42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */; };
 		42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */; };
 		42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE62BF86749002CD159 /* HomeViewModel.swift */; };
+		42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */; };
+		42EB69362BFCD8F700FF4E7F /* MoneySectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB69352BFCD8F700FF4E7F /* MoneySectionType.swift */; };
+		42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB693B2BFCFE9100FF4E7F /* RegularIncome.swift */; };
+		42EB693E2BFCFEA500FF4E7F /* TemporaryIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB693D2BFCFEA500FF4E7F /* TemporaryIncome.swift */; };
+		42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB693F2BFD033600FF4E7F /* GeneralExpenses.swift */; };
 		42EF87E72BFB6B3A009E0272 /* DropDownMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E62BFB6B3A009E0272 /* DropDownMenuButtonView.swift */; };
 		42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */; };
 		42EF87EB2BFBEB6D009E0272 /* CategoriesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87EA2BFBEB6D009E0272 /* CategoriesCellView.swift */; };
@@ -114,16 +115,12 @@
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
 		42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHalfDonut.swift; sourceTree = "<group>"; };
 		42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordView.swift; sourceTree = "<group>"; };
-		42714FD72BC11D4F0085FA7C /* RegularIncome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularIncome.swift; sourceTree = "<group>"; };
-		42714FDB2BC1200C0085FA7C /* TemporaryIncome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryIncome.swift; sourceTree = "<group>"; };
 		42714FE52BC16BC10085FA7C /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
-		428D0FFE2BD9415600EAEC3E /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		42A11C242BB6F670003B617D /* LogDateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDateRange.swift; sourceTree = "<group>"; };
 		42A11C262BB6FB93003B617D /* DailyLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogView.swift; sourceTree = "<group>"; };
 		42A11C292BB7173B003B617D /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		42A11C2B2BB7389C003B617D /* LogItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItemView.swift; sourceTree = "<group>"; };
 		42A11C2E2BB935E5003B617D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		42B9F0E12BEA338400D719E3 /* IncomeTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeTypes.swift; sourceTree = "<group>"; };
 		42B9F0E32BEA33F800D719E3 /* SlidingUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlidingUnderline.swift; path = MoneyTracker/View/CustomViews/SlidingButtonUnderline/SlidingUnderline.swift; sourceTree = SOURCE_ROOT; };
 		42B9F0E42BEA33F800D719E3 /* WidthPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WidthPreferenceKey.swift; path = MoneyTracker/View/CustomViews/SlidingButtonUnderline/WidthPreferenceKey.swift; sourceTree = SOURCE_ROOT; };
 		42B9F0E52BEA33F800D719E3 /* CustomUnderlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomUnderlineView.swift; path = MoneyTracker/View/CustomViews/SlidingButtonUnderline/CustomUnderlineView.swift; sourceTree = SOURCE_ROOT; };
@@ -135,6 +132,11 @@
 		42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordViewModel.swift; sourceTree = "<group>"; };
 		42D45CE62BF86749002CD159 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenses.swift; sourceTree = "<group>"; };
+		42EB69352BFCD8F700FF4E7F /* MoneySectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySectionType.swift; sourceTree = "<group>"; };
+		42EB693B2BFCFE9100FF4E7F /* RegularIncome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularIncome.swift; sourceTree = "<group>"; };
+		42EB693D2BFCFEA500FF4E7F /* TemporaryIncome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryIncome.swift; sourceTree = "<group>"; };
+		42EB693F2BFD033600FF4E7F /* GeneralExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenses.swift; sourceTree = "<group>"; };
 		42EF87E62BFB6B3A009E0272 /* DropDownMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuButtonView.swift; sourceTree = "<group>"; };
 		42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesGridView.swift; sourceTree = "<group>"; };
 		42EF87EA2BFBEB6D009E0272 /* CategoriesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCellView.swift; sourceTree = "<group>"; };
@@ -198,10 +200,9 @@
 		4241F46F2BB1E61A0048A29B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				42EB69322BFCD8AF00FF4E7F /* MoneyCategories */,
 				4241F4702BB1E62E0048A29B /* Country.swift */,
 				423DF4222BD6369000CBB6D5 /* Constants.swift */,
-				428D0FFE2BD9415600EAEC3E /* Icons.swift */,
-				42B9F10D2BF3CF0700D719E3 /* Categories.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -293,11 +294,10 @@
 		424275342BA503BF001873A3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				42B9F0E12BEA338400D719E3 /* IncomeTypes.swift */,
 				4241F46B2BB1C6210048A29B /* BankCardModel.swift */,
 				42A11C242BB6F670003B617D /* LogDateRange.swift */,
 				42A11C292BB7173B003B617D /* MoneyModel.swift */,
-				42714FDD2BC123AB0085FA7C /* Income */,
+				42714FE52BC16BC10085FA7C /* IncomeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -382,16 +382,6 @@
 			path = MakeNewRecord;
 			sourceTree = "<group>";
 		};
-		42714FDD2BC123AB0085FA7C /* Income */ = {
-			isa = PBXGroup;
-			children = (
-				42714FE52BC16BC10085FA7C /* IncomeModel.swift */,
-				42714FD72BC11D4F0085FA7C /* RegularIncome.swift */,
-				42714FDB2BC1200C0085FA7C /* TemporaryIncome.swift */,
-			);
-			path = Income;
-			sourceTree = "<group>";
-		};
 		42A11C282BB6FB9F003B617D /* TrackingLogs */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +432,19 @@
 				42F4FB5E2BF6415D007A580E /* PersistenceController.swift */,
 			);
 			path = MoneyTrackerDB;
+			sourceTree = "<group>";
+		};
+		42EB69322BFCD8AF00FF4E7F /* MoneyCategories */ = {
+			isa = PBXGroup;
+			children = (
+				42B9F10D2BF3CF0700D719E3 /* Categories.swift */,
+				42EB693D2BFCFEA500FF4E7F /* TemporaryIncome.swift */,
+				42EB693B2BFCFE9100FF4E7F /* RegularIncome.swift */,
+				42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */,
+				42EB69352BFCD8F700FF4E7F /* MoneySectionType.swift */,
+				42EB693F2BFD033600FF4E7F /* GeneralExpenses.swift */,
+			);
+			path = MoneyCategories;
 			sourceTree = "<group>";
 		};
 		42FD6DB82BA5094B00B9DC70 /* CustomViews */ = {
@@ -593,11 +596,13 @@
 				4251FA4D2BAB2B5E0087ABE7 /* BankCardView.swift in Sources */,
 				423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */,
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
+				42EB69362BFCD8F700FF4E7F /* MoneySectionType.swift in Sources */,
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
 				424275392BA50522001873A3 /* LoginView.swift in Sources */,
 				4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */,
 				4241F4732BB22B030048A29B /* PagingIndicator.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoriesView.swift in Sources */,
+				42EB693E2BFCFEA500FF4E7F /* TemporaryIncome.swift in Sources */,
 				42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */,
 				42B9F10E2BF3CF0700D719E3 /* Categories.swift in Sources */,
 				4241F46C2BB1C6210048A29B /* BankCardModel.swift in Sources */,
@@ -605,27 +610,27 @@
 				42B9F0E72BEA33F800D719E3 /* WidthPreferenceKey.swift in Sources */,
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */,
+				42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */,
 				42EF87EB2BFBEB6D009E0272 /* CategoriesCellView.swift in Sources */,
 				42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */,
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,
 				423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */,
 				42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */,
-				42714FDC2BC1200C0085FA7C /* TemporaryIncome.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
-				42714FD82BC11D4F0085FA7C /* RegularIncome.swift in Sources */,
 				4241F4712BB1E62E0048A29B /* Country.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* DropDownMenuButtonView.swift in Sources */,
 				4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */,
+				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
 				42A11C2C2BB7389C003B617D /* LogItemView.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				4251FA4A2BAB22C00087ABE7 /* BankAccountsView.swift in Sources */,
 				42B9F0E82BEA33F800D719E3 /* CustomUnderlineView.swift in Sources */,
 				42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */,
 				4241F46E2BB1CBBF0048A29B /* BankAccountsViewModel.swift in Sources */,
-				428D0FFF2BD9415600EAEC3E /* Icons.swift in Sources */,
 				42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */,
 				42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */,
+				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
 				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,
 				423DF4272BD6DA2C00CBB6D5 /* DropDownMenuView.swift in Sources */,
 				42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */,
@@ -635,7 +640,6 @@
 				42A11C272BB6FB93003B617D /* DailyLogView.swift in Sources */,
 				4241F4772BB3703E0048A29B /* TestView2.swift in Sources */,
 				42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */,
-				42B9F0E22BEA338400D719E3 /* IncomeTypes.swift in Sources */,
 				42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */,
 				42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */,
 				4241F4792BB370540048A29B /* TestView.swift in Sources */,

@@ -53,15 +53,24 @@ struct CategoriesCellView: View {
 }
 
 #Preview {
-    CategoriesView(recordType: .constant(.expense), selectedCategory: .constant(.init(name: "Salary", iconName: "sun.max")))
-    
-//    CategoriesCellView(
-//        categories:
-//            [Category(name: "Salary", iconName: "sun.max"),
-//             Category(name: "Scholarship", iconName: "sunrise"),
-//             Category(name: "Government aid", iconName: "sunset"),
-//             Category(name: "Pension", iconName: "sun.horizon")
-//            ],
-//        selectedCategory: .constant(Category(name: "Pension", iconName: "sun.horizon"))
-//    )
+    CategoriesCellView(
+        categories:
+            [Category(moneyGroupType: .regularIncome, 
+                      name: "Salary",
+                      icon: "sun.max"),
+             Category(moneyGroupType: .regularIncome, 
+                      name: "Scholarship",
+                      icon: "sunrise"),
+             Category(moneyGroupType: .regularIncome, 
+                      name: "Government aid",
+                      icon: "sunset"),
+             Category(moneyGroupType: .regularIncome, 
+                      name: "Pension",
+                      icon: "sun.horizon")
+            ],
+        selectedCategory: .constant(Category(moneyGroupType: .regularIncome, 
+                                             name: "Pension",
+                                             icon: "sun.horizon")
+        )
+    )
 }

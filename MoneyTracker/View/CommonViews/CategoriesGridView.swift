@@ -18,7 +18,8 @@ struct CategoriesGridView: View {
         GridItem(.fixed(100)),
         GridItem(.fixed(100))
     ]
-    let categories: [Category]
+    
+    let categories: MoneyCategories
     
     // MARK: - State -
     @Binding var selectedCategory: Category
@@ -26,7 +27,7 @@ struct CategoriesGridView: View {
     // MARK: - Body -
     var body: some View {
         LazyVGrid(columns: self.fixedColumn, spacing: 30) {
-            ForEach(self.categories, id: \.self) { item in
+            ForEach(self.categories.categoryItems, id: \.self) { item in
                 self.makeIconsGridView(item: item)
             }
         }
@@ -35,7 +36,7 @@ struct CategoriesGridView: View {
     // MARK: - Functions -
     private func makeIconsGridView(item: Category) -> some View {
         VStack {
-            Image(systemName: item.iconName)
+            Image(systemName: item.icon)
                 .frame(width: 80, height: 80, alignment: .center)
                 .background(.blue)
                 .cornerRadius(10)
@@ -54,12 +55,21 @@ struct CategoriesGridView: View {
 // MARK: - Preview -
 #Preview {
     CategoriesGridView(
-        categories:
-            [Category(name: "Salary", iconName: "sun.max"),
-             Category(name: "Scholarship", iconName: "sunrise"),
-             Category(name: "Government aid", iconName: "sunset"),
-             Category(name: "Pension", iconName: "sun.horizon")
-            ],
-        selectedCategory: .constant(Category(name: "Pension", iconName: "sun.horizon"))
+        categories: MoneyCategories(
+            categoryItems: [
+                Category(
+                    moneyGroupType: .generalExpense,
+                    name: "Salary",
+                    icon: "sun.max"
+                )
+            ]
+        ),
+        selectedCategory: .constant(
+            Category(
+                moneyGroupType: .regularIncome, 
+                name: "Pension",
+                icon: "sun.horizon"
+            )
+        )
     )
 }

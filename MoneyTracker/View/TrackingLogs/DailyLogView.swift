@@ -9,28 +9,28 @@ import SwiftUI
 
 struct DailyLogView: View {
     
-    let moneyData = [
-        MoneyModel(recordType: .income, category: Category(name: "Medicines", iconName: "gym.bag") , moneyAmount: "2342", description: "", currency: "EUR")
-    ]
+//    let moneyData = [
+//        MoneyModel(recordType: .income, category: Category(name: "Medicines", iconName: "gym.bag") , moneyAmount: "2342", description: "", currency: "EUR")
+//    ]
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .foregroundStyle(.mainNavy.opacity(0.02))
-                .ignoresSafeArea()
-            
-            VStack(spacing: 0) {
-                makeList()
-            }
-            .padding(.horizontal, 24)
+//            Rectangle()
+//                .foregroundStyle(.mainNavy.opacity(0.02))
+//                .ignoresSafeArea()
+//            
+//            VStack(spacing: 0) {
+//                makeList()
+//            }
+//            .padding(.horizontal, 24)
         }
     }
     
-    private func makeList() -> some View {
-        ForEach(moneyData) { record in
-            LogItemView(record: record)
-        }
-    }
+//    private func makeList() -> some View {
+//        ForEach(moneyData) { record in
+//            LogItemView(record: record)
+//        }
+//    }
 }
 
 #Preview {

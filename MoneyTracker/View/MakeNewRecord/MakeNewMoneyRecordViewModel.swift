@@ -15,8 +15,9 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     @Published var newItem: MoneyModel = MoneyModel(
         recordType: .expense,
         category: Category(
+            moneyGroupType: .generalExpense,
             name: "",
-            iconName: ""
+            icon: ""
         ),
         moneyAmount: "",
         description: "",
@@ -33,8 +34,9 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         return MoneyModel(
             recordType: .expense,
             category: Category(
+                moneyGroupType: .generalExpense,
                 name: "Add Category",
-                iconName: "sun.min"
+                icon: "sun.min"
             ),
             moneyAmount: "",
             description: "",
@@ -55,7 +57,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
                 currency: self.newItem.currency,
                 isIncome: self.newItem.recordType == .income ? true : false,
                 categoryName: self.newItem.category.name,
-                categoryIcon: self.newItem.category.iconName,
+                categoryIcon: self.newItem.category.icon,
                 timestamp: Date(),
                 notes: self.newItem.description,
                 using: context

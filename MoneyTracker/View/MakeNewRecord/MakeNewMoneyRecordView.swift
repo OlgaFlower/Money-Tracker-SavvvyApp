@@ -35,7 +35,8 @@ struct MakeNewMoneyRecordView: View {
                 
                 /// Money Field
                 CurrencyTextFieldView(
-                    isKeyboardFocused: _isCurrencyKeyboardFocused, inputAmount: self.$viewModel.newItem.moneyAmount,
+                    isKeyboardFocused: _isCurrencyKeyboardFocused, 
+                    inputAmount: self.$viewModel.newItem.moneyAmount,
                     currency: self.viewModel.newItem.currency
                 )
                 
@@ -149,7 +150,7 @@ struct MakeNewMoneyRecordView: View {
                     .stroke(.white.opacity(0.4), lineWidth: 0.5)
                     .frame(width: 45, height: 45)
                 
-                Image(systemName: self.viewModel.newItem.category.iconName)
+                Image(systemName: self.viewModel.newItem.category.icon)
                     .font(.title)
             }
             

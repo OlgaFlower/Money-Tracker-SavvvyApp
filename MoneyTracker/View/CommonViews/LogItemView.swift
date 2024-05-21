@@ -22,7 +22,7 @@ struct LogItemView: View {
                     Rectangle()
                         .frame(width: 40, height: 40)
                         .foregroundStyle(.clear)
-                    Image(systemName: record.category.iconName)
+                    Image(systemName: record.category.icon)
                         .resizable()
                         .frame(width: 25, height: 25)
                 }
@@ -52,17 +52,17 @@ struct LogItemView: View {
     }
 }
 
-#Preview {
-    LogItemView(
-        record: MoneyModel(
-            recordType: .expense,
-            category: Category(
-                name: "Medicines",
-                iconName: "cross.case"
-            ),
-            moneyAmount: "345",
-            description: "",
-            currency: "EUR"
-        )
-    )
-}
+//#Preview {
+//    LogItemView(
+//        record: MoneyModel(
+//            recordType: .expense,
+//            category: Category(
+//                name: "Medicines",
+//                iconName: "cross.case"
+//            ),
+//            moneyAmount: "345",
+//            description: "",
+//            currency: "EUR"
+//        )
+//    )
+//}

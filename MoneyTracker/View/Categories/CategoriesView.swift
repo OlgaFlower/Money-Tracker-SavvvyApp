@@ -17,23 +17,21 @@ struct CategoriesView: View {
     @State var shouldRotate: Bool = false
     
     // MARK: - Properties
-    private let incomeCategories: [MoneyCategories] = {
-        Categories.fetchIncomeCategories()
+    private let regularIncomeCategories: MoneyCategories = {
+        Categories.fetchRegularIncomeCategories()
     }()
     
-    private let expenseCategories: [Category] = {
-        Categories.fetchExpenseCategories()
+    private let temporaryIncomeCategories: MoneyCategories = {
+        Categories.fetchTemporaryIncomeCategories()
     }()
     
-    private let recurringCategories: [MoneyCategories] = {
-        Categories.fetchRecurringExpenseCategories()
+    private let generalExpenses: MoneyCategories = {
+        Categories.fetchGeneralExpensesItems()
     }()
     
-    private let fixedColumn = [
-        GridItem(.fixed(100)),
-        GridItem(.fixed(100)),
-        GridItem(.fixed(100))
-    ]
+    private let recurringCategories: [RecurringCategories] = {
+        Categories.fetchRecurringExpenses()
+    }()
     
     // MARK: - Body -
     var body: some View {
@@ -46,7 +44,7 @@ struct CategoriesView: View {
                         VStack {
                             /// GENERAL EXPENSES
                             DropDownMenuButtonView(
-                                title: "General Expenses",
+                                title: MoneyGroupType.generalExpense.string,
                                 shouldRotate: self.$isGeneralExpensesShowing
                             )
                                 .padding(.top, 32)
@@ -57,13 +55,16 @@ struct CategoriesView: View {
                                 }
                             
                             if self.isGeneralExpensesShowing {
-                                CategoriesGridView(categories: self.expenseCategories, selectedCategory: self.$selectedCategory)
+                                CategoriesGridView(
+                                    categories: self.generalExpenses,
+                                    selectedCategory: self.$selectedCategory
+                                )
                                 .padding(.vertical)
                             }
                             
                             /// RECURRING EXPENSES
                             DropDownMenuButtonView(
-                                title: "Recurring Expenses",
+                                title: MoneyGroupType.recurringExpense.string,
                                 shouldRotate: self.$isRecurringExpensesShowing
                             )
                                 .onTapGesture {
@@ -76,8 +77,8 @@ struct CategoriesView: View {
                                 ForEach(self.recurringCategories, id: \.self) { categories in
                                     
                                     self.makeRecurringTitleView(
-                                        title: categories.title,
-                                        icon: categories.categoryItems.first?.iconName ?? ""
+                                        title: categories.sectionTitle,
+                                        icon: categories.categoryItems.first?.icon ?? ""
                                     )
                                     .padding(.top, 12)
                                     
@@ -92,15 +93,15 @@ struct CategoriesView: View {
                         /// INCOME
                     case .income:
                         VStack {
-                            ForEach(self.incomeCategories, id: \.self) { categories in
-                                
-                                self.makeTitleView(title: categories.title)
-                                    .padding(.top, 24)
-                                
-                                CategoriesGridView(
-                                    categories: categories.categoryItems,
-                                    selectedCategory: self.$selectedCategory)
-                            }
+                            self.makeIncomeView(
+                                title: MoneyGroupType.regularIncome.string,
+                                items: self.regularIncomeCategories,
+                                selectedCategory: self.$selectedCategory)
+                            
+                            self.makeIncomeView(
+                                title: MoneyGroupType.temporaryIncome.string,
+                                items: self.temporaryIncomeCategories,
+                                selectedCategory: self.$selectedCategory)
                         }
                         .padding(.bottom, 24)
                     }
@@ -112,6 +113,22 @@ struct CategoriesView: View {
     }
     
     // MARK: - Views -
+    
+    private func makeIncomeView(
+        title: String,
+        items: MoneyCategories,
+        selectedCategory: Binding<Category>
+    ) -> some View {
+        VStack {
+                self.makeTitleView(title: title)
+                    .padding(.top, 24)
+                
+                CategoriesGridView(
+                    categories: items,
+                    selectedCategory: selectedCategory)
+            
+        }
+    }
     
     private func makeRecurringTitleView(title: String, icon: String) -> some View {
         VStack {
@@ -141,5 +158,11 @@ struct CategoriesView: View {
 }
 
 #Preview {
-    CategoriesView(recordType: .constant(.expense), selectedCategory: .constant(.init(name: "Salary", iconName: "sun.max")))
+    CategoriesView(
+        recordType: .constant(.income),
+        selectedCategory: .constant(.init(moneyGroupType: .regularIncome,
+                                          name: RegularIncome.salary.string,
+                                          icon: RegularIncome.salary.icon)
+        )
+    )
 }

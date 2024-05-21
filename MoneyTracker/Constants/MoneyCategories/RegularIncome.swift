@@ -14,7 +14,7 @@ enum RegularIncome: String {
     case pension
     case rent
   
-    var title: String {
+    var string: String {
         switch self {
         case .salary: "Salary"
         case .scholarship: "Scholarship"
