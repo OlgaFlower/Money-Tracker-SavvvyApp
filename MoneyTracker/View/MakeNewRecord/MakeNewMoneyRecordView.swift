@@ -163,7 +163,10 @@ struct MakeNewMoneyRecordView: View {
                     self.viewModel.showCategoriesView.toggle()
                 }
                 .sheet(isPresented: self.$viewModel.showCategoriesView, content: {
-                    CategoriesView(recordType: self.$viewModel.newItem.recordType, selectedCategory: self.$viewModel.newItem.category)
+                    CategoriesView(
+                        recordType: self.$viewModel.newItem.recordType,
+                        selectedCategory: self.$viewModel.newItem.category
+                    )
                 })
         }
         .padding(.horizontal, 60)

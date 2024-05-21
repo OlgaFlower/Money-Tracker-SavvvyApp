@@ -14,6 +14,7 @@ struct CategoriesView: View {
     @Binding var selectedCategory: Category
     @State var isGeneralExpensesShowing: Bool = false
     @State var isRecurringExpensesShowing: Bool = false
+    @State var shouldRotate: Bool = false
     
     // MARK: - Properties
     private let incomeCategories: [MoneyCategories] = {
@@ -41,15 +42,14 @@ struct CategoriesView: View {
             VStack {
                 ScrollView(showsIndicators: false) {
                     switch self.recordType {
-                        /// EXPENSES
                     case .expense:
                         VStack {
-                            /// General
+                            /// GENERAL EXPENSES
                             DropDownMenuButtonView(
                                 title: "General Expenses",
                                 shouldRotate: self.$isGeneralExpensesShowing
                             )
-                                .padding(.horizontal, 40)
+                                .padding(.top, 32)
                                 .onTapGesture {
                                     withAnimation {
                                         self.isGeneralExpensesShowing.toggle()
@@ -61,12 +61,11 @@ struct CategoriesView: View {
                                 .padding(.vertical)
                             }
                             
-                            /// Recurring
+                            /// RECURRING EXPENSES
                             DropDownMenuButtonView(
                                 title: "Recurring Expenses",
                                 shouldRotate: self.$isRecurringExpensesShowing
                             )
-                                .padding(.horizontal, 40)
                                 .onTapGesture {
                                     withAnimation {
                                         self.isRecurringExpensesShowing.toggle()
@@ -76,10 +75,13 @@ struct CategoriesView: View {
                             if self.isRecurringExpensesShowing {
                                 ForEach(self.recurringCategories, id: \.self) { categories in
                                     
-                                    self.makeTitleView(title: categories.title)
-                                        .padding(.top, 24)
+                                    self.makeRecurringTitleView(
+                                        title: categories.title,
+                                        icon: categories.categoryItems.first?.iconName ?? ""
+                                    )
+                                    .padding(.top, 12)
                                     
-                                    CategoriesGridView(
+                                    CategoriesCellView(
                                         categories: categories.categoryItems,
                                         selectedCategory: self.$selectedCategory
                                     )
@@ -104,15 +106,33 @@ struct CategoriesView: View {
                     }
                 }
             }
+            Spacer()
         }
+        .foregroundStyle(.white)
     }
     
     // MARK: - Views -
     
+    private func makeRecurringTitleView(title: String, icon: String) -> some View {
+        VStack {
+            HStack {
+                Label(title, systemImage: icon)
+                    .font(.title3)
+                Spacer()
+            }
+            .padding(.leading, 40)
+            
+            Rectangle()
+                .frame(height: 0.5)
+                .background(Color.white)
+                .padding(.leading, 35)
+        }
+    }
+    
     private func makeTitleView(title: String) -> some View {
         HStack {
             Text(title)
-                .font(.title)
+                .font(.title3.monospaced())
                 .multilineTextAlignment(.leading)
                 .padding(.leading, 40)
             Spacer()

@@ -28,6 +28,7 @@ struct DropDownMenuButtonView: View {
                 Image(systemName: "chevron.right")
                     .rotationEffect(.degrees(shouldRotate ? 90 : 0))
             }
+            .padding(.horizontal, 40)
         }
         .foregroundStyle(.white)
     }

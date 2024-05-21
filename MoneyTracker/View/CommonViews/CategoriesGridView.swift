@@ -18,9 +18,9 @@ struct CategoriesGridView: View {
         GridItem(.fixed(100)),
         GridItem(.fixed(100))
     ]
+    let categories: [Category]
     
     // MARK: - State -
-    let categories: [Category]
     @Binding var selectedCategory: Category
     
     // MARK: - Body -
@@ -30,7 +30,6 @@ struct CategoriesGridView: View {
                 self.makeIconsGridView(item: item)
             }
         }
-        .padding(.vertical)
     }
     
     // MARK: - Functions -

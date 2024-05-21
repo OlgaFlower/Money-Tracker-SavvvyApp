@@ -18,6 +18,38 @@ struct Category: Hashable {
     var iconName: String
 }
 
+enum RecurringExpensesCategories {
+    case housing
+    case tech
+    case entertainment
+    case utilities
+    case health
+    case car
+    case mobility
+    case food
+    case insurance
+    case education
+    case kids
+    case pets
+    
+    var value: String {
+        switch self {
+        case .housing: return "HOUSING"
+        case .tech: return "TECH"
+        case .entertainment: return "ENTERTAINMENT"
+        case .utilities: return "UTILITIES"
+        case .health: return "HEALTH"
+        case .car: return "CAR"
+        case .mobility: return "MOBILITY"
+        case .food: return "FOOD"
+        case .insurance: return "INSURANCE"
+        case .education: return "EDUCATION"
+        case .kids: return "KIDS"
+        case .pets: return "PETS"
+        }
+    }
+}
+
 final class Categories {
     
     private init() {}
@@ -161,51 +193,51 @@ final class Categories {
     
     static let recurringExpenses: [MoneyCategories] = [
         MoneyCategories(
-            title: "Housing",
+            title: RecurringExpensesCategories.housing.value,
             categoryItems: recurringHousingExpenses
         ),
         MoneyCategories(
-            title: "Tech",
+            title: RecurringExpensesCategories.tech.value,
             categoryItems: recurringTechExpenses
         ),
         MoneyCategories(
-            title: "Entertainment",
+            title: RecurringExpensesCategories.entertainment.value,
             categoryItems: recurringEntertainmentExpenses
         ),
         MoneyCategories(
-            title: "Utilities",
+            title: RecurringExpensesCategories.utilities.value,
             categoryItems: recurringUtilitiesExpenses
         ),
         MoneyCategories(
-            title: "Health",
+            title: RecurringExpensesCategories.health.value,
             categoryItems: recurringHealthExpenses
         ),
         MoneyCategories(
-            title: "Car",
+            title: RecurringExpensesCategories.car.value,
             categoryItems: recurringCarExpenses
         ),
         MoneyCategories(
-            title: "Mobility",
+            title: RecurringExpensesCategories.mobility.value,
             categoryItems: recurringMobilityExpenses
         ),
         MoneyCategories(
-            title: "Food",
+            title: RecurringExpensesCategories.food.value,
             categoryItems: recurringFoodExpenses
         ),
         MoneyCategories(
-            title: "Insurance",
+            title: RecurringExpensesCategories.insurance.value,
             categoryItems: recurringInsuranceExpenses
         ),
         MoneyCategories(
-            title: "Education",
+            title: RecurringExpensesCategories.education.value,
             categoryItems: recurringEducationExpenses
         ),
         MoneyCategories(
-            title: "Kids",
+            title: RecurringExpensesCategories.kids.value,
             categoryItems: recurringKidsExpenses
         ),
         MoneyCategories(
-            title: "Pets",
+            title: RecurringExpensesCategories.pets.value,
             categoryItems: recurringPetsExpenses
         )
     ]
