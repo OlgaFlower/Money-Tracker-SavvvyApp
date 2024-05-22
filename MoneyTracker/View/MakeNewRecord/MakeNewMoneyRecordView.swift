@@ -19,7 +19,6 @@ struct MakeNewMoneyRecordView: View {
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyKeyboardFocused: Bool
     @State var isGroupTypeSelectionViewPresented: Bool = false
-    @State var recordType: RecordType = .expense
     @State var selectedCategory = Category(moneyGroupType: .generalExpense, name: "", icon: "")
     
     // MARK: - Body
@@ -168,7 +167,7 @@ struct MakeNewMoneyRecordView: View {
                 }
                 .fullScreenCover(isPresented: self.$isGroupTypeSelectionViewPresented) {
                     CategoryGroupSelectionView(
-                        recordType: self.$recordType,
+                        recordType: self.$viewModel.newItem.recordType,
                         selectedCategory: self.$selectedCategory)
                 }
         }
