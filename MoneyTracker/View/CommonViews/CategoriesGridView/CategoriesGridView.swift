@@ -18,16 +18,18 @@ struct CategoriesGridView: View {
         GridItem(.fixed(100)),
         GridItem(.fixed(100))
     ]
-    
-    let categories: MoneyCategories
-    
+    let moneyGroupType: MoneyGroupType
     // MARK: - State -
+    @ObservedObject var viewModel: CategoriesGridViewModel
     @Binding var selectedCategory: Category
     
     // MARK: - Body -
     var body: some View {
         LazyVGrid(columns: self.fixedColumn, spacing: 30) {
-            ForEach(self.categories.categoryItems, id: \.self) { item in
+            ForEach(
+                self.viewModel.itemsToDisplay(for: self.moneyGroupType),
+                id: \.self
+            ) { item in
                 self.makeIconsGridView(item: item)
             }
         }
@@ -55,18 +57,11 @@ struct CategoriesGridView: View {
 // MARK: - Preview -
 #Preview {
     CategoriesGridView(
-        categories: MoneyCategories(
-            categoryItems: [
-                Category(
-                    moneyGroupType: .generalExpense,
-                    name: "Salary",
-                    icon: "sun.max"
-                )
-            ]
-        ),
+        moneyGroupType: .regularIncome,
+        viewModel: CategoriesGridViewModel(),
         selectedCategory: .constant(
             Category(
-                moneyGroupType: .regularIncome, 
+                moneyGroupType: .regularIncome,
                 name: "Pension",
                 icon: "sun.horizon"
             )

@@ -50,8 +50,7 @@ struct HomeView: View {
                         isPresented: self.$viewModel.isMakeNewRecordViewPresented,
                         content: {
                             MakeNewMoneyRecordView(
-                                viewModel: MakeNewMoneyRecordViewModel(),
-                                isPresented: self.$viewModel.isMakeNewRecordViewPresented
+                                viewModel: MakeNewMoneyRecordViewModel()
                             )
                         }
                     )

@@ -11,7 +11,6 @@ import CoreHaptics
 final class MakeNewMoneyRecordViewModel: ObservableObject {
     
     // MARK: - Properties -
-    @Published var showCategoriesView = false
     @Published var newItem: MoneyModel = MoneyModel(
         recordType: .expense,
         category: Category(
@@ -63,6 +62,14 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
                 using: context
             )
         }
+    }
+    
+    func isCategoryChosen() -> Bool {
+        return self.newItem.category.name != "CATEGORY"
+    }
+    
+    func isSaveBtnActive() -> Bool {
+        return self.isCategoryChosen() && !self.newItem.moneyAmount.isEmpty
     }
 }
 

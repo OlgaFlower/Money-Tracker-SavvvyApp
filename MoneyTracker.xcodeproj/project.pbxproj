@@ -45,7 +45,7 @@
 		42B9F0E72BEA33F800D719E3 /* WidthPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F0E42BEA33F800D719E3 /* WidthPreferenceKey.swift */; };
 		42B9F0E82BEA33F800D719E3 /* CustomUnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F0E52BEA33F800D719E3 /* CustomUnderlineView.swift */; };
 		42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F0EA2BEA354D00D719E3 /* TextFormatter.swift */; };
-		42B9F10C2BF3CEA200D719E3 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F10B2BF3CEA200D719E3 /* CategoriesView.swift */; };
+		42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F10B2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift */; };
 		42B9F10E2BF3CF0700D719E3 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F10D2BF3CF0700D719E3 /* Categories.swift */; };
 		42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F1162BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld */; };
 		42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */; };
@@ -57,6 +57,7 @@
 		42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB693B2BFCFE9100FF4E7F /* RegularIncome.swift */; };
 		42EB693E2BFCFEA500FF4E7F /* TemporaryIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB693D2BFCFEA500FF4E7F /* TemporaryIncome.swift */; };
 		42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB693F2BFD033600FF4E7F /* GeneralExpenses.swift */; };
+		42EB69432BFE00A200FF4E7F /* CategoriesGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB69422BFE00A200FF4E7F /* CategoriesGridViewModel.swift */; };
 		42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */; };
 		42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */; };
 		42EF87EB2BFBEB6D009E0272 /* CategoriesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87EA2BFBEB6D009E0272 /* CategoriesCellView.swift */; };
@@ -125,7 +126,7 @@
 		42B9F0E42BEA33F800D719E3 /* WidthPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WidthPreferenceKey.swift; path = MoneyTracker/View/CustomViews/SlidingButtonUnderline/WidthPreferenceKey.swift; sourceTree = SOURCE_ROOT; };
 		42B9F0E52BEA33F800D719E3 /* CustomUnderlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomUnderlineView.swift; path = MoneyTracker/View/CustomViews/SlidingButtonUnderline/CustomUnderlineView.swift; sourceTree = SOURCE_ROOT; };
 		42B9F0EA2BEA354D00D719E3 /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
-		42B9F10B2BF3CEA200D719E3 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		42B9F10B2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroupSelectionView.swift; sourceTree = "<group>"; };
 		42B9F10D2BF3CF0700D719E3 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		42B9F1172BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyTrackerDB.xcdatamodel; sourceTree = "<group>"; };
 		42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		42EB693B2BFCFE9100FF4E7F /* RegularIncome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularIncome.swift; sourceTree = "<group>"; };
 		42EB693D2BFCFEA500FF4E7F /* TemporaryIncome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryIncome.swift; sourceTree = "<group>"; };
 		42EB693F2BFD033600FF4E7F /* GeneralExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenses.swift; sourceTree = "<group>"; };
+		42EB69422BFE00A200FF4E7F /* CategoriesGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesGridViewModel.swift; sourceTree = "<group>"; };
 		42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonCategorySelectionView.swift; sourceTree = "<group>"; };
 		42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesGridView.swift; sourceTree = "<group>"; };
 		42EF87EA2BFBEB6D009E0272 /* CategoriesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCellView.swift; sourceTree = "<group>"; };
@@ -357,7 +359,7 @@
 				4241F4622BAC6A320048A29B /* Backgrounds */,
 				42A11C2B2BB7389C003B617D /* LogItemView.swift */,
 				42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */,
-				42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */,
+				42EB69412BFE007D00FF4E7F /* CategoriesGridView */,
 				42EF87EA2BFBEB6D009E0272 /* CategoriesCellView.swift */,
 			);
 			path = CommonViews;
@@ -418,7 +420,7 @@
 		42B9F10A2BF3CE8700D719E3 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				42B9F10B2BF3CEA200D719E3 /* CategoriesView.swift */,
+				42B9F10B2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -445,6 +447,15 @@
 				42EB693F2BFD033600FF4E7F /* GeneralExpenses.swift */,
 			);
 			path = MoneyCategories;
+			sourceTree = "<group>";
+		};
+		42EB69412BFE007D00FF4E7F /* CategoriesGridView */ = {
+			isa = PBXGroup;
+			children = (
+				42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */,
+				42EB69422BFE00A200FF4E7F /* CategoriesGridViewModel.swift */,
+			);
+			path = CategoriesGridView;
 			sourceTree = "<group>";
 		};
 		42FD6DB82BA5094B00B9DC70 /* CustomViews */ = {
@@ -601,7 +612,7 @@
 				424275392BA50522001873A3 /* LoginView.swift in Sources */,
 				4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */,
 				4241F4732BB22B030048A29B /* PagingIndicator.swift in Sources */,
-				42B9F10C2BF3CEA200D719E3 /* CategoriesView.swift in Sources */,
+				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42EB693E2BFCFEA500FF4E7F /* TemporaryIncome.swift in Sources */,
 				42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */,
 				42B9F10E2BF3CF0700D719E3 /* Categories.swift in Sources */,
@@ -632,6 +643,7 @@
 				42F75D1A2BAC4EBE00126417 /* BackgroundGradientView.swift in Sources */,
 				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
 				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,
+				42EB69432BFE00A200FF4E7F /* CategoriesGridViewModel.swift in Sources */,
 				423DF4272BD6DA2C00CBB6D5 /* DropDownMenuView.swift in Sources */,
 				42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */,
 				4251FA472BA63F6D0087ABE7 /* RegistrationView.swift in Sources */,

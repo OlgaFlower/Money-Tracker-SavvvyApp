@@ -18,8 +18,9 @@ struct MakeNewMoneyRecordView: View {
     @ObservedObject var viewModel: MakeNewMoneyRecordViewModel
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyKeyboardFocused: Bool
-    @Binding var isPresented: Bool
-    
+    @State var isGroupTypeSelectionViewPresented: Bool = false
+    @State var recordType: RecordType = .expense
+    @State var selectedCategory = Category(moneyGroupType: .generalExpense, name: "", icon: "")
     
     // MARK: - Body
     var body: some View {
@@ -48,7 +49,7 @@ struct MakeNewMoneyRecordView: View {
                 
                 /// Save
                 Spacer()
-                self.addButtonView
+                self.saveButtonView
                 Spacer()
             }
             .foregroundStyle(.white)
@@ -64,12 +65,11 @@ struct MakeNewMoneyRecordView: View {
     }
     
     // MARK: - Views
-    /// Cancel
+    /// CANCEL
     private var cancelButton: some View {
         HStack {
             Spacer()
             Button(action: {
-                self.isPresented = false
                 self.dismiss()
             }, label: {
                 Image(systemName: "plus")
@@ -80,11 +80,12 @@ struct MakeNewMoneyRecordView: View {
         }
     }
     
-    /// Expenses | Income
+    /// EXPENSE | INCOME
     private var moneyTypeSelectionView: some View {
         HStack {
             /// Expense
             Button(action: {
+                Constants.vibrateLight()
                 self.viewModel.newItem.recordType = .expense
             }, label: {
                 Text(RecordType.expense.value)
@@ -99,6 +100,7 @@ struct MakeNewMoneyRecordView: View {
             
             /// Income
             Button(action: {
+                Constants.vibrateLight()
                 self.viewModel.newItem.recordType = .income
             }, label: {
                 Text(RecordType.income.value)
@@ -110,7 +112,7 @@ struct MakeNewMoneyRecordView: View {
         .padding(.horizontal, 60)
     }
     
-    /// Description
+    /// DESCRIPTION
     private var descriptionTextField: some View {
         ZStack {
             /// Background
@@ -138,10 +140,9 @@ struct MakeNewMoneyRecordView: View {
         }
     }
     
-    /// Category
     private var categorySelectionView: some View {
         HStack(spacing: 32) {
-            /// Icon
+            /// ICON
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(
@@ -154,27 +155,28 @@ struct MakeNewMoneyRecordView: View {
                     .font(.title)
             }
             
-            /// Add Category
+            /// CATEGORY
             Text(self.viewModel.newItem.category.name)
                 .font(.title3.monospaced())
                 .multilineTextAlignment(.leading)
+                .opacity(self.viewModel.isCategoryChosen() ? 1 : 0.4)
                 .onTapGesture {
+                    Constants.vibrateLight()
                     self.isKeyboardFocused = false
                     self.isCurrencyKeyboardFocused = false
-                    self.viewModel.showCategoriesView.toggle()
+                    self.isGroupTypeSelectionViewPresented.toggle()
                 }
-                .sheet(isPresented: self.$viewModel.showCategoriesView, content: {
-                    CategoriesView(
-                        recordType: self.$viewModel.newItem.recordType,
-                        selectedCategory: self.$viewModel.newItem.category
-                    )
-                })
+                .fullScreenCover(isPresented: self.$isGroupTypeSelectionViewPresented) {
+                    CategoryGroupSelectionView(
+                        recordType: self.$recordType,
+                        selectedCategory: self.$selectedCategory)
+                }
         }
         .padding(.horizontal, 60)
     }
     
-    /// Add
-    private var addButtonView: some View {
+    /// SAVE
+    private var saveButtonView: some View {
         Button {
             if !self.viewModel.newItem.moneyAmount.isEmpty {
                 self.viewModel.saveNewRecord(self.viewContext)
@@ -197,7 +199,8 @@ struct MakeNewMoneyRecordView: View {
                 .font(.title2)
                 .fontDesign(.monospaced)
                 .foregroundStyle(.white)
-                .padding(.vertical, 8)
+                .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
+                .padding(.vertical, 10)
                 .frame(width: 130)
                 .clipShape(.rect(cornerRadius: 10, style: .continuous))
         }
@@ -210,5 +213,5 @@ struct MakeNewMoneyRecordView: View {
 
 // MARK: - Preview
 #Preview {
-    MakeNewMoneyRecordView(viewModel: MakeNewMoneyRecordViewModel(), isPresented: .constant(false))
+    MakeNewMoneyRecordView(viewModel: MakeNewMoneyRecordViewModel())
 }
