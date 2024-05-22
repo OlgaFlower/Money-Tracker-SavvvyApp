@@ -37,34 +37,34 @@ struct CategoriesView: View {
     var body: some View {
         ZStack {
             BackgroundGradView()
-            VStack {
-                ScrollView(showsIndicators: false) {
                     switch self.recordType {
                     case .expense:
-                        VStack {
+                        VStack(spacing: 40) {
                             /// GENERAL EXPENSES
-                            DropDownMenuButtonView(
-                                title: MoneyGroupType.generalExpense.string,
+                            BigButtonCategorySelectionView(
+                                title: "GENERAL",
+                                icon: "basket",
                                 shouldRotate: self.$isGeneralExpensesShowing
                             )
-                                .padding(.top, 32)
                                 .onTapGesture {
                                     withAnimation {
                                         self.isGeneralExpensesShowing.toggle()
                                     }
                                 }
                             
-                            if self.isGeneralExpensesShowing {
-                                CategoriesGridView(
-                                    categories: self.generalExpenses,
-                                    selectedCategory: self.$selectedCategory
-                                )
-                                .padding(.vertical)
-                            }
+//                            if self.isGeneralExpensesShowing {
+//                                CategoriesGridView(
+//                                    categories: self.generalExpenses,
+//                                    selectedCategory: self.$selectedCategory
+//                                )
+//                                .padding(.vertical)
+//                            }
                             
                             /// RECURRING EXPENSES
-                            DropDownMenuButtonView(
-                                title: MoneyGroupType.recurringExpense.string,
+                            BigButtonCategorySelectionView(
+//                                title: MoneyGroupType.recurringExpense.string,
+                                title: "RECURRING", 
+                                icon: "arrow.clockwise",
                                 shouldRotate: self.$isRecurringExpensesShowing
                             )
                                 .onTapGesture {
@@ -73,43 +73,44 @@ struct CategoriesView: View {
                                     }
                                 }
                             
-                            if self.isRecurringExpensesShowing {
-                                ForEach(self.recurringCategories, id: \.self) { categories in
+//                            if self.isRecurringExpensesShowing {
+//                                ForEach(self.recurringCategories, id: \.self) { categories in
                                     
-                                    self.makeRecurringTitleView(
-                                        title: categories.sectionTitle,
-                                        icon: categories.categoryItems.first?.icon ?? ""
-                                    )
-                                    .padding(.top, 12)
+//                                    self.makeRecurringTitleView(
+//                                        title: categories.sectionTitle,
+//                                        icon: categories.categoryItems.first?.icon ?? ""
+//                                    )
+//                                    .padding(.top, 12)
                                     
-                                    CategoriesCellView(
-                                        categories: categories.categoryItems,
-                                        selectedCategory: self.$selectedCategory
-                                    )
-                                }
-                            }
+//                                    CategoriesCellView(
+//                                        categories: categories.categoryItems,
+//                                        selectedCategory: self.$selectedCategory
+//                                    )
+//                                }
+//                            }
                         }
                         
                         /// INCOME
                     case .income:
                         VStack {
-                            self.makeIncomeView(
-                                title: MoneyGroupType.regularIncome.string,
-                                items: self.regularIncomeCategories,
-                                selectedCategory: self.$selectedCategory)
-                            
-                            self.makeIncomeView(
-                                title: MoneyGroupType.temporaryIncome.string,
-                                items: self.temporaryIncomeCategories,
-                                selectedCategory: self.$selectedCategory)
+//                            self.makeIncomeView(
+//                                title: MoneyGroupType.regularIncome.string,
+//                                items: self.regularIncomeCategories,
+//                                selectedCategory: self.$selectedCategory)
+//                            
+//                            self.makeIncomeView(
+//                                title: MoneyGroupType.temporaryIncome.string,
+//                                items: self.temporaryIncomeCategories,
+//                                selectedCategory: self.$selectedCategory)
                         }
-                        .padding(.bottom, 24)
+//                        .padding(.bottom, 24)
                     }
-                }
+//                }
             }
-            Spacer()
-        }
         .foregroundStyle(.white)
+//            Spacer()
+//        }
+//        .foregroundStyle(.white)
     }
     
     // MARK: - Views -
@@ -159,7 +160,7 @@ struct CategoriesView: View {
 
 #Preview {
     CategoriesView(
-        recordType: .constant(.income),
+        recordType: .constant(.expense),
         selectedCategory: .constant(.init(moneyGroupType: .regularIncome,
                                           name: RegularIncome.salary.string,
                                           icon: RegularIncome.salary.icon)

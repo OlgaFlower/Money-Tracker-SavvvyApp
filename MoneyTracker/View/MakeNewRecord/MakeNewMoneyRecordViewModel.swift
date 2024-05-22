@@ -35,7 +35,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
             recordType: .expense,
             category: Category(
                 moneyGroupType: .generalExpense,
-                name: "Add Category",
+                name: "CATEGORY",
                 icon: "sun.min"
             ),
             moneyAmount: "",
@@ -50,7 +50,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     func saveNewRecord(_ context: NSManagedObjectContext) {
         
         if let intValue = Int64(self.newItem.moneyAmount),
-           self.newItem.category.name != "Add Category" {
+           self.newItem.category.name != "CATEGORY" {
             
             Money.makeNewRecordWith(
                 moneyAmount: intValue,
@@ -70,7 +70,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
 extension MakeNewMoneyRecordViewModel {
     
     func shortVibrate() {
-        Constants.vibrate()
+        Constants.vibrateMedium()
     }
     
     func prepareHaptics() {

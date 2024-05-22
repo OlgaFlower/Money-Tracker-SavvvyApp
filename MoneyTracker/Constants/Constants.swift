@@ -24,7 +24,11 @@ final class Constants {
     static let gradientForIcon: [Color] = [.gradientBottom3, .lightBlue]
     
     // MARK: - Make Vibration -
-    static func vibrate() {
+    static func vibrateMedium() {
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+    }
+    
+    static func vibrateLight() {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 }

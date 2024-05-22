@@ -57,7 +57,7 @@
 		42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB693B2BFCFE9100FF4E7F /* RegularIncome.swift */; };
 		42EB693E2BFCFEA500FF4E7F /* TemporaryIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB693D2BFCFEA500FF4E7F /* TemporaryIncome.swift */; };
 		42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB693F2BFD033600FF4E7F /* GeneralExpenses.swift */; };
-		42EF87E72BFB6B3A009E0272 /* DropDownMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E62BFB6B3A009E0272 /* DropDownMenuButtonView.swift */; };
+		42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */; };
 		42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */; };
 		42EF87EB2BFBEB6D009E0272 /* CategoriesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87EA2BFBEB6D009E0272 /* CategoriesCellView.swift */; };
 		42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */; };
@@ -137,7 +137,7 @@
 		42EB693B2BFCFE9100FF4E7F /* RegularIncome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularIncome.swift; sourceTree = "<group>"; };
 		42EB693D2BFCFEA500FF4E7F /* TemporaryIncome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryIncome.swift; sourceTree = "<group>"; };
 		42EB693F2BFD033600FF4E7F /* GeneralExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenses.swift; sourceTree = "<group>"; };
-		42EF87E62BFB6B3A009E0272 /* DropDownMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuButtonView.swift; sourceTree = "<group>"; };
+		42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonCategorySelectionView.swift; sourceTree = "<group>"; };
 		42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesGridView.swift; sourceTree = "<group>"; };
 		42EF87EA2BFBEB6D009E0272 /* CategoriesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCellView.swift; sourceTree = "<group>"; };
 		42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextFieldView.swift; sourceTree = "<group>"; };
@@ -356,7 +356,7 @@
 				4251FA4C2BAB2B5E0087ABE7 /* BankCardView.swift */,
 				4241F4622BAC6A320048A29B /* Backgrounds */,
 				42A11C2B2BB7389C003B617D /* LogItemView.swift */,
-				42EF87E62BFB6B3A009E0272 /* DropDownMenuButtonView.swift */,
+				42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */,
 				42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */,
 				42EF87EA2BFBEB6D009E0272 /* CategoriesCellView.swift */,
 			);
@@ -619,7 +619,7 @@
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
 				4241F4712BB1E62E0048A29B /* Country.swift in Sources */,
-				42EF87E72BFB6B3A009E0272 /* DropDownMenuButtonView.swift in Sources */,
+				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
 				4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */,
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
 				42A11C2C2BB7389C003B617D /* LogItemView.swift in Sources */,

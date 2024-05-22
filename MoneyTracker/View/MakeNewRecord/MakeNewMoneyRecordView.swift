@@ -154,7 +154,7 @@ struct MakeNewMoneyRecordView: View {
                     .font(.title)
             }
             
-            /// Category
+            /// Add Category
             Text(self.viewModel.newItem.category.name)
                 .font(.title3.monospaced())
                 .multilineTextAlignment(.leading)
@@ -193,7 +193,7 @@ struct MakeNewMoneyRecordView: View {
                 self.viewModel.longVibrate()
             }
         } label: {
-            Text("Add")
+            Text("SAVE")
                 .font(.title2)
                 .fontDesign(.monospaced)
                 .foregroundStyle(.white)
