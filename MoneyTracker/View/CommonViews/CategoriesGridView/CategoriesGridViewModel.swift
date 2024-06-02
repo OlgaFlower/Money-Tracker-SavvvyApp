@@ -12,7 +12,7 @@ final class CategoriesGridViewModel: ObservableObject {
     @Published var categoryItems: MoneyCategories  = MoneyCategories(
         categoryItems: [
             Category(
-                moneyGroupType: .generalExpense,
+                moneyGroupType: .none,
                 name: "",
                 icon: ""
             )

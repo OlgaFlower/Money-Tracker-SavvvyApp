@@ -31,16 +31,13 @@ struct CategoryGroupSelectionView: View {
             
             switch self.recordType {
             case .expense:
-                
-                /// EXPENSES
-                
+                //MARK: - EXPENSES
                 /// -GENERAL-
                 BigButtonCategorySelectionView(
                     hideRectangle: self.$showIconsList,
                     title: "GENERAL",
                     icon: "basket"
                 )
-                .animation(.default, value: self.showIconsList)
                 .opacity(
                     self.makeOpacity(
                         moneyType: .generalExpense
@@ -58,14 +55,12 @@ struct CategoryGroupSelectionView: View {
                     self.showIconsList.toggle()
                 }
                 
-                
                 /// -RECURRING-
                 BigButtonCategorySelectionView(
                     hideRectangle: self.$showIconsList,
                     title: "RECURRING",
                     icon: "arrow.clockwise"
                 )
-                .animation(.default, value: self.showIconsList)
                 .opacity(
                     self.makeOpacity(
                         moneyType: .recurringExpense
@@ -83,46 +78,58 @@ struct CategoryGroupSelectionView: View {
                     self.selectedCategory.moneyGroupType = .recurringExpense
                 }
                 
-                
-                
-                /// INCOME
+                //MARK: - INCOME
             case .income:
-                VStack(spacing: 40) {
-                    
-                    /// Regular
+                    /// -REGULAR-
                     BigButtonCategorySelectionView(
                         hideRectangle: self.$showIconsList,
                         title: "REGULAR",
                         icon: "bag"
                     )
-                    .opacity((self.selectedCategory.moneyGroupType
-                              != .regularIncome && self.showIconsList) ? 0 : 1)
+                    .opacity(
+                        self.makeOpacity(
+                            moneyType: .regularIncome
+                        )
+                    )
+                    .position(
+                        self.makePositioning(
+                            position: .top,
+                            moneyType: .regularIncome
+                        )
+                    )
                     .onTapGesture {
                         Constants.vibrateLight()
-                        self.selectedCategory.moneyGroupType = .regularIncome
                         self.showIconsList.toggle()
+                        self.selectedCategory.moneyGroupType = .regularIncome
                     }
-                    .animation(.default, value: self.showIconsList)
                     
-                    /// Temporary
+                    /// -TEMPORARY-
                     BigButtonCategorySelectionView(
                         hideRectangle: self.$showIconsList,
                         title: "TEMPORARY",
                         icon: "bubbles.and.sparkles"
                     )
-                    .opacity((self.selectedCategory.moneyGroupType
-                              != .temporaryIncome && self.showIconsList) ? 0 : 1)
+                    .opacity(
+                        self.makeOpacity(
+                            moneyType: .temporaryIncome
+                        )
+                    )
+                    .position(
+                        self.makePositioning(
+                            position: .bottom,
+                            moneyType: .temporaryIncome
+                        )
+                    )
                     .onTapGesture {
                         Constants.vibrateLight()
-                        self.selectedCategory.moneyGroupType = .temporaryIncome
                         self.showIconsList.toggle()
+                        self.selectedCategory.moneyGroupType = .temporaryIncome
                     }
-                    .animation(.default, value: self.showIconsList)
-                }
-                .padding(.bottom, 32)
             }
         }
         .foregroundStyle(.white)
+        .animation(.easeInOut(duration: 0.4), value: self.showIconsList)
+        .animation(.easeInOut(duration: 0.4), value: self.selectedCategory)
     }
     
     // MARK: - Functions -
@@ -185,7 +192,7 @@ struct CategoryGroupSelectionView: View {
 #Preview {
     CategoryGroupSelectionView(
         recordType: .constant(.expense),
-        selectedCategory: .constant(.init(moneyGroupType: .recurringExpense,
+        selectedCategory: .constant(.init(moneyGroupType: .regularIncome,
                                           name: RegularIncome.salary.string,
                                           icon: RegularIncome.salary.icon)
         )
