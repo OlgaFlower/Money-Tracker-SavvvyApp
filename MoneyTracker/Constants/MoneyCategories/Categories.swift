@@ -19,7 +19,7 @@ struct MoneyCategories: Hashable {
 }
 
 struct Category: Hashable {
-    let moneyGroupType: MoneyGroupType
+    var moneyGroupType: MoneyGroupType
     var name: String
     var icon: String
 }

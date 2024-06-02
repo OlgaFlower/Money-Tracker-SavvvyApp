@@ -12,6 +12,7 @@ enum MoneyGroupType {
     case regularIncome
     case recurringExpense
     case generalExpense
+    case none
     
     var string: String {
         switch self {
@@ -23,6 +24,8 @@ enum MoneyGroupType {
             return "Recurring Expenses"
         case .generalExpense:
             return "General Expenses"
+        case .none:
+            return ""
         }
     }
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BigButtonCategorySelectionView: View {
     
+    @Binding var hideRectangle: Bool
+    
     // MARK: - Properties -
     let title: String
     let icon: String
@@ -17,7 +19,7 @@ struct BigButtonCategorySelectionView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10.0)
-                .foregroundStyle(Color.lightBlue.opacity(0.4))
+                .foregroundStyle(Color.lightBlue.opacity(self.hideRectangle ? 0 : 0.4))
             
             HStack(spacing: 16) {
                 Image(systemName: icon)
@@ -25,18 +27,15 @@ struct BigButtonCategorySelectionView: View {
                     .font(.title3.monospaced())
             }
         }
-        .onTapGesture {
-            Constants.vibrateLight()
-        }
         .clipShape(.rect(cornerRadius: 10, style: .continuous))
         ///Light White Border
         .background {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .stroke(.white.opacity(0.6), lineWidth: 0.7)
+                .stroke(.white.opacity(self.hideRectangle ? 0 : 0.6), lineWidth: 0.7)
         }
         /// Adding Shadow
-        .shadow(color: .black.opacity(0.4), radius: 10, x: 5, y: 5)
-        .frame(width: UIScreen.main.bounds.width * 0.75 + 20, height: 140 + 20)
+        .shadow(color: .black.opacity(self.hideRectangle ? 0 : 0.4), radius: 10, x: 5, y: 5)
+        .frame(width: UIScreen.main.bounds.width * 0.55 + 20, height: 100 + 20)
     }
 }
 
@@ -44,7 +43,7 @@ struct BigButtonCategorySelectionView: View {
 #Preview {
     CategoryGroupSelectionView(
         recordType: .constant(.expense),
-        selectedCategory: .constant(.init(moneyGroupType: .regularIncome,
+        selectedCategory: .constant(.init(moneyGroupType: .recurringExpense,
                                           name: RegularIncome.salary.string,
                                           icon: RegularIncome.salary.icon)
         )

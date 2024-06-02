@@ -10,7 +10,6 @@
 		422E82D02BF6BF5B00139B94 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422E82CF2BF6BF5B00139B94 /* String+Extension.swift */; };
 		423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */; };
 		423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4222BD6369000CBB6D5 /* Constants.swift */; };
-		423DF4272BD6DA2C00CBB6D5 /* DropDownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4262BD6DA2C00CBB6D5 /* DropDownMenuView.swift */; };
 		4241F4642BAC9B1B0048A29B /* BackgroundArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */; };
 		4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */; };
 		4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */; };
@@ -88,7 +87,6 @@
 		422E82CF2BF6BF5B00139B94 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradView.swift; sourceTree = "<group>"; };
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		423DF4262BD6DA2C00CBB6D5 /* DropDownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuView.swift; sourceTree = "<group>"; };
 		4241F4632BAC9B1B0048A29B /* BackgroundArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundArt.swift; sourceTree = "<group>"; };
 		4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalLogExplorer.swift; sourceTree = "<group>"; };
@@ -179,14 +177,6 @@
 				42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */,
 			);
 			path = Chart;
-			sourceTree = "<group>";
-		};
-		423DF4252BD6D9F400CBB6D5 /* DropDownMenu */ = {
-			isa = PBXGroup;
-			children = (
-				423DF4262BD6DA2C00CBB6D5 /* DropDownMenuView.swift */,
-			);
-			path = DropDownMenu;
 			sourceTree = "<group>";
 		};
 		4241F4622BAC6A320048A29B /* Backgrounds */ = {
@@ -462,7 +452,6 @@
 			isa = PBXGroup;
 			children = (
 				42B9F0DB2BE9EDE100D719E3 /* CurrencyTextField */,
-				423DF4252BD6D9F400CBB6D5 /* DropDownMenu */,
 				4241F47C2BB577700048A29B /* SlidingButtonUnderline */,
 				42FD6DBD2BA606E100B9DC70 /* TransparentBlurView.swift */,
 				4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */,
@@ -644,7 +633,6 @@
 				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
 				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,
 				42EB69432BFE00A200FF4E7F /* CategoriesGridViewModel.swift in Sources */,
-				423DF4272BD6DA2C00CBB6D5 /* DropDownMenuView.swift in Sources */,
 				42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */,
 				4251FA472BA63F6D0087ABE7 /* RegistrationView.swift in Sources */,
 				4241F4642BAC9B1B0048A29B /* BackgroundArt.swift in Sources */,

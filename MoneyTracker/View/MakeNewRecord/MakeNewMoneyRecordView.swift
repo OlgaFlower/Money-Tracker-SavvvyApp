@@ -18,8 +18,8 @@ struct MakeNewMoneyRecordView: View {
     @ObservedObject var viewModel: MakeNewMoneyRecordViewModel
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyKeyboardFocused: Bool
-    @State var isGroupTypeSelectionViewPresented: Bool = false
-    @State var selectedCategory = Category(moneyGroupType: .generalExpense, name: "", icon: "")
+    @State var isIconGroupsViewPresented: Bool = false
+    @State var selectedCategory = Category(moneyGroupType: .none, name: "", icon: "")
     
     // MARK: - Body
     var body: some View {
@@ -163,9 +163,9 @@ struct MakeNewMoneyRecordView: View {
                     Constants.vibrateLight()
                     self.isKeyboardFocused = false
                     self.isCurrencyKeyboardFocused = false
-                    self.isGroupTypeSelectionViewPresented.toggle()
+                    self.isIconGroupsViewPresented.toggle()
                 }
-                .fullScreenCover(isPresented: self.$isGroupTypeSelectionViewPresented) {
+                .sheet(isPresented: self.$isIconGroupsViewPresented) {
                     CategoryGroupSelectionView(
                         recordType: self.$viewModel.newItem.recordType,
                         selectedCategory: self.$selectedCategory)
