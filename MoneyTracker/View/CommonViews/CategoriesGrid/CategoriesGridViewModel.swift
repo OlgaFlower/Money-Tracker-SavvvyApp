@@ -8,16 +8,6 @@
 import Foundation
 
 final class CategoriesGridViewModel: ObservableObject {
-    // MARK: - State -
-    @Published var categoryItems: MoneyCategories  = MoneyCategories(
-        categoryItems: [
-            Category(
-                moneyGroupType: .none,
-                name: "",
-                icon: ""
-            )
-        ]
-    )
     
     // MARK: - Functions -
     func itemsToDisplay(for moneyGroup: MoneyGroupType) -> [Category] {

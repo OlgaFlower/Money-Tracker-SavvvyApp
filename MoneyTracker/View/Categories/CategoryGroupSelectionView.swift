@@ -28,6 +28,7 @@ struct CategoryGroupSelectionView: View {
             BackgroundGradView()
             self.closeBtnView
             self.makeIconList()
+            self.makeRecurringList()
             
             switch self.recordType {
             case .expense:
@@ -149,20 +150,39 @@ struct CategoryGroupSelectionView: View {
     }
     
     // MARK: - Views -
-    
+    @ViewBuilder
     private func makeIconList() -> some View {
-        ScrollView {
-            CategoriesGridView(
-                moneyGroupType: self.selectedCategory.moneyGroupType,
-                viewModel: CategoriesGridViewModel(),
-                selectedCategory: self.$selectedCategory
-            )
-            .padding(.vertical, 30)
+        if self.selectedCategory.moneyGroupType != .recurringExpense && self.selectedCategory.moneyGroupType != .none {
+            ScrollView {
+                CategoriesGridView(
+                    moneyGroupType: self.selectedCategory.moneyGroupType,
+                    viewModel: CategoriesGridViewModel(),
+                    selectedCategory: self.$selectedCategory
+                )
+                .padding(.vertical, 30)
+            }
+            .animation(.easeInOut(duration: 0.4), value: self.showIconsList)
+            .padding(.top, 64)
+            .scrollIndicators(.hidden)
+            .offset(x: self.showIconsList ? 0 : -UIScreen.main.bounds.width)
         }
-        .padding(.top, 64)
-        .scrollIndicators(.hidden)
-        .animation(.smooth, value: self.showIconsList)
-        .offset(x: self.showIconsList ? 0 : -UIScreen.main.bounds.width)
+    }
+    
+    @ViewBuilder
+    private func makeRecurringList() -> some View {
+        if self.selectedCategory.moneyGroupType == .recurringExpense {
+            ScrollView {
+                RecurringCategoryCellView(
+                    viewModel: RecurringCategoryCellViewModel(),
+                    selectedCategory: self.$selectedCategory
+                )
+                .padding(.vertical, 30)
+            }
+            .animation(.easeInOut(duration: 0.4), value: self.showIconsList)
+            .padding(.top, 64)
+            .scrollIndicators(.hidden)
+            .offset(x: self.showIconsList ? 0 : -UIScreen.main.bounds.width)
+        }
     }
     
     private var closeBtnView: some View {

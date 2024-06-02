@@ -1,5 +1,5 @@
 //
-//  CategoriesCellView.swift
+//  RecurringCategoryCellView.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 20.05.24.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct CategoriesCellView: View {
+struct RecurringCategoryCellView: View {
     // MARK: - Environment -
     @Environment(\.dismiss) var dismiss
     
     // MARK: - Properties
-    let categories: [Category]
+    let viewModel: RecurringCategoryCellViewModel
     
     // MARK: - State -
     @Binding var selectedCategory: Category
@@ -20,8 +20,16 @@ struct CategoriesCellView: View {
     // MARK: - Body -
     var body: some View {
         LazyVStack {
-            ForEach(self.categories, id: \.self) { item in
-                self.makeCellView(item: item)
+            ForEach(self.viewModel.recurringGroups, id: \.self) { group in
+                HStack {
+                    Text(group.sectionTitle)
+                        .padding(.leading, 40)
+                        .padding(.vertical)
+                    Spacer()
+                }
+                ForEach(group.categoryItems, id: \.self) { item in
+                    self.makeCellView(item: item)
+                }
             }
         }
     }
@@ -42,7 +50,6 @@ struct CategoriesCellView: View {
                             self.dismiss()
                         }
                     Spacer()
-                    
                 }
                 .padding(.leading, 72)
             .padding(.bottom, 8)
@@ -53,24 +60,14 @@ struct CategoriesCellView: View {
 }
 
 #Preview {
-    CategoriesCellView(
-        categories:
-            [Category(moneyGroupType: .regularIncome, 
-                      name: "Salary",
-                      icon: "sun.max"),
-             Category(moneyGroupType: .regularIncome, 
-                      name: "Scholarship",
-                      icon: "sunrise"),
-             Category(moneyGroupType: .regularIncome, 
-                      name: "Government aid",
-                      icon: "sunset"),
-             Category(moneyGroupType: .regularIncome, 
-                      name: "Pension",
-                      icon: "sun.horizon")
-            ],
-        selectedCategory: .constant(Category(moneyGroupType: .regularIncome, 
-                                             name: "Pension",
-                                             icon: "sun.horizon")
+    RecurringCategoryCellView(
+        viewModel: RecurringCategoryCellViewModel(),
+        selectedCategory: .constant(
+            Category(
+                moneyGroupType: .regularIncome,
+                name: "Pension",
+                icon: "sun.horizon"
+            )
         )
     )
 }
