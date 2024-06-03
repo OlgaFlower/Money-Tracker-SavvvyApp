@@ -19,7 +19,6 @@ struct MakeNewMoneyRecordView: View {
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyKeyboardFocused: Bool
     @State var isIconGroupsViewPresented: Bool = false
-    @State var selectedCategory = Category(moneyGroupType: .none, name: "", icon: "")
     
     // MARK: - Body
     var body: some View {
@@ -89,7 +88,7 @@ struct MakeNewMoneyRecordView: View {
             }, label: {
                 Text(RecordType.expense.value)
                     .font(.title3.monospaced())
-                    .opacity(self.viewModel.newItem.recordType == .expense ? 1 : 0.4)
+                    .opacity(self.viewModel.newItem.recordType == .expense ? 1 : 0.5)
             })
             
             Spacer()
@@ -104,7 +103,7 @@ struct MakeNewMoneyRecordView: View {
             }, label: {
                 Text(RecordType.income.value)
                     .font(.title3.monospaced())
-                    .opacity(self.viewModel.newItem.recordType == .income ? 1 : 0.4)
+                    .opacity(self.viewModel.newItem.recordType == .income ? 1 : 0.5)
             })
         }
         .frame(height: 24)
@@ -168,7 +167,7 @@ struct MakeNewMoneyRecordView: View {
                 .sheet(isPresented: self.$isIconGroupsViewPresented) {
                     CategoryGroupSelectionView(
                         recordType: self.$viewModel.newItem.recordType,
-                        selectedCategory: self.$selectedCategory)
+                        selectedCategory: self.$viewModel.newItem.category)
                 }
         }
         .padding(.horizontal, 60)
@@ -203,10 +202,15 @@ struct MakeNewMoneyRecordView: View {
                 .frame(width: 130)
                 .clipShape(.rect(cornerRadius: 10, style: .continuous))
         }
+        .animation(.easeInOut(duration: 0.3), value: self.viewModel.isSaveBtnActive())
         .background {
+            /// Border
             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .stroke(.white.opacity(0.6), lineWidth: 1)
+                .stroke(.white.opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4), lineWidth: 1)
         }
+        /// Shadow
+        .shadow(color: .black.opacity(self.viewModel.isSaveBtnActive() ? 0 : 0.4), radius: 1, x: 1, y: 1)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

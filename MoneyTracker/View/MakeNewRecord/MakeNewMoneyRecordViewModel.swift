@@ -14,7 +14,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     @Published var newItem: MoneyModel = MoneyModel(
         recordType: .expense,
         category: Category(
-            moneyGroupType: .generalExpense,
+            moneyGroupType: .none,
             name: "",
             icon: ""
         ),
