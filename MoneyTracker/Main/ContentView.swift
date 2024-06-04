@@ -56,7 +56,7 @@ struct ContentView: View {
                 )
             }
         }
-        .accentColor(.tabBarActive)
+        .accentColor(.white)
     }
     
     // MARK: - Views

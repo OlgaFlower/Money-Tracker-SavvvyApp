@@ -85,6 +85,7 @@ struct MakeNewMoneyRecordView: View {
             Button(action: {
                 Constants.vibrateLight()
                 self.viewModel.newItem.recordType = .expense
+                self.viewModel.setDefaultValues()
             }, label: {
                 Text(RecordType.expense.value)
                     .font(.title3.monospaced())
@@ -100,6 +101,7 @@ struct MakeNewMoneyRecordView: View {
             Button(action: {
                 Constants.vibrateLight()
                 self.viewModel.newItem.recordType = .income
+                self.viewModel.setDefaultValues()
             }, label: {
                 Text(RecordType.income.value)
                     .font(.title3.monospaced())
@@ -186,11 +188,6 @@ struct MakeNewMoneyRecordView: View {
                         self.dismiss()
                     }
                 }
-            } 
-            else
-            {
-                /// Vibrate long
-                self.viewModel.longVibrate()
             }
         } label: {
             Text("SAVE")

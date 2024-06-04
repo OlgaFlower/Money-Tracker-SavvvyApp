@@ -25,22 +25,15 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     @Published var engine: CHHapticEngine?
     
     init() {
-        self.newItem = self.setDefaultValues()
+        self.setDefaultValues()
     }
     
     // MARK: - Functions
-    func setDefaultValues() -> MoneyModel {
-        return MoneyModel(
-            recordType: .expense,
-            category: Category(
-                moneyGroupType: .generalExpense,
-                name: "CATEGORY",
-                icon: "sun.min"
-            ),
-            moneyAmount: "",
-            description: "",
-            currency: "EUR"
-        )
+    func setDefaultValues() {
+        self.newItem.category.moneyGroupType = .none
+        self.newItem.category.name = "CATEGORY"
+        self.newItem.category.icon = "sun.min"
+        self.newItem.currency = "EUR"
     }
     
     /// TODO: - FOR TESTING -> create records with past Date() -

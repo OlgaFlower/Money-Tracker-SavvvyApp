@@ -42,7 +42,8 @@ struct RecurringCategoryCellView: View {
                 .padding(.trailing, -10)
             VStack(spacing: 0) {
                 Spacer()
-                HStack {
+                HStack(spacing: 16) {
+                    Image(systemName: item.icon)
                     Text(item.name)
                         .font(.title3)
                         .onTapGesture {
