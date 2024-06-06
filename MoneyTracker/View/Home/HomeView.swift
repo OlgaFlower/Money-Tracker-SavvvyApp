@@ -17,6 +17,13 @@ struct HomeView: View {
     /// TODO:  TEST
     /// ALL Records
     @FetchRequest(entity: Money.entity(), sortDescriptors: []) var moneyRecords: FetchedResults<Money>
+    
+    /// CURRENT MONTH Income
+    var currentMonthRecordsFetchRequest = Money.fetchCurrentMonthRecords()
+    var monthIncome: FetchedResults<Money> {
+        currentMonthRecordsFetchRequest.wrappedValue
+    }
+    
     /// TODAY Records
     var todayRecordsFetchRequest = Money.fetchTodayRecords()
     var todayRecords: FetchedResults<Money> {
@@ -24,9 +31,12 @@ struct HomeView: View {
     }
     
     // MARK: - Properties
-     let infoBoardWidth = Constants.screenWidth / 2.8
-     var spentMoneyToday: String {
-         return self.viewModel.calculateSpentMoneyToday(records: todayRecords)
+    let infoBoardWidth = Constants.screenWidth / 2.8
+    var expensesToday: String {
+        return self.viewModel.calculateTodayExpenses(records: todayRecords)
+    }
+    var dailyBudget: String {
+        self.viewModel.calculateDailyBudget(records: monthIncome)
     }
     
     // MARK: - Body
@@ -85,7 +95,7 @@ struct HomeView: View {
                     .foregroundStyle(.white.opacity(0.8))
                 
                 // TODO: - Animated changing of the spent sum!
-                Text(String(describing: self.spentMoneyToday))
+                Text(self.expensesToday)
                     .font(.title2)
                     .fontDesign(.monospaced)
                     .foregroundStyle(.white.opacity(0.8))
@@ -103,7 +113,7 @@ struct HomeView: View {
                     .foregroundStyle(.white.opacity(0.8))
                 
                 // TODO: - Animated changing of the budget sum!
-                Text("65,50")
+                Text(self.dailyBudget)
                     .font(.title2)
                     .fontDesign(.monospaced)
                     .foregroundStyle(.white.opacity(0.8))
@@ -112,14 +122,14 @@ struct HomeView: View {
         }
         .onAppear {
             // TODO: - FOR TESTING -
-//            Money.deleteAllObjects(context: self.context)
-//            print("Today records: \(self.todayRecords)")
-//            print("ALL records: \(self.moneyRecords)")
+            //            Money.deleteAllObjects(context: self.context)
+            //            print("Today records: \(self.todayRecords)")
+            //            print("ALL records: \(self.moneyRecords)")
         }
     }
     
     /// Chart
-     func makeChart() -> some View {
+    func makeChart() -> some View {
         Gauge(
             value: self.viewModel.currentBalance,
             in: 0...self.viewModel.todayBudget

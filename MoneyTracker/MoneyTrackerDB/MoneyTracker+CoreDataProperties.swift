@@ -60,7 +60,40 @@ extension Money {
         
         let timestampPredicate = NSPredicate(format: "timestamp >= %@ AND timestamp < %@", Calendar.current.startOfDay(for: Date()) as NSDate, Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: Date()))! as NSDate)
         
-        return FetchRequest<Money>(entity: Money.entity(), sortDescriptors: [timestampSortDescriptor], predicate: timestampPredicate)
+        return FetchRequest<Money>(
+            entity: Money.entity(),
+            sortDescriptors: [timestampSortDescriptor],
+            predicate: timestampPredicate
+        )
+    }
+    
+    static func fetchCurrentMonthRecords() -> FetchRequest<Money> {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        
+        // Get the start of the current month
+        guard let startOfMonth = calendar.date(
+            from: calendar.dateComponents([.year, .month], from: currentDate)
+        ) else {
+            fatalError("Could not determine start of the current month.")
+        }
+        
+        // Get the start of the next month (which effectively is the end of the current month)
+        guard let startOfNextMonth = calendar.date(
+            byAdding: .month, value: 1, to: startOfMonth
+        ) else {
+            fatalError("Could not determine start of the next month.")
+        }
+        
+        // Create a predicate to filter records between the start and end of the current month
+        let timestampPredicate = NSPredicate(format: "timestamp >= %@ AND timestamp < %@", startOfMonth as NSDate, startOfNextMonth as NSDate)
+        let timestampSortDescriptor = NSSortDescriptor(keyPath: \Money.timestamp, ascending: true)
+        
+        return FetchRequest<Money>(
+            entity: Money.entity(),
+            sortDescriptors: [timestampSortDescriptor],
+            predicate: timestampPredicate
+        )
     }
     
     // MARK: - TODO: Delete this func after all, it's for testing! -
