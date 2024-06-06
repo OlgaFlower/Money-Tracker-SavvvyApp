@@ -178,15 +178,14 @@ struct MakeNewMoneyRecordView: View {
     /// SAVE
     private var saveButtonView: some View {
         Button {
-            if !self.viewModel.newItem.moneyAmount.isEmpty {
-                self.viewModel.saveNewRecord(self.viewContext)
-                
+            self.viewModel.saveNewRecord(self.viewContext)
+            self.viewModel.shortVibrate()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.viewModel.shortVibrate()
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.viewModel.shortVibrate()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        self.dismiss()
-                    }
+                    self.dismiss()
                 }
             }
         } label: {
@@ -199,11 +198,13 @@ struct MakeNewMoneyRecordView: View {
                 .frame(width: 130)
                 .clipShape(.rect(cornerRadius: 10, style: .continuous))
         }
+        .disabled(!self.viewModel.isSaveBtnActive())
         .animation(.easeInOut(duration: 0.3), value: self.viewModel.isSaveBtnActive())
         .background {
             /// Border
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .stroke(.white.opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4), lineWidth: 1)
+                .fill(.white.opacity(self.viewModel.isSaveBtnActive() ? 0.1 : 0))
         }
         /// Shadow
         .shadow(color: .black.opacity(self.viewModel.isSaveBtnActive() ? 0 : 0.4), radius: 1, x: 1, y: 1)
