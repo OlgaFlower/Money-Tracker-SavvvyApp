@@ -36,12 +36,13 @@ final class HomeViewModel: ObservableObject {
         // Array of MoneyAmounts (records from DB) is converted to Int values and then we get the sum of all values in array
         // ["1244", "54", "2"] -> [1244, 54, 2] -> 1300 (calculation: 1244+54+2 )
         
-        let moneySum: Int = records.compactMap { Int($0.moneyAmount) }.reduce(0, +)
+        let todayExpenses = records.filter { !$0.isIncome }
+        print("TODAY EXPENSES: \(todayExpenses)")
+        let sum = todayExpenses.compactMap { Int($0.moneyAmount) }.reduce(0, +)
         
         // Sum of money is converted from Int to Double and devided to 100 - to get currency value (with cents)
         // after that it formatted to String (currency format) for TextView
         // 1300/100 = 13.00 -> "13,00" (currency format)
-        
-        return String(describing: Double(moneySum)/100).formatAsCurrency()
+        return String(describing: Double(sum)/100).formatAsCurrency()
     }
 }

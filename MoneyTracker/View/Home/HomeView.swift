@@ -113,7 +113,7 @@ struct HomeView: View {
         .onAppear {
             // TODO: - FOR TESTING -
 //            Money.deleteAllObjects(context: self.context)
-            print("Today records: \(self.todayRecords)")
+//            print("Today records: \(self.todayRecords)")
 //            print("ALL records: \(self.moneyRecords)")
         }
     }

@@ -299,9 +299,9 @@
 		424275352BA503D1001873A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				42A11C2D2BB935D4003B617D /* Home */,
 				42714FD02BBEF6160085FA7C /* MakeNewRecord */,
 				42B9F10A2BF3CE8700D719E3 /* Categories */,
-				42A11C2D2BB935D4003B617D /* Home */,
 				42A11C282BB6FB9F003B617D /* TrackingLogs */,
 				4251FA482BAB22AD0087ABE7 /* BankAcoountsView */,
 				4251FA452BA63F590087ABE7 /* Registration */,

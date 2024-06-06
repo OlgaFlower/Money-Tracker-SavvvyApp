@@ -66,8 +66,6 @@ extension Money {
     // MARK: - TODO: Delete this func after all, it's for testing! -
     /// Delete ALL objects
     static func deleteAllObjects(context: NSManagedObjectContext) {
-        
-        
         let persistentStoreCoordinator = context.persistentStoreCoordinator
         let entities = persistentStoreCoordinator?.managedObjectModel.entities
         
