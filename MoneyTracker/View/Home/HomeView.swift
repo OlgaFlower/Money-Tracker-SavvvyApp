@@ -30,6 +30,15 @@ struct HomeView: View {
         todayRecordsFetchRequest.wrappedValue
     }
     
+    /// TEST
+    /// Adding new Changes to CoreData
+    let sortTypes = [
+        (name: "RecordTimestamp", descriptors: [SortDescriptor(\Money.timestamp, order: .forward)])
+//        (name: "IsIncome", descriptors: [SortDescriptor(\Money.isIncome, order: .forward)])
+    ]
+    
+    @State var activeSortIndex = 0
+    
     // MARK: - Properties
     let infoBoardWidth = Constants.screenWidth / 2.8
     var expensesToday: String {
@@ -81,6 +90,9 @@ struct HomeView: View {
                 Spacer()
             }
             .padding(.top, 25)
+            .onChange(of: activeSortIndex) {
+                todayRecords.sortDescriptors = sortTypes[activeSortIndex].descriptors
+            }
         }
     }
     
