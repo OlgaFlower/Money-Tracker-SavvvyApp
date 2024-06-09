@@ -57,9 +57,6 @@ struct MakeNewMoneyRecordView: View {
             self.isKeyboardFocused = false
             self.isCurrencyKeyboardFocused = false
         }
-        .onAppear {
-            self.viewModel.prepareHaptics()
-        }
     }
     
     // MARK: - Views
