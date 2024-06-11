@@ -57,9 +57,6 @@ struct MakeNewMoneyRecordView: View {
             self.isKeyboardFocused = false
             self.isCurrencyKeyboardFocused = false
         }
-        .onAppear {
-            self.viewModel.prepareHaptics()
-        }
     }
     
     // MARK: - Views
@@ -178,7 +175,7 @@ struct MakeNewMoneyRecordView: View {
     /// SAVE
     private var saveButtonView: some View {
         Button {
-            self.viewModel.saveNewRecord(self.viewContext)
+            self.viewModel.saveNewRecord(context: self.viewContext)
             self.viewModel.shortVibrate()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {

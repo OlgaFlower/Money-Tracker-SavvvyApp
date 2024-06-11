@@ -6,7 +6,6 @@
 //
 
 import CoreData
-import CoreHaptics
 
 final class MakeNewMoneyRecordViewModel: ObservableObject {
     
@@ -22,7 +21,6 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         description: "",
         currency: ""
     )
-    @Published var engine: CHHapticEngine?
     
     init() {
         self.setDefaultValues()
@@ -39,7 +37,11 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     /// TODO: - FOR TESTING -> create records with past Date() -
     //let pastdate = Calendar.current.date(byAdding: .day, value: -2, to: .now)
     
-    func saveNewRecord(_ context: NSManagedObjectContext) {
+    func saveNewRecord(context: NSManagedObjectContext) {
+        
+        let list = MoneyList.fetchOrCreateFor(recordDate: Date(), in: context)
+        
+        print("LIST from viewModel: \(list)")
         
         if let intValue = Int64(self.newItem.moneyAmount),
            self.newItem.category.name != "CATEGORY" {
@@ -51,7 +53,8 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
                 categoryName: self.newItem.category.name,
                 categoryIcon: self.newItem.category.icon,
                 timestamp: Date(),
-                notes: self.newItem.description,
+                notes: self.newItem.description, 
+                list: list,
                 using: context
             )
         }
@@ -64,42 +67,8 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     func isSaveBtnActive() -> Bool {
         return self.isCategoryChosen() && !self.newItem.moneyAmount.isEmpty
     }
-}
-
-// MARK: - Haptic Engine (Vibrations)
-extension MakeNewMoneyRecordViewModel {
     
     func shortVibrate() {
         Constants.vibrateMedium()
-    }
-    
-    func prepareHaptics() {
-        do {
-            self.engine = try CHHapticEngine()
-            try engine?.start()
-        } catch {
-            print("An error of creating the Haptics Engine: \(error.localizedDescription)")
-        }
-    }
-    
-    func longVibrate() {
-        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
-        
-        var events = [CHHapticEvent]()
-        
-        // Create a continuous haptic event for a long vibration
-        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1.0)
-        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.5)
-        let event = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity, sharpness], relativeTime: 0, duration: 0.6)
-        
-        events.append(event)
-        
-        do {
-            let pattern = try CHHapticPattern(events: events, parameters: [])
-            let player = try engine?.makePlayer(with: pattern)
-            try player?.start(atTime: 0)
-        } catch {
-            print("Failed to play pattern: \(error.localizedDescription)")
-        }
     }
 }
