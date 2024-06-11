@@ -9,26 +9,37 @@
 import Foundation
 import CoreData
 
-
 extension MoneyList {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<MoneyList> {
         return NSFetchRequest<MoneyList>(entityName: "MoneyList")
     }
     
-    static func create(for date: Date, in context: NSManagedObjectContext) {
-        let newRecordsList = self.init(context: context)
-        newRecordsList.date = date
+    static func fetchOrCreateFor(recordDate: Date, in context: NSManagedObjectContext) -> MoneyList {
+        
+        let request: NSFetchRequest<MoneyList> = fetchRequest()
+        let dateToTitle = String(DateFormatter.dayOnly.string(from: recordDate))
+        let predicate = NSPredicate(format: "%K == %@", "title", dateToTitle)
+        request.predicate = predicate
         
         do {
-            try context.save()
+            let result = try context.fetch(request)
+            
+            if let list = result.first {
+                return list
+            } else {
+                let list = MoneyList(context: context)
+                list.title = dateToTitle ///  "11 Jun 2024"
+                list.recordDate = recordDate
+                return list
+            }
         } catch {
-            let nserror = error as NSError
-            fatalError("Unresolves error of newRecordsList saving: \(nserror), \(nserror.userInfo)")
+            fatalError("Error fetching or creating list")
         }
     }
 
-    @NSManaged public var date: Date?
+    @NSManaged public var title: String
+    @NSManaged public var recordDate: Date
     @NSManaged public var records: [Money]
 
 }

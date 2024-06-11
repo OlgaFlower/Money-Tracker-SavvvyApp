@@ -11,7 +11,8 @@
         <relationship name="list" maxCount="1" deletionRule="Nullify" destinationEntity="MoneyList" inverseName="records" inverseEntity="MoneyList"/>
     </entity>
     <entity name="MoneyList" representedClassName="MoneyList" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="recordDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String"/>
         <relationship name="records" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Money" inverseName="list" inverseEntity="Money"/>
     </entity>
 </model>

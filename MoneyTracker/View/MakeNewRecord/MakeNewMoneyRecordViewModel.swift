@@ -37,7 +37,11 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     /// TODO: - FOR TESTING -> create records with past Date() -
     //let pastdate = Calendar.current.date(byAdding: .day, value: -2, to: .now)
     
-    func saveNewRecord(_ context: NSManagedObjectContext) {
+    func saveNewRecord(context: NSManagedObjectContext) {
+        
+        let list = MoneyList.fetchOrCreateFor(recordDate: Date(), in: context)
+        
+        print("LIST from viewModel: \(list)")
         
         if let intValue = Int64(self.newItem.moneyAmount),
            self.newItem.category.name != "CATEGORY" {
@@ -49,7 +53,8 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
                 categoryName: self.newItem.category.name,
                 categoryIcon: self.newItem.category.icon,
                 timestamp: Date(),
-                notes: self.newItem.description,
+                notes: self.newItem.description, 
+                list: list,
                 using: context
             )
         }

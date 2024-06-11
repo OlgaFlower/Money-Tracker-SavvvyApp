@@ -18,6 +18,7 @@ extension Money {
     @NSManaged public var isIncome: Bool
     @NSManaged public var moneyAmount: Int64
     @NSManaged public var notes: String?
+    @NSManaged public var list: MoneyList?
     
     // MARK: - Functions -
     /// Make New Record
@@ -29,6 +30,7 @@ extension Money {
         categoryIcon: String,
         timestamp: Date,
         notes: String?,
+        list: MoneyList,
         using managedObjectContext: NSManagedObjectContext
     ) {
         let newRecord = Money(context: managedObjectContext)
@@ -39,6 +41,7 @@ extension Money {
         newRecord.isIncome = isIncome
         newRecord.moneyAmount = moneyAmount
         newRecord.notes = notes
+        newRecord.list = list
         
         do {
             try managedObjectContext.save()
