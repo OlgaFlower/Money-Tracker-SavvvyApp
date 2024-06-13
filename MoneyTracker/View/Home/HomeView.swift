@@ -13,15 +13,15 @@ struct HomeView: View {
     // MARK: - State -
     @ObservedObject var viewModel: HomeViewModel
     @State var isMakeNewRecordViewPresented = false
-    // MARK: - DataBase -
-    /// TODO:  TEST
-    /// ALL Records
-    @FetchRequest(entity: Money.entity(), sortDescriptors: []) var moneyRecords: FetchedResults<Money>
     
-    /// CURRENT MONTH Income
+    // MARK: - DB -
+    /// Current Month Income
     var currentMonthRecordsFetchRequest = Money.fetchCurrentMonthRecords()
     var monthIncome: FetchedResults<Money> {
         currentMonthRecordsFetchRequest.wrappedValue
+    }
+    var dailyBudget: String {
+        self.viewModel.calculateDailyBudget(records: monthIncome)
     }
     
     /// TODAY Records
@@ -29,24 +29,17 @@ struct HomeView: View {
     var todayRecords: FetchedResults<Money> {
         todayRecordsFetchRequest.wrappedValue
     }
-    
-    @State var activeSortIndex = 0
-    
-    // MARK: - Properties
-    let infoBoardWidth = Constants.screenWidth / 2.8
     var expensesToday: String {
         return self.viewModel.calculateTodayExpenses(records: todayRecords)
     }
-    var dailyBudget: String {
-        self.viewModel.calculateDailyBudget(records: monthIncome)
-    }
+    
+    // MARK: - Properties
+    let infoBoardWidth = Constants.screenWidth / 2.8
     
     // MARK: - Body
     var body: some View {
-        
         ZStack {
             BackgroundGradView()
-            
             VStack {
                 /// Plus button
                 HStack {
@@ -138,7 +131,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    
     let context = PersistenceController.preview.container.viewContext
     let spentMoney = Money(context: context)
     spentMoney.moneyAmount = 323

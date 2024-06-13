@@ -41,8 +41,6 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         
         let list = MoneyList.fetchOrCreateFor(recordDate: Date(), in: context)
         
-        print("LIST from viewModel: \(list)")
-        
         if let intValue = Int64(self.newItem.moneyAmount),
            self.newItem.category.name != "CATEGORY" {
             

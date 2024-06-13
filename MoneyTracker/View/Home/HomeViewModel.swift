@@ -5,7 +5,6 @@
 //  Created by Olha Bereziuk on 18.05.24.
 //
 
-import Foundation
 import CoreData
 import SwiftUI
 
@@ -17,7 +16,6 @@ final class HomeViewModel: ObservableObject {
         // ["1244", "54", "2"] -> [1244, 54, 2] -> 1300 (calculation: 1244+54+2 )
         
         let todayExpenses = records.filter { !$0.isIncome }
-        print("TODAY EXPENSES: \(todayExpenses)")
         let sum = todayExpenses.compactMap { Int($0.moneyAmount) }.reduce(0, +)
         
         // Sum of money is converted from Int to Double and devided to 100 - to get currency value (with cents)
@@ -28,7 +26,6 @@ final class HomeViewModel: ObservableObject {
     
     private func calculateMonthIncome(records: FetchedResults<Money>) -> Int {
         let monthIncome = records.filter { $0.isIncome }
-        print("MONTH INCOME: \(monthIncome)")
         let monthIncomeSum = monthIncome.compactMap { Int($0.moneyAmount) }.reduce(0, +)
         return monthIncomeSum
     }
@@ -36,7 +33,6 @@ final class HomeViewModel: ObservableObject {
     // For Current Month
     func calculateDailyBudget(records: FetchedResults<Money>) -> String {
         let daysInMonth = CalendarManager.getNumberOfDaysInMonth(for: Date())
-        print("Days in month: \(daysInMonth)")
         let dailyBudget = self.calculateMonthIncome(records: records) / daysInMonth
         return String(describing: Double(dailyBudget)/100).formatAsCurrency()
     }
