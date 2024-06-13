@@ -12,7 +12,7 @@ struct HomeView: View {
     
     // MARK: - State -
     @ObservedObject var viewModel: HomeViewModel
-    
+    @State var isMakeNewRecordViewPresented = false
     // MARK: - DataBase -
     /// TODO:  TEST
     /// ALL Records
@@ -29,13 +29,6 @@ struct HomeView: View {
     var todayRecords: FetchedResults<Money> {
         todayRecordsFetchRequest.wrappedValue
     }
-    
-    /// TEST
-    /// Adding new Changes to CoreData
-    let sortTypes = [
-        (name: "RecordTimestamp", descriptors: [SortDescriptor(\Money.timestamp, order: .forward)])
-//        (name: "IsIncome", descriptors: [SortDescriptor(\Money.isIncome, order: .forward)])
-    ]
     
     @State var activeSortIndex = 0
     
@@ -59,14 +52,14 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.viewModel.isMakeNewRecordViewPresented.toggle()
+                        self.isMakeNewRecordViewPresented.toggle()
                     }, label: {
                         Image(systemName: "plus")
                             .font(Font.system(size: 36))
                             .foregroundStyle(.white)
                     })
                     .fullScreenCover(
-                        isPresented: self.$viewModel.isMakeNewRecordViewPresented,
+                        isPresented: self.$isMakeNewRecordViewPresented,
                         content: {
                             MakeNewMoneyRecordView(
                                 viewModel: MakeNewMoneyRecordViewModel()
@@ -77,7 +70,7 @@ struct HomeView: View {
                 .padding(.trailing, 40)
                 
                 /// Chart View
-                // TODO: - Add button or tag gesture over chart - to open detailed view!
+                // TODO: - Add button or gesture over chart - to open detailed view!
                 // TODO: - Animated changing of the budget's leftower!
                 self.makeChart()
                     .frame(width: 260, height: 260)
@@ -90,9 +83,6 @@ struct HomeView: View {
                 Spacer()
             }
             .padding(.top, 25)
-            .onChange(of: activeSortIndex) {
-                todayRecords.sortDescriptors = sortTypes[activeSortIndex].descriptors
-            }
         }
     }
     
@@ -132,22 +122,16 @@ struct HomeView: View {
             }
             .frame(width: self.infoBoardWidth)
         }
-        .onAppear {
-            // TODO: - FOR TESTING -
-            //            Money.deleteAllObjects(context: self.context)
-            //            print("Today records: \(self.todayRecords)")
-            //            print("ALL records: \(self.moneyRecords)")
-        }
     }
     
     /// Chart
     func makeChart() -> some View {
         Gauge(
-            value: self.viewModel.currentBalance,
-            in: 0...self.viewModel.todayBudget
+            value: 123.00, // Leftover $
+            in: 0...200.0 // dayliBudget $
         ) {
         } currentValueLabel: {
-            Text("\(self.viewModel.currentBalance, specifier: "%.2f")")
+            Text("123.00") // Leftover $
         }
         .gaugeStyle(ChartHalfDonut())
     }

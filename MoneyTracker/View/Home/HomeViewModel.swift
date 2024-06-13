@@ -11,27 +11,7 @@ import SwiftUI
 
 final class HomeViewModel: ObservableObject {
     
-    // MARK: - State -
-    
-    @Published var isMakeNewRecordViewPresented = false
-    @Published var currentBalance: Double = 0.0
-    @Published var todayBudget: Double = 0.0
-    
-    // MARK: - Init
-    init() {
-        self.currentBalance = self.setCurrentBalance()
-        self.todayBudget = self.setTodayBudget()
-    }
-    
-    // MARK: - Functions
-    func setCurrentBalance() -> Double {
-        return 32.46
-    }
-    
-    func setTodayBudget() -> Double {
-        return 67.87
-    }
-    
+    // MARK: - Functions -
     func calculateTodayExpenses(records: FetchedResults<Money>) -> String {
         // Array of MoneyAmounts (records from DB) is converted to Int values and then we get the sum of all values in array
         // ["1244", "54", "2"] -> [1244, 54, 2] -> 1300 (calculation: 1244+54+2 )
