@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
     
@@ -17,7 +18,7 @@ struct ContentView: View {
         TabView {
             ///Home
             NavigationStack {
-                HomeView(viewModel: HomeViewModel())
+                HomeView()
                     .navigationTitle("Today's budget")
                     .navigationBarTitleDisplayMode(.large)
             }
@@ -68,5 +69,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    return ContentView()
 }

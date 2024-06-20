@@ -10,11 +10,11 @@ import Combine
 import CoreData
 
 struct MakeNewMoneyRecordView: View {
-    // MARK: - Environment -
+    // MARK: - Environment
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.dismiss) var dismiss
     
-    // MARK: - State -
+    // MARK: - State
     @ObservedObject var viewModel: MakeNewMoneyRecordViewModel
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyKeyboardFocused: Bool

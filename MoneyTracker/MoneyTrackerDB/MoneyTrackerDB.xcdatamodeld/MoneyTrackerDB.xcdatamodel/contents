@@ -7,12 +7,14 @@
         <attribute name="isIncome" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="moneyAmount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="list" maxCount="1" deletionRule="Nullify" destinationEntity="MoneyList" inverseName="records" inverseEntity="MoneyList"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="typeTag" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <fetchedProperty name="expensesRecords" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Money" predicateString="isIncome == 0"/>
+        </fetchedProperty>
+        <fetchedProperty name="incomeRecords" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Money" predicateString="isIncome == 1"/>
+        </fetchedProperty>
     </entity>
-    <entity name="MoneyList" representedClassName="MoneyList" syncable="YES">
-        <attribute name="recordDate" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="title" attributeType="String"/>
-        <relationship name="records" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Money" inverseName="list" inverseEntity="Money"/>
-    </entity>
+    <entity name="MoneyList" representedClassName="MoneyList" syncable="YES"/>
 </model>

@@ -10,31 +10,36 @@ import CoreData
 
 struct HomeView: View {
     
-    // MARK: - State -
-    @ObservedObject var viewModel: HomeViewModel
+    // MARK: - State
+    private var viewModel = HomeViewModel()
     @State var isMakeNewRecordViewPresented = false
     
-    // MARK: - DB -
-    /// Current Month Income
-    var currentMonthRecordsFetchRequest = Money.fetchCurrentMonthRecords()
-    var monthIncome: FetchedResults<Money> {
-        currentMonthRecordsFetchRequest.wrappedValue
-    }
-    var dailyBudget: String {
-        self.viewModel.calculateDailyBudget(records: monthIncome)
-    }
-    
-    /// TODAY Records
-    var todayRecordsFetchRequest = Money.fetchTodayRecords()
-    var todayRecords: FetchedResults<Money> {
+    // MARK: - DB
+    /// Today Records
+    private var todayRecordsFetchRequest = CoreDataManager.fetchTodayRecords()
+    private var todayRecords: FetchedResults<Money> {
         todayRecordsFetchRequest.wrappedValue
     }
-    var expensesToday: String {
-        return self.viewModel.calculateTodayExpenses(records: todayRecords)
+    
+    /// Month Income
+    private var monthIncomeFetchRequest = CoreDataManager.fetchCurrentMonthRecords()
+    private var monthIncome: FetchedResults<Money> {
+        monthIncomeFetchRequest.wrappedValue
     }
     
     // MARK: - Properties
-    let infoBoardWidth = Constants.screenWidth / 2.8
+    private let infoBoardWidth = Constants.screenWidth / 2.8
+    private var expenses: Int {
+        return self.viewModel.calcExpenses(records: todayRecords)
+    }
+    
+    private var budget: Double {
+        self.viewModel.calcDayBudget(records: monthIncome)
+    }
+    
+    private var leftover: Double {
+        self.viewModel.calcLeftover(dayBudget: budget, expenses: expenses)
+    }
     
     // MARK: - Body
     var body: some View {
@@ -77,10 +82,12 @@ struct HomeView: View {
             }
             .padding(.top, 25)
         }
+        .onAppear {
+        
+        }
     }
     
     // MARK: - Views
-    
     private var budgetInformationView: some View {
         HStack {
             VStack(spacing: 18) {
@@ -90,7 +97,7 @@ struct HomeView: View {
                     .foregroundStyle(.white.opacity(0.8))
                 
                 // TODO: - Animated changing of the spent sum!
-                Text(self.expensesToday)
+                Text(self.viewModel.convertToString(intValue: self.expenses).formatAsCurrency())
                     .font(.title2)
                     .fontDesign(.monospaced)
                     .foregroundStyle(.white.opacity(0.8))
@@ -108,7 +115,7 @@ struct HomeView: View {
                     .foregroundStyle(.white.opacity(0.8))
                 
                 // TODO: - Animated changing of the budget sum!
-                Text(self.dailyBudget)
+                Text("\(String(describing: self.budget).formatAsCurrency())")
                     .font(.title2)
                     .fontDesign(.monospaced)
                     .foregroundStyle(.white.opacity(0.8))
@@ -118,21 +125,18 @@ struct HomeView: View {
     }
     
     /// Chart
-    func makeChart() -> some View {
+    private func makeChart() -> some View {
         Gauge(
-            value: 123.00, // Leftover $
-            in: 0...200.0 // dayliBudget $
+            value: self.leftover,
+            in: 0...self.budget
         ) {
         } currentValueLabel: {
-            Text("123.00") // Leftover $
+            Text("\(String(describing: self.leftover).formatAsCurrency())")
         }
         .gaugeStyle(ChartHalfDonut())
     }
 }
 
 #Preview {
-    let context = PersistenceController.preview.container.viewContext
-    let spentMoney = Money(context: context)
-    spentMoney.moneyAmount = 323
-    return HomeView(viewModel: HomeViewModel())
+    HomeView()
 }

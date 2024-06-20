@@ -6,10 +6,11 @@
 //
 
 import CoreData
+import Foundation
 
 final class MakeNewMoneyRecordViewModel: ObservableObject {
     
-    // MARK: - Properties -
+    // MARK: - Properties
     @Published var newItem: MoneyModel = MoneyModel(
         recordType: .expense,
         category: Category(
@@ -22,6 +23,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         currency: ""
     )
     
+    // MARK: - Init
     init() {
         self.setDefaultValues()
     }
@@ -34,13 +36,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         self.newItem.currency = "EUR"
     }
     
-    /// TODO: - FOR TESTING -> create records with past Date() -
-    //let pastdate = Calendar.current.date(byAdding: .day, value: -2, to: .now)
-    
     func saveNewRecord(context: NSManagedObjectContext) {
-        
-        let list = MoneyList.fetchOrCreateFor(recordDate: Date(), in: context)
-        
         if let intValue = Int64(self.newItem.moneyAmount),
            self.newItem.category.name != "CATEGORY" {
             
@@ -52,7 +48,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
                 categoryIcon: self.newItem.category.icon,
                 timestamp: Date(),
                 notes: self.newItem.description, 
-                list: list,
+                typeTag: self.newItem.category.moneyGroupType.typeTag, 
                 using: context
             )
         }

@@ -11,7 +11,7 @@ import SwiftUI
 struct MoneyTrackerApp: App {
     
     // MARK: - Properties -
-    private let dataController = PersistenceController()
+    private let viewContext = PersistenceController.shared.container.viewContext
     
     // MARK: - Init -
     init() {
@@ -24,7 +24,7 @@ struct MoneyTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, self.dataController.container.viewContext)
+                .environment(\.managedObjectContext, viewContext)
         }
     }
 }

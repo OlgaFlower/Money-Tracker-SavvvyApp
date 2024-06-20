@@ -63,5 +63,5 @@ struct ChartHalfDonut: GaugeStyle {
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewModel())
+    HomeView()
 }
