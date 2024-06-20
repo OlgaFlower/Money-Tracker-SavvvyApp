@@ -12,7 +12,7 @@ struct MoneyModel: Identifiable {
     var recordType: RecordType
     var category: Category
     var moneyAmount: String
-    var description: String
+    var notes: String
     var currency: String
     
 }

@@ -117,13 +117,13 @@ struct MakeNewMoneyRecordView: View {
                 .foregroundStyle(Color.lightBlue.opacity(0.4))
                 .frame(height: 92)
             /// Placeholder
-            if self.viewModel.newItem.description.isEmpty {
+            if self.viewModel.newItem.notes.isEmpty {
                 Text("Description")
                     .font(.title3.monospaced())
                     .foregroundStyle(.white.opacity(0.4))
             }
             
-            TextField("", text: self.$viewModel.newItem.description, axis: .vertical)
+            TextField("", text: self.$viewModel.newItem.notes, axis: .vertical)
                 .onSubmit {
                     self.isKeyboardFocused = false
                 }

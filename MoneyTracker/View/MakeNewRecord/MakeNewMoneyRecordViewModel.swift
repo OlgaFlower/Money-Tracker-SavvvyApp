@@ -19,7 +19,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
             icon: ""
         ),
         moneyAmount: "",
-        description: "",
+        notes: "",
         currency: ""
     )
     
@@ -40,14 +40,14 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         if let intValue = Int64(self.newItem.moneyAmount),
            self.newItem.category.name != "CATEGORY" {
             
-            Money.makeNewRecordWith(
+            CoreDataManager.makeNewRecordWith(
                 moneyAmount: intValue,
                 currency: self.newItem.currency,
                 isIncome: self.newItem.recordType == .income ? true : false,
                 categoryName: self.newItem.category.name,
                 categoryIcon: self.newItem.category.icon,
                 timestamp: Date(),
-                notes: self.newItem.description, 
+                notes: self.newItem.notes, 
                 typeTag: self.newItem.category.moneyGroupType.typeTag, 
                 using: context
             )

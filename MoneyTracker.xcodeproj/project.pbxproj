@@ -442,7 +442,7 @@
 				42F4FB5E2BF6415D007A580E /* PersistenceController.swift */,
 				4257679F2C2148C90053637A /* CoreDataManager.swift */,
 				42B9F1162BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld */,
-				42F8F72F2C1487B500C0CE9B /* Model */,
+				42F8F7302C1487DB00C0CE9B /* MoneyEntity */,
 			);
 			path = MoneyTrackerDB;
 			sourceTree = "<group>";
@@ -467,14 +467,6 @@
 				42EB69422BFE00A200FF4E7F /* CategoriesGridViewModel.swift */,
 			);
 			path = CategoriesGrid;
-			sourceTree = "<group>";
-		};
-		42F8F72F2C1487B500C0CE9B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				42F8F7302C1487DB00C0CE9B /* MoneyEntity */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		42F8F7302C1487DB00C0CE9B /* MoneyEntity */ = {

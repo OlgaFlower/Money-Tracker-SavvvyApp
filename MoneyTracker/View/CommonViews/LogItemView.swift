@@ -29,8 +29,8 @@ struct LogItemView: View {
                 
                 VStack(alignment: .leading) {
                     Text(record.category.name)
-                    if !record.description.isEmpty {
-                        Text(record.description)
+                    if !record.notes.isEmpty {
+                        Text(record.notes)
                             .font(.subheadline)
                             .foregroundStyle(.mainNavy.opacity(0.6))
                     }
