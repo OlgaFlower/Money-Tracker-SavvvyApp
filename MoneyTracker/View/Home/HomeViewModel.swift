@@ -31,6 +31,10 @@ final class HomeViewModel {
         return Double(dailyBudget)/100
     }
     
+    func setLeftoverValueForChart(leftover: Double) -> Double {
+        return leftover <= 0.0 ? 0.0 : leftover
+    }
+    
     private func calcMonthIncome(records: FetchedResults<Money>) -> Int {
         let monthIncome = records.filter { $0.isIncome }
         let monthIncomeSum = monthIncome.compactMap { Int($0.moneyAmount) }.reduce(0, +)

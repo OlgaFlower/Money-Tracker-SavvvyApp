@@ -48,13 +48,12 @@ struct ChartHalfDonut: GaugeStyle {
                 
                 /// Current balance
                 configuration.currentValueLabel
-                    .font(.system(size: 30, weight: .bold, design: .monospaced))
+                    .font(.system(size: 30, weight: .semibold, design: .monospaced))
                     .foregroundColor(.white)
                 
                 /// Currency
                 Text("EUR")
-                    .font(.system(.title, design: .monospaced))
-                    .bold()
+                    .font(.system(size: 30, weight: .semibold, design: .monospaced))
                     .foregroundColor(.white)
             }
             .padding(.top, 24)

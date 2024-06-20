@@ -91,16 +91,24 @@ struct HomeView: View {
     private var budgetInformationView: some View {
         HStack {
             VStack(spacing: 18) {
-                Text("SPENT")
-                    .font(.title2)
-                    .fontDesign(.monospaced)
-                    .foregroundStyle(.white.opacity(0.8))
+                HStack {
+                    Spacer()
+                    Text("SPENT")
+                        .font(.title2)
+                        .fontDesign(.monospaced)
+                        .foregroundStyle(.white.opacity(0.8))
+                }
+                .padding(.trailing, 30)
                 
                 // TODO: - Animated changing of the spent sum!
-                Text(self.viewModel.convertToString(intValue: self.expenses).formatAsCurrency())
-                    .font(.title2)
-                    .fontDesign(.monospaced)
-                    .foregroundStyle(.white.opacity(0.8))
+                HStack {
+                    Spacer()
+                    Text(self.viewModel.convertToString(intValue: self.expenses).formatAsCurrency())
+                        .font(.title2)
+                        .fontDesign(.monospaced)
+                        .foregroundStyle(.white.opacity(0.8))
+                }
+                .padding(.trailing, 16)
             }
             .frame(width: self.infoBoardWidth)
             Rectangle()
@@ -109,16 +117,24 @@ struct HomeView: View {
                 .padding(.horizontal, 12)
             
             VStack(spacing: 18) {
-                Text("BUDGET")
-                    .font(.title2)
-                    .fontDesign(.monospaced)
-                    .foregroundStyle(.white.opacity(0.8))
+                HStack {
+                    Text("BUDGET")
+                        .font(.title2)
+                        .fontDesign(.monospaced)
+                        .foregroundStyle(.white.opacity(0.8))
+                    Spacer()
+                }
+                .padding(.leading, 30)
                 
                 // TODO: - Animated changing of the budget sum!
-                Text("\(String(describing: self.budget).formatAsCurrency())")
-                    .font(.title2)
-                    .fontDesign(.monospaced)
-                    .foregroundStyle(.white.opacity(0.8))
+                HStack {
+                    Text(String(describing: self.budget).formatAsCurrency())
+                        .font(.title2)
+                        .fontDesign(.monospaced)
+                        .foregroundStyle(.white.opacity(0.8))
+                    Spacer()
+                }
+                .padding(.leading, 30)
             }
             .frame(width: self.infoBoardWidth)
         }
@@ -127,10 +143,14 @@ struct HomeView: View {
     /// Chart
     private func makeChart() -> some View {
         Gauge(
-            value: self.leftover,
+            value: self.viewModel.setLeftoverValueForChart(leftover: self.leftover),
             in: 0...self.budget
         ) {
         } currentValueLabel: {
+            Text("LEFTOVER")
+                .font(.title2)
+                .fontDesign(.monospaced)
+                .foregroundStyle(.white.opacity(0.8))
             Text("\(String(describing: self.leftover).formatAsCurrency())")
         }
         .gaugeStyle(ChartHalfDonut())
