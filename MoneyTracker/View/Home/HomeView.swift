@@ -11,6 +11,7 @@ import CoreData
 struct HomeView: View {
     
     // MARK: - State
+    @StateObject var audio = AudioPlayer()
     @State var isMakeNewRecordViewPresented = false
     @State private var animatedLeftover: Double = 0.0
     @State private var animatedBudget: Double = 0.0
@@ -67,6 +68,7 @@ struct HomeView: View {
                     .fullScreenCover(
                         isPresented: self.$isMakeNewRecordViewPresented) {
                             withAnimation {
+                                self.playSound()
                                 self.updateAnimatedValues()
                             }
                         }
@@ -105,6 +107,15 @@ struct HomeView: View {
         self.animatedExpenses = self.expenses
     }
     
+    private func playSound() {
+        if self.leftover > self.animatedLeftover {
+            self.audio.playSound(for: .income)
+        }
+        if self.leftover < self.animatedLeftover {
+            self.audio.playSound(for: .expenses)
+        }
+    }
+    
     // MARK: - Views
     private var budgetInformationView: some View {
         HStack {
@@ -126,7 +137,7 @@ struct HomeView: View {
                         .fontDesign(.monospaced)
                         .foregroundStyle(.white.opacity(0.8))
                         .contentTransition(.numericText())
-                        .animation(.easeInOut, value: self.animatedExpenses)
+                        .animation(.linear, value: self.animatedExpenses)
                 }
                 .padding(.trailing, 16)
             }
@@ -153,7 +164,7 @@ struct HomeView: View {
                         .fontDesign(.monospaced)
                         .foregroundStyle(.white.opacity(0.8))
                         .contentTransition(.numericText())
-                        .animation(.easeInOut, value: self.animatedBudget)
+                        .animation(.linear, value: self.animatedBudget)
                     Spacer()
                 }
                 .padding(.leading, 30)
@@ -175,7 +186,7 @@ struct HomeView: View {
                 .foregroundStyle(.white.opacity(0.8))
             Text(" \(String(describing: self.animatedLeftover).formatAsCurrency())")
                 .contentTransition(.numericText())
-                .animation(.easeInOut, value: self.animatedLeftover)
+                .animation(.linear, value: self.animatedLeftover)
         }
         .gaugeStyle(ChartHalfDonut(leftoverColor: self.leftoverTextColor))
     }

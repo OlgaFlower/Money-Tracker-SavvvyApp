@@ -50,6 +50,9 @@
 		42CA52242C2990C40024DF8B /* SlidingUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52212C2990C40024DF8B /* SlidingUnderline.swift */; };
 		42CA52252C2990C40024DF8B /* WidthPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */; };
 		42CA52262C2990C40024DF8B /* CustomUnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */; };
+		42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52282C29DF140024DF8B /* AudioPlayer.swift */; };
+		42CA52342C2A0E150024DF8B /* coin1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52322C2A0E150024DF8B /* coin1.wav */; };
+		42CA52352C2A0E150024DF8B /* coin2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52332C2A0E150024DF8B /* coin2.mp3 */; };
 		42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */; };
 		42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE62BF86749002CD159 /* HomeViewModel.swift */; };
 		42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */; };
@@ -133,6 +136,9 @@
 		42CA52212C2990C40024DF8B /* SlidingUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingUnderline.swift; sourceTree = "<group>"; };
 		42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidthPreferenceKey.swift; sourceTree = "<group>"; };
 		42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUnderlineView.swift; sourceTree = "<group>"; };
+		42CA52282C29DF140024DF8B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		42CA52322C2A0E150024DF8B /* coin1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin1.wav; sourceTree = "<group>"; };
+		42CA52332C2A0E150024DF8B /* coin2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin2.mp3; sourceTree = "<group>"; };
 		42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordViewModel.swift; sourceTree = "<group>"; };
 		42D45CE62BF86749002CD159 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenses.swift; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 		424275082BA4FF72001873A3 /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				42CA52272C29DEF10024DF8B /* AudioPlayer */,
 				424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */,
 				42B9F1152BF60F0600D719E3 /* MoneyTrackerDB */,
 				424275332BA503B7001873A3 /* Main */,
@@ -238,6 +245,8 @@
 				42B9F0E92BEA351100D719E3 /* Helpers */,
 				4241F46F2BB1E61A0048A29B /* Constants */,
 				4242750D2BA4FF73001873A3 /* Assets.xcassets */,
+				42CA52322C2A0E150024DF8B /* coin1.wav */,
+				42CA52332C2A0E150024DF8B /* coin2.mp3 */,
 				4242750F2BA4FF73001873A3 /* Preview Content */,
 			);
 			path = MoneyTracker;
@@ -424,6 +433,14 @@
 			path = SlidingUnderline;
 			sourceTree = "<group>";
 		};
+		42CA52272C29DEF10024DF8B /* AudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				42CA52282C29DF140024DF8B /* AudioPlayer.swift */,
+			);
+			path = AudioPlayer;
+			sourceTree = "<group>";
+		};
 		42EB69322BFCD8AF00FF4E7F /* MoneyCategories */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,7 +591,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42CA52342C2A0E150024DF8B /* coin1.wav in Resources */,
 				424275112BA4FF73001873A3 /* Preview Assets.xcassets in Resources */,
+				42CA52352C2A0E150024DF8B /* coin2.mp3 in Resources */,
 				4242750E2BA4FF73001873A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +646,7 @@
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
 				4241F4712BB1E62E0048A29B /* Country.swift in Sources */,
+				42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
 				4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */,
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
@@ -834,6 +854,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -864,6 +887,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

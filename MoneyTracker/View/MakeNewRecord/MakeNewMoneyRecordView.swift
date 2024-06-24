@@ -196,7 +196,7 @@ struct MakeNewMoneyRecordView: View {
                 .clipShape(.rect(cornerRadius: 10, style: .continuous))
         }
         .disabled(!self.viewModel.isSaveBtnActive())
-        .animation(.easeInOut(duration: 0.2), value: self.viewModel.isSaveBtnActive())
+        .animation(.linear(duration: 0.2), value: self.viewModel.isSaveBtnActive())
         .background {
             /// Border
             RoundedRectangle(cornerRadius: 10, style: .continuous)
