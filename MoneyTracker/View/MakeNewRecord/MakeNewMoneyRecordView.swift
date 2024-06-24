@@ -178,10 +178,10 @@ struct MakeNewMoneyRecordView: View {
             self.viewModel.saveNewRecord(context: self.viewContext)
             self.viewModel.shortVibrate()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.viewModel.shortVibrate()
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.dismiss()
                 }
             }
@@ -196,7 +196,7 @@ struct MakeNewMoneyRecordView: View {
                 .clipShape(.rect(cornerRadius: 10, style: .continuous))
         }
         .disabled(!self.viewModel.isSaveBtnActive())
-        .animation(.easeInOut(duration: 0.3), value: self.viewModel.isSaveBtnActive())
+        .animation(.easeInOut(duration: 0.2), value: self.viewModel.isSaveBtnActive())
         .background {
             /// Border
             RoundedRectangle(cornerRadius: 10, style: .continuous)

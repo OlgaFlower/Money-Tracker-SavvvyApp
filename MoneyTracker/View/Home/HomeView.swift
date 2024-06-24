@@ -11,8 +11,10 @@ import CoreData
 struct HomeView: View {
     
     // MARK: - State
-    private var viewModel = HomeViewModel()
     @State var isMakeNewRecordViewPresented = false
+    @State private var animatedLeftover: Double = 0.0
+    @State private var animatedBudget: Double = 0.0
+    @State private var animatedExpenses: Int = 0
     
     // MARK: - DB
     /// Today Records
@@ -28,6 +30,7 @@ struct HomeView: View {
     }
     
     // MARK: - Properties
+    private var viewModel = HomeViewModel()
     private let infoBoardWidth = Constants.screenWidth / 2.8
     
     private var expenses: Int {
@@ -62,13 +65,16 @@ struct HomeView: View {
                             .foregroundStyle(.white)
                     })
                     .fullScreenCover(
-                        isPresented: self.$isMakeNewRecordViewPresented,
+                        isPresented: self.$isMakeNewRecordViewPresented) {
+                            withAnimation {
+                                self.updateAnimatedValues()
+                            }
+                        }
                         content: {
                             MakeNewMoneyRecordView(
                                 viewModel: MakeNewMoneyRecordViewModel()
                             )
                         }
-                    )
                 }
                 .padding(.trailing, 40)
                 
@@ -88,8 +94,15 @@ struct HomeView: View {
             .padding(.top, 25)
         }
         .onAppear {
-        
+            self.updateAnimatedValues()
         }
+    }
+    
+    // MARK: - Methods
+    private func updateAnimatedValues() {
+        self.animatedLeftover = self.leftover
+        self.animatedBudget = self.budget
+        self.animatedExpenses = self.expenses
     }
     
     // MARK: - Views
@@ -108,10 +121,12 @@ struct HomeView: View {
                 // TODO: - Animated changing of the spent sum!
                 HStack {
                     Spacer()
-                    Text(self.viewModel.convertToString(intValue: self.expenses).formatAsCurrency())
+                    Text(self.viewModel.convertToString(intValue: self.animatedExpenses).formatAsCurrency())
                         .font(.title2)
                         .fontDesign(.monospaced)
                         .foregroundStyle(.white.opacity(0.8))
+                        .contentTransition(.numericText())
+                        .animation(.easeInOut, value: self.animatedExpenses)
                 }
                 .padding(.trailing, 16)
             }
@@ -133,10 +148,12 @@ struct HomeView: View {
                 
                 // TODO: - Animated changing of the budget sum!
                 HStack {
-                    Text(String(describing: self.budget).formatAsCurrency())
+                    Text(String(describing: self.animatedBudget).formatAsCurrency())
                         .font(.title2)
                         .fontDesign(.monospaced)
                         .foregroundStyle(.white.opacity(0.8))
+                        .contentTransition(.numericText())
+                        .animation(.easeInOut, value: self.animatedBudget)
                     Spacer()
                 }
                 .padding(.leading, 30)
@@ -148,15 +165,17 @@ struct HomeView: View {
     /// Chart
     private func makeChart() -> some View {
         Gauge(
-            value: self.viewModel.setLeftoverValueForChart(leftover: self.leftover),
-            in: 0...self.budget
+            value: self.viewModel.setLeftoverValueForChart(leftover: self.animatedLeftover),
+            in: 0...self.animatedBudget
         ) {
         } currentValueLabel: {
             Text("LEFTOVER")
                 .font(.title2)
                 .fontDesign(.monospaced)
                 .foregroundStyle(.white.opacity(0.8))
-            Text(" \(String(describing: self.leftover).formatAsCurrency())")
+            Text(" \(String(describing: self.animatedLeftover).formatAsCurrency())")
+                .contentTransition(.numericText())
+                .animation(.easeInOut, value: self.animatedLeftover)
         }
         .gaugeStyle(ChartHalfDonut(leftoverColor: self.leftoverTextColor))
     }
