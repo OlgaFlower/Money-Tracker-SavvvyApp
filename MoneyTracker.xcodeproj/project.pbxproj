@@ -47,7 +47,9 @@
 		42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */; };
 		42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */; };
 		42CA52152C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */; };
-		42CA52172C2930560024DF8B /* SlidingButtonUnderline in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52162C2930560024DF8B /* SlidingButtonUnderline */; };
+		42CA52242C2990C40024DF8B /* SlidingUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52212C2990C40024DF8B /* SlidingUnderline.swift */; };
+		42CA52252C2990C40024DF8B /* WidthPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */; };
+		42CA52262C2990C40024DF8B /* CustomUnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */; };
 		42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */; };
 		42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE62BF86749002CD159 /* HomeViewModel.swift */; };
 		42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */; };
@@ -128,7 +130,9 @@
 		42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataFetchedProperties.swift"; sourceTree = "<group>"; };
-		42CA52162C2930560024DF8B /* SlidingButtonUnderline */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SlidingButtonUnderline; sourceTree = "<group>"; };
+		42CA52212C2990C40024DF8B /* SlidingUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingUnderline.swift; sourceTree = "<group>"; };
+		42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidthPreferenceKey.swift; sourceTree = "<group>"; };
+		42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUnderlineView.swift; sourceTree = "<group>"; };
 		42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordViewModel.swift; sourceTree = "<group>"; };
 		42D45CE62BF86749002CD159 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenses.swift; sourceTree = "<group>"; };
@@ -410,6 +414,16 @@
 			path = MoneyTrackerDB;
 			sourceTree = "<group>";
 		};
+		42CA521A2C2990290024DF8B /* SlidingUnderline */ = {
+			isa = PBXGroup;
+			children = (
+				42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */,
+				42CA52212C2990C40024DF8B /* SlidingUnderline.swift */,
+				42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */,
+			);
+			path = SlidingUnderline;
+			sourceTree = "<group>";
+		};
 		42EB69322BFCD8AF00FF4E7F /* MoneyCategories */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,7 +459,7 @@
 		42FD6DB82BA5094B00B9DC70 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				42CA52162C2930560024DF8B /* SlidingButtonUnderline */,
+				42CA521A2C2990290024DF8B /* SlidingUnderline */,
 				42B9F0DB2BE9EDE100D719E3 /* CurrencyTextField */,
 				42FD6DBD2BA606E100B9DC70 /* TransparentBlurView.swift */,
 				4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */,
@@ -560,7 +574,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42CA52172C2930560024DF8B /* SlidingButtonUnderline in Resources */,
 				424275112BA4FF73001873A3 /* Preview Assets.xcassets in Resources */,
 				4242750E2BA4FF73001873A3 /* Assets.xcassets in Resources */,
 			);
@@ -604,8 +617,10 @@
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */,
 				42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */,
+				42CA52242C2990C40024DF8B /* SlidingUnderline.swift in Sources */,
 				42EF87EB2BFBEB6D009E0272 /* RecurringCategoryCellView.swift in Sources */,
 				42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */,
+				42CA52252C2990C40024DF8B /* WidthPreferenceKey.swift in Sources */,
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,
 				423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */,
 				42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */,
@@ -616,6 +631,7 @@
 				4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */,
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
 				42A11C2C2BB7389C003B617D /* LogItemView.swift in Sources */,
+				42CA52262C2990C40024DF8B /* CustomUnderlineView.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				4251FA4A2BAB22C00087ABE7 /* BankAccountsView.swift in Sources */,
 				42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */,
