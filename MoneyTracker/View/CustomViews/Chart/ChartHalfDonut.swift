@@ -14,6 +14,11 @@ struct ChartHalfDonut: GaugeStyle {
     private var gradientCircleWidth = Constants.screenWidth * 0.6
     private var dashesWidth = Constants.screenWidth * 0.73
     private var thinCircleWidth = Constants.screenWidth * 0.68
+    var leftoverColor: Color
+    
+    init(leftoverColor: Color) {
+        self.leftoverColor = leftoverColor
+    }
     
     // MARK: - Views
     func makeBody(configuration: Configuration) -> some View {
@@ -46,10 +51,10 @@ struct ChartHalfDonut: GaugeStyle {
             
             VStack(spacing: 12) {
                 
-                /// Current balance
+                /// Leftover
                 configuration.currentValueLabel
                     .font(.system(size: 30, weight: .semibold, design: .monospaced))
-                    .foregroundColor(.white)
+                    .foregroundColor(self.leftoverColor)
                 
                 /// Currency
                 Text("EUR")

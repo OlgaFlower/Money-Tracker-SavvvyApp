@@ -49,4 +49,19 @@ final class HomeViewModel {
     func convertToString(intValue: Int) -> String {
         return String(describing: Double(intValue)/100)
     }
+    
+    /// Color
+    func calcLeftoverColor(dayBudget: Double, leftover: Double) -> Color {
+        let orangeLevel = dayBudget / 4 /// leftover is 25% of the budget
+        let redLevel = dayBudget / 6 /// leftover is 16.6% of the budget
+        
+        switch leftover {
+        case ..<redLevel:
+            return .red
+        case redLevel..<orangeLevel:
+            return .orange
+        default:
+            return .white
+        }
+    }
 }

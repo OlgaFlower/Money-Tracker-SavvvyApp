@@ -29,6 +29,7 @@ struct HomeView: View {
     
     // MARK: - Properties
     private let infoBoardWidth = Constants.screenWidth / 2.8
+    
     private var expenses: Int {
         return self.viewModel.calcExpenses(records: todayRecords)
     }
@@ -39,6 +40,10 @@ struct HomeView: View {
     
     private var leftover: Double {
         self.viewModel.calcLeftover(dayBudget: budget, expenses: expenses)
+    }
+    
+    private var leftoverTextColor: Color {
+        self.viewModel.calcLeftoverColor(dayBudget: self.budget, leftover: self.leftover)
     }
     
     // MARK: - Body
@@ -151,9 +156,9 @@ struct HomeView: View {
                 .font(.title2)
                 .fontDesign(.monospaced)
                 .foregroundStyle(.white.opacity(0.8))
-            Text("\(String(describing: self.leftover).formatAsCurrency())")
+            Text(" \(String(describing: self.leftover).formatAsCurrency())")
         }
-        .gaugeStyle(ChartHalfDonut())
+        .gaugeStyle(ChartHalfDonut(leftoverColor: self.leftoverTextColor))
     }
 }
 
