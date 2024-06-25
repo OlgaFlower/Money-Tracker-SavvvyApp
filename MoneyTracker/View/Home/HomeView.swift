@@ -11,8 +11,9 @@ import CoreData
 struct HomeView: View {
     
     // MARK: - State
-    @StateObject var audio = AudioPlayer()
+    @StateObject var player = AudioPlayer()
     @State var isMakeNewRecordViewPresented = false
+    @State var animateChart = false
     @State private var animatedLeftover: Double = 0.0
     @State private var animatedBudget: Double = 0.0
     @State private var animatedExpenses: Int = 0
@@ -59,6 +60,7 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     Button(action: {
+                        self.viewModel.vibrateLight()
                         self.isMakeNewRecordViewPresented.toggle()
                     }, label: {
                         Image(systemName: "plus")
@@ -85,6 +87,14 @@ struct HomeView: View {
                 // TODO: - Animated changing of the budget's leftower!
                 self.makeChart()
                     .frame(width: 260, height: 260)
+                    .onTapGesture {
+                        self.animateChart = true
+                        self.viewModel.vibrate()
+                        self.player.playSound(for: .chart)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.animateChart = false
+                        }
+                    }
                 
                 /// Budget Information
                 self.budgetInformationView
@@ -109,10 +119,10 @@ struct HomeView: View {
     
     private func playSound() {
         if self.leftover > self.animatedLeftover {
-            self.audio.playSound(for: .income)
+            self.player.playSound(for: .income)
         }
         if self.leftover < self.animatedLeftover {
-            self.audio.playSound(for: .expenses)
+            self.player.playSound(for: .expenses)
         }
     }
     
@@ -142,6 +152,10 @@ struct HomeView: View {
                 .padding(.trailing, 16)
             }
             .frame(width: self.infoBoardWidth)
+            .onTapGesture {
+                self.viewModel.vibrateLight()
+            }
+            
             Rectangle()
                 .frame(width: 1, height: 80)
                 .foregroundStyle(.white.opacity(0.3))
@@ -170,6 +184,9 @@ struct HomeView: View {
                 .padding(.leading, 30)
             }
             .frame(width: self.infoBoardWidth)
+            .onTapGesture {
+                self.viewModel.vibrateLight()
+            }
         }
     }
     
@@ -188,7 +205,10 @@ struct HomeView: View {
                 .contentTransition(.numericText())
                 .animation(.linear, value: self.animatedLeftover)
         }
-        .gaugeStyle(ChartHalfDonut(leftoverColor: self.leftoverTextColor))
+        .gaugeStyle(ChartHalfDonut(
+            leftoverColor: self.leftoverTextColor,
+            animateChart: self.animateChart)
+        )
     }
 }
 

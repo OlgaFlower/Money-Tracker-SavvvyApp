@@ -15,15 +15,26 @@ struct ChartHalfDonut: GaugeStyle {
     private var dashesWidth = Constants.screenWidth * 0.73
     private var thinCircleWidth = Constants.screenWidth * 0.68
     var leftoverColor: Color
+    var animateChart: Bool
     
-    init(leftoverColor: Color) {
+    init(leftoverColor: Color, animateChart: Bool) {
         self.leftoverColor = leftoverColor
+        self.animateChart = animateChart
     }
     
     // MARK: - Views
     func makeBody(configuration: Configuration) -> some View {
         
         ZStack {
+            /// Animated background circle
+            Circle()
+                .foregroundStyle(
+                    LinearGradient(colors: [.blue, .black], startPoint: .topLeading, endPoint: .bottomTrailing)
+                )
+                .opacity(self.animateChart ? 0.5 : 0.0)
+                .frame(width: self.thinCircleWidth - 22, height: self.thinCircleWidth - 22)
+                .animation(.linear, value: self.animateChart)
+            
             /// Thin circle
             Circle()
                 .stroke(Color.white.opacity(0.8))
@@ -31,16 +42,18 @@ struct ChartHalfDonut: GaugeStyle {
             /// Empty Gradient line
             Circle()
                 .trim(from: 0, to: 1.0)
-                .stroke(.white.opacity(0.1), style: StrokeStyle(lineWidth: 17, lineCap: .round))
+                .stroke(.white.opacity(0.1), style: StrokeStyle(lineWidth: self.animateChart ? 8 : 17, lineCap: .round))
                 .rotationEffect(.degrees(153))
-                .frame(width: self.gradientCircleWidth)
+                .frame(width: self.animteSize())
+                .animation(.linear, value: self.animateChart)
             
             /// Gradient line
             Circle()
                 .trim(from: 0, to: 0.65 * configuration.value)
-                .stroke(gradient, style: StrokeStyle(lineWidth: 17, lineCap: .round))
+                .stroke(gradient, style: StrokeStyle(lineWidth: self.animateChart ? 27 : 17, lineCap: .round))
                 .rotationEffect(.degrees(153))
-                .frame(width: self.gradientCircleWidth)
+                .frame(width: self.animateChart ? (self.gradientCircleWidth + 100) : self.gradientCircleWidth)
+                .animation(.linear, value: self.animateChart)
             
             /// Dashes
             Circle()
@@ -62,6 +75,15 @@ struct ChartHalfDonut: GaugeStyle {
                     .foregroundColor(.white)
             }
             .padding(.top, 24)
+        }
+    }
+    
+    // MARK: - Functions
+    private func animteSize() -> CGFloat {
+        if self.animateChart {
+            return self.gradientCircleWidth - 60
+        } else {
+            return self.gradientCircleWidth
         }
     }
 }

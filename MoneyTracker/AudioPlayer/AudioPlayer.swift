@@ -33,21 +33,26 @@ extension AudioPlayer {
     enum SoundType {
         case expenses
         case income
+        case chart
         
         var resource: String {
             switch self {
             case .expenses:
-                return "coin1"
+                return "cashRegisterSound"
             case .income:
-                return "coin2"
+                return "incomeSound"
+            case .chart:
+                return "gameCoinSound"
             }
         }
         
         var type: String {
             switch self {
             case .expenses:
-                return "wav"
+                return "mp3"
             case .income:
+                return "mp3"
+            case .chart:
                 return "mp3"
             }
         }

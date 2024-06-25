@@ -65,6 +65,7 @@ struct MakeNewMoneyRecordView: View {
         HStack {
             Spacer()
             Button(action: {
+                self.viewModel.vibrateLight()
                 self.dismiss()
             }, label: {
                 Image(systemName: "plus")
@@ -80,7 +81,7 @@ struct MakeNewMoneyRecordView: View {
         HStack {
             /// Expense
             Button(action: {
-                Constants.vibrateLight()
+                self.viewModel.vibrateLight()
                 self.viewModel.newItem.recordType = .expense
                 self.viewModel.setDefaultValues()
             }, label: {
@@ -96,7 +97,7 @@ struct MakeNewMoneyRecordView: View {
             
             /// Income
             Button(action: {
-                Constants.vibrateLight()
+                self.viewModel.vibrateLight()
                 self.viewModel.newItem.recordType = .income
                 self.viewModel.setDefaultValues()
             }, label: {
@@ -158,7 +159,7 @@ struct MakeNewMoneyRecordView: View {
                 .multilineTextAlignment(.leading)
                 .opacity(self.viewModel.isCategoryChosen() ? 1 : 0.4)
                 .onTapGesture {
-                    Constants.vibrateLight()
+                    self.viewModel.vibrateLight()
                     self.isKeyboardFocused = false
                     self.isCurrencyKeyboardFocused = false
                     self.isIconGroupsViewPresented.toggle()
@@ -176,10 +177,10 @@ struct MakeNewMoneyRecordView: View {
     private var saveButtonView: some View {
         Button {
             self.viewModel.saveNewRecord(context: self.viewContext)
-            self.viewModel.shortVibrate()
+            self.viewModel.vibrate()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.viewModel.shortVibrate()
+                self.viewModel.vibrate()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.dismiss()

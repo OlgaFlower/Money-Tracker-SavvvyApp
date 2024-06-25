@@ -64,4 +64,13 @@ final class HomeViewModel {
             return .white
         }
     }
+    
+    /// Vibration
+    func vibrate() {
+        Constants.vibrateMedium()
+    }
+    
+    func vibrateLight() {
+        Constants.vibrateLight()
+    }
 }

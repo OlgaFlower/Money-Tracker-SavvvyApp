@@ -51,8 +51,10 @@
 		42CA52252C2990C40024DF8B /* WidthPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */; };
 		42CA52262C2990C40024DF8B /* CustomUnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */; };
 		42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52282C29DF140024DF8B /* AudioPlayer.swift */; };
-		42CA52342C2A0E150024DF8B /* coin1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52322C2A0E150024DF8B /* coin1.wav */; };
-		42CA52352C2A0E150024DF8B /* coin2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52332C2A0E150024DF8B /* coin2.mp3 */; };
+		42CA523C2C2ADF730024DF8B /* incomeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */; };
+		42CA523E2C2AE0710024DF8B /* chartSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523D2C2AE0710024DF8B /* chartSound.mp3 */; };
+		42CA52402C2AEC590024DF8B /* gameCoinSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523F2C2AEC590024DF8B /* gameCoinSound.mp3 */; };
+		42CA52422C2AEF750024DF8B /* cashRegisterSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52412C2AEF750024DF8B /* cashRegisterSound.mp3 */; };
 		42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */; };
 		42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE62BF86749002CD159 /* HomeViewModel.swift */; };
 		42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */; };
@@ -137,8 +139,10 @@
 		42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidthPreferenceKey.swift; sourceTree = "<group>"; };
 		42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUnderlineView.swift; sourceTree = "<group>"; };
 		42CA52282C29DF140024DF8B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
-		42CA52322C2A0E150024DF8B /* coin1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin1.wav; sourceTree = "<group>"; };
-		42CA52332C2A0E150024DF8B /* coin2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin2.mp3; sourceTree = "<group>"; };
+		42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incomeSound.mp3; sourceTree = "<group>"; };
+		42CA523D2C2AE0710024DF8B /* chartSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chartSound.mp3; sourceTree = "<group>"; };
+		42CA523F2C2AEC590024DF8B /* gameCoinSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameCoinSound.mp3; sourceTree = "<group>"; };
+		42CA52412C2AEF750024DF8B /* cashRegisterSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cashRegisterSound.mp3; sourceTree = "<group>"; };
 		42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordViewModel.swift; sourceTree = "<group>"; };
 		42D45CE62BF86749002CD159 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenses.swift; sourceTree = "<group>"; };
@@ -245,8 +249,7 @@
 				42B9F0E92BEA351100D719E3 /* Helpers */,
 				4241F46F2BB1E61A0048A29B /* Constants */,
 				4242750D2BA4FF73001873A3 /* Assets.xcassets */,
-				42CA52322C2A0E150024DF8B /* coin1.wav */,
-				42CA52332C2A0E150024DF8B /* coin2.mp3 */,
+				42CA52362C2AAD040024DF8B /* SoundResources */,
 				4242750F2BA4FF73001873A3 /* Preview Content */,
 			);
 			path = MoneyTracker;
@@ -441,6 +444,17 @@
 			path = AudioPlayer;
 			sourceTree = "<group>";
 		};
+		42CA52362C2AAD040024DF8B /* SoundResources */ = {
+			isa = PBXGroup;
+			children = (
+				42CA52412C2AEF750024DF8B /* cashRegisterSound.mp3 */,
+				42CA523F2C2AEC590024DF8B /* gameCoinSound.mp3 */,
+				42CA523D2C2AE0710024DF8B /* chartSound.mp3 */,
+				42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */,
+			);
+			path = SoundResources;
+			sourceTree = "<group>";
+		};
 		42EB69322BFCD8AF00FF4E7F /* MoneyCategories */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,9 +605,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42CA52342C2A0E150024DF8B /* coin1.wav in Resources */,
+				42CA523C2C2ADF730024DF8B /* incomeSound.mp3 in Resources */,
 				424275112BA4FF73001873A3 /* Preview Assets.xcassets in Resources */,
-				42CA52352C2A0E150024DF8B /* coin2.mp3 in Resources */,
+				42CA52402C2AEC590024DF8B /* gameCoinSound.mp3 in Resources */,
+				42CA523E2C2AE0710024DF8B /* chartSound.mp3 in Resources */,
+				42CA52422C2AEF750024DF8B /* cashRegisterSound.mp3 in Resources */,
 				4242750E2BA4FF73001873A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
