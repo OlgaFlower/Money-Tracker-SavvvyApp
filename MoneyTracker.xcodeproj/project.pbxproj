@@ -238,7 +238,6 @@
 		424275082BA4FF72001873A3 /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
-				42CA52272C29DEF10024DF8B /* AudioPlayer */,
 				424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */,
 				42B9F1152BF60F0600D719E3 /* MoneyTrackerDB */,
 				424275332BA503B7001873A3 /* Main */,
@@ -249,7 +248,7 @@
 				42B9F0E92BEA351100D719E3 /* Helpers */,
 				4241F46F2BB1E61A0048A29B /* Constants */,
 				4242750D2BA4FF73001873A3 /* Assets.xcassets */,
-				42CA52362C2AAD040024DF8B /* SoundResources */,
+				42CA52272C29DEF10024DF8B /* AudioPlayer */,
 				4242750F2BA4FF73001873A3 /* Preview Content */,
 			);
 			path = MoneyTracker;
@@ -439,6 +438,7 @@
 		42CA52272C29DEF10024DF8B /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				42CA52362C2AAD040024DF8B /* SoundResources */,
 				42CA52282C29DF140024DF8B /* AudioPlayer.swift */,
 			);
 			path = AudioPlayer;
