@@ -13,6 +13,7 @@ struct HomeView: View {
     // MARK: - State
     @StateObject var player = AudioPlayer()
     @State var isMakeNewRecordViewPresented = false
+    @State var isDetailCellViewPresented = false
     @State var animateChart = false
     @State private var animatedLeftover: Double = 0.0
     @State private var animatedBudget: Double = 0.0
@@ -154,7 +155,11 @@ struct HomeView: View {
             .frame(width: self.infoBoardWidth)
             .onTapGesture {
                 self.viewModel.vibrateLight()
+                self.isDetailCellViewPresented = true
             }
+            .sheet(isPresented: self.$isDetailCellViewPresented, content: {
+                ExpensesDetailView()
+            })
             
             Rectangle()
                 .frame(width: 1, height: 80)
