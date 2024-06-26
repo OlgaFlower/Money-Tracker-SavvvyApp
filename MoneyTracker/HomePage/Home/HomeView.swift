@@ -24,21 +24,19 @@ struct HomeView: View {
     @State private var animatedExpenses: Int = 0
     
     // MARK: - Properties
-    /// DB
-    /// Today Records
+    private var viewModel = HomeViewModel()
+    
+    /// DB - Today Records
     private var todayRecordsFetchRequest = CoreDataManager.fetchTodayRecords()
     private var todayRecords: FetchedResults<Money> {
         todayRecordsFetchRequest.wrappedValue
     }
     
-    /// Month Income
+    /// DB - Month Income
     private var monthIncomeFetchRequest = CoreDataManager.fetchCurrentMonthRecords()
     private var monthIncome: FetchedResults<Money> {
         monthIncomeFetchRequest.wrappedValue
     }
-    
-    /// Properties
-    private var viewModel = HomeViewModel()
     
     private var expenses: Int {
         return self.viewModel.calcExpenses(records: todayRecords)
@@ -61,47 +59,27 @@ struct HomeView: View {
         ZStack {
             BackgroundGradView()
             VStack {
-                /// Plus button
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        self.viewModel.vibrateLight()
-                        self.isMakeNewRecordViewPresented.toggle()
-                    }, label: {
-                        Image(systemName: "plus")
-                            .font(Font.system(size: 36))
-                            .foregroundStyle(.white)
-                    })
-                    .fullScreenCover(
-                        isPresented: self.$isMakeNewRecordViewPresented) {
-                            withAnimation {
-                                self.playSound()
-                                self.updateAnimatedValues()
-                            }
-                        }
-                        content: {
-                            MakeNewMoneyRecordView(
-                                viewModel: MakeNewMoneyRecordViewModel()
-                            )
-                        }
-                }
-                .padding(.trailing, 40)
+                /// Plus Button
+                self.plusButtonView
                 
                 /// Chart View
-                // TODO: - Add button or gesture over chart - to open detailed view!
-                // TODO: - Animated changing of the budget's leftower!
-                self.makeChart()
-                    .frame(width: 260, height: 260)
-                    .onTapGesture {
-                        self.animateChart = true
-                        self.viewModel.vibrate()
-                        self.player.playSound(for: .chart)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            self.animateChart = false
-                        }
+                TodayChartView(
+                    animatedLeftover: self.animatedLeftover,
+                    animatedBudget: self.animatedBudget,
+                    leftoverTextColor: self.leftoverTextColor,
+                    animateChart: self.animateChart
+                )
+                .frame(width: 260, height: 260)
+                .onTapGesture {
+                    self.animateChart = true
+                    self.viewModel.vibrate()
+                    self.player.playSound(for: .chart)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.animateChart = false
                     }
+                }
                 
-                /// Budget Information
+                /// Budget Information Board
                 HorizontalBudgetBoardView(
                     showingAlert: self.$showingAlert,
                     isDetailCellViewPresented: self.$isDetailCellViewPresented,
@@ -120,6 +98,32 @@ struct HomeView: View {
         }
     }
     
+    // MARK: - Views
+    private var plusButtonView: some View {
+        HStack {
+            Spacer()
+            Button(action: {
+                self.viewModel.vibrateLight()
+                self.isMakeNewRecordViewPresented.toggle()
+            }, label: {
+                Image(systemName: "plus")
+                    .font(Font.system(size: 36))
+                    .foregroundStyle(.white)
+            })
+            .fullScreenCover(
+                isPresented: self.$isMakeNewRecordViewPresented) {
+                    withAnimation {
+                        self.playSound()
+                        self.updateAnimatedValues()
+                    }
+                }
+        content: { MakeNewMoneyRecordView(
+            viewModel: MakeNewMoneyRecordViewModel()
+          )}
+        }
+        .padding(.trailing, 40)
+    }
+    
     // MARK: - Methods
     private func updateAnimatedValues() {
         self.animatedLeftover = self.leftover
@@ -135,30 +139,9 @@ struct HomeView: View {
             self.player.playSound(for: .expenses)
         }
     }
-    
-    // MARK: - Views
-    /// Chart
-    private func makeChart() -> some View {
-        Gauge(
-            value: self.viewModel.setLeftoverValueForChart(leftover: self.animatedLeftover),
-            in: 0...self.animatedBudget
-        ) {
-        } currentValueLabel: {
-            Text("LEFTOVER")
-                .font(.title2)
-                .fontDesign(.monospaced)
-                .foregroundStyle(.white.opacity(0.8))
-            Text(" \(String(describing: self.animatedLeftover).formatAsCurrency())")
-                .contentTransition(.numericText())
-                .animation(.linear, value: self.animatedLeftover)
-        }
-        .gaugeStyle(ChartHalfDonut(
-            leftoverColor: self.leftoverTextColor,
-            animateChart: self.animateChart)
-        )
-    }
 }
 
+// MARK: - Preview
 #Preview {
     HomeView()
 }

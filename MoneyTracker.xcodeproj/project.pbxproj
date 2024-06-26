@@ -60,6 +60,7 @@
 		42CA524B2C2B54900024DF8B /* DetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA524A2C2B54900024DF8B /* DetailCellView.swift */; };
 		42CA524D2C2B558C0024DF8B /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA524C2C2B558C0024DF8B /* IconView.swift */; };
 		42CA52512C2C41D10024DF8B /* HorizontalBudgetBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52502C2C41D10024DF8B /* HorizontalBudgetBoardView.swift */; };
+		42CA52532C2C48110024DF8B /* TodayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52522C2C48110024DF8B /* TodayChartView.swift */; };
 		42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */; };
 		42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE62BF86749002CD159 /* HomeViewModel.swift */; };
 		42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */; };
@@ -152,6 +153,7 @@
 		42CA524A2C2B54900024DF8B /* DetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellView.swift; sourceTree = "<group>"; };
 		42CA524C2C2B558C0024DF8B /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		42CA52502C2C41D10024DF8B /* HorizontalBudgetBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBudgetBoardView.swift; sourceTree = "<group>"; };
+		42CA52522C2C48110024DF8B /* TodayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayChartView.swift; sourceTree = "<group>"; };
 		42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordViewModel.swift; sourceTree = "<group>"; };
 		42D45CE62BF86749002CD159 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenses.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				42B9F1152BF60F0600D719E3 /* MoneyTrackerDB */,
 				424275332BA503B7001873A3 /* Main */,
 				424275342BA503BF001873A3 /* Model */,
+				42CA524F2C2C406D0024DF8B /* HomePage */,
 				424275352BA503D1001873A3 /* Views */,
 				424275362BA503D8001873A3 /* ViewModel */,
 				4251FA4E2BAB94960087ABE7 /* Extensions */,
@@ -309,7 +312,6 @@
 		424275352BA503D1001873A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				42CA524F2C2C406D0024DF8B /* HomePage */,
 				42A11C282BB6FB9F003B617D /* TrackingLogs */,
 				4251FA482BAB22AD0087ABE7 /* BankAcoountsView */,
 				4251FA4B2BAB2B440087ABE7 /* CommonViews */,
@@ -487,6 +489,7 @@
 				42714FD02BBEF6160085FA7C /* MakeNewRecord */,
 				42B9F10A2BF3CE8700D719E3 /* Categories */,
 				42CA52502C2C41D10024DF8B /* HorizontalBudgetBoardView.swift */,
+				42CA52522C2C48110024DF8B /* TodayChartView.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
 				4241F4712BB1E62E0048A29B /* Country.swift in Sources */,
+				42CA52532C2C48110024DF8B /* TodayChartView.swift in Sources */,
 				42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
 				4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */,
