@@ -23,6 +23,13 @@ struct ExpensesDetailView: View {
         ZStack {
             BackgroundGradView()
             VStack {
+                HStack {
+                    Text("Expenses")
+                        .font(.system(size: 32, weight: .bold))
+                        .padding(.leading, 16)
+                        .padding(.vertical)
+                    Spacer()
+                }
                 ScrollView {
                     ForEach(self.viewModel.expenses) { record in
                         DetailCellView(
@@ -33,7 +40,8 @@ struct ExpensesDetailView: View {
                     }
                 }
             }
-            .padding(.top, 32)
+            .foregroundStyle(.white)
+            .padding(.top, 38)
         }
         .onAppear {
             self.viewModel.getExpenses(records: self.todayRecords)

@@ -11,15 +11,20 @@ import CoreData
 struct HomeView: View {
     
     // MARK: - State
+    /// Player
     @StateObject var player = AudioPlayer()
+    /// Views
     @State var isMakeNewRecordViewPresented = false
     @State var isDetailCellViewPresented = false
+    @State private var showingAlert = false
+    /// Animations
     @State var animateChart = false
     @State private var animatedLeftover: Double = 0.0
     @State private var animatedBudget: Double = 0.0
     @State private var animatedExpenses: Int = 0
     
-    // MARK: - DB
+    // MARK: - Properties
+    /// DB
     /// Today Records
     private var todayRecordsFetchRequest = CoreDataManager.fetchTodayRecords()
     private var todayRecords: FetchedResults<Money> {
@@ -32,7 +37,7 @@ struct HomeView: View {
         monthIncomeFetchRequest.wrappedValue
     }
     
-    // MARK: - Properties
+    /// Properties
     private var viewModel = HomeViewModel()
     private let infoBoardWidth = Constants.screenWidth / 2.8
     
@@ -155,11 +160,19 @@ struct HomeView: View {
             .frame(width: self.infoBoardWidth)
             .onTapGesture {
                 self.viewModel.vibrateLight()
-                self.isDetailCellViewPresented = true
+                
+                if self.expenses == 0 {
+                    self.showingAlert.toggle()
+                } else {
+                    self.isDetailCellViewPresented.toggle()
+                }
             }
             .sheet(isPresented: self.$isDetailCellViewPresented, content: {
                 ExpensesDetailView()
             })
+            .alert("No expenses yet", isPresented: self.$showingAlert) {
+                Button("OK", role: .cancel) {}
+            }
             
             Rectangle()
                 .frame(width: 1, height: 80)
