@@ -13,3 +13,10 @@ extension Int64 {
         return String(describing: Double(self) / 100).formatAsCurrency()
     }
 }
+
+extension Int {
+    
+    func toString() -> String {
+        return String(describing: Double(self) / 100).formatAsCurrency()
+    }
+}

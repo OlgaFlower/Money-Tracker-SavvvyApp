@@ -39,7 +39,6 @@ struct HomeView: View {
     
     /// Properties
     private var viewModel = HomeViewModel()
-    private let infoBoardWidth = Constants.screenWidth / 2.8
     
     private var expenses: Int {
         return self.viewModel.calcExpenses(records: todayRecords)
@@ -103,9 +102,14 @@ struct HomeView: View {
                     }
                 
                 /// Budget Information
-                self.budgetInformationView
-                    .padding(.horizontal, 24)
-                    .padding(.top, 35)
+                HorizontalBudgetBoardView(
+                    showingAlert: self.$showingAlert,
+                    isDetailCellViewPresented: self.$isDetailCellViewPresented,
+                    animatedExpenses: self.animatedExpenses,
+                    animatedBudget: self.animatedBudget
+                )
+                .padding(.horizontal, 24)
+                .padding(.top, 35)
                 
                 Spacer()
             }
@@ -133,81 +137,6 @@ struct HomeView: View {
     }
     
     // MARK: - Views
-    private var budgetInformationView: some View {
-        HStack {
-            VStack(spacing: 18) {
-                HStack {
-                    Spacer()
-                    Text("SPENT")
-                        .font(.title2)
-                        .fontDesign(.monospaced)
-                        .foregroundStyle(.white.opacity(0.8))
-                }
-                .padding(.trailing, 30)
-                
-                // TODO: - Animated changing of the spent sum!
-                HStack {
-                    Spacer()
-                    Text(self.viewModel.convertToString(intValue: self.animatedExpenses).formatAsCurrency())
-                        .font(.title2)
-                        .fontDesign(.monospaced)
-                        .foregroundStyle(.white.opacity(0.8))
-                        .contentTransition(.numericText())
-                        .animation(.linear, value: self.animatedExpenses)
-                }
-                .padding(.trailing, 16)
-            }
-            .frame(width: self.infoBoardWidth)
-            .onTapGesture {
-                self.viewModel.vibrateLight()
-                
-                if self.expenses == 0 {
-                    self.showingAlert.toggle()
-                } else {
-                    self.isDetailCellViewPresented.toggle()
-                }
-            }
-            .sheet(isPresented: self.$isDetailCellViewPresented, content: {
-                ExpensesDetailView()
-            })
-            .alert("No expenses yet", isPresented: self.$showingAlert) {
-                Button("OK", role: .cancel) {}
-            }
-            
-            Rectangle()
-                .frame(width: 1, height: 80)
-                .foregroundStyle(.white.opacity(0.3))
-                .padding(.horizontal, 12)
-            
-            VStack(spacing: 18) {
-                HStack {
-                    Text("BUDGET")
-                        .font(.title2)
-                        .fontDesign(.monospaced)
-                        .foregroundStyle(.white.opacity(0.8))
-                    Spacer()
-                }
-                .padding(.leading, 30)
-                
-                // TODO: - Animated changing of the budget sum!
-                HStack {
-                    Text(String(describing: self.animatedBudget).formatAsCurrency())
-                        .font(.title2)
-                        .fontDesign(.monospaced)
-                        .foregroundStyle(.white.opacity(0.8))
-                        .contentTransition(.numericText())
-                        .animation(.linear, value: self.animatedBudget)
-                    Spacer()
-                }
-                .padding(.leading, 30)
-            }
-            .frame(width: self.infoBoardWidth)
-            .onTapGesture {
-                self.viewModel.vibrateLight()
-            }
-        }
-    }
-    
     /// Chart
     private func makeChart() -> some View {
         Gauge(
