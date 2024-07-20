@@ -141,17 +141,10 @@ struct MakeNewMoneyRecordView: View {
     private var categorySelectionView: some View {
         HStack(spacing: 32) {
             /// ICON
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(
-                        .linearGradient(colors: Constants.gradientForIcon, startPoint: .topLeading, endPoint: .bottomTrailing)
-                    )
-                    .stroke(.white.opacity(0.4), lineWidth: 0.5)
-                    .frame(width: 45, height: 45)
-                
                 Image(systemName: self.viewModel.newItem.category.icon)
                     .font(.title)
-            }
+                    .frame(width: 45, height: 45)
+                    .opacity(0.8)
             
             /// CATEGORY
             Text(self.viewModel.newItem.category.name)
