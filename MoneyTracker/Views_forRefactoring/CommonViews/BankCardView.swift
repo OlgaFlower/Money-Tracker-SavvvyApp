@@ -37,31 +37,28 @@ struct BankCardView: View {
                     VStack(spacing: 4) {
                         HStack {
                             Text(self.bankCard.bankName ?? "")
-                                .fontDesign(.monospaced)
+                                .font(.customFont(style: .regular, size: .body))
                             
                             Spacer()
                             Text(self.bankCard.cardholderName ?? "")
-                                .fontDesign(.monospaced)
+                                .font(.customFont(style: .regular, size: .body))
                         }
-                        .font(.headline.bold())
+                        .font(.customFont(style: .regular, size: .title))
                         .opacity(0.8)
                         
                         HStack {
                             Text(self.bankCard.cardType.rawValue)
-                                .fontDesign(.monospaced)
-                                .font(.subheadline)
+                                .font(.customFont(style: .regular, size: .title))
                                 .opacity(0.8)
                             Spacer()
                         }
                         HStack {
                             Text("\(self.bankCard.balance, specifier: "%.2f")")
-                                .font(.title)
-                                .fontDesign(.monospaced)
+                                .font(.customFont(style: .regular, size: .large))
                             
                             
                             Text(self.bankCard.currency)
-                                .font(.title)
-                                .fontDesign(.monospaced)
+                                .font(.customFont(style: .regular, size: .title))
                                 .opacity(0.8)
                         }
                         .padding(.bottom, 4)

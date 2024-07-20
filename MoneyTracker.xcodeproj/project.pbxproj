@@ -61,6 +61,9 @@
 		42CA524D2C2B558C0024DF8B /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA524C2C2B558C0024DF8B /* IconView.swift */; };
 		42CA52512C2C41D10024DF8B /* HorizontalBudgetBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52502C2C41D10024DF8B /* HorizontalBudgetBoardView.swift */; };
 		42CA52532C2C48110024DF8B /* TodayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52522C2C48110024DF8B /* TodayChartView.swift */; };
+		42CA52572C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52562C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf */; };
+		42CA525A2C2C5D190024DF8B /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52592C2C5D190024DF8B /* CustomFont.swift */; };
+		42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA525B2C2C5EAF0024DF8B /* Fonts.swift */; };
 		42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */; };
 		42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE62BF86749002CD159 /* HomeViewModel.swift */; };
 		42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */; };
@@ -154,6 +157,10 @@
 		42CA524C2C2B558C0024DF8B /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		42CA52502C2C41D10024DF8B /* HorizontalBudgetBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBudgetBoardView.swift; sourceTree = "<group>"; };
 		42CA52522C2C48110024DF8B /* TodayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayChartView.swift; sourceTree = "<group>"; };
+		42CA52562C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		42CA52582C2C5AF90024DF8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		42CA52592C2C5D190024DF8B /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		42CA525B2C2C5EAF0024DF8B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordViewModel.swift; sourceTree = "<group>"; };
 		42D45CE62BF86749002CD159 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		42EB69332BFCD8CB00FF4E7F /* RecurringExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenses.swift; sourceTree = "<group>"; };
@@ -216,6 +223,7 @@
 		4241F46F2BB1E61A0048A29B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				42CA52552C2C5A570024DF8B /* Fonts */,
 				42EB69322BFCD8AF00FF4E7F /* MoneyCategories */,
 				4241F4702BB1E62E0048A29B /* Country.swift */,
 				423DF4222BD6369000CBB6D5 /* Constants.swift */,
@@ -246,6 +254,7 @@
 		424275082BA4FF72001873A3 /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				42CA52582C2C5AF90024DF8B /* Info.plist */,
 				424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */,
 				42B9F1152BF60F0600D719E3 /* MoneyTrackerDB */,
 				424275332BA503B7001873A3 /* Main */,
@@ -345,6 +354,7 @@
 				422E82CF2BF6BF5B00139B94 /* StringExtension.swift */,
 				42F8F73D2C18C2E500C0CE9B /* DateExtension.swift */,
 				42CA52482C2B52F90024DF8B /* Int+String.swift */,
+				42CA525B2C2C5EAF0024DF8B /* Fonts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +504,15 @@
 				42B9F0DB2BE9EDE100D719E3 /* CurrencyTextField */,
 			);
 			path = ComponentViews;
+			sourceTree = "<group>";
+		};
+		42CA52552C2C5A570024DF8B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				42CA52562C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf */,
+				42CA52592C2C5D190024DF8B /* CustomFont.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		42EB69322BFCD8AF00FF4E7F /* MoneyCategories */ = {
@@ -646,6 +665,7 @@
 			files = (
 				42CA523C2C2ADF730024DF8B /* incomeSound.mp3 in Resources */,
 				424275112BA4FF73001873A3 /* Preview Assets.xcassets in Resources */,
+				42CA52572C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf in Resources */,
 				42CA52402C2AEC590024DF8B /* gameCoinSound.mp3 in Resources */,
 				42CA523E2C2AE0710024DF8B /* chartSound.mp3 in Resources */,
 				42CA52422C2AEF750024DF8B /* cashRegisterSound.mp3 in Resources */,
@@ -681,6 +701,7 @@
 				42EB69362BFCD8F700FF4E7F /* MoneySectionType.swift in Sources */,
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
 				4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */,
+				42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */,
 				4241F4732BB22B030048A29B /* PagingIndicator.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42CA524D2C2B558C0024DF8B /* IconView.swift in Sources */,
@@ -702,6 +723,7 @@
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,
 				423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */,
 				42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */,
+				42CA525A2C2C5D190024DF8B /* CustomFont.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
 				4241F4712BB1E62E0048A29B /* Country.swift in Sources */,
@@ -901,6 +923,7 @@
 				DEVELOPMENT_TEAM = 6YJ62Z4KFL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoneyTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -934,6 +957,7 @@
 				DEVELOPMENT_TEAM = 6YJ62Z4KFL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoneyTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

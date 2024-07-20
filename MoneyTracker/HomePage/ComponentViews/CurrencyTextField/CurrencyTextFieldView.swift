@@ -31,7 +31,7 @@ struct CurrencyTextFieldView: View {
                 /// Displayed Number
                 Text("\(displyedNumber) \(currency)")
                     .multilineTextAlignment(.center)
-                    .font(.title)
+                    .font(.customFont(style: .regular, size: .title))
                     .keyboardType(.decimalPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .foregroundStyle(Color.white)
@@ -41,7 +41,7 @@ struct CurrencyTextFieldView: View {
                     Spacer()
                     TextField("", text: $inputAmount)
                         .frame(width: 1)
-                        .font(.title)
+                        .font(.customFont(style: .regular, size: .title))
                         .foregroundStyle(Color.clear)
                         .tint(.clear)
                         .keyboardType(.decimalPad)
@@ -78,5 +78,5 @@ struct CurrencyTextFieldView: View {
 }
 
 #Preview {
-    CurrencyTextFieldView(inputAmount: .constant("0,00"), currency: "UAH")
+    CurrencyTextFieldView(inputAmount: .constant("0,00"), currency: "EUR")
 }

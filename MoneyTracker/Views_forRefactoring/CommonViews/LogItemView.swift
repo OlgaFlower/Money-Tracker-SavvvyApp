@@ -31,7 +31,7 @@ struct LogItemView: View {
                     Text(record.category.name)
                     if !record.notes.isEmpty {
                         Text(record.notes)
-                            .font(.subheadline)
+                            .font(.customFont(style: .regular, size: .body))
                             .foregroundStyle(.mainNavy.opacity(0.6))
                     }
                 }

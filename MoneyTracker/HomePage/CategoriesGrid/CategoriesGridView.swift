@@ -44,6 +44,7 @@ struct CategoriesGridView: View {
                 .cornerRadius(10)
             
             Text(item.name)
+                .font(.customFont(style: .regular, size: .small))
         }
         .frame(width: 100, height: 100)
         .foregroundStyle(.white)

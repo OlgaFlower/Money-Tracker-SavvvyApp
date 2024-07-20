@@ -14,22 +14,21 @@ struct DetailCellView: View {
     var sum: String
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 IconView(iconName: iconName, frameWidth: 45)
                 Text(note)
-                    .font(.system(size: 18))
-                    .fontDesign(.monospaced)
+                    .font(.customFont(style: .regular, size: .body))
                     .padding(.leading, 8)
                 Spacer()
                 Text("\(sum)€")
-                    .font(.system(size: 22))
-                    .fontDesign(.monospaced)
+                    .font(.customFont(style: .regular, size: .title))
             }
             .padding(.trailing, 16)
+            .opacity(0.8)
             Rectangle()
                 .frame(height: 0.5)
-                .opacity(0.5)
+                .opacity(0.4)
         }
         .foregroundStyle(.white)
         .padding(.leading, 16)

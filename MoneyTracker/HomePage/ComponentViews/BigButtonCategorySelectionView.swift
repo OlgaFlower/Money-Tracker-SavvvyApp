@@ -24,7 +24,7 @@ struct BigButtonCategorySelectionView: View {
             HStack(spacing: 16) {
                 Image(systemName: icon)
                 Text(title)
-                    .font(.title3.monospaced())
+                    .font(.customFont(style: .regular, size: .body))
             }
         }
         .clipShape(.rect(cornerRadius: 10, style: .continuous))

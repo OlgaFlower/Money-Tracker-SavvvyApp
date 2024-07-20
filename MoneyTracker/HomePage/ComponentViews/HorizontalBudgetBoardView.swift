@@ -32,17 +32,15 @@ struct HorizontalBudgetBoardView: View {
             HStack {
                 Spacer()
                 Text("SPENT")
-                    .font(.title2)
-                    .fontDesign(.monospaced)
-                    .foregroundStyle(.white.opacity(0.8))
+                    .font(.customFont(style: .regular, size: .body))
+                    .foregroundStyle(.white)
             }
             .padding(.trailing, 30)
             
             HStack {
                 Spacer()
                 Text(self.animatedExpenses.toString().formatAsCurrency())
-                    .font(.title2)
-                    .fontDesign(.monospaced)
+                    .font(.customFont(style: .regular, size: .title))
                     .foregroundStyle(.white.opacity(0.8))
                     .contentTransition(.numericText())
                     .animation(.linear, value: self.animatedExpenses)
@@ -73,17 +71,15 @@ struct HorizontalBudgetBoardView: View {
         VStack(spacing: 18) {
             HStack {
                 Text("BUDGET")
-                    .font(.title2)
-                    .fontDesign(.monospaced)
-                    .foregroundStyle(.white.opacity(0.8))
+                    .font(.customFont(style: .regular, size: .body))
+                    .foregroundStyle(.white)
                 Spacer()
             }
             .padding(.leading, 30)
             
             HStack {
                 Text(String(describing: self.animatedBudget).formatAsCurrency())
-                    .font(.title2)
-                    .fontDesign(.monospaced)
+                    .font(.customFont(style: .regular, size: .title))
                     .foregroundStyle(.white.opacity(0.8))
                     .contentTransition(.numericText())
                     .animation(.linear, value: self.animatedBudget)

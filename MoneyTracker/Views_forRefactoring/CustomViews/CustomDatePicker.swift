@@ -22,14 +22,14 @@ struct CustomDatePicker: View {
                     
                 }, label: {
                     Image(systemName: "chevron.left")
-                        .font(.headline)
+                        .font(.customFont(style: .regular, size: .title))
                 })
                 /// Text
                 Spacer()
                 Text("Today")
-                    .font(.headline)
+                    .font(.customFont(style: .regular, size: .title))
                 Text("")
-                    .font(.headline)
+                    .font(.customFont(style: .regular, size: .title))
                 Spacer()
                 
                 /// >
@@ -37,7 +37,7 @@ struct CustomDatePicker: View {
                     
                 }, label: {
                     Image(systemName: "chevron.right")
-                        .font(.headline)
+                        .font(.customFont(style: .regular, size: .title))
                 })
             }
             .padding(.top)

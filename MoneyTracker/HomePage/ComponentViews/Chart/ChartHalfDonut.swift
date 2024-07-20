@@ -64,15 +64,15 @@ struct ChartHalfDonut: GaugeStyle {
             
             VStack(spacing: 12) {
                 
-                /// Leftover
+                /// Leftover sum
                 configuration.currentValueLabel
-                    .font(.system(size: 30, weight: .semibold, design: .monospaced))
+                    .font(.customFont(style: .regular, size: .large))
                     .foregroundColor(self.leftoverColor)
                 
                 /// Currency
                 Text("EUR")
-                    .font(.system(size: 30, weight: .semibold, design: .monospaced))
-                    .foregroundColor(.white)
+                    .font(.customFont(style: .regular, size: .body))
+                    .foregroundColor(.white).opacity(0.8)
             }
             .padding(.top, 24)
         }

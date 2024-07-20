@@ -45,7 +45,7 @@ struct RecurringCategoryCellView: View {
                 HStack(spacing: 16) {
                     Image(systemName: item.icon)
                     Text(item.name)
-                        .font(.title3)
+                        .font(.customFont(style: .regular, size: .body))
                         .onTapGesture {
                             self.selectedCategory = item
                             self.dismiss()

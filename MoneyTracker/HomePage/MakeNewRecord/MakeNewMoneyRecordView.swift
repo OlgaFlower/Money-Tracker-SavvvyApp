@@ -86,7 +86,7 @@ struct MakeNewMoneyRecordView: View {
                 self.viewModel.setDefaultValues()
             }, label: {
                 Text(RecordType.expense.value)
-                    .font(.title3.monospaced())
+                    .font(.customFont(style: .regular, size: .body))
                     .opacity(self.viewModel.newItem.recordType == .expense ? 1 : 0.5)
             })
             
@@ -102,7 +102,7 @@ struct MakeNewMoneyRecordView: View {
                 self.viewModel.setDefaultValues()
             }, label: {
                 Text(RecordType.income.value)
-                    .font(.title3.monospaced())
+                    .font(.customFont(style: .regular, size: .body))
                     .opacity(self.viewModel.newItem.recordType == .income ? 1 : 0.5)
             })
         }
@@ -120,7 +120,7 @@ struct MakeNewMoneyRecordView: View {
             /// Placeholder
             if self.viewModel.newItem.notes.isEmpty {
                 Text("Description")
-                    .font(.title3.monospaced())
+                    .font(.customFont(style: .regular, size: .body))
                     .foregroundStyle(.white.opacity(0.4))
             }
             
@@ -129,7 +129,7 @@ struct MakeNewMoneyRecordView: View {
                     self.isKeyboardFocused = false
                 }
                 .focused(self.$isKeyboardFocused)
-                .font(.title3.monospaced())
+                .font(.customFont(style: .regular, size: .body))
                 .padding(.horizontal)
                 .padding(.vertical, 6)
                 .lineLimit(1...3)
@@ -155,7 +155,7 @@ struct MakeNewMoneyRecordView: View {
             
             /// CATEGORY
             Text(self.viewModel.newItem.category.name)
-                .font(.title3.monospaced())
+                .font(.customFont(style: .regular, size: .body))
                 .multilineTextAlignment(.leading)
                 .opacity(self.viewModel.isCategoryChosen() ? 1 : 0.4)
                 .onTapGesture {
@@ -188,8 +188,7 @@ struct MakeNewMoneyRecordView: View {
             }
         } label: {
             Text("SAVE")
-                .font(.title2)
-                .fontDesign(.monospaced)
+                .font(.customFont(style: .regular, size: .body))
                 .foregroundStyle(.white)
                 .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
                 .padding(.vertical, 10)
