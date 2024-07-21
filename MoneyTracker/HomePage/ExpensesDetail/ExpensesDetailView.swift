@@ -24,8 +24,8 @@ struct ExpensesDetailView: View {
             BackgroundGradView()
             VStack {
                 HStack {
-                    Text("Expenses today")
-                        .font(.customFont(style: .medium, size: .title))
+                    Text("EXPENSES TODAY")
+                        .font(.customFont(style: .medium, size: .body))
                         .padding(.leading, 16)
                         .padding(.vertical)
                     Spacer()
