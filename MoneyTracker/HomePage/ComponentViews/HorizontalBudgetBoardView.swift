@@ -45,7 +45,7 @@ struct HorizontalBudgetBoardView: View {
                     .contentTransition(.numericText())
                     .animation(.linear, value: self.animatedExpenses)
             }
-            .padding(.trailing, 16)
+            .padding(.trailing, 22)
         }
         .frame(width: self.infoBoardWidth)
         .onTapGesture {
