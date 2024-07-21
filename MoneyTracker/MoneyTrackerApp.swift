@@ -15,9 +15,15 @@ struct MoneyTrackerApp: App {
     
     // MARK: - Init -
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .font: UIFont(name: "MontserratRoman-Medium", size: 32) ?? .systemFont(ofSize: 32),
+            .foregroundColor: UIColor.white
+        ]
           /// Inline Navigation Title
-          UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+          UINavigationBar.appearance().titleTextAttributes = [
+            .font: UIFont(name: "MontserratRoman-Medium", size: 17) ?? .systemFont(ofSize: 17),
+            .foregroundColor: UIColor.white
+          ]
     }
     
     // MARK: - Body -

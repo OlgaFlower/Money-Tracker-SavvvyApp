@@ -19,7 +19,7 @@ struct ContentView: View {
             ///Home
             NavigationStack {
                 HomeView()
-                    .navigationTitle("Today's budget")
+                    .navigationTitle("TODAY'S BUDGET")
                     .navigationBarTitleDisplayMode(.large)
             }
             .tabItem {
@@ -39,7 +39,7 @@ struct ContentView: View {
                 Label(
                     title: {  },
                     icon: {
-                        self.makeTabBarIcon("chart")
+                        self.makeTabBarIcon("wallet")
                     }
                 )
             }
@@ -52,7 +52,7 @@ struct ContentView: View {
                 Label(
                     title: {  },
                     icon: {
-                        self.makeTabBarIcon("wallet")
+                        self.makeTabBarIcon("chart")
                     }
                 )
             }
