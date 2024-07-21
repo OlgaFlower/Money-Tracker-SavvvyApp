@@ -8,6 +8,7 @@
 import Foundation
 
 enum RecurringExpenses {
+    case savings
     case housing
     case tech
     case entertainment
@@ -23,6 +24,7 @@ enum RecurringExpenses {
     
     var sectionTitle: String {
         switch self {
+        case .savings: return "SAVINGS"
         case .housing: return "HOUSING"
         case .tech: return "TECH"
         case .entertainment: return "ENTERTAINMENT"
@@ -40,6 +42,13 @@ enum RecurringExpenses {
     
     var items: [Category] {
         switch self {
+        case .savings:
+            return [
+                Category(
+                    moneyGroupType: .recurringExpense,
+                    name: "Moneybox",
+                    icon: "diamond.lefthalf.filled")
+            ]
         case .housing:
             return [
                 Category(
@@ -221,6 +230,8 @@ enum RecurringExpenses {
     
     var icon: String {
         switch self {
+        case .savings:
+            return "diamond.lefthalf.filled"
         case .housing:
             return "house"
         case .tech:

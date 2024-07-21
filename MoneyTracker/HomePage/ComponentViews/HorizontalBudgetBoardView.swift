@@ -11,11 +11,13 @@ struct HorizontalBudgetBoardView: View {
     // MARK: - State
     @Binding var showingAlert: Bool
     @Binding var isDetailCellViewPresented: Bool
+    @State private var budgetTextDisplayed = false
     
     // MARK: - Properties
     var animatedExpenses: Int
     var animatedBudget: Double
     private let infoBoardWidth = Constants.screenWidth / 2.8
+    private let budgetText = "The daily budget consists of all revenues deposited in the current month and, if available, the positive balance from the previous month."
     
     // MARK: - Body
     var body: some View {
@@ -90,6 +92,10 @@ struct HorizontalBudgetBoardView: View {
         .frame(width: self.infoBoardWidth)
         .onTapGesture {
             Constants.vibrateLight()
+            self.budgetTextDisplayed.toggle()
+        }
+        .alert(self.budgetText, isPresented: self.$budgetTextDisplayed) {
+            Button("OK", role: .cancel) {}
         }
     }
 }

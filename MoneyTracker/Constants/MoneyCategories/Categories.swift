@@ -213,6 +213,9 @@ final class Categories {
     // MARK: - Recurring Expenses
     static let recurringExpenseItems: [RecurringCategories] = [
         RecurringCategories(
+            sectionTitle: RecurringExpenses.savings.sectionTitle,
+            categoryItems: RecurringExpenses.savings.items),
+        RecurringCategories(
             sectionTitle: RecurringExpenses.housing.sectionTitle,
             categoryItems: RecurringExpenses.housing.items),
         RecurringCategories(
