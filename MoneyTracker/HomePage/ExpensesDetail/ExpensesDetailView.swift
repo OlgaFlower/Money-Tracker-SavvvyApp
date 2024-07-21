@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ExpensesDetailView: View {
-    
+    // MARK: - State
+    @Environment(\.managedObjectContext) var viewContext
     @StateObject private var viewModel = ExpensesDetailViewModel()
     
     // MARK: - DB
@@ -27,25 +28,39 @@ struct ExpensesDetailView: View {
                     Text("EXPENSES TODAY")
                         .font(.customFont(style: .medium, size: .body))
                         .padding(.leading, 16)
-                        .padding(.vertical)
+                        .padding(.top)
                     Spacer()
                 }
-                ScrollView {
-                    ForEach(self.viewModel.expenses) { record in
-                        DetailCellView(
-                            iconName: record.category.icon,
-                            note: record.notes,
-                            sum: record.moneyAmount
-                        )
+                List {
+                    Section {
+                        ForEach(self.viewModel.expenses) { record in
+                            DetailCellView(
+                                iconName: record.category.icon,
+                                note: record.notes,
+                                sum: record.moneyAmount
+                            )
+                        }
+                        .onDelete(perform: self.deleteItem)
                     }
+                    .listRowBackground(Color.white.opacity(0.15))
                 }
+                .scrollContentBackground(.hidden)
             }
             .foregroundStyle(.white)
-            .padding(.top, 38)
+            .padding(.top, 28)
         }
         .onAppear {
             self.viewModel.getExpenses(records: self.todayRecords)
         }
+    }
+    
+    private func deleteItem(offsets: IndexSet) {
+        self.viewModel.expenses.remove(atOffsets: offsets)
+        
+        for item in offsets {
+            self.viewContext.delete(self.todayRecords[item])
+        }
+        try? self.viewContext.save()
     }
 }
 

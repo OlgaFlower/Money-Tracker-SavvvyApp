@@ -16,22 +16,17 @@ struct DetailCellView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                IconView(iconName: iconName, frameWidth: 45)
+                IconView(iconName: iconName, frameWidth: 38)
                 Text(note)
                     .font(.customFont(style: .regular, size: .body))
                     .padding(.leading, 8)
                 Spacer()
                 Text("\(sum)€")
-                    .font(.customFont(style: .regular, size: .title))
+                    .font(.customFont(style: .regular, size: .body))
             }
-            .padding(.trailing, 16)
             .opacity(0.8)
-            Rectangle()
-                .frame(height: 0.5)
-                .opacity(0.4)
         }
         .foregroundStyle(.white)
-        .padding(.leading, 16)
     }
 }
 
