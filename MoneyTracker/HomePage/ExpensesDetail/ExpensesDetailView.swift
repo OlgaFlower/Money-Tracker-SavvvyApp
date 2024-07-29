@@ -13,10 +13,9 @@ struct ExpensesDetailView: View {
     @StateObject private var viewModel = ExpensesDetailViewModel()
     
     // MARK: - DB
-    /// Today Records
-    private var todayRecordsFetchRequest = CoreDataManager.fetchTodayRecords()
-    private var todayRecords: FetchedResults<Money> {
-        todayRecordsFetchRequest.wrappedValue
+    private var todayExpensesFetchRequest = CoreDataManager.fetchExpensesForDay(date: Date())
+    private var expensesRecords: FetchedResults<Money> {
+        todayExpensesFetchRequest.wrappedValue
     }
     
     // MARK: - Body
@@ -40,7 +39,9 @@ struct ExpensesDetailView: View {
                                 sum: record.moneyAmount
                             )
                         }
-                        .onDelete(perform: self.deleteItem)
+                        .onDelete { indexSet in
+                            self.deleteItem(offsets: indexSet)
+                        }
                     }
                     .listRowBackground(Color.white.opacity(0.15))
                 }
@@ -50,16 +51,16 @@ struct ExpensesDetailView: View {
             .padding(.top, 28)
         }
         .onAppear {
-            self.viewModel.getExpenses(records: self.todayRecords)
+            self.viewModel.getExpenses(records: self.expensesRecords)
         }
     }
     
     private func deleteItem(offsets: IndexSet) {
-        self.viewModel.expenses.remove(atOffsets: offsets)
         
-        for item in offsets {
-            self.viewContext.delete(self.todayRecords[item])
+        for index in offsets {
+            self.viewContext.delete(self.expensesRecords[index])
         }
+        self.viewModel.expenses.remove(atOffsets: offsets)
         try? self.viewContext.save()
     }
 }

@@ -14,7 +14,7 @@ struct MoneyModel: Identifiable {
     var moneyAmount: String
     var notes: String
     var currency: String
-    
+    var timestamp: Date
 }
 
 enum RecordType: Identifiable {

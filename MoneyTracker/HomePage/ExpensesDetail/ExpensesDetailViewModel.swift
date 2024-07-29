@@ -13,10 +13,7 @@ final class ExpensesDetailViewModel: ObservableObject {
     
     func getExpenses(records: FetchedResults<Money>) {
         
-        let todayExpenses = records.filter { !$0.isIncome }
-        
-        self.expenses = todayExpenses.compactMap({ record in
-            
+        self.expenses = records.map({ record in
             MoneyModel(
                 recordType: .expense,
                 category: Category(
@@ -26,7 +23,8 @@ final class ExpensesDetailViewModel: ObservableObject {
                 ),
                 moneyAmount: record.moneyAmount.toString(),
                 notes: record.notes ?? "",
-                currency: record.currency
+                currency: record.currency, 
+                timestamp: record.timestamp
             )
         })
     }

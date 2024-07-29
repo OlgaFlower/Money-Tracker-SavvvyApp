@@ -24,7 +24,11 @@ struct HomeView: View {
     @State private var animatedExpenses: Int = 0
     
     // MARK: - Properties
-    private var viewModel = HomeViewModel()
+    private var viewModel: HomeViewModel
+    
+    init() {
+        self.viewModel = HomeViewModel()
+    }
     
     /// DB - Today Records
     private var todayRecordsFetchRequest = CoreDataManager.fetchTodayRecords()
@@ -94,6 +98,12 @@ struct HomeView: View {
             .padding(.top, 25)
         }
         .onAppear {
+            self.updateAnimatedValues()
+        }
+        .onChange(of: self.expenses) {
+            self.updateAnimatedValues()
+        }
+        .onChange(of: self.budget) {
             self.updateAnimatedValues()
         }
     }

@@ -20,7 +20,8 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         ),
         moneyAmount: "",
         notes: "",
-        currency: ""
+        currency: "", 
+        timestamp: Date()
     )
     
     // MARK: - Init
