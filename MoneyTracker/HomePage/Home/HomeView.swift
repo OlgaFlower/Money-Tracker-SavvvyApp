@@ -88,7 +88,8 @@ struct HomeView: View {
                     showingAlert: self.$showingAlert,
                     isDetailCellViewPresented: self.$isDetailCellViewPresented,
                     animatedExpenses: self.animatedExpenses,
-                    animatedBudget: self.animatedBudget
+                    animatedBudget: self.animatedBudget, 
+                    updateAnimatedValues: self.updateAnimatedValues
                 )
                 .padding(.horizontal, 24)
                 .padding(.top, 35)
@@ -98,12 +99,6 @@ struct HomeView: View {
             .padding(.top, 25)
         }
         .onAppear {
-            self.updateAnimatedValues()
-        }
-        .onChange(of: self.expenses) {
-            self.updateAnimatedValues()
-        }
-        .onChange(of: self.budget) {
             self.updateAnimatedValues()
         }
     }

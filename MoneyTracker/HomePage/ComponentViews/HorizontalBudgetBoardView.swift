@@ -19,6 +19,10 @@ struct HorizontalBudgetBoardView: View {
     private let infoBoardWidth = Constants.screenWidth / 2.8
     private let budgetText = "The daily budget consists of all revenues deposited in the current month and, if available, the positive balance from the previous month."
     
+    /// This clouser helps ExpensesDetailView (grand child view) to run an animation func from HomeView (parent view)
+    /// in the certain time after editing and dismissing ExpensesDetailView.
+    var updateAnimatedValues: () -> Void
+    
     // MARK: - Body
     var body: some View {
         HStack {
@@ -55,7 +59,7 @@ struct HorizontalBudgetBoardView: View {
             self.animatedExpenses == 0 ? self.showingAlert.toggle() : self.isDetailCellViewPresented.toggle()
         }
         .sheet(isPresented: self.$isDetailCellViewPresented, content: {
-            ExpensesDetailView()
+            ExpensesDetailView(updateAnimatedValues: self.updateAnimatedValues)
         })
         .alert("No expenses yet", isPresented: self.$showingAlert) {
             Button("OK", role: .cancel) {}
@@ -105,6 +109,7 @@ struct HorizontalBudgetBoardView: View {
         showingAlert: .constant(false),
         isDetailCellViewPresented: .constant(false),
         animatedExpenses: 0,
-        animatedBudget: 0.0
+        animatedBudget: 0.0, 
+        updateAnimatedValues: {}
     )
 }

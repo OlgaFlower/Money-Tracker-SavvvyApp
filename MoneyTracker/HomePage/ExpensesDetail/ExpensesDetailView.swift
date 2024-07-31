@@ -11,9 +11,13 @@ struct ExpensesDetailView: View {
     // MARK: - State
     @Environment(\.managedObjectContext) var viewContext
     @StateObject private var viewModel = ExpensesDetailViewModel()
+    @State private var itemDeleted = false
+    
+    // MARK: - Properties
+    var updateAnimatedValues: () -> Void
     
     // MARK: - DB
-    private var todayExpensesFetchRequest = CoreDataManager.fetchExpensesForDay(date: Date())
+    var todayExpensesFetchRequest = CoreDataManager.fetchExpensesForDay(date: Date())
     private var expensesRecords: FetchedResults<Money> {
         todayExpensesFetchRequest.wrappedValue
     }
@@ -41,6 +45,7 @@ struct ExpensesDetailView: View {
                         }
                         .onDelete { indexSet in
                             self.deleteItem(offsets: indexSet)
+                            self.itemDeleted = true
                         }
                     }
                     .listRowBackground(Color.white.opacity(0.15))
@@ -52,6 +57,13 @@ struct ExpensesDetailView: View {
         }
         .onAppear {
             self.viewModel.getExpenses(records: self.expensesRecords)
+        }
+        .onDisappear {
+            if self.itemDeleted {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.updateAnimatedValues()
+                }
+            }
         }
     }
     
@@ -66,5 +78,5 @@ struct ExpensesDetailView: View {
 }
 
 #Preview {
-    ExpensesDetailView()
+    ExpensesDetailView(updateAnimatedValues: {})
 }
