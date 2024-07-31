@@ -30,32 +30,6 @@ struct ContentView: View {
                     }
                 )
             }
-            
-            ///Test
-            NavigationStack {
-                BankAccountsView(viewModel: BankAccountsViewModel())
-            }
-            .tabItem {
-                Label(
-                    title: {  },
-                    icon: {
-                        self.makeTabBarIcon("wallet")
-                    }
-                )
-            }
-            
-            ///Test
-            NavigationStack {
-                TestView2()
-            }
-            .tabItem {
-                Label(
-                    title: {  },
-                    icon: {
-                        self.makeTabBarIcon("chart")
-                    }
-                )
-            }
         }
         .accentColor(.white)
     }

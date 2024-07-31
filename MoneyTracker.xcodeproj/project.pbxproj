@@ -10,12 +10,8 @@
 		422E82D02BF6BF5B00139B94 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422E82CF2BF6BF5B00139B94 /* StringExtension.swift */; };
 		423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */; };
 		423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4222BD6369000CBB6D5 /* Constants.swift */; };
-		4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */; };
-		4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */; };
 		4241F46C2BB1C6210048A29B /* BankCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F46B2BB1C6210048A29B /* BankCardModel.swift */; };
-		4241F46E2BB1CBBF0048A29B /* BankAccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F46D2BB1CBBF0048A29B /* BankAccountsViewModel.swift */; };
 		4241F4712BB1E62E0048A29B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4702BB1E62E0048A29B /* Country.swift */; };
-		4241F4732BB22B030048A29B /* PagingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4722BB22B030048A29B /* PagingIndicator.swift */; };
 		4241F4772BB3703E0048A29B /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4762BB3703E0048A29B /* TestView2.swift */; };
 		4241F4792BB370540048A29B /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4782BB370540048A29B /* TestView.swift */; };
 		4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F47A2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift */; };
@@ -26,8 +22,6 @@
 		4242751B2BA4FF73001873A3 /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242751A2BA4FF73001873A3 /* MoneyTrackerTests.swift */; };
 		424275252BA4FF73001873A3 /* MoneyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */; };
 		424275272BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */; };
-		4251FA4A2BAB22C00087ABE7 /* BankAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA492BAB22C00087ABE7 /* BankAccountsView.swift */; };
-		4251FA4D2BAB2B5E0087ABE7 /* BankCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4C2BAB2B5E0087ABE7 /* BankCardView.swift */; };
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
 		425767A02C2148C90053637A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257679F2C2148C90053637A /* CoreDataManager.swift */; };
 		42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */; };
@@ -35,9 +29,7 @@
 		42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */; };
 		42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE52BC16BC10085FA7C /* IncomeModel.swift */; };
 		42A11C252BB6F670003B617D /* LogDateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C242BB6F670003B617D /* LogDateRange.swift */; };
-		42A11C272BB6FB93003B617D /* DailyLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C262BB6FB93003B617D /* DailyLogView.swift */; };
 		42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C292BB7173B003B617D /* MoneyModel.swift */; };
-		42A11C2C2BB7389C003B617D /* LogItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C2B2BB7389C003B617D /* LogItemView.swift */; };
 		42A11C2F2BB935E5003B617D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C2E2BB935E5003B617D /* HomeView.swift */; };
 		42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F0EA2BEA354D00D719E3 /* TextFormatter.swift */; };
 		42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F10B2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift */; };
@@ -46,9 +38,6 @@
 		42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */; };
 		42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */; };
 		42CA52152C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */; };
-		42CA52242C2990C40024DF8B /* SlidingUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52212C2990C40024DF8B /* SlidingUnderline.swift */; };
-		42CA52252C2990C40024DF8B /* WidthPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */; };
-		42CA52262C2990C40024DF8B /* CustomUnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */; };
 		42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52282C29DF140024DF8B /* AudioPlayer.swift */; };
 		42CA523C2C2ADF730024DF8B /* incomeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */; };
 		42CA523E2C2AE0710024DF8B /* chartSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523D2C2AE0710024DF8B /* chartSound.mp3 */; };
@@ -79,7 +68,6 @@
 		42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4FB5E2BF6415D007A580E /* PersistenceController.swift */; };
 		42F8F7262C122C3200C0CE9B /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F7252C122C3200C0CE9B /* CalendarManager.swift */; };
 		42F8F73E2C18C2E500C0CE9B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F73D2C18C2E500C0CE9B /* DateExtension.swift */; };
-		42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD6DBD2BA606E100B9DC70 /* TransparentBlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,12 +91,8 @@
 		422E82CF2BF6BF5B00139B94 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradView.swift; sourceTree = "<group>"; };
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
-		4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalLogExplorer.swift; sourceTree = "<group>"; };
 		4241F46B2BB1C6210048A29B /* BankCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCardModel.swift; sourceTree = "<group>"; };
-		4241F46D2BB1CBBF0048A29B /* BankAccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountsViewModel.swift; sourceTree = "<group>"; };
 		4241F4702BB1E62E0048A29B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		4241F4722BB22B030048A29B /* PagingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingIndicator.swift; sourceTree = "<group>"; };
 		4241F4762BB3703E0048A29B /* TestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
 		4241F4782BB370540048A29B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4241F47A2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalAlignment+UnderlineLeading.swift"; sourceTree = "<group>"; };
@@ -122,8 +106,6 @@
 		424275202BA4FF73001873A3 /* MoneyTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITests.swift; sourceTree = "<group>"; };
 		424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4251FA492BAB22C00087ABE7 /* BankAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountsView.swift; sourceTree = "<group>"; };
-		4251FA4C2BAB2B5E0087ABE7 /* BankCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCardView.swift; sourceTree = "<group>"; };
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
 		4257679F2C2148C90053637A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCategoryCellViewModel.swift; sourceTree = "<group>"; };
@@ -131,9 +113,7 @@
 		42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordView.swift; sourceTree = "<group>"; };
 		42714FE52BC16BC10085FA7C /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
 		42A11C242BB6F670003B617D /* LogDateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDateRange.swift; sourceTree = "<group>"; };
-		42A11C262BB6FB93003B617D /* DailyLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogView.swift; sourceTree = "<group>"; };
 		42A11C292BB7173B003B617D /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
-		42A11C2B2BB7389C003B617D /* LogItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItemView.swift; sourceTree = "<group>"; };
 		42A11C2E2BB935E5003B617D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		42B9F0EA2BEA354D00D719E3 /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		42B9F10B2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroupSelectionView.swift; sourceTree = "<group>"; };
@@ -142,9 +122,6 @@
 		42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataFetchedProperties.swift"; sourceTree = "<group>"; };
-		42CA52212C2990C40024DF8B /* SlidingUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingUnderline.swift; sourceTree = "<group>"; };
-		42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidthPreferenceKey.swift; sourceTree = "<group>"; };
-		42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUnderlineView.swift; sourceTree = "<group>"; };
 		42CA52282C29DF140024DF8B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incomeSound.mp3; sourceTree = "<group>"; };
 		42CA523D2C2AE0710024DF8B /* chartSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chartSound.mp3; sourceTree = "<group>"; };
@@ -176,7 +153,6 @@
 		42F4FB5E2BF6415D007A580E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		42F8F7252C122C3200C0CE9B /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		42F8F73D2C18C2E500C0CE9B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		42FD6DBD2BA606E100B9DC70 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +236,6 @@
 				424275332BA503B7001873A3 /* Main */,
 				424275342BA503BF001873A3 /* Model */,
 				42CA524F2C2C406D0024DF8B /* HomePage */,
-				424275352BA503D1001873A3 /* Views_forRefactoring */,
 				4251FA4E2BAB94960087ABE7 /* Extensions */,
 				42B9F0E92BEA351100D719E3 /* Helpers */,
 				4241F46F2BB1E61A0048A29B /* Constants */,
@@ -317,35 +292,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		424275352BA503D1001873A3 /* Views_forRefactoring */ = {
-			isa = PBXGroup;
-			children = (
-				42A11C282BB6FB9F003B617D /* TrackingLogs */,
-				4251FA482BAB22AD0087ABE7 /* BankAcoountsView */,
-				4251FA4B2BAB2B440087ABE7 /* CommonViews */,
-				42FD6DB82BA5094B00B9DC70 /* CustomViews */,
-			);
-			path = Views_forRefactoring;
-			sourceTree = "<group>";
-		};
-		4251FA482BAB22AD0087ABE7 /* BankAcoountsView */ = {
-			isa = PBXGroup;
-			children = (
-				4241F46D2BB1CBBF0048A29B /* BankAccountsViewModel.swift */,
-				4251FA492BAB22C00087ABE7 /* BankAccountsView.swift */,
-			);
-			path = BankAcoountsView;
-			sourceTree = "<group>";
-		};
-		4251FA4B2BAB2B440087ABE7 /* CommonViews */ = {
-			isa = PBXGroup;
-			children = (
-				4251FA4C2BAB2B5E0087ABE7 /* BankCardView.swift */,
-				42A11C2B2BB7389C003B617D /* LogItemView.swift */,
-			);
-			path = CommonViews;
-			sourceTree = "<group>";
-		};
 		4251FA4E2BAB94960087ABE7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,14 +321,6 @@
 				42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */,
 			);
 			path = MakeNewRecord;
-			sourceTree = "<group>";
-		};
-		42A11C282BB6FB9F003B617D /* TrackingLogs */ = {
-			isa = PBXGroup;
-			children = (
-				42A11C262BB6FB93003B617D /* DailyLogView.swift */,
-			);
-			path = TrackingLogs;
 			sourceTree = "<group>";
 		};
 		42A11C2D2BB935D4003B617D /* Home */ = {
@@ -428,16 +366,6 @@
 				42F8F7302C1487DB00C0CE9B /* MoneyEntity */,
 			);
 			path = MoneyTrackerDB;
-			sourceTree = "<group>";
-		};
-		42CA521A2C2990290024DF8B /* SlidingUnderline */ = {
-			isa = PBXGroup;
-			children = (
-				42CA52232C2990C40024DF8B /* CustomUnderlineView.swift */,
-				42CA52212C2990C40024DF8B /* SlidingUnderline.swift */,
-				42CA52222C2990C40024DF8B /* WidthPreferenceKey.swift */,
-			);
-			path = SlidingUnderline;
 			sourceTree = "<group>";
 		};
 		42CA52272C29DEF10024DF8B /* AudioPlayer */ = {
@@ -545,18 +473,6 @@
 				42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */,
 			);
 			path = MoneyEntity;
-			sourceTree = "<group>";
-		};
-		42FD6DB82BA5094B00B9DC70 /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				42CA521A2C2990290024DF8B /* SlidingUnderline */,
-				42FD6DBD2BA606E100B9DC70 /* TransparentBlurView.swift */,
-				4241F4652BACDC4E0048A29B /* CustomDatePicker.swift */,
-				4241F4672BB1627A0048A29B /* TotalLogExplorer.swift */,
-				4241F4722BB22B030048A29B /* PagingIndicator.swift */,
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -695,14 +611,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				42A11C2F2BB935E5003B617D /* HomeView.swift in Sources */,
-				4251FA4D2BAB2B5E0087ABE7 /* BankCardView.swift in Sources */,
 				423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */,
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
 				42EB69362BFCD8F700FF4E7F /* MoneySectionType.swift in Sources */,
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
-				4241F4662BACDC4E0048A29B /* CustomDatePicker.swift in Sources */,
 				42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */,
-				4241F4732BB22B030048A29B /* PagingIndicator.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42CA524D2C2B558C0024DF8B /* IconView.swift in Sources */,
 				42CA52492C2B52F90024DF8B /* Int+String.swift in Sources */,
@@ -716,10 +629,8 @@
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */,
 				42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */,
-				42CA52242C2990C40024DF8B /* SlidingUnderline.swift in Sources */,
 				42EF87EB2BFBEB6D009E0272 /* RecurringCategoryCellView.swift in Sources */,
 				42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */,
-				42CA52252C2990C40024DF8B /* WidthPreferenceKey.swift in Sources */,
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,
 				423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */,
 				42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */,
@@ -730,25 +641,18 @@
 				42CA52532C2C48110024DF8B /* TodayChartView.swift in Sources */,
 				42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
-				4241F4682BB1627A0048A29B /* TotalLogExplorer.swift in Sources */,
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
-				42A11C2C2BB7389C003B617D /* LogItemView.swift in Sources */,
-				42CA52262C2990C40024DF8B /* CustomUnderlineView.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
-				4251FA4A2BAB22C00087ABE7 /* BankAccountsView.swift in Sources */,
 				42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */,
-				4241F46E2BB1CBBF0048A29B /* BankAccountsViewModel.swift in Sources */,
 				42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */,
 				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
 				42F8F7262C122C3200C0CE9B /* CalendarManager.swift in Sources */,
-				42FD6DBE2BA606E100B9DC70 /* TransparentBlurView.swift in Sources */,
 				42F8F73E2C18C2E500C0CE9B /* DateExtension.swift in Sources */,
 				42CA52152C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift in Sources */,
 				42EB69432BFE00A200FF4E7F /* CategoriesGridViewModel.swift in Sources */,
 				42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */,
 				42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */,
 				42A11C252BB6F670003B617D /* LogDateRange.swift in Sources */,
-				42A11C272BB6FB93003B617D /* DailyLogView.swift in Sources */,
 				4241F4772BB3703E0048A29B /* TestView2.swift in Sources */,
 				42CA52472C2B44C40024DF8B /* ExpensesDetailViewModel.swift in Sources */,
 				42CA52512C2C41D10024DF8B /* HorizontalBudgetBoardView.swift in Sources */,
