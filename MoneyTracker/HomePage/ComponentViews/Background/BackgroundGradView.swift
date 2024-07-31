@@ -9,13 +9,24 @@ import SwiftUI
 
 struct BackgroundGradView: View {
     var body: some View {
-        Rectangle()
-        .fill(
-            .linearGradient(colors: [
-                .darkBlue,
-                .lightBlue
-            ], startPoint: .topLeading, endPoint: .bottomTrailing)
-        )
+        GeometryReader { geometry in
+            Rectangle()
+                .fill(
+                    LinearGradient(
+                        gradient: Gradient(colors: [.darkBlue, .lightBlue]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .frame(
+                    width: geometry.size.width + 20,
+                    height: geometry.size.height + 20
+                )
+                .position(
+                    x: geometry.size.width / 2,
+                    y: geometry.size.height / 2
+                )
+        }
         .ignoresSafeArea()
     }
 }
