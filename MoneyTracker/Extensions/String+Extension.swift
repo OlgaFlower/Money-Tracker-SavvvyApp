@@ -1,5 +1,5 @@
 //
-//  StringExtension.swift
+//  String+Extension.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 17.05.24.
