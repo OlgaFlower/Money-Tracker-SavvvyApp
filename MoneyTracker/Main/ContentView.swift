@@ -30,6 +30,20 @@ struct ContentView: View {
                     }
                 )
             }
+            ///Calendar
+            NavigationStack {
+                CalendarView()
+                    .navigationTitle("CALENDAR")
+                    .navigationBarTitleDisplayMode(.large)
+            }
+            .tabItem {
+                Label(
+                    title: {},
+                    icon: {
+                        self.makeTabBarIcon("calendar")
+                    }
+                )
+            }
         }
         .accentColor(.white)
     }
