@@ -19,62 +19,54 @@ struct CalendarView: View {
     
     // MARK: - Body
     var body: some View {
-        ZStack {
-            BackgroundGradView()
+        GeometryReader { geometry in
+            /// Adjusted for iPhones with small screen (screen width of the iPhone SE 3-g)
+            let isSmallScreen = geometry.size.width < 376
             
-            VStack {
-                /// Month and Year
-                HStack {
-                    self.chevronLeft
-                        .padding(.leading, 68)
-                    Spacer()
-                    self.titleView
-                    Spacer()
-                    self.chevronRight
-                        .padding(.trailing, 68)
-                }
-                /// Days of the week
-                HStack {
-                    ForEach(self.daysOfWeek.indices, id: \.self) { index in
-                        Text(self.daysOfWeek[index])
-                            .autocapitalization(.allCharacters)
-                            .font(.customFont(style: .medium, size: .small))
-                            .opacity(0.8)
-                            .frame(maxWidth: .infinity)
-                    }
-                }
-                .padding(.top, 35)
-                /// Numbers
-                LazyVGrid(columns: self.columns) {
-                    ForEach(self.days, id: \.self) { day in
-                        
-                        if day.monthInt != date.monthInt {
-                            Text("")
-                        } else {
-                            Text(day.formatted(.dateTime.day()))
-                                .font(.customFont(style: .semibold, size: .body))
-                                .opacity(0.8)
-                                .frame(maxWidth: .infinity, minHeight: 40)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 4.0)
-                                        .foregroundStyle(
-                                            Date.now.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15) 
-                                        )
-                                )
+            ZStack {
+                BackgroundGradView()
+                self.returnView
+                    .padding(.bottom, 50)
+                
+                VStack {
+                    self.monthAndYearView
+                        .padding(.horizontal, isSmallScreen ? 20 : 46)
+                    self.weekDaysView
+                        .padding(.top, isSmallScreen ? 20 : 35)
+                    
+                    /// Calendar
+                    LazyVGrid(columns: self.columns, spacing: isSmallScreen ? 8 : 10) {
+                        ForEach(self.days, id: \.self) { day in
+                            
+                            if day.monthInt != date.monthInt {
+                                Text("")
+                            } else {
+                                Text(day.formatted(.dateTime.day()))
+                                    .font(.customFont(style: .semibold, size: .body))
+                                    .opacity(0.8)
+                                    .frame(maxWidth: .infinity, minHeight: 40)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 4.0)
+                                            .foregroundStyle(
+                                                Date.now.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15)
+                                            )
+                                    )
+                            }
                         }
                     }
+                    Spacer()
                 }
-                Spacer()
+                .padding(.top, isSmallScreen ? 20 : 35)
+                .padding(.horizontal, isSmallScreen ? 12 : 16)
             }
-            .padding(.top, 35)
-            .padding(.horizontal)
-        }
-        .foregroundStyle(.white)
-        .onAppear {
-            self.days = self.date.calendarDisplayDays
-        }
-        .onChange(of: self.date) {
-            self.days = self.date.calendarDisplayDays
+            .foregroundStyle(.white)
+            .onAppear {
+                self.date = Date.now
+                self.days = self.date.calendarDisplayDays
+            }
+            .onChange(of: self.date) {
+                self.days = self.date.calendarDisplayDays
+            }
         }
     }
     
@@ -88,14 +80,78 @@ struct CalendarView: View {
     private var chevronLeft: some View {
         Image(systemName: "chevron.left")
             .font(.customFont(style: .semibold, size: .body))
+            .onTapGesture {
+                self.moveToPreviousMonth()
+                Constants.vibrateLight()
+            }
     }
     
     private var chevronRight: some View {
         Image(systemName: "chevron.right")
             .font(.customFont(style: .semibold, size: .body))
+            .onTapGesture {
+                self.moveToNextMonth()
+                Constants.vibrateLight()
+            }
+    }
+    
+    private var returnBtn: some View {
+        Image(systemName: "arrow.counterclockwise")
+            .font(.customFont(style: .semibold, size: .title))
+            .opacity(0.8)
+            .onTapGesture {
+                self.date = Date.now
+                Constants.vibrateLight()
+            }
+    }
+    
+    private var returnView: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                self.returnBtn
+                Spacer()
+            }
+        }
+    }
+    
+    private var monthAndYearView: some View {
+        HStack {
+            self.chevronLeft
+            Spacer()
+            self.titleView
+            Spacer()
+            self.chevronRight
+        }
+    }
+    
+    private var weekDaysView: some View {
+        HStack {
+            ForEach(self.daysOfWeek.indices, id: \.self) { index in
+                Text(self.daysOfWeek[index])
+                    .autocapitalization(.allCharacters)
+                    .font(.customFont(style: .medium, size: .small))
+                    .opacity(0.8)
+                    .frame(maxWidth: .infinity)
+            }
+        }
+    }
+    
+    // MARK: - Functions
+    private func moveToPreviousMonth() {
+        if let newDate = Calendar.current.date(byAdding: .month, value: -1, to: self.date) {
+            self.date = newDate
+        }
+    }
+    
+    private func moveToNextMonth() {
+        if let newDate = Calendar.current.date(byAdding: .month, value: 1, to: self.date) {
+            self.date = newDate
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    CalendarView()
 }
