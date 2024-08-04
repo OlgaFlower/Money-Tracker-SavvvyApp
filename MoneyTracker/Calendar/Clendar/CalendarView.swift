@@ -12,6 +12,8 @@ struct CalendarView: View {
     // MARK: - States
     @State private var date = Date.now
     @State private var days: [Date] = []
+    @State private var selectedDate: Date?
+    @State private var isCalendarDetailsPresented = false
     
     // MARK: - Properties
     let daysOfWeek = Date.uppercasedWeekdays
@@ -51,9 +53,14 @@ struct CalendarView: View {
                                                 Date.now.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15)
                                             )
                                     )
+                                    .onTapGesture {
+                                        self.selectedDate = day.startOfDay
+                                        self.isCalendarDetailsPresented.toggle()
+                                    }
                             }
                         }
                     }
+                    
                     Spacer()
                 }
                 .padding(.top, isSmallScreen ? 20 : 35)
@@ -67,6 +74,9 @@ struct CalendarView: View {
             .onChange(of: self.date) {
                 self.days = self.date.calendarDisplayDays
             }
+            .fullScreenCover(isPresented: self.$isCalendarDetailsPresented, content: {
+                CalendarDetailsView(selectedDate: self.selectedDate)
+            })
         }
     }
     

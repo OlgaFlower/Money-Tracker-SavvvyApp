@@ -58,7 +58,8 @@ struct HorizontalBudgetBoardView: View {
             Constants.vibrateLight()
             self.animatedExpenses == 0 ? self.showingAlert.toggle() : self.isDetailCellViewPresented.toggle()
         }
-        .sheet(isPresented: self.$isDetailCellViewPresented, content: {
+        .sheet(isPresented: self.$isDetailCellViewPresented, 
+               content: {
             ExpensesDetailView(updateAnimatedValues: self.updateAnimatedValues)
         })
         .alert("No expenses yet", isPresented: self.$showingAlert) {
