@@ -35,32 +35,7 @@ struct CalendarView: View {
                         .padding(.horizontal, isSmallScreen ? 20 : 46)
                     self.weekDaysView
                         .padding(.top, isSmallScreen ? 20 : 35)
-                    
-                    /// Calendar
-                    LazyVGrid(columns: self.columns, spacing: isSmallScreen ? 8 : 10) {
-                        ForEach(self.days, id: \.self) { day in
-                            
-                            if day.monthInt != date.monthInt {
-                                Text("")
-                            } else {
-                                Text(day.formatted(.dateTime.day()))
-                                    .font(.customFont(style: .semibold, size: .body))
-                                    .opacity(0.8)
-                                    .frame(maxWidth: .infinity, minHeight: 40)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 4.0)
-                                            .foregroundStyle(
-                                                Date.now.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15)
-                                            )
-                                    )
-                                    .onTapGesture {
-                                        self.selectedDate = day.startOfDay
-                                        self.isCalendarDetailsPresented.toggle()
-                                    }
-                            }
-                        }
-                    }
-                    
+                    self.makeCalendarView(isSmallScreen: isSmallScreen)
                     Spacer()
                 }
                 .padding(.top, isSmallScreen ? 20 : 35)
@@ -148,6 +123,31 @@ struct CalendarView: View {
         }
     }
     
+    private func makeCalendarView(isSmallScreen: Bool) -> some View {
+        LazyVGrid(columns: self.columns, spacing: isSmallScreen ? 8 : 10) {
+            ForEach(self.days, id: \.self) { day in
+                
+                if day.monthInt != date.monthInt {
+                    Text("")
+                } else {
+                    Text(day.formatted(.dateTime.day()))
+                        .font(.customFont(style: .semibold, size: .body))
+                        .opacity(0.8)
+                        .frame(maxWidth: .infinity, minHeight: 40)
+                        .background(
+                            RoundedRectangle(cornerRadius: 4.0)
+                                .foregroundStyle(
+                                    Date.now.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15)
+                                )
+                        )
+                        .onTapGesture {
+                            self.selectedDate = day.startOfDay
+                            self.isCalendarDetailsPresented.toggle()
+                        }
+                }
+            }
+        }
+    }
     // MARK: - Functions
     private func moveToPreviousMonth() {
         if let newDate = Calendar.current.date(byAdding: .month, value: -1, to: self.date) {
