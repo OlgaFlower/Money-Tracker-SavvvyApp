@@ -12,19 +12,23 @@ struct CalendarDetailsView: View {
     @Environment(\.dismiss) var dismiss
     
     // MARK: - Properties
-    var selectedDate: Date?
+    @Binding var selectedDate: Date
     
     // MARK: - Body
     var body: some View {
         ZStack {
             BackgroundGradView()
-            VStack {
-                self.cancelButton
-                    .padding(.horizontal, 24)
-                Spacer()
-            }
-            .foregroundStyle(.white)
-            .padding(.top, 32)
+            
+                VStack(spacing: 32) {
+                    self.cancelButton
+                        .padding(.horizontal, 24)
+                    
+                    self.titleView
+                    
+                    Spacer()
+                }
+                .foregroundStyle(.white)
+                .padding(.top, 32)
         }
     }
     
@@ -44,8 +48,14 @@ struct CalendarDetailsView: View {
             })
         }
     }
+    /// TITLE
+    private var titleView: some View {
+        Text(selectedDate.formattedDayMonthYear().uppercased())
+            .font(.customFont(style: .semibold, size: .body))
+            .opacity(0.8)
+    }
 }
 
 #Preview {
-    CalendarDetailsView(selectedDate: Date.now)
+    CalendarDetailsView(selectedDate: .constant(Date.now))
 }

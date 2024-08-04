@@ -475,8 +475,8 @@
 		42ED3BD12C5A69F8009385E0 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				42AA6C5C2C5FD1F500850299 /* CalendarDetails */,
 				42ED3BD22C5A7118009385E0 /* Clendar */,
+				42AA6C5C2C5FD1F500850299 /* CalendarDetails */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";

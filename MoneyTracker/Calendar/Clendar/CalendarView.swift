@@ -12,7 +12,7 @@ struct CalendarView: View {
     // MARK: - States
     @State private var date = Date.now
     @State private var days: [Date] = []
-    @State private var selectedDate: Date?
+    @State private var selectedDate = Date.now
     @State private var isCalendarDetailsPresented = false
     
     // MARK: - Properties
@@ -50,7 +50,7 @@ struct CalendarView: View {
                 self.days = self.date.calendarDisplayDays
             }
             .fullScreenCover(isPresented: self.$isCalendarDetailsPresented, content: {
-                CalendarDetailsView(selectedDate: self.selectedDate)
+                CalendarDetailsView(selectedDate: self.$selectedDate)
             })
         }
     }
