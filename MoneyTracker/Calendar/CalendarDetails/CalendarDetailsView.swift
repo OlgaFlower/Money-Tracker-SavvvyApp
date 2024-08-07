@@ -37,17 +37,25 @@ struct CalendarDetailsView: View {
                 VStack(spacing: 32) {
                     self.cancelButton
                         .padding(.horizontal, 24)
-                    
-                    self.titleView
+                    HStack {
+                        self.titleView
+                            .padding(.horizontal, 16)
+                        Spacer()
+                    }
                     
                     List {
                         if !self.viewModel.income.isEmpty {
-                            Section {
+                            Section(
+                                header: Text("INCOME")
+                                .font(.customFont(style: .regular, size: .small))
+                                .opacity(0.8)
+                            ) {
                                 ForEach(self.viewModel.income) { record in
                                     DetailCellView(
                                         iconName: record.category.icon,
                                         note: record.notes,
-                                        sum: record.moneyAmount
+                                        sum: record.moneyAmount, 
+                                        category: record.category.moneyGroupType
                                     )
                                 }
                             }
@@ -55,12 +63,17 @@ struct CalendarDetailsView: View {
                         }
                         
                         if !self.viewModel.expenses.isEmpty {
-                            Section {
+                            Section(
+                                header: Text("EXPENSES")
+                                .font(.customFont(style: .regular, size: .small))
+                                .opacity(0.8)
+                            ) {
                                 ForEach(self.viewModel.expenses) { record in
                                     DetailCellView(
                                         iconName: record.category.icon,
                                         note: record.notes,
-                                        sum: record.moneyAmount
+                                        sum: record.moneyAmount,
+                                        category: record.category.moneyGroupType
                                     )
                                 }
                             }
@@ -99,7 +112,7 @@ struct CalendarDetailsView: View {
     /// TITLE
     private var titleView: some View {
         Text(selectedDate.formattedDayMonthYear().uppercased())
-            .font(.customFont(style: .semibold, size: .body))
+            .font(.customFont(style: .medium, size: .title))
             .opacity(0.8)
     }
 }

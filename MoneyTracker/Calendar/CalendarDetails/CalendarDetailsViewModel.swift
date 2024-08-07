@@ -29,8 +29,6 @@ final class CalendarDetailsViewModel: ObservableObject {
                 timestamp: record.timestamp
             )
         })
-        
-        print("INCOME: \(income)")
     }
     
     func getExpensesRecords(records: FetchedResults<Money>) {
@@ -50,7 +48,6 @@ final class CalendarDetailsViewModel: ObservableObject {
                 timestamp: record.timestamp
             )
         })
-        print("EXPENSES: \(expenses)")
     }
     
     func tagToGroupType(tag: Int16) -> MoneyGroupType {

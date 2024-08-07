@@ -40,7 +40,8 @@ struct ExpensesDetailView: View {
                             DetailCellView(
                                 iconName: record.category.icon,
                                 note: record.notes,
-                                sum: record.moneyAmount
+                                sum: record.moneyAmount, 
+                                category: record.category.moneyGroupType
                             )
                         }
                         .onDelete { indexSet in
