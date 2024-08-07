@@ -14,6 +14,15 @@ final class CoreDataManager {
     
     private init() {}
     
+    /// All Records for DATE
+    static func predicateForSelectedDay(date: Date) -> NSPredicate {
+        return NSPredicate(
+                    format: "timestamp >= %@ AND timestamp < %@",
+                    Calendar.current.startOfDay(for: date) as NSDate,
+                    Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: date))! as NSDate
+                )
+    }
+    
     /// Expenses for DATE
     static func fetchExpensesForDay(date: Date) -> FetchRequest<Money> {
         let timestampSortDescriptor = NSSortDescriptor(keyPath: \Money.timestamp , ascending: true)

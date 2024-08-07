@@ -50,7 +50,9 @@ struct CalendarView: View {
                 self.days = self.date.calendarDisplayDays
             }
             .fullScreenCover(isPresented: self.$isCalendarDetailsPresented, content: {
-                CalendarDetailsView(selectedDate: self.$selectedDate)
+                CalendarDetailsView(
+                    selectedDate: self.$selectedDate
+                )
             })
         }
     }

@@ -20,6 +20,7 @@
 		4242751B2BA4FF73001873A3 /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242751A2BA4FF73001873A3 /* MoneyTrackerTests.swift */; };
 		424275252BA4FF73001873A3 /* MoneyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */; };
 		424275272BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */; };
+		424E3D382C63BF1E005E2181 /* CalendarDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */; };
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
 		425767A02C2148C90053637A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257679F2C2148C90053637A /* CoreDataManager.swift */; };
 		42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */; };
@@ -104,6 +105,7 @@
 		424275202BA4FF73001873A3 /* MoneyTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITests.swift; sourceTree = "<group>"; };
 		424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsViewModel.swift; sourceTree = "<group>"; };
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
 		4257679F2C2148C90053637A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCategoryCellViewModel.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				42AA6C5D2C5FD23300850299 /* CalendarDetailsView.swift */,
+				424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */,
 			);
 			path = CalendarDetails;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				42A11C252BB6F670003B617D /* LogDateRange.swift in Sources */,
 				42CA52472C2B44C40024DF8B /* ExpensesDetailViewModel.swift in Sources */,
 				42CA52512C2C41D10024DF8B /* HorizontalBudgetBoardView.swift in Sources */,
+				424E3D382C63BF1E005E2181 /* CalendarDetailsViewModel.swift in Sources */,
 				42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */,
 				42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */,
 				42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */,

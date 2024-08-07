@@ -8,18 +8,18 @@
 import Foundation
 
 enum MoneyGroupType {
-    case temporaryIncome
     case regularIncome
-    case recurringExpense
+    case temporaryIncome
     case generalExpense
+    case recurringExpense
     case none
     
     var string: String {
         switch self {
         case .regularIncome:
-            return "Regular Expenses"
+            return "Regular Income"
         case .temporaryIncome:
-            return "Temporary Expenses"
+            return "Temporary Income"
         case .generalExpense:
             return "General Expenses"
         case .recurringExpense:
