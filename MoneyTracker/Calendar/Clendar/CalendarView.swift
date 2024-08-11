@@ -10,32 +10,33 @@ import SwiftUI
 struct CalendarView: View {
     
     // MARK: - States
-    @State private var date = Date.now
-    @State private var days: [Date] = []
+    @State private var currentDate = Date.now
+    @State private var daysInMonth: [Date] = []
     @State private var selectedDate = Date.now
     @State private var isCalendarDetailsPresented = false
     
     // MARK: - Properties
     let daysOfWeek = Date.uppercasedWeekdays
-    let columns = Array(repeating: GridItem(.flexible()), count: 7)
+    let gridColumns = Array(repeating: GridItem(.flexible()), count: 7)
     
     // MARK: - Body
     var body: some View {
+        
         GeometryReader { geometry in
-            /// Adjusted for iPhones with small screen (screen width of the iPhone SE 3-g)
+            /// UI adjusted for iPhones with small screen (screen width of the iPhone SE 3-g)
             let isSmallScreen = geometry.size.width < 376
             
             ZStack {
                 BackgroundGradView()
-                self.returnView
+                self.returnButtonView
                     .padding(.bottom, 50)
                 
                 VStack {
                     self.monthAndYearView
                         .padding(.horizontal, isSmallScreen ? 20 : 46)
-                    self.weekDaysView
+                    self.weekDaysHeaderView
                         .padding(.top, isSmallScreen ? 20 : 35)
-                    self.makeCalendarView(isSmallScreen: isSmallScreen)
+                    self.calendarGridView(isSmallScreen: isSmallScreen)
                     Spacer()
                 }
                 .padding(.top, isSmallScreen ? 20 : 35)
@@ -43,28 +44,31 @@ struct CalendarView: View {
             }
             .foregroundStyle(.white)
             .onAppear {
-                self.date = Date.now
-                self.days = self.date.calendarDisplayDays
+                self.loadCurrentMonthDays()
             }
-            .onChange(of: self.date) {
-                self.days = self.date.calendarDisplayDays
+            .onChange(of: self.currentDate) {
+                self.updateDaysInMonth()
             }
-            .fullScreenCover(isPresented: self.$isCalendarDetailsPresented, content: {
-                CalendarDetailsView(
-                    selectedDate: self.$selectedDate
-                )
-            })
+            .fullScreenCover(
+                isPresented: self.$isCalendarDetailsPresented,
+                content: {
+                    CalendarDetailsView(
+                        selectedDate: self.$selectedDate
+                    )
+                })
         }
     }
     
     // MARK: - Views
     private var titleView: some View {
-        Text(self.date.formattedMonthYear().uppercased())
+        
+        Text(self.currentDate.formattedMonthYear().uppercased())
             .font(.customFont(style: .semibold, size: .body))
             .opacity(0.8)
     }
     
     private var chevronLeft: some View {
+        
         Image(systemName: "chevron.left")
             .font(.customFont(style: .semibold, size: .body))
             .onTapGesture {
@@ -74,6 +78,7 @@ struct CalendarView: View {
     }
     
     private var chevronRight: some View {
+        
         Image(systemName: "chevron.right")
             .font(.customFont(style: .semibold, size: .body))
             .onTapGesture {
@@ -82,28 +87,26 @@ struct CalendarView: View {
             }
     }
     
-    private var returnBtn: some View {
-        Image(systemName: "arrow.counterclockwise")
-            .font(.customFont(style: .semibold, size: .title))
-            .opacity(0.8)
-            .onTapGesture {
-                self.date = Date.now
-                Constants.vibrateLight()
-            }
-    }
-    
-    private var returnView: some View {
+    private var returnButtonView: some View {
+        
         VStack {
             Spacer()
             HStack {
                 Spacer()
-                self.returnBtn
+                Image(systemName: "arrow.counterclockwise")
+                    .font(.customFont(style: .semibold, size: .title))
+                    .opacity(0.8)
+                    .onTapGesture {
+                        self.currentDate = Date.now
+                        Constants.vibrateLight()
+                    }
                 Spacer()
             }
         }
     }
     
     private var monthAndYearView: some View {
+        
         HStack {
             self.chevronLeft
             Spacer()
@@ -113,7 +116,8 @@ struct CalendarView: View {
         }
     }
     
-    private var weekDaysView: some View {
+    private var weekDaysHeaderView: some View {
+        
         HStack {
             ForEach(self.daysOfWeek.indices, id: \.self) { index in
                 Text(self.daysOfWeek[index])
@@ -125,44 +129,68 @@ struct CalendarView: View {
         }
     }
     
-    private func makeCalendarView(isSmallScreen: Bool) -> some View {
-        LazyVGrid(columns: self.columns, spacing: isSmallScreen ? 8 : 10) {
-            ForEach(self.days, id: \.self) { day in
-                
-                if day.monthInt != date.monthInt {
-                    Text("")
-                } else {
-                    Text(day.formatted(.dateTime.day()))
-                        .font(.customFont(style: .semibold, size: .body))
-                        .opacity(0.8)
-                        .frame(maxWidth: .infinity, minHeight: 40)
-                        .background(
-                            RoundedRectangle(cornerRadius: 4.0)
-                                .foregroundStyle(
-                                    Date.now.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15)
-                                )
-                        )
-                        .onTapGesture {
-                            self.selectedDate = day.startOfDay
-                        }
-                        .onChange(of: self.selectedDate) {
-                            self.isCalendarDetailsPresented.toggle()
-                        }
-                }
+    private func calendarGridView(isSmallScreen: Bool) -> some View {
+        
+        LazyVGrid(
+            columns: self.gridColumns,
+            spacing: isSmallScreen ? 8 : 10
+        ) {
+            
+            ForEach(self.daysInMonth, id: \.self) { day in
+                self.calendarDayView(for: day)
             }
         }
     }
-    // MARK: - Functions
+    
+    @ViewBuilder
+    private func calendarDayView(for day: Date) -> some View {
+        
+        if day.monthInt != self.currentDate.monthInt {
+            Text("")
+        } else {
+            Text(day.formatted(.dateTime.day()))
+                .font(.customFont(style: .semibold, size: .body))
+                .opacity(0.8)
+                .frame(maxWidth: .infinity, minHeight: 40)
+                .background(
+                    RoundedRectangle(cornerRadius: 4.0)
+                        .foregroundStyle(
+                            Date.now.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15)
+                        )
+                )
+                .onTapGesture {
+                    self.selectedDate = day.startOfDay
+                }
+                .onChange(of: self.selectedDate) {
+                    self.isCalendarDetailsPresented.toggle()
+                }
+        }
+    }
+    
+    // MARK: - Actions
     private func moveToPreviousMonth() {
-        if let newDate = Calendar.current.date(byAdding: .month, value: -1, to: self.date) {
-            self.date = newDate
+        
+        if let newDate = Calendar.current.date(byAdding: .month, value: -1, to: self.currentDate) {
+            self.currentDate = newDate
         }
     }
     
     private func moveToNextMonth() {
-        if let newDate = Calendar.current.date(byAdding: .month, value: 1, to: self.date) {
-            self.date = newDate
+        
+        if let newDate = Calendar.current.date(byAdding: .month, value: 1, to: self.currentDate) {
+            self.currentDate = newDate
         }
+    }
+    
+    private func loadCurrentMonthDays() {
+        
+        self.currentDate = Date.now
+        self.daysInMonth = currentDate.calendarDisplayDays
+    }
+    
+    private func updateDaysInMonth() {
+        
+        self.daysInMonth = self.currentDate.calendarDisplayDays
     }
 }
 
