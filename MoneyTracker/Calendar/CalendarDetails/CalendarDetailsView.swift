@@ -75,6 +75,7 @@ struct CalendarDetailsView: View {
                                         sum: record.moneyAmount,
                                         category: record.category.moneyGroupType
                                     )
+                                    .listRowSeparatorTint(.white.opacity(0.2))
                                 }
                             }
                             .listRowBackground(Color.white.opacity(0.15))
