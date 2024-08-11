@@ -144,6 +144,8 @@ struct CalendarView: View {
                         )
                         .onTapGesture {
                             self.selectedDate = day.startOfDay
+                        }
+                        .onChange(of: self.selectedDate) {
                             self.isCalendarDetailsPresented.toggle()
                         }
                 }
