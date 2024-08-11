@@ -13,44 +13,49 @@ final class CalendarDetailsViewModel: ObservableObject {
     @Published var income: [MoneyModel] = []
     
     func getIncomeRecords(records: FetchedResults<Money>) {
-        self.income = records.filter { record in
-            record.isIncome
-        }.map({ record in
-            MoneyModel(
-                recordType: .income,
-                category: Category(
-                    moneyGroupType: self.tagToGroupType(tag: record.typeTag),
-                    name: record.categoryName,
-                    icon: record.categoryIcon
-                ),
-                moneyAmount: record.moneyAmount.toString(),
-                notes: record.notes ?? "",
-                currency: record.currency,
-                timestamp: record.timestamp
-            )
-        })
+        
+        self.income = self.filterAndMapRecords(
+            records: records,
+            isIncome: true
+        )
     }
     
     func getExpensesRecords(records: FetchedResults<Money>) {
-        self.expenses = records.filter { record in
-            !record.isIncome
-        }.map({ record in
-            MoneyModel(
-                recordType: .expense,
-                category: Category(
-                    moneyGroupType: self.tagToGroupType(tag: record.typeTag),
-                    name: record.categoryName,
-                    icon: record.categoryIcon
-                ),
-                moneyAmount: record.moneyAmount.toString(),
-                notes: record.notes ?? "",
-                currency: record.currency,
-                timestamp: record.timestamp
-            )
-        })
+        
+        self.expenses = self.filterAndMapRecords(
+            records: records,
+            isIncome: false
+        )
     }
     
-    func tagToGroupType(tag: Int16) -> MoneyGroupType {
+    private func filterAndMapRecords(
+        records: FetchedResults<Money>,
+        isIncome: Bool
+    ) -> [MoneyModel] {
+        
+           return records.filter { $0.isIncome == isIncome }.map { record in
+               MoneyModel(
+                   recordType: isIncome ? .income : .expense,
+                   category: self.createCategory(from: record),
+                   moneyAmount: record.moneyAmount.toString(),
+                   notes: record.notes ?? "",
+                   currency: record.currency,
+                   timestamp: record.timestamp
+               )
+           }
+       }
+    
+    private func createCategory(from record: Money) -> Category {
+        
+            return Category(
+                moneyGroupType: tagToGroupType(tag: record.typeTag),
+                name: record.categoryName,
+                icon: record.categoryIcon
+            )
+        }
+    
+    private func tagToGroupType(tag: Int16) -> MoneyGroupType {
+        
         switch tag {
         case 1: return MoneyGroupType.regularIncome
         case 2: return MoneyGroupType.temporaryIncome

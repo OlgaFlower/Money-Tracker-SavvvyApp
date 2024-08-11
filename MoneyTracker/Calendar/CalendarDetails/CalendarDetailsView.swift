@@ -31,6 +31,7 @@ struct CalendarDetailsView: View {
     
     // MARK: - Body
     var body: some View {
+        
         ZStack {
             BackgroundGradView()
             self.content
@@ -44,8 +45,8 @@ struct CalendarDetailsView: View {
     }
     
     // MARK: - Views
-    
     private var content: some View {
+        
         VStack(spacing: 32) {
             self.cancelButton
                 .padding(.horizontal, 24)
@@ -57,6 +58,7 @@ struct CalendarDetailsView: View {
     }
     
     private var cancelButton: some View {
+        
         HStack {
             Spacer()
             Button(action: {
@@ -72,8 +74,9 @@ struct CalendarDetailsView: View {
     }
     
     private var titleView: some View {
+        
         HStack {
-            Text(selectedDate.formattedDayMonthYear().uppercased())
+            Text(self.selectedDate.formattedDayMonthYear().uppercased())
                 .font(.customFont(style: .medium, size: .title))
                 .opacity(0.8)
             Spacer()
@@ -81,6 +84,7 @@ struct CalendarDetailsView: View {
     }
     
     private var recordsList: some View {
+        
         List {
             if !self.viewModel.income.isEmpty {
                 self.recordsSection(title: "INCOME", records: self.viewModel.income)
@@ -92,7 +96,11 @@ struct CalendarDetailsView: View {
         .scrollContentBackground(.hidden)
     }
     
-    private func recordsSection(title: String, records: [MoneyModel]) -> some View {
+    private func recordsSection(
+        title: String,
+        records: [MoneyModel]
+    ) -> some View {
+        
         Section(header: Text(title)
             .font(.customFont(style: .regular, size: .small))
             .opacity(0.8)) {
@@ -109,7 +117,6 @@ struct CalendarDetailsView: View {
             }
             .listRowBackground(Color.white.opacity(0.15))
     }
-    
 }
 
 #Preview {
