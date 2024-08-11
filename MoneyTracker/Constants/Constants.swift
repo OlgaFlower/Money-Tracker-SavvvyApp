@@ -21,7 +21,6 @@ final class Constants {
     // MARK: - DropDown Menu -
     /// Add new record
     static let newRecordTypes = [RecordType.expense, RecordType.income]
-    static let gradientForIcon: [Color] = [.gradientBottom3, .lightBlue]
     
     // MARK: - Make Vibration -
     static func vibrateMedium() {

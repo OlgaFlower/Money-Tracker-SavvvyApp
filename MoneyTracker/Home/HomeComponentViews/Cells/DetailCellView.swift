@@ -17,13 +17,15 @@ struct DetailCellView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                IconView(iconName: iconName, frameWidth: 38)
+                IconView(iconName: iconName, frameWidth: 34)
                 Text(note)
+                    .lineLimit(1)
                     .font(.customFont(style: .regular, size: .body))
                     .padding(.leading, 8)
                 Spacer()
                 self.makeSumStringView(for: self.category)
                     .font(.customFont(style: .regular, size: .body))
+                    .padding(.leading, 4)
             }
             .opacity(0.8)
         }

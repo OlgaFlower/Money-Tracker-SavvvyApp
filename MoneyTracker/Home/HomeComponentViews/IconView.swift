@@ -19,6 +19,7 @@ struct IconView: View {
                 width: self.frameWidth,
                 height: self.frameWidth
             )
+            .opacity(0.8)
     }
 }
 
