@@ -26,67 +26,16 @@ struct CalendarDetailsView: View {
             entity: Money.entity(),
             sortDescriptors: [NSSortDescriptor(keyPath: \Money.timestamp, ascending: true)],
             predicate: CoreDataManager.predicateForSelectedDay(date: selectedDate.wrappedValue)
-            )
+        )
     }
     
     // MARK: - Body
     var body: some View {
         ZStack {
             BackgroundGradView()
-            
-                VStack(spacing: 32) {
-                    self.cancelButton
-                        .padding(.horizontal, 24)
-                    HStack {
-                        self.titleView
-                            .padding(.horizontal, 16)
-                        Spacer()
-                    }
-                    
-                    List {
-                        if !self.viewModel.income.isEmpty {
-                            Section(
-                                header: Text("INCOME")
-                                .font(.customFont(style: .regular, size: .small))
-                                .opacity(0.8)
-                            ) {
-                                ForEach(self.viewModel.income) { record in
-                                    DetailCellView(
-                                        iconName: record.category.icon,
-                                        note: record.notes,
-                                        sum: record.moneyAmount, 
-                                        category: record.category.moneyGroupType
-                                    )
-                                }
-                            }
-                            .listRowBackground(Color.white.opacity(0.15))
-                        }
-                        
-                        if !self.viewModel.expenses.isEmpty {
-                            Section(
-                                header: Text("EXPENSES")
-                                .font(.customFont(style: .regular, size: .small))
-                                .opacity(0.8)
-                            ) {
-                                ForEach(self.viewModel.expenses) { record in
-                                    DetailCellView(
-                                        iconName: record.category.icon,
-                                        note: record.notes,
-                                        sum: record.moneyAmount,
-                                        category: record.category.moneyGroupType
-                                    )
-                                    .listRowSeparatorTint(.white.opacity(0.2))
-                                }
-                            }
-                            .listRowBackground(Color.white.opacity(0.15))
-                        }
-                    }
-                    .scrollContentBackground(.hidden)
-                    
-                    Spacer()
-                }
-                .foregroundStyle(.white)
+            self.content
                 .padding(.top, 32)
+                .foregroundStyle(.white)
         }
         .onAppear {
             self.viewModel.getIncomeRecords(records: self.records)
@@ -95,7 +44,18 @@ struct CalendarDetailsView: View {
     }
     
     // MARK: - Views
-    /// CANCEL
+    
+    private var content: some View {
+        VStack(spacing: 32) {
+            self.cancelButton
+                .padding(.horizontal, 24)
+            self.titleView
+                .padding(.horizontal, 16)
+            self.recordsList
+            Spacer()
+        }
+    }
+    
     private var cancelButton: some View {
         HStack {
             Spacer()
@@ -110,12 +70,46 @@ struct CalendarDetailsView: View {
             })
         }
     }
-    /// TITLE
+    
     private var titleView: some View {
-        Text(selectedDate.formattedDayMonthYear().uppercased())
-            .font(.customFont(style: .medium, size: .title))
-            .opacity(0.8)
+        HStack {
+            Text(selectedDate.formattedDayMonthYear().uppercased())
+                .font(.customFont(style: .medium, size: .title))
+                .opacity(0.8)
+            Spacer()
+        }
     }
+    
+    private var recordsList: some View {
+        List {
+            if !self.viewModel.income.isEmpty {
+                self.recordsSection(title: "INCOME", records: self.viewModel.income)
+            }
+            if !self.viewModel.expenses.isEmpty {
+                self.recordsSection(title: "EXPENSES", records: self.viewModel.expenses)
+            }
+        }
+        .scrollContentBackground(.hidden)
+    }
+    
+    private func recordsSection(title: String, records: [MoneyModel]) -> some View {
+        Section(header: Text(title)
+            .font(.customFont(style: .regular, size: .small))
+            .opacity(0.8)) {
+                
+                ForEach(records) { record in
+                    DetailCellView(
+                        iconName: record.category.icon,
+                        note: record.notes,
+                        sum: record.moneyAmount,
+                        category: record.category.moneyGroupType
+                    )
+                    .listRowSeparatorTint(.white.opacity(0.2))
+                }
+            }
+            .listRowBackground(Color.white.opacity(0.15))
+    }
+    
 }
 
 #Preview {
