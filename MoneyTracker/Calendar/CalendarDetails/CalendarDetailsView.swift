@@ -15,6 +15,8 @@ struct CalendarDetailsView: View {
     // MARK: - State
     @Binding var selectedDate: Date
     @StateObject private var viewModel = CalendarDetailsViewModel()
+    @State private var showErrorAlert = false
+    @State private var errorMessage = "Something went wrong, try again."
     
     // MARK: - DB
     @FetchRequest private var records: FetchedResults<Money>
@@ -38,10 +40,8 @@ struct CalendarDetailsView: View {
                 .padding(.top, 32)
                 .foregroundStyle(.white)
         }
-        .onAppear {
-            self.viewModel.getIncomeRecords(records: self.records)
-            self.viewModel.getExpensesRecords(records: self.records)
-        }
+        .onAppear (perform: self.loadRecords)
+        .alert(isPresented: self.$showErrorAlert, content: self.errorAlert)
     }
     
     // MARK: - Views
@@ -87,10 +87,16 @@ struct CalendarDetailsView: View {
         
         List {
             if !self.viewModel.income.isEmpty {
-                self.recordsSection(title: "INCOME", records: self.viewModel.income)
+                self.recordsSection(
+                    title: "INCOME",
+                    records: self.viewModel.income
+                )
             }
             if !self.viewModel.expenses.isEmpty {
-                self.recordsSection(title: "EXPENSES", records: self.viewModel.expenses)
+                self.recordsSection(
+                    title: "EXPENSES",
+                    records: self.viewModel.expenses
+                )
             }
         }
         .scrollContentBackground(.hidden)
@@ -114,9 +120,58 @@ struct CalendarDetailsView: View {
                     )
                     .listRowSeparatorTint(.white.opacity(0.2))
                 }
+                .onDelete { indexSet in
+                    self.deleteRecord(at: indexSet, from: title)
+                }
             }
             .listRowBackground(Color.white.opacity(0.15))
     }
+    
+    // MARK: - Actions
+    private func deleteRecord(at offsets: IndexSet, from section: String) {
+        
+        offsets.forEach { index in
+            let record = section == "INCOME" ? self.viewModel.income[index] : self.viewModel.expenses[index]
+            
+            if let moneyObject = records.first(where: { $0.timestamp == record.timestamp }) {
+                self.viewContext.delete(moneyObject)
+            }
+        }
+        
+        do {
+            try self.viewContext.save()
+        } catch {
+            self.errorMessage = "Failed to delete record. Try again."
+            
+            print("Failed to delete record: \(error.localizedDescription)")
+            
+            self.showErrorAlert.toggle()
+        }
+        
+        self.viewModel.getIncomeRecords(records: self.records)
+        self.viewModel.getExpensesRecords(records: self.records)
+    }
+    
+    // MARK: - Methods
+    private func loadRecords() {
+        
+            viewModel.getIncomeRecords(records: records)
+            viewModel.getExpensesRecords(records: records)
+        }
+    
+    private func errorAlert() -> Alert {
+        
+            Alert(
+                title: Text("ERROR")
+                    .font(.customFont(style: .medium, size: .body)),
+                message: Text(errorMessage)
+                    .font(.customFont(style: .regular, size: .body)),
+                dismissButton: .default(
+                    Text("OK")
+                        .font(.customFont(style: .medium, size: .body))
+                )
+            )
+        }
 }
 
 #Preview {

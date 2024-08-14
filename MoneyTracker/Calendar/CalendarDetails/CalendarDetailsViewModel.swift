@@ -54,6 +54,17 @@ final class CalendarDetailsViewModel: ObservableObject {
             )
         }
     
+    func deleteRecord(at indexSet: IndexSet, isIncome: Bool) {
+        
+        guard let index = indexSet.first else { return }
+        
+        if isIncome {
+            self.income.remove(at: index)
+        } else {
+            self.expenses.remove(at: index)
+        }
+    }
+    
     private func tagToGroupType(tag: Int16) -> MoneyGroupType {
         
         switch tag {
