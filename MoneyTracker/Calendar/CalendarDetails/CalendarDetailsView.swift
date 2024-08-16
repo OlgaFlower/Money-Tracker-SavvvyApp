@@ -15,6 +15,8 @@ struct CalendarDetailsView: View {
     // MARK: - State
     @Binding var selectedDate: Date
     @StateObject private var viewModel = CalendarDetailsViewModel()
+    @State private var showErrorAlert = false
+    @State private var errorMessage = "Smth went wrong"
     
     // MARK: - DB
     @FetchRequest private var records: FetchedResults<Money>
@@ -31,66 +33,44 @@ struct CalendarDetailsView: View {
     
     // MARK: - Body
     var body: some View {
-        
         ZStack {
             BackgroundGradView()
             self.content
                 .padding(.top, 32)
                 .foregroundStyle(.white)
         }
-        .onAppear {
-            self.viewModel.getIncomeRecords(records: self.records)
-            self.viewModel.getExpensesRecords(records: self.records)
-        }
+        .onAppear(perform: self.loadRecords)
+        .alert(
+            isPresented: self.$showErrorAlert,
+            content: self.errorAlert
+        )
     }
     
     // MARK: - Views
     private var content: some View {
-        
         VStack(spacing: 32) {
-            self.cancelButton
+            CancelButtonView(action: { dismiss() })
                 .padding(.horizontal, 24)
-            self.titleView
+            TitleView(date: self.selectedDate)
                 .padding(.horizontal, 16)
             self.recordsList
             Spacer()
         }
     }
     
-    private var cancelButton: some View {
-        
-        HStack {
-            Spacer()
-            Button(action: {
-                Constants.vibrateLight()
-                self.dismiss()
-            }, label: {
-                Image(systemName: "plus")
-                    .font(Font.system(size: 28))
-                    .opacity(0.8)
-                    .rotationEffect(.degrees(45))
-            })
-        }
-    }
-    
-    private var titleView: some View {
-        
-        HStack {
-            Text(self.selectedDate.formattedDayMonthYear().uppercased())
-                .font(.customFont(style: .medium, size: .title))
-                .opacity(0.8)
-            Spacer()
-        }
-    }
-    
     private var recordsList: some View {
-        
         List {
             if !self.viewModel.income.isEmpty {
-                self.recordsSection(title: "INCOME", records: self.viewModel.income)
+                self.recordsSection(
+                    title: "INCOME",
+                    records: self.viewModel.income
+                )
             }
             if !self.viewModel.expenses.isEmpty {
-                self.recordsSection(title: "EXPENSES", records: self.viewModel.expenses)
+                self.recordsSection(
+                    title: "EXPENSES",
+                    records: self.viewModel.expenses
+                )
             }
         }
         .scrollContentBackground(.hidden)
@@ -114,8 +94,53 @@ struct CalendarDetailsView: View {
                     )
                     .listRowSeparatorTint(.white.opacity(0.2))
                 }
+                .onDelete { indexSet in
+                    withAnimation {
+                        self.deleteRecord(at: indexSet, from: title)
+                    }
+                }
             }
             .listRowBackground(Color.white.opacity(0.15))
+    }
+    
+    private func errorAlert() -> Alert {
+        Alert(
+            title: Text("ERROR")
+                .font(.customFont(style: .medium, size: .body)),
+            message: Text(errorMessage)
+                .font(.customFont(style: .regular, size: .body)),
+            dismissButton: .default(
+                Text("OK")
+                    .font(.customFont(style: .medium, size: .body))
+            )
+        )
+    }
+    
+    // MARK: - Actions
+    private func deleteRecord(at offsets: IndexSet, from section: String) {
+        
+        offsets.forEach { index in
+            let record = section == "INCOME" ? self.viewModel.income[index] : self.viewModel.expenses[index]
+            
+            if let moneyObject = records.first(where: { $0.timestamp == record.timestamp }) {
+                self.viewContext.delete(moneyObject)
+            }
+        }
+        do {
+            try self.viewContext.save()
+            
+        } catch {
+            self.errorMessage = "Failed to delete record. Try again."
+            print("Failed to delete record: \(error.localizedDescription)")
+            self.showErrorAlert.toggle()
+        }
+        self.loadRecords()
+    }
+    
+    // MARK: - Methods
+    private func loadRecords() {
+        self.viewModel.getIncomeRecords(records: records)
+        self.viewModel.getExpensesRecords(records: records)
     }
 }
 

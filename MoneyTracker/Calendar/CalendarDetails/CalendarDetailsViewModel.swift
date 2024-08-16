@@ -13,7 +13,6 @@ final class CalendarDetailsViewModel: ObservableObject {
     @Published var income: [MoneyModel] = []
     
     func getIncomeRecords(records: FetchedResults<Money>) {
-        
         self.income = self.filterAndMapRecords(
             records: records,
             isIncome: true
@@ -21,7 +20,6 @@ final class CalendarDetailsViewModel: ObservableObject {
     }
     
     func getExpensesRecords(records: FetchedResults<Money>) {
-        
         self.expenses = self.filterAndMapRecords(
             records: records,
             isIncome: false
@@ -32,7 +30,6 @@ final class CalendarDetailsViewModel: ObservableObject {
         records: FetchedResults<Money>,
         isIncome: Bool
     ) -> [MoneyModel] {
-        
            return records.filter { $0.isIncome == isIncome }.map { record in
                MoneyModel(
                    recordType: isIncome ? .income : .expense,
@@ -46,7 +43,6 @@ final class CalendarDetailsViewModel: ObservableObject {
        }
     
     private func createCategory(from record: Money) -> Category {
-        
             return Category(
                 moneyGroupType: tagToGroupType(tag: record.typeTag),
                 name: record.categoryName,
@@ -55,7 +51,6 @@ final class CalendarDetailsViewModel: ObservableObject {
         }
     
     private func tagToGroupType(tag: Int16) -> MoneyGroupType {
-        
         switch tag {
         case 1: return MoneyGroupType.regularIncome
         case 2: return MoneyGroupType.temporaryIncome

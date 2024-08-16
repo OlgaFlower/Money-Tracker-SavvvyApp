@@ -161,8 +161,8 @@ struct CalendarView: View {
                 .onTapGesture {
                     DispatchQueue.main.async {
                         self.selectedDate = day.startOfDay
-                        self.isCalendarDetailsPresented.toggle()
                     }
+                    self.isCalendarDetailsPresented.toggle()
                 }
         }
     }

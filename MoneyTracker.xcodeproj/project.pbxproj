@@ -24,6 +24,8 @@
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
 		425767A02C2148C90053637A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257679F2C2148C90053637A /* CoreDataManager.swift */; };
 		42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */; };
+		42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA02C6FAE0D0022063A /* CancelButtonView.swift */; };
+		42700AA32C6FB1200022063A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA22C6FB1200022063A /* TitleView.swift */; };
 		42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */; };
 		42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */; };
 		42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE52BC16BC10085FA7C /* IncomeModel.swift */; };
@@ -109,6 +111,8 @@
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
 		4257679F2C2148C90053637A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCategoryCellViewModel.swift; sourceTree = "<group>"; };
+		42700AA02C6FAE0D0022063A /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
+		42700AA22C6FB1200022063A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHalfDonut.swift; sourceTree = "<group>"; };
 		42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordView.swift; sourceTree = "<group>"; };
 		42714FE52BC16BC10085FA7C /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				424275342BA503BF001873A3 /* Model */,
 				42CA524F2C2C406D0024DF8B /* Home */,
 				42ED3BD12C5A69F8009385E0 /* Calendar */,
+				42700A9F2C6FADDC0022063A /* ComponentViews */,
 				4251FA4E2BAB94960087ABE7 /* Extensions */,
 				42B9F0E92BEA351100D719E3 /* Helpers */,
 				4241F46F2BB1E61A0048A29B /* Constants */,
@@ -313,6 +318,15 @@
 				42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */,
 			);
 			path = RecurringCell;
+			sourceTree = "<group>";
+		};
+		42700A9F2C6FADDC0022063A /* ComponentViews */ = {
+			isa = PBXGroup;
+			children = (
+				42700AA02C6FAE0D0022063A /* CancelButtonView.swift */,
+				42700AA22C6FB1200022063A /* TitleView.swift */,
+			);
+			path = ComponentViews;
 			sourceTree = "<group>";
 		};
 		42714FD02BBEF6160085FA7C /* MakeNewRecord */ = {
@@ -642,7 +656,9 @@
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
 				42EB69362BFCD8F700FF4E7F /* MoneySectionType.swift in Sources */,
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
+				42700AA32C6FB1200022063A /* TitleView.swift in Sources */,
 				42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */,
+				42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42CA524D2C2B558C0024DF8B /* IconView.swift in Sources */,
 				42CA52492C2B52F90024DF8B /* Int+String.swift in Sources */,
