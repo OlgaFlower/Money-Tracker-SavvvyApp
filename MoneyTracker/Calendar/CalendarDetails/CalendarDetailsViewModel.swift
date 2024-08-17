@@ -44,19 +44,9 @@ final class CalendarDetailsViewModel: ObservableObject {
     
     private func createCategory(from record: Money) -> Category {
             return Category(
-                moneyGroupType: tagToGroupType(tag: record.typeTag),
+                moneyGroupType: record.typeTag.tagToGroupType(),
                 name: record.categoryName,
                 icon: record.categoryIcon
             )
         }
-    
-    private func tagToGroupType(tag: Int16) -> MoneyGroupType {
-        switch tag {
-        case 1: return MoneyGroupType.regularIncome
-        case 2: return MoneyGroupType.temporaryIncome
-        case 3: return MoneyGroupType.generalExpense
-        case 4: return MoneyGroupType.recurringExpense
-        default: return MoneyGroupType.none
-        }
-    }
 }

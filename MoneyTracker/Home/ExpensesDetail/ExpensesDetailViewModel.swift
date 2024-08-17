@@ -22,7 +22,7 @@ final class ExpensesDetailViewModel: ObservableObject {
             MoneyModel(
                 recordType: .expense,
                 category: Category(
-                    moneyGroupType: tagToGroupType(tag: record.typeTag),
+                    moneyGroupType: record.typeTag.tagToGroupType(),
                     name: record.categoryName,
                     icon: record.categoryIcon
                 ),
@@ -31,14 +31,6 @@ final class ExpensesDetailViewModel: ObservableObject {
                 currency: record.currency,
                 timestamp: record.timestamp
             )
-        }
-    }
-    
-    private func tagToGroupType(tag: Int16) -> MoneyGroupType {
-        switch tag {
-        case 3: return MoneyGroupType.generalExpense
-        case 4: return MoneyGroupType.recurringExpense
-        default: return MoneyGroupType.none
         }
     }
 }
