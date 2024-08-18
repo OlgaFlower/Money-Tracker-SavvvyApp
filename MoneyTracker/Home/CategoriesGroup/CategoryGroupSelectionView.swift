@@ -26,7 +26,6 @@ struct CategoryGroupSelectionView: View {
     var body: some View {
         ZStack {
             BackgroundGradView()
-            self.closeBtnView
             self.makeIconList()
             self.makeRecurringList()
             
@@ -183,29 +182,6 @@ struct CategoryGroupSelectionView: View {
             .scrollIndicators(.hidden)
             .offset(x: self.showIconsList ? 0 : -UIScreen.main.bounds.width)
         }
-    }
-    
-    private var closeBtnView: some View {
-        VStack {
-            HStack {
-                Spacer()
-                self.closeButton
-            }
-            .padding(.trailing, 24)
-            .padding(.top, 26)
-            Spacer()
-        }
-    }
-    
-    private var closeButton: some View {
-        Button(action: {
-            self.dismiss()
-        }, label: {
-            Image(systemName: "plus")
-                .font(Font.system(size: 28))
-                .opacity(0.9)
-                .rotationEffect(.degrees(45))
-        })
     }
 }
 

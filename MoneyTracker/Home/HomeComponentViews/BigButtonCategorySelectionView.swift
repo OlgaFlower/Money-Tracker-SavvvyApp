@@ -11,35 +11,27 @@ struct BigButtonCategorySelectionView: View {
     
     @Binding var hideRectangle: Bool
     
-    // MARK: - Properties -
+    // MARK: - Properties
     let title: String
     let icon: String
     
-    // MARK: - Body -
+    // MARK: - Body
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10.0)
-                .foregroundStyle(Color.lightBlue.opacity(self.hideRectangle ? 0 : 0.4))
-            
-            HStack(spacing: 16) {
-                Image(systemName: icon)
-                Text(title)
-                    .font(.customFont(style: .regular, size: .body))
-            }
+        
+        HStack(spacing: 16) {
+            Image(systemName: icon)
+            TextView(text: title, style: .medium)
         }
-        .clipShape(.rect(cornerRadius: 10, style: .continuous))
-        ///Light White Border
+        .clipShape(.rect(cornerRadius: 8, style: .continuous))
         .background {
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .stroke(.white.opacity(self.hideRectangle ? 0 : 0.6), lineWidth: 0.7)
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .fill(.lightBlue.opacity(self.hideRectangle ? 0 : 0.5))
+                .frame(width: UIScreen.main.bounds.width * 0.55 + 20, height: 100 + 20)
         }
-        /// Adding Shadow
-        .shadow(color: .black.opacity(self.hideRectangle ? 0 : 0.4), radius: 10, x: 5, y: 5)
-        .frame(width: UIScreen.main.bounds.width * 0.55 + 20, height: 100 + 20)
     }
 }
 
-// MARK: - Preview -
+// MARK: - Preview
 #Preview {
     CategoryGroupSelectionView(
         recordType: .constant(.expense),
