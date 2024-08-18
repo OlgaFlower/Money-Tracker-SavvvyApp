@@ -63,7 +63,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         return self.isCategoryChosen() && !self.newItem.moneyAmount.isEmpty
     }
     
-    func vibrate() {
+    func vibrateMedium() {
         Constants.vibrateMedium()
     }
     

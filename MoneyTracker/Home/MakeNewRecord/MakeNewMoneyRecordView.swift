@@ -151,10 +151,10 @@ struct MakeNewMoneyRecordView: View {
     private var saveButtonView: some View {
         Button {
             self.viewModel.saveNewRecord(context: self.viewContext)
-            self.viewModel.vibrate()
+            self.viewModel.vibrateMedium()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.viewModel.vibrate()
+                self.viewModel.vibrateMedium()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.dismiss()

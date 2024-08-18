@@ -26,6 +26,7 @@
 		424E3D382C63BF1E005E2181 /* CalendarDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */; };
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
 		42548AF22C71FB3700C35903 /* SmallTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF12C71FB3700C35903 /* SmallTextView.swift */; };
+		42548AF42C72173800C35903 /* EditRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF32C72173800C35903 /* EditRecordViewModel.swift */; };
 		425767A02C2148C90053637A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257679F2C2148C90053637A /* CoreDataManager.swift */; };
 		42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */; };
 		42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA02C6FAE0D0022063A /* CancelButtonView.swift */; };
@@ -121,6 +122,7 @@
 		424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsViewModel.swift; sourceTree = "<group>"; };
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
 		42548AF12C71FB3700C35903 /* SmallTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTextView.swift; sourceTree = "<group>"; };
+		42548AF32C72173800C35903 /* EditRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewModel.swift; sourceTree = "<group>"; };
 		4257679F2C2148C90053637A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCategoryCellViewModel.swift; sourceTree = "<group>"; };
 		42700AA02C6FAE0D0022063A /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				4205FFFA2C7136FE0045486B /* EditRecordView.swift */,
+				42548AF32C72173800C35903 /* EditRecordViewModel.swift */,
 			);
 			path = EditRecord;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42548AF42C72173800C35903 /* EditRecordViewModel.swift in Sources */,
 				42A11C2F2BB935E5003B617D /* HomeView.swift in Sources */,
 				423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */,
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
