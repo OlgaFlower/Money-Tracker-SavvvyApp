@@ -37,7 +37,7 @@ struct ChartHalfDonut: GaugeStyle {
             
             /// Thin circle
             Circle()
-                .stroke(Color.white.opacity(0.8))
+                .stroke(Color.white.opacity(0.9))
             
             /// Empty Gradient line
             Circle()
@@ -58,7 +58,7 @@ struct ChartHalfDonut: GaugeStyle {
             /// Dashes
             Circle()
                 .trim(from: 0, to: 0.65)
-                .stroke(Color.white.opacity(0.8), style: StrokeStyle(lineWidth: 9, lineCap: .butt, lineJoin: .round, dash: [1, 24], dashPhase: 10.0))
+                .stroke(Color.white.opacity(0.9), style: StrokeStyle(lineWidth: 9, lineCap: .butt, lineJoin: .round, dash: [1, 24], dashPhase: 10.0))
                 .rotationEffect(.degrees(153))
                 .frame(width: self.dashesWidth)
             
@@ -72,7 +72,7 @@ struct ChartHalfDonut: GaugeStyle {
                 /// Currency
                 Text("EUR")
                     .font(.customFont(style: .regular, size: .body))
-                    .foregroundColor(.white).opacity(0.8)
+                    .foregroundColor(.white).opacity(0.9)
             }
             .padding(.top, 24)
         }

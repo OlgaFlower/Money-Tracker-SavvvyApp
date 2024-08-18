@@ -29,7 +29,7 @@ struct TodayChartView: View {
         } currentValueLabel: {
             Text("LEFTOVER")
                 .font(.customFont(style: .regular, size: .body))
-                .foregroundStyle(.white.opacity(0.8))
+                .foregroundStyle(.white.opacity(0.9))
             Text(" \(String(describing: self.animatedLeftover).formatAsCurrency())")
                 .contentTransition(.numericText())
                 .animation(.linear, value: self.animatedLeftover)

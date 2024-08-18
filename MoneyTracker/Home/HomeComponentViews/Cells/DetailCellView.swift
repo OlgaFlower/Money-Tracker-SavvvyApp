@@ -27,7 +27,7 @@ struct DetailCellView: View {
                     .font(.customFont(style: .regular, size: .body))
                     .padding(.leading, 4)
             }
-            .opacity(0.8)
+            .opacity(0.9)
         }
         .foregroundStyle(.white)
     }

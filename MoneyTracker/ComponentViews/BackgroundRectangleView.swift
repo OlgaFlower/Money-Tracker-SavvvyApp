@@ -15,7 +15,7 @@ struct BackgroundRectangleView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundStyle(Color.lightBlue.opacity(0.4))
+                .foregroundStyle(Color.lightBlue.opacity(0.5))
                 .frame(height: self.heigt)
         }
     }

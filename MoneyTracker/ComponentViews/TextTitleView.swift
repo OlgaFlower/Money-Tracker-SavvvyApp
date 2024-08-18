@@ -19,7 +19,7 @@ struct TextTitleView: View {
                     style: self.style,
                     size: .body
                 ))
-                .opacity(0.8)
+                .opacity(0.9)
             Spacer()
         }
     }

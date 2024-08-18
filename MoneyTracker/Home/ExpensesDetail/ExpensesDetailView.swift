@@ -42,14 +42,9 @@ struct ExpensesDetailView: View {
     }
     
     // MARK: - Views
-    // TODO: - replace it with HeaderView
     private var headerView: some View {
         HStack {
-            // TODO: - replace it with HaderView
-            Text("EXPENSES TODAY")
-                .font(.customFont(style: .medium, size: .body))
-                .padding(.leading, 16)
-                .padding(.top)
+            TextHeaderView(text: "TODAY EXPENSES")
             Spacer()
         }
     }
@@ -57,12 +52,12 @@ struct ExpensesDetailView: View {
     private var expensesListView: some View {
         List {
             self.expensesSection(
-                title: "GENERAL EXPENSES",
+                title: "GENERAL",
                 expenses: self.$viewModel.generalExpenses,
                 deleteAction: self.deleteGeneralItem
             )
             self.expensesSection(
-                title: "RECURRING EXPENSES",
+                title: "RECURRING",
                 expenses: self.$viewModel.recurringExpenses,
                 deleteAction: self.deleteRecurringItem
             )
@@ -81,7 +76,7 @@ struct ExpensesDetailView: View {
             Section(
                 header: Text(title)
                     .font(.customFont(style: .regular, size: .small))
-                    .opacity(0.8)
+                    .opacity(0.9)
             ) {
                 ForEach(expenses.wrappedValue) { record in
                     DetailCellView(
@@ -90,12 +85,11 @@ struct ExpensesDetailView: View {
                         sum: record.moneyAmount,
                         category: record.category.moneyGroupType
                     )
-                    .listRowSeparatorTint(.white.opacity(0.2))
+                    .listRowSeparatorTint(.white.opacity(0.3))
                 }
                 .onDelete(perform: deleteAction)
             }
-            .listRowBackground(Color.white.opacity(0.15))
-            // TODO: - Change .listRowBackground to .lightBlue.opacity(0.4)
+            .listRowBackground(Color.lightBlue.opacity(0.4))
         }
     }
     

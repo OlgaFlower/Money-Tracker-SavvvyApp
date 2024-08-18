@@ -65,7 +65,7 @@ struct CalendarView: View {
         
         Text(self.currentDate.formattedMonthYear().uppercased())
             .font(.customFont(style: .semibold, size: .body))
-            .opacity(0.8)
+            .opacity(0.9)
     }
     
     private var chevronLeft: some View {
@@ -96,7 +96,7 @@ struct CalendarView: View {
                 Spacer()
                 Image(systemName: "arrow.counterclockwise")
                     .font(.customFont(style: .semibold, size: .title))
-                    .opacity(0.8)
+                    .opacity(0.9)
                     .onTapGesture {
                         self.currentDate = Date.now
                         Constants.vibrateLight()
@@ -124,7 +124,7 @@ struct CalendarView: View {
                 Text(self.daysOfWeek[index])
                     .autocapitalization(.allCharacters)
                     .font(.customFont(style: .medium, size: .small))
-                    .opacity(0.8)
+                    .opacity(0.9)
                     .frame(maxWidth: .infinity)
             }
         }
@@ -151,7 +151,7 @@ struct CalendarView: View {
         } else {
             Text(day.formatted(.dateTime.day()))
                 .font(.customFont(style: .semibold, size: .body))
-                .opacity(0.8)
+                .opacity(0.9)
                 .frame(maxWidth: .infinity, minHeight: 40)
                 .background(
                     RoundedRectangle(cornerRadius: 4.0)

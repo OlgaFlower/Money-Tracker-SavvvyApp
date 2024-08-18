@@ -23,10 +23,8 @@ struct CurrencyTextFieldView: View {
         VStack {
             ZStack {
                 /// Background
-                Rectangle()
-                    .foregroundStyle(Color.lightBlue.opacity(0.4))
+                BackgroundRectangleView(heigt: 50)
                     .ignoresSafeArea()
-                    .frame(height: 50)
                 
                 /// Displayed Number
                 Text("\(displyedNumber) \(currency)")

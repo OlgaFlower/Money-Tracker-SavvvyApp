@@ -21,7 +21,7 @@ struct CancelButtonView: View {
             }) {
                 Image(systemName: "plus")
                     .font(.customFont(style: .medium, size: .title))
-                    .opacity(0.8)
+                    .opacity(0.9)
                     .rotationEffect(.degrees(45))
                     .padding(.top)
                     .padding(.horizontal, 16)

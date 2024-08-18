@@ -86,7 +86,7 @@ struct CalendarDetailsView: View {
         
         Section(header: Text(title)
             .font(.customFont(style: .regular, size: .small))
-            .opacity(0.8)) {
+            .opacity(0.9)) {
                 
                 ForEach(records) { record in
                     DetailCellView(
@@ -95,7 +95,7 @@ struct CalendarDetailsView: View {
                         sum: record.moneyAmount,
                         category: record.category.moneyGroupType
                     )
-                    .listRowSeparatorTint(.white.opacity(0.2))
+                    .listRowSeparatorTint(.white.opacity(0.3))
                     .onTapGesture {
                         self.showRecordEditor.toggle()
                     }

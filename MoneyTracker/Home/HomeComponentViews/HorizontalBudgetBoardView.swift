@@ -47,7 +47,7 @@ struct HorizontalBudgetBoardView: View {
                 Spacer()
                 Text(self.animatedExpenses.toString().formatAsCurrency())
                     .font(.customFont(style: .regular, size: .title))
-                    .foregroundStyle(.white.opacity(0.8))
+                    .foregroundStyle(.white.opacity(0.9))
                     .contentTransition(.numericText())
                     .animation(.linear, value: self.animatedExpenses)
             }
@@ -87,7 +87,7 @@ struct HorizontalBudgetBoardView: View {
             HStack {
                 Text(String(describing: self.animatedBudget).formatAsCurrency())
                     .font(.customFont(style: .regular, size: .title))
-                    .foregroundStyle(.white.opacity(0.8))
+                    .foregroundStyle(.white.opacity(0.9))
                     .contentTransition(.numericText())
                     .animation(.linear, value: self.animatedBudget)
                 Spacer()

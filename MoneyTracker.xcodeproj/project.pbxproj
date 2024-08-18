@@ -25,6 +25,7 @@
 		424275272BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */; };
 		424E3D382C63BF1E005E2181 /* CalendarDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */; };
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
+		42548AF22C71FB3700C35903 /* SmallTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF12C71FB3700C35903 /* SmallTextView.swift */; };
 		425767A02C2148C90053637A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257679F2C2148C90053637A /* CoreDataManager.swift */; };
 		42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */; };
 		42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA02C6FAE0D0022063A /* CancelButtonView.swift */; };
@@ -45,6 +46,7 @@
 		42C9EB0A2C71B4CF00D5D6EA /* TextTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB092C71B4CF00D5D6EA /* TextTitleView.swift */; };
 		42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */; };
 		42C9EB0E2C71C52100D5D6EA /* DateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */; };
+		42C9EB122C71EB5600D5D6EA /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB112C71EB5600D5D6EA /* TextView.swift */; };
 		42CA52152C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */; };
 		42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52282C29DF140024DF8B /* AudioPlayer.swift */; };
 		42CA523C2C2ADF730024DF8B /* incomeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */; };
@@ -118,6 +120,7 @@
 		424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsViewModel.swift; sourceTree = "<group>"; };
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
+		42548AF12C71FB3700C35903 /* SmallTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTextView.swift; sourceTree = "<group>"; };
 		4257679F2C2148C90053637A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCategoryCellViewModel.swift; sourceTree = "<group>"; };
 		42700AA02C6FAE0D0022063A /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 		42C9EB092C71B4CF00D5D6EA /* TextTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTitleView.swift; sourceTree = "<group>"; };
 		42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRectangleView.swift; sourceTree = "<group>"; };
 		42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderView.swift; sourceTree = "<group>"; };
+		42C9EB112C71EB5600D5D6EA /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataFetchedProperties.swift"; sourceTree = "<group>"; };
 		42CA52282C29DF140024DF8B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incomeSound.mp3; sourceTree = "<group>"; };
@@ -350,6 +354,8 @@
 				42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */,
 				4205FFFC2C713AED0045486B /* TextHeaderView.swift */,
 				42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */,
+				42C9EB112C71EB5600D5D6EA /* TextView.swift */,
+				42548AF12C71FB3700C35903 /* SmallTextView.swift */,
 			);
 			path = ComponentViews;
 			sourceTree = "<group>";
@@ -688,6 +694,7 @@
 				42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42CA524D2C2B558C0024DF8B /* IconView.swift in Sources */,
+				42C9EB122C71EB5600D5D6EA /* TextView.swift in Sources */,
 				42CA52492C2B52F90024DF8B /* Int+String.swift in Sources */,
 				42CA52452C2B42F30024DF8B /* ExpensesDetailView.swift in Sources */,
 				42EB693E2BFCFEA500FF4E7F /* TemporaryIncome.swift in Sources */,
@@ -717,6 +724,7 @@
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
+				42548AF22C71FB3700C35903 /* SmallTextView.swift in Sources */,
 				42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */,
 				42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */,
 				42C9EB0A2C71B4CF00D5D6EA /* TextTitleView.swift in Sources */,

@@ -203,7 +203,7 @@ struct CategoryGroupSelectionView: View {
         }, label: {
             Image(systemName: "plus")
                 .font(Font.system(size: 28))
-                .opacity(0.8)
+                .opacity(0.9)
                 .rotationEffect(.degrees(45))
         })
     }
