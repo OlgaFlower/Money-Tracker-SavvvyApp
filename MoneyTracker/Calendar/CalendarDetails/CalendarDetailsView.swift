@@ -17,6 +17,7 @@ struct CalendarDetailsView: View {
     @StateObject private var viewModel = CalendarDetailsViewModel()
     @State private var showErrorAlert = false
     @State private var errorMessage = "Smth went wrong"
+    @State private var showRecordEditor = false
     
     // MARK: - DB
     @FetchRequest private var records: FetchedResults<Money>
@@ -36,7 +37,7 @@ struct CalendarDetailsView: View {
         ZStack {
             BackgroundGradView()
             self.content
-                .padding(.top, 32)
+                .padding(.top, 16)
                 .foregroundStyle(.white)
         }
         .onAppear(perform: self.loadRecords)
@@ -44,15 +45,17 @@ struct CalendarDetailsView: View {
             isPresented: self.$showErrorAlert,
             content: self.errorAlert
         )
+        .fullScreenCover(isPresented: self.$showRecordEditor, content: {
+            // TODO: - instead of selectedDate must be UUID of the record
+            EditRecordView(recordTimestamp: self.$selectedDate)
+        })
     }
     
     // MARK: - Views
     private var content: some View {
-        VStack(spacing: 32) {
+        VStack(spacing: 16) {
             CancelButtonView(action: { dismiss() })
-                .padding(.horizontal, 24)
-            TitleView(date: self.selectedDate)
-                .padding(.horizontal, 16)
+            DateHeaderView(date: self.selectedDate)
             self.recordsList
             Spacer()
         }
@@ -93,6 +96,9 @@ struct CalendarDetailsView: View {
                         category: record.category.moneyGroupType
                     )
                     .listRowSeparatorTint(.white.opacity(0.2))
+                    .onTapGesture {
+                        self.showRecordEditor.toggle()
+                    }
                 }
                 .onDelete { indexSet in
                     withAnimation {
@@ -101,6 +107,7 @@ struct CalendarDetailsView: View {
                 }
             }
             .listRowBackground(Color.white.opacity(0.15))
+        // TODO: - Change .listRowBackground to .lightBlue.opacity(0.4)
     }
     
     private func errorAlert() -> Alert {

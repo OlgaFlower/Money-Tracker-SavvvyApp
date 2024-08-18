@@ -1,27 +1,26 @@
 //
-//  TitleView.swift
+//  DateHeaderView.swift
 //  MoneyTracker
 //
-//  Created by Olha Bereziuk on 16.08.24.
+//  Created by Olha Bereziuk on 18.08.24.
 //
 
 import SwiftUI
 
-struct TitleView: View {
-    // MARK: - Properties
+struct DateHeaderView: View {
+    
     let date: Date
     
-    // MARK: - Body
     var body: some View {
         HStack {
             Text(date.formattedDayMonthYear().uppercased())
                 .font(.customFont(style: .medium, size: .title))
-                .opacity(0.8)
+                .padding(.leading, 16)
             Spacer()
         }
     }
 }
 
 #Preview {
-    TitleView(date: Date.now)
+    DateHeaderView(date: Date.now)
 }

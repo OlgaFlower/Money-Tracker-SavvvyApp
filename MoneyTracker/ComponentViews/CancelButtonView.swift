@@ -20,10 +20,14 @@ struct CancelButtonView: View {
                 action()
             }) {
                 Image(systemName: "plus")
-                    .font(Font.system(size: 28))
+                    .font(.customFont(style: .medium, size: .title))
                     .opacity(0.8)
                     .rotationEffect(.degrees(45))
+                    .padding(.top)
+                    .padding(.horizontal, 16)
+                    
             }
+            .frame(width: 60)
         }
     }
 }

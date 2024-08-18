@@ -60,6 +60,7 @@ struct CalendarView: View {
     }
     
     // MARK: - Views
+    //TODO: - replace it with TitleView()
     private var titleView: some View {
         
         Text(self.currentDate.formattedMonthYear().uppercased())

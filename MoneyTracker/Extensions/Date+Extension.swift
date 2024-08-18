@@ -19,7 +19,7 @@ extension Date {
     /// DAY, MONTH, YEAR
     func formattedDayMonthYear() -> String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short ///04.08.2024/08.04.2024 - depending on the Locale
+        formatter.dateStyle = .medium ///04 AUG 2024 - depending on the Locale
         formatter.timeStyle = .none
         formatter.locale = Locale.current
         return formatter.string(from: self)

@@ -61,6 +61,7 @@ struct MakeNewMoneyRecordView: View {
     
     // MARK: - Views
     /// CANCEL
+    //TODO: - replace it with CancelButtonView
     private var cancelButton: some View {
         HStack {
             Spacer()

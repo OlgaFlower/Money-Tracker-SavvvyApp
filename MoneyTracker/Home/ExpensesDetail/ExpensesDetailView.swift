@@ -42,8 +42,10 @@ struct ExpensesDetailView: View {
     }
     
     // MARK: - Views
+    // TODO: - replace it with HeaderView
     private var headerView: some View {
         HStack {
+            // TODO: - replace it with HaderView
             Text("EXPENSES TODAY")
                 .font(.customFont(style: .medium, size: .body))
                 .padding(.leading, 16)
@@ -93,6 +95,7 @@ struct ExpensesDetailView: View {
                 .onDelete(perform: deleteAction)
             }
             .listRowBackground(Color.white.opacity(0.15))
+            // TODO: - Change .listRowBackground to .lightBlue.opacity(0.4)
         }
     }
     

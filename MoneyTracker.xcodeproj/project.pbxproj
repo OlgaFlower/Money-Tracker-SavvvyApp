@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4205FFF82C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205FFF72C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift */; };
+		4205FFFB2C7136FE0045486B /* EditRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205FFFA2C7136FE0045486B /* EditRecordView.swift */; };
+		4205FFFD2C713AED0045486B /* TextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205FFFC2C713AED0045486B /* TextHeaderView.swift */; };
 		422E82D02BF6BF5B00139B94 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422E82CF2BF6BF5B00139B94 /* String+Extension.swift */; };
 		423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */; };
 		423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4222BD6369000CBB6D5 /* Constants.swift */; };
@@ -26,7 +28,7 @@
 		425767A02C2148C90053637A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257679F2C2148C90053637A /* CoreDataManager.swift */; };
 		42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */; };
 		42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA02C6FAE0D0022063A /* CancelButtonView.swift */; };
-		42700AA32C6FB1200022063A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA22C6FB1200022063A /* TitleView.swift */; };
+		42700AA32C6FB1200022063A /* DateTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA22C6FB1200022063A /* DateTitleView.swift */; };
 		42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */; };
 		42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */; };
 		42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FE52BC16BC10085FA7C /* IncomeModel.swift */; };
@@ -40,6 +42,9 @@
 		42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F1162BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld */; };
 		42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */; };
 		42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */; };
+		42C9EB0A2C71B4CF00D5D6EA /* TextTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB092C71B4CF00D5D6EA /* TextTitleView.swift */; };
+		42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */; };
+		42C9EB0E2C71C52100D5D6EA /* DateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */; };
 		42CA52152C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */; };
 		42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52282C29DF140024DF8B /* AudioPlayer.swift */; };
 		42CA523C2C2ADF730024DF8B /* incomeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */; };
@@ -93,6 +98,8 @@
 
 /* Begin PBXFileReference section */
 		4205FFF72C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int16+MoneyGroupTypeTags.swift"; sourceTree = "<group>"; };
+		4205FFFA2C7136FE0045486B /* EditRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordView.swift; sourceTree = "<group>"; };
+		4205FFFC2C713AED0045486B /* TextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeaderView.swift; sourceTree = "<group>"; };
 		422E82CF2BF6BF5B00139B94 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradView.swift; sourceTree = "<group>"; };
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -114,7 +121,7 @@
 		4257679F2C2148C90053637A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCategoryCellViewModel.swift; sourceTree = "<group>"; };
 		42700AA02C6FAE0D0022063A /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
-		42700AA22C6FB1200022063A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		42700AA22C6FB1200022063A /* DateTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTitleView.swift; sourceTree = "<group>"; };
 		42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHalfDonut.swift; sourceTree = "<group>"; };
 		42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordView.swift; sourceTree = "<group>"; };
 		42714FE52BC16BC10085FA7C /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
@@ -128,6 +135,9 @@
 		42B9F1172BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyTrackerDB.xcdatamodel; sourceTree = "<group>"; };
 		42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		42C9EB092C71B4CF00D5D6EA /* TextTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTitleView.swift; sourceTree = "<group>"; };
+		42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRectangleView.swift; sourceTree = "<group>"; };
+		42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderView.swift; sourceTree = "<group>"; };
 		42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataFetchedProperties.swift"; sourceTree = "<group>"; };
 		42CA52282C29DF140024DF8B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incomeSound.mp3; sourceTree = "<group>"; };
@@ -188,6 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4205FFF92C7136D80045486B /* EditRecord */ = {
+			isa = PBXGroup;
+			children = (
+				4205FFFA2C7136FE0045486B /* EditRecordView.swift */,
+			);
+			path = EditRecord;
+			sourceTree = "<group>";
+		};
 		423DF4242BD6D9E800CBB6D5 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,7 +345,11 @@
 			isa = PBXGroup;
 			children = (
 				42700AA02C6FAE0D0022063A /* CancelButtonView.swift */,
-				42700AA22C6FB1200022063A /* TitleView.swift */,
+				42700AA22C6FB1200022063A /* DateTitleView.swift */,
+				42C9EB092C71B4CF00D5D6EA /* TextTitleView.swift */,
+				42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */,
+				4205FFFC2C713AED0045486B /* TextHeaderView.swift */,
+				42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */,
 			);
 			path = ComponentViews;
 			sourceTree = "<group>";
@@ -497,6 +519,7 @@
 			children = (
 				42ED3BD22C5A7118009385E0 /* Clendar */,
 				42AA6C5C2C5FD1F500850299 /* CalendarDetails */,
+				4205FFF92C7136D80045486B /* EditRecord */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -659,7 +682,8 @@
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
 				42EB69362BFCD8F700FF4E7F /* MoneySectionType.swift in Sources */,
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
-				42700AA32C6FB1200022063A /* TitleView.swift in Sources */,
+				42C9EB0E2C71C52100D5D6EA /* DateHeaderView.swift in Sources */,
+				42700AA32C6FB1200022063A /* DateTitleView.swift in Sources */,
 				42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */,
 				42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
@@ -679,8 +703,10 @@
 				42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */,
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,
 				423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */,
+				4205FFFD2C713AED0045486B /* TextHeaderView.swift in Sources */,
 				42D45CE72BF86749002CD159 /* HomeViewModel.swift in Sources */,
 				4205FFF82C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift in Sources */,
+				42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */,
 				42CA525A2C2C5D190024DF8B /* CustomFont.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
@@ -693,6 +719,7 @@
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				42714FE62BC16BC10085FA7C /* IncomeModel.swift in Sources */,
 				42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */,
+				42C9EB0A2C71B4CF00D5D6EA /* TextTitleView.swift in Sources */,
 				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
 				42F8F7262C122C3200C0CE9B /* CalendarManager.swift in Sources */,
 				42F8F73E2C18C2E500C0CE9B /* Date+Extension.swift in Sources */,
@@ -709,6 +736,7 @@
 				42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */,
 				42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */,
 				425767A02C2148C90053637A /* CoreDataManager.swift in Sources */,
+				4205FFFB2C7136FE0045486B /* EditRecordView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
