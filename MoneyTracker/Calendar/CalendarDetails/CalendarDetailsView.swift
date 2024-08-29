@@ -89,16 +89,22 @@ struct CalendarDetailsView: View {
             .opacity(0.9)) {
                 
                 ForEach(records) { record in
-                    DetailCellView(
-                        iconName: record.category.icon,
-                        note: record.notes,
-                        sum: record.moneyAmount,
-                        category: record.category.moneyGroupType
-                    )
-                    .listRowSeparatorTint(.white.opacity(0.3))
+                    ZStack {
+                        DetailCellView(
+                            iconName: record.category.icon,
+                            note: record.notes,
+                            sum: record.moneyAmount,
+                            category: record.category.moneyGroupType
+                        )
+                        
+                        Rectangle()
+                            .fill(.clear)
+                            .contentShape(Rectangle())
+                    }
                     .onTapGesture {
                         self.showRecordEditor.toggle()
                     }
+                    .listRowSeparatorTint(.white.opacity(0.3))
                 }
                 .onDelete { indexSet in
                     withAnimation {
