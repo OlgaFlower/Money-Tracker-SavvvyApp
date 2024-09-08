@@ -47,7 +47,7 @@ struct CalendarDetailsView: View {
         )
         .fullScreenCover(isPresented: self.$showRecordEditor, content: {
             // TODO: - instead of selectedDate must be UUID of the record
-            EditRecordView(recordTimestamp: self.$selectedDate)
+            EditRecordView(recordTimestamp: self.selectedDate)
         })
     }
     

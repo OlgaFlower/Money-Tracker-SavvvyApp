@@ -13,10 +13,16 @@ struct EditRecordView: View {
     
     // MARK: - State
     @StateObject private var viewModel = EditRecordViewModel()
-    @Binding var recordTimestamp: Date // here must be UUID
     @State var sum = "0,00 €"
     @State var category = Category(moneyGroupType: .none, name: "category", icon: "sun.min")
     @State var note = "Some note here"
+    @State private var selectedDate: Date
+    @State private var isDatePickerPresented = false
+    
+    // MARK: - Init
+    init(recordTimestamp: Date) {
+        _selectedDate = State(initialValue: recordTimestamp)
+    }
     
     // MARK: - Body
     var body: some View {
@@ -29,6 +35,9 @@ struct EditRecordView: View {
                 
                 VStack(spacing: 32) {
                     self.dateEditorView
+                        .onTapGesture {
+                            self.isDatePickerPresented.toggle()
+                        }
                     self.sumView
                     self.noteView
                     self.categoryView
@@ -39,8 +48,23 @@ struct EditRecordView: View {
                 Spacer()
             }
             .padding(.top, 16)
+            .blur(radius: isDatePickerPresented ? 10 : 0)
+            
+            if isDatePickerPresented {
+                Rectangle()
+                    .fill(.darkBlue.opacity(0.6))
+                    .ignoresSafeArea()
+                    
+                DatePickerView(
+                    recordTimestamp: $selectedDate,
+                    isPresented: $isDatePickerPresented
+                )
+                .padding(.horizontal, 32)
+                .transition(.scale)
+            }
         }
         .foregroundStyle(.white)
+        .animation(.easeInOut(duration: 0.4), value: self.isDatePickerPresented)
     }
     
     // MARK: - Views
@@ -52,7 +76,7 @@ struct EditRecordView: View {
                 TextView(text: "Date")
                 Spacer()
                 DateTitleView(
-                    date: self.$recordTimestamp,
+                    date: self.$selectedDate,
                     style: .regular,
                     size: .body
                 )
@@ -115,22 +139,18 @@ struct EditRecordView: View {
             }
         } label: {
             TextView(text: "update", style: .medium)
-//                .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.5)
                 .padding(.vertical, 10)
                 .frame(width: 130)
                 .clipShape(.rect(cornerRadius: 8, style: .continuous))
         }
-//        .disabled(!self.viewModel.isSaveBtnActive())
-//        .animation(.linear(duration: 0.2), value: self.viewModel.isSaveBtnActive())
         .background {
             /// Border
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(.lightBlue.opacity(0.5))
-//                .fill(.lightBlue.opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.5))
         }
     }
 }
 
 #Preview {
-    EditRecordView(recordTimestamp: .constant(Date.now))
+    EditRecordView(recordTimestamp: Date.now)
 }
