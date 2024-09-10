@@ -85,6 +85,7 @@ final class CoreDataManager {
     
     /// Make NEW RECORD
     static func makeNewRecordWith(
+        id: String,
         moneyAmount: Int64,
         currency: String,
         isIncome: Bool,
@@ -104,6 +105,7 @@ final class CoreDataManager {
         newRecord.moneyAmount = moneyAmount
         newRecord.notes = notes
         newRecord.typeTag = typeTag
+        newRecord.id = id
         do {
             try managedObjectContext.save()
         } catch {

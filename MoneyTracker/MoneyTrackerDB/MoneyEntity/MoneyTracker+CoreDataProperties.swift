@@ -9,7 +9,6 @@ import CoreData
 import SwiftUI
 
 extension Money {
-    
     // MARK: - Properties
     @NSManaged public var categoryIcon: String
     @NSManaged public var categoryName: String
@@ -19,4 +18,5 @@ extension Money {
     @NSManaged public var moneyAmount: Int64
     @NSManaged public var notes: String?
     @NSManaged public var typeTag: Int16
+    @NSManaged public var id: String
 }

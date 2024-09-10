@@ -11,37 +11,15 @@ import Foundation
 final class MakeNewMoneyRecordViewModel: ObservableObject {
     
     // MARK: - Properties
-    @Published var newItem: MoneyModel = MoneyModel(
-        recordType: .expense,
-        category: Category(
-            moneyGroupType: .none,
-            name: "",
-            icon: ""
-        ),
-        moneyAmount: "",
-        notes: "",
-        currency: "", 
-        timestamp: Date()
-    )
-    
-    // MARK: - Init
-    init() {
-        self.setDefaultValues()
-    }
+    @Published var newItem = MoneyModel()
     
     // MARK: - Functions
-    func setDefaultValues() {
-        self.newItem.category.moneyGroupType = .none
-        self.newItem.category.name = "CATEGORY"
-        self.newItem.category.icon = "sun.min"
-        self.newItem.currency = "EUR"
-    }
-    
     func saveNewRecord(context: NSManagedObjectContext) {
         if let intValue = Int64(self.newItem.moneyAmount),
            self.newItem.category.name != "CATEGORY" {
             
             CoreDataManager.makeNewRecordWith(
+                id: self.newItem.id,
                 moneyAmount: intValue,
                 currency: self.newItem.currency,
                 isIncome: self.newItem.recordType == .income ? true : false,

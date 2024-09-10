@@ -67,7 +67,6 @@ struct MakeNewMoneyRecordView: View {
             Button(action: {
                 self.viewModel.vibrateLight()
                 self.viewModel.newItem.recordType = .expense
-                self.viewModel.setDefaultValues()
             }, label: {
                 TextView(text: RecordType.expense.value, style: .medium)
                     .opacity(self.viewModel.newItem.recordType == .expense ? 0.9 : 0.5)
@@ -82,7 +81,6 @@ struct MakeNewMoneyRecordView: View {
             Button(action: {
                 self.viewModel.vibrateLight()
                 self.viewModel.newItem.recordType = .income
-                self.viewModel.setDefaultValues()
             }, label: {
                 TextView(text: RecordType.income.value, style: .medium)
                     .opacity(self.viewModel.newItem.recordType == .income ? 0.9 : 0.5)

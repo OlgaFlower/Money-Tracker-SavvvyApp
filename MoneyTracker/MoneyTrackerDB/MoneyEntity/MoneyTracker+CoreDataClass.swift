@@ -8,6 +8,4 @@
 import CoreData
 
 @objc(Money)
-public class Money: NSManagedObject {
-    
-}
+public class Money: NSManagedObject {}

@@ -13,7 +13,8 @@ struct CalendarDetailsView: View {
     @Environment(\.managedObjectContext) var viewContext
     
     // MARK: - State
-    @Binding var selectedDate: Date
+    @State private var selectedDay: Date
+    @State private var selectedRecordId: String = ""
     @StateObject private var viewModel = CalendarDetailsViewModel()
     @State private var showErrorAlert = false
     @State private var errorMessage = "Smth went wrong"
@@ -23,12 +24,12 @@ struct CalendarDetailsView: View {
     @FetchRequest private var records: FetchedResults<Money>
     
     // MARK: - Init
-    init(selectedDate: Binding<Date>) {
-        self._selectedDate = selectedDate
+    init(selectedDay: Date) {
+        self._selectedDay = State(initialValue: selectedDay)
         self._records = FetchRequest(
             entity: Money.entity(),
             sortDescriptors: [NSSortDescriptor(keyPath: \Money.timestamp, ascending: true)],
-            predicate: CoreDataManager.predicateForSelectedDay(date: selectedDate.wrappedValue)
+            predicate: CoreDataManager.predicateForSelectedDay(date: selectedDay)
         )
     }
     
@@ -46,8 +47,7 @@ struct CalendarDetailsView: View {
             content: self.errorAlert
         )
         .fullScreenCover(isPresented: self.$showRecordEditor, content: {
-            // TODO: - instead of selectedDate must be UUID of the record
-            EditRecordView(recordTimestamp: self.selectedDate)
+            EditRecordView(recordId: self.$selectedRecordId)
         })
     }
     
@@ -55,7 +55,7 @@ struct CalendarDetailsView: View {
     private var content: some View {
         VStack(spacing: 16) {
             CancelButtonView(action: { dismiss() })
-            DateHeaderView(date: self.selectedDate)
+            DateHeaderView(date: self.selectedDay)
             self.recordsList
             Spacer()
         }
@@ -103,6 +103,7 @@ struct CalendarDetailsView: View {
                     }
                     .onTapGesture {
                         self.showRecordEditor.toggle()
+                        self.selectedRecordId = record.id
                     }
                     .listRowSeparatorTint(.white.opacity(0.3))
                 }
@@ -158,5 +159,5 @@ struct CalendarDetailsView: View {
 }
 
 #Preview {
-    CalendarDetailsView(selectedDate: .constant(Date.now))
+    CalendarDetailsView(selectedDay: Date.now)
 }

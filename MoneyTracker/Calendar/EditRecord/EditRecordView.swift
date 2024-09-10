@@ -13,16 +13,10 @@ struct EditRecordView: View {
     
     // MARK: - State
     @StateObject private var viewModel = EditRecordViewModel()
-    @State var sum = "0,00 €"
-    @State var category = Category(moneyGroupType: .none, name: "category", icon: "sun.min")
-    @State var note = "add note..."
-    @State private var selectedDate: Date
+    @Binding var recordId: String
     @State private var isDatePickerPresented = false
-    
-    // MARK: - Init
-    init(recordTimestamp: Date) {
-        _selectedDate = State(initialValue: recordTimestamp)
-    }
+    @State private var isCategoryPresented = false
+    @State private var editingItem = MoneyModel()
     
     // MARK: - Body
     var body: some View {
@@ -52,6 +46,11 @@ struct EditRecordView: View {
         }
         .foregroundStyle(.white)
         .animation(.easeInOut(duration: 0.4), value: self.isDatePickerPresented)
+        .sheet(isPresented: self.$isCategoryPresented) {
+            CategoryGroupSelectionView(
+                recordType: self.$editingItem.recordType,
+                selectedCategory: self.$editingItem.category)
+        }
     }
     
     // MARK: - Views
@@ -64,7 +63,7 @@ struct EditRecordView: View {
                 .ignoresSafeArea()
             
             DatePickerView(
-                recordTimestamp: $selectedDate,
+                recordTimestamp: $editingItem.timestamp,
                 isPresented: $isDatePickerPresented
             )
             .padding(.horizontal, 32)
@@ -83,7 +82,7 @@ struct EditRecordView: View {
     }
     private var dateEditorView: some View {
         DateTitleView(
-            date: self.$selectedDate,
+            date: self.$editingItem.timestamp,
             style: .regular,
             size: .body
         )
@@ -92,14 +91,14 @@ struct EditRecordView: View {
     // Sum
     private var sumView: some View {
         HStack {
-            TextHeaderView(text: self.sum)
+            TextHeaderView(text: self.editingItem.moneyAmount)
             Spacer()
         }
     }
     // Notes
     private var noteView: some View {
         HStack {
-            SmallTextView(text: self.note)
+            SmallTextView(text: self.editingItem.notes)
             Spacer()
         }
         .padding([.leading, .top])
@@ -107,12 +106,15 @@ struct EditRecordView: View {
     // Category
     private var categoryView: some View {
         HStack {
-            Image(systemName: self.category.icon)
+            Image(systemName: self.editingItem.category.icon)
                 .padding(.trailing)
-            TextTitleView(text: self.$category.name, style: .regular)
+            TextTitleView(text: self.$editingItem.category.name, style: .regular)
             Spacer()
         }
         .padding([.leading, .top])
+        .onTapGesture {
+            self.isCategoryPresented.toggle()
+        }
     }
     // Save
     private var saveButtonView: some View {
@@ -139,5 +141,5 @@ struct EditRecordView: View {
 }
 
 #Preview {
-    EditRecordView(recordTimestamp: Date.now)
+    EditRecordView(recordId: .constant(""))
 }

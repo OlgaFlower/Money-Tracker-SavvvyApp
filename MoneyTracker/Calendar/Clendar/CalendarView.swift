@@ -53,7 +53,7 @@ struct CalendarView: View {
                 isPresented: self.$isCalendarDetailsPresented,
                 content: {
                     CalendarDetailsView(
-                        selectedDate: self.$selectedDate
+                        selectedDay: self.selectedDate
                     )
                 })
         }

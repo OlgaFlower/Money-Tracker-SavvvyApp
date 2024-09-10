@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct MoneyModel: Identifiable {
-    let id = UUID()
-    var recordType: RecordType
-    var category: Category
-    var moneyAmount: String
-    var notes: String
-    var currency: String
-    var timestamp: Date
+    let id = UUID().uuidString
+    var recordType: RecordType = .expense
+    var category: Category = Category(
+        moneyGroupType: .none,
+        name: "CATEGORY",
+        icon: "sun.min"
+    )
+    var moneyAmount: String = ""
+    var notes: String = "Add record..."
+    var currency: String = "EUR"
+    var timestamp: Date = Date()
 }
 
 enum RecordType: Identifiable {
