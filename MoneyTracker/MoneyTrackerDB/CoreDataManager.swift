@@ -14,6 +14,11 @@ final class CoreDataManager {
     
     private init() {}
     
+    ///  Record by its ID
+    static func fetchRecord(withID id: String) -> NSPredicate {
+        return NSPredicate(format: "id == %@", id)
+    }
+    
     /// All Records for DATE
     static func predicateForSelectedDay(date: Date) -> NSPredicate {
         return NSPredicate(

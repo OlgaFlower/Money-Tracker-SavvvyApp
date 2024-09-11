@@ -46,8 +46,11 @@ struct CalendarDetailsView: View {
             isPresented: self.$showErrorAlert,
             content: self.errorAlert
         )
+        .onChange(of: self.selectedRecordId, {
+            self.showRecordEditor.toggle()
+        })
         .fullScreenCover(isPresented: self.$showRecordEditor, content: {
-            EditRecordView(recordId: self.$selectedRecordId)
+            EditRecordView(id: self.selectedRecordId)
         })
     }
     
@@ -102,7 +105,6 @@ struct CalendarDetailsView: View {
                             .contentShape(Rectangle())
                     }
                     .onTapGesture {
-                        self.showRecordEditor.toggle()
                         self.selectedRecordId = record.id
                     }
                     .listRowSeparatorTint(.white.opacity(0.3))

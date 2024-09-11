@@ -12,11 +12,21 @@ struct EditRecordView: View {
     @Environment(\.dismiss) var dismiss
     
     // MARK: - State
-    @StateObject private var viewModel = EditRecordViewModel()
-    @Binding var recordId: String
+    @StateObject private var viewModel: EditRecordViewModel
     @State private var isDatePickerPresented = false
     @State private var isCategoryPresented = false
-    @State private var editingItem = MoneyModel()
+    
+    @FetchRequest private var records: FetchedResults<Money>
+    
+    // MARK: - Init
+    init(id: String) {
+        _viewModel = StateObject(wrappedValue: EditRecordViewModel())
+        self._records = FetchRequest(
+            entity: Money.entity(),
+            sortDescriptors: [],
+            predicate: CoreDataManager.fetchRecord(withID: id)
+        )
+    }
     
     // MARK: - Body
     var body: some View {
@@ -48,8 +58,11 @@ struct EditRecordView: View {
         .animation(.easeInOut(duration: 0.4), value: self.isDatePickerPresented)
         .sheet(isPresented: self.$isCategoryPresented) {
             CategoryGroupSelectionView(
-                recordType: self.$editingItem.recordType,
-                selectedCategory: self.$editingItem.category)
+                recordType: self.$viewModel.editingItem.recordType,
+                selectedCategory: self.$viewModel.editingItem.category)
+        }
+        .onAppear {
+            viewModel.loadRecord(records: records)
         }
     }
     
@@ -63,7 +76,7 @@ struct EditRecordView: View {
                 .ignoresSafeArea()
             
             DatePickerView(
-                recordTimestamp: $editingItem.timestamp,
+                recordTimestamp: $viewModel.editingItem.timestamp,
                 isPresented: $isDatePickerPresented
             )
             .padding(.horizontal, 32)
@@ -82,7 +95,7 @@ struct EditRecordView: View {
     }
     private var dateEditorView: some View {
         DateTitleView(
-            date: self.$editingItem.timestamp,
+            date: self.$viewModel.editingItem.timestamp,
             style: .regular,
             size: .body
         )
@@ -91,14 +104,14 @@ struct EditRecordView: View {
     // Sum
     private var sumView: some View {
         HStack {
-            TextHeaderView(text: self.editingItem.moneyAmount)
+            TextHeaderView(text: self.viewModel.editingItem.moneyAmount)
             Spacer()
         }
     }
     // Notes
     private var noteView: some View {
         HStack {
-            SmallTextView(text: self.editingItem.notes)
+            SmallTextView(text: self.viewModel.editingItem.notes)
             Spacer()
         }
         .padding([.leading, .top])
@@ -106,9 +119,9 @@ struct EditRecordView: View {
     // Category
     private var categoryView: some View {
         HStack {
-            Image(systemName: self.editingItem.category.icon)
+            Image(systemName: self.viewModel.editingItem.category.icon)
                 .padding(.trailing)
-            TextTitleView(text: self.$editingItem.category.name, style: .regular)
+            TextTitleView(text: self.$viewModel.editingItem.category.name, style: .regular)
             Spacer()
         }
         .padding([.leading, .top])
@@ -141,5 +154,5 @@ struct EditRecordView: View {
 }
 
 #Preview {
-    EditRecordView(recordId: .constant(""))
+    EditRecordView(id: "")
 }

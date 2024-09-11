@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MoneyModel: Identifiable {
-    let id = UUID().uuidString
+    var id: String = ""
     var recordType: RecordType = .expense
     var category: Category = Category(
         moneyGroupType: .none,

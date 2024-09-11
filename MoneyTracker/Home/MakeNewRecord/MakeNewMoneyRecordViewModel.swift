@@ -19,7 +19,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
            self.newItem.category.name != "CATEGORY" {
             
             CoreDataManager.makeNewRecordWith(
-                id: self.newItem.id,
+                id: UUID().uuidString,
                 moneyAmount: intValue,
                 currency: self.newItem.currency,
                 isIncome: self.newItem.recordType == .income ? true : false,

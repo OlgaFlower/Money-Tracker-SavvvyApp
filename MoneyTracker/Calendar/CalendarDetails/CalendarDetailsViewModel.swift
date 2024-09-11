@@ -30,23 +30,24 @@ final class CalendarDetailsViewModel: ObservableObject {
         records: FetchedResults<Money>,
         isIncome: Bool
     ) -> [MoneyModel] {
-           return records.filter { $0.isIncome == isIncome }.map { record in
-               MoneyModel(
-                   recordType: isIncome ? .income : .expense,
-                   category: self.createCategory(from: record),
-                   moneyAmount: record.moneyAmount.toString(),
-                   notes: record.notes ?? "",
-                   currency: record.currency,
-                   timestamp: record.timestamp
-               )
-           }
-       }
-    
-    private func createCategory(from record: Money) -> Category {
-            return Category(
-                moneyGroupType: record.typeTag.tagToGroupType(),
-                name: record.categoryName,
-                icon: record.categoryIcon
+        return records.filter { $0.isIncome == isIncome }.map { record in
+            MoneyModel(
+                id: record.id, 
+                recordType: isIncome ? .income : .expense,
+                category: self.createCategory(from: record),
+                moneyAmount: record.moneyAmount.toString(),
+                notes: record.notes ?? "",
+                currency: record.currency,
+                timestamp: record.timestamp
             )
         }
+    }
+    
+    private func createCategory(from record: Money) -> Category {
+        return Category(
+            moneyGroupType: record.typeTag.tagToGroupType(),
+            name: record.categoryName,
+            icon: record.categoryIcon
+        )
+    }
 }
