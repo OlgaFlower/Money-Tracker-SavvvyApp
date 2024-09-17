@@ -22,19 +22,19 @@ struct CurrencyTextFieldView: View {
     var body: some View {
         VStack {
             ZStack {
-                /// Background
                 BackgroundRectangleView(heigt: 50)
                     .ignoresSafeArea()
                 
                 /// Displayed Number
-                Text("\(displyedNumber) \(currency)")
-                    .multilineTextAlignment(.center)
-                    .font(.customFont(style: .regular, size: .title))
-                    .keyboardType(.decimalPad)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .foregroundStyle(Color.white)
-                
-                /// User Input Amount of Money
+                HStack {
+                    Text("\(displyedNumber) \(currency)")
+                        .multilineTextAlignment(.center)
+                        .font(.customFont(style: .regular, size: .title))
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .foregroundStyle(Color.white)
+                }
+                /// User Input Amount of Money - not visible
                 HStack {
                     Spacer()
                     TextField("", text: $inputAmount)
@@ -76,5 +76,8 @@ struct CurrencyTextFieldView: View {
 }
 
 #Preview {
-    CurrencyTextFieldView(inputAmount: .constant("0,00"), currency: "EUR")
+    CurrencyTextFieldView(
+        inputAmount: .constant("0,00"),
+        currency: "EUR"
+    )
 }

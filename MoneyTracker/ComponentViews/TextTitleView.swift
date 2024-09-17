@@ -11,6 +11,7 @@ struct TextTitleView: View {
     
     @Binding var text: String
     let style: CustomFontStyle
+    var isCentered: Bool
     
     var body: some View {
         HStack {
@@ -20,7 +21,9 @@ struct TextTitleView: View {
                     size: .body
                 ))
                 .opacity(0.9)
-            Spacer()
+            if !isCentered {
+                Spacer()
+            }
         }
     }
 }
@@ -28,6 +31,7 @@ struct TextTitleView: View {
 #Preview {
     TextTitleView(
         text: .constant("Text example"),
-        style: .medium
+        style: .medium, 
+        isCentered: false
     )
 }

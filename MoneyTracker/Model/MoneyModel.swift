@@ -16,7 +16,7 @@ struct MoneyModel: Identifiable {
         icon: "sun.min"
     )
     var moneyAmount: String = ""
-    var notes: String = "Add record..."
+    var notes: String = ""
     var currency: String = "EUR"
     var timestamp: Date = Date()
 }

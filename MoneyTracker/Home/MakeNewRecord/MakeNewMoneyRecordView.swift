@@ -34,17 +34,25 @@ struct MakeNewMoneyRecordView: View {
                 VStack(spacing: 22) {
                     /// Expense / Income
                     self.moneyTypeSelectionView
+                    
                     /// Money Field
                     CurrencyTextFieldView(
                         isKeyboardFocused: _isCurrencyKeyboardFocused,
                         inputAmount: self.$viewModel.newItem.moneyAmount,
                         currency: self.viewModel.newItem.currency
                     )
-                    /// Description
-                    self.descriptionTextField
+                    
                     /// Category
                     self.categorySelectionView
                         .padding(.top, 8)
+                    
+                    /// Description
+                    DescriptionTextfieldView(
+                        notes: self.$viewModel.newItem.notes
+                    )
+                    .focused(self.$isKeyboardFocused)
+                    .padding(.top, 16)
+                    
                     self.saveButtonView
                         .padding(.top, 62)
                 }
@@ -88,32 +96,6 @@ struct MakeNewMoneyRecordView: View {
         }
         .frame(height: 24)
         .padding(.horizontal, 60)
-    }
-    
-    /// DESCRIPTION
-    private var descriptionTextField: some View {
-        ZStack {
-            /// Background
-            Rectangle()
-                .foregroundStyle(Color.lightBlue.opacity(0.5))
-                .frame(height: 92)
-            /// Placeholder
-            if self.viewModel.newItem.notes.isEmpty {
-                TextView(text: "description")
-                    .opacity(0.4)
-            }
-            
-            TextField("", text: self.$viewModel.newItem.notes, axis: .vertical)
-                .onSubmit {
-                    self.isKeyboardFocused = false
-                }
-                .focused(self.$isKeyboardFocused)
-                .font(.customFont(style: .regular, size: .body))
-                .padding(.horizontal)
-                .lineLimit(1...3)
-                .autocorrectionDisabled(true)
-                .frame(width: UIScreen.main.bounds.width - 24)
-        }
     }
     /// CATEGORY
     private var categorySelectionView: some View {

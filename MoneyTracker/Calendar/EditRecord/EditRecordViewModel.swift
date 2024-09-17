@@ -19,7 +19,7 @@ final class EditRecordViewModel: ObservableObject {
             recordType: record.isIncome ? .income : .expense,
             category: self.createCategory(from: record),
             moneyAmount: record.moneyAmount.toString(),
-            notes: record.notes ?? "...",
+            notes: record.notes ?? "",
             currency: record.currency,
             timestamp: record.timestamp
         )

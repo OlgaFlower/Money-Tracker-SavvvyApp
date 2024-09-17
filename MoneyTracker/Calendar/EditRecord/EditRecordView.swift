@@ -15,7 +15,8 @@ struct EditRecordView: View {
     @StateObject private var viewModel: EditRecordViewModel
     @State private var isDatePickerPresented = false
     @State private var isCategoryPresented = false
-    
+    @FocusState var isKeyboardFocused: Bool
+    @FocusState var isCurrencyKeyboardFocused: Bool
     @FetchRequest private var records: FetchedResults<Money>
     
     // MARK: - Init
@@ -38,13 +39,21 @@ struct EditRecordView: View {
                 TextHeaderView(text: "editing")
                     .padding(.top, 16)
                 
-                VStack(spacing: 32) {
+                VStack(spacing: 26) {
                     self.makeDateEditor()
-                    self.sumView
+                    CurrencyTextFieldView(
+                        isKeyboardFocused: _isCurrencyKeyboardFocused,
+                        inputAmount: self.$viewModel.editingItem.moneyAmount,
+                        currency: self.viewModel.editingItem.currency
+                    )
                     self.categoryView
-                    self.noteView
+                        .padding(.top, 4)
+                    
+                    DescriptionTextfieldView(notes: self.$viewModel.editingItem.notes)
+                        .focused(self.$isKeyboardFocused)
+                        .padding(.top, 8)
                 }
-                .padding([.top, .horizontal], 50)
+                .padding(.top, 30)
                 
                 Spacer()
                 self.saveButtonView
@@ -60,6 +69,10 @@ struct EditRecordView: View {
             CategoryGroupSelectionView(
                 recordType: self.$viewModel.editingItem.recordType,
                 selectedCategory: self.$viewModel.editingItem.category)
+        }
+        .onTapGesture {
+            self.isKeyboardFocused = false
+            self.isCurrencyKeyboardFocused = false
         }
         .onAppear {
             viewModel.loadRecord(records: records)
@@ -85,46 +98,29 @@ struct EditRecordView: View {
     }
     // Date
     private func makeDateEditor() -> some View {
-        HStack {
-            self.dateEditorView
-                .onTapGesture {
-                    self.isDatePickerPresented.toggle()
-                }
-            Spacer()
-        }
+        self.dateEditorView
+            .onTapGesture {
+                self.isDatePickerPresented.toggle()
+            }
     }
     private var dateEditorView: some View {
         DateTitleView(
             date: self.$viewModel.editingItem.timestamp,
             style: .regular,
-            size: .body
+            size: .title
         )
-        .padding()
-    }
-    // Sum
-    private var sumView: some View {
-        HStack {
-            TextHeaderView(text: self.viewModel.editingItem.moneyAmount)
-            Spacer()
-        }
-    }
-    // Notes
-    private var noteView: some View {
-        HStack {
-            SmallTextView(text: self.viewModel.editingItem.notes)
-            Spacer()
-        }
-        .padding([.leading, .top])
     }
     // Category
     private var categoryView: some View {
         HStack {
             Image(systemName: self.viewModel.editingItem.category.icon)
                 .padding(.trailing)
-            TextTitleView(text: self.$viewModel.editingItem.category.name, style: .regular)
-            Spacer()
+            TextTitleView(
+                text: self.$viewModel.editingItem.category.name,
+                style: .medium,
+                isCentered: true
+            )
         }
-        .padding([.leading, .top])
         .onTapGesture {
             self.isCategoryPresented.toggle()
         }
