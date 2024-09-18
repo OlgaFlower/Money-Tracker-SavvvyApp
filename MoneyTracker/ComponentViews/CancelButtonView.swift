@@ -16,7 +16,7 @@ struct CancelButtonView: View {
         HStack {
             Spacer()
             Button(action: {
-                Constants.vibrateLight()
+                VibrateService.vibrateLight()
                 action()
             }) {
                 Image(systemName: "plus")

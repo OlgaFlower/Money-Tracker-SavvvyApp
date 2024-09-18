@@ -74,7 +74,7 @@ struct CalendarView: View {
             .font(.customFont(style: .semibold, size: .body))
             .onTapGesture {
                 self.moveToPreviousMonth()
-                Constants.vibrateLight()
+                VibrateService.vibrateLight()
             }
     }
     
@@ -84,7 +84,7 @@ struct CalendarView: View {
             .font(.customFont(style: .semibold, size: .body))
             .onTapGesture {
                 self.moveToNextMonth()
-                Constants.vibrateLight()
+                VibrateService.vibrateLight()
             }
     }
     
@@ -99,7 +99,7 @@ struct CalendarView: View {
                     .opacity(0.9)
                     .onTapGesture {
                         self.currentDate = Date.now
-                        Constants.vibrateLight()
+                        VibrateService.vibrateLight()
                     }
                 Spacer()
             }

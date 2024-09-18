@@ -55,7 +55,7 @@ struct HorizontalBudgetBoardView: View {
         }
         .frame(width: self.infoBoardWidth)
         .onTapGesture {
-            Constants.vibrateLight()
+            VibrateService.vibrateLight()
             self.animatedExpenses == 0 ? self.showingAlert.toggle() : self.isDetailCellViewPresented.toggle()
         }
         .sheet(isPresented: self.$isDetailCellViewPresented, 
@@ -96,7 +96,7 @@ struct HorizontalBudgetBoardView: View {
         }
         .frame(width: self.infoBoardWidth)
         .onTapGesture {
-            Constants.vibrateLight()
+            VibrateService.vibrateLight()
             self.budgetTextDisplayed.toggle()
         }
         .alert(self.budgetText, isPresented: self.$budgetTextDisplayed) {

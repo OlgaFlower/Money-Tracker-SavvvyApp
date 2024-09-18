@@ -42,10 +42,10 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     }
     
     func vibrateMedium() {
-        Constants.vibrateMedium()
+        VibrateService.vibrateMedium()
     }
     
     func vibrateLight() {
-        Constants.vibrateLight()
+        VibrateService.vibrateLight()
     }
 }

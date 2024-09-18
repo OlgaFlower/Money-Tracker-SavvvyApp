@@ -34,6 +34,6 @@ final class EditRecordViewModel: ObservableObject {
         }
     
     func vibrateMedium() {
-        Constants.vibrateMedium()
+        VibrateService.vibrateMedium()
     }
 }

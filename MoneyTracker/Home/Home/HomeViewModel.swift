@@ -46,10 +46,6 @@ final class HomeViewModel {
         return Double(budgetInt - expenses)/100
     }
     
-    func convertToString(intValue: Int) -> String {
-        return String(describing: Double(intValue)/100)
-    }
-    
     /// Color
     func calcLeftoverColor(dayBudget: Double, leftover: Double) -> Color {
         let orangeLevel = dayBudget / 4 /// leftover is 25% of the budget
@@ -67,10 +63,10 @@ final class HomeViewModel {
     
     /// Vibration
     func vibrate() {
-        Constants.vibrateMedium()
+        VibrateService.vibrateMedium()
     }
     
     func vibrateLight() {
-        Constants.vibrateLight()
+        VibrateService.vibrateLight()
     }
 }

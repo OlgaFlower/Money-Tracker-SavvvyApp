@@ -22,12 +22,4 @@ final class Constants {
     /// Add new record
     static let newRecordTypes = [RecordType.expense, RecordType.income]
     
-    // MARK: - Make Vibration -
-    static func vibrateMedium() {
-        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-    }
-    
-    static func vibrateLight() {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-    }
 }

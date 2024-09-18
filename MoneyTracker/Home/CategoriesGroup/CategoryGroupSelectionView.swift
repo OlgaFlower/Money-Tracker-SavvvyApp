@@ -50,7 +50,7 @@ struct CategoryGroupSelectionView: View {
                     )
                 )
                 .onTapGesture {
-                    Constants.vibrateLight()
+                    VibrateService.vibrateLight()
                     self.selectedCategory.moneyGroupType = .generalExpense
                     self.showIconsList.toggle()
                 }
@@ -73,7 +73,7 @@ struct CategoryGroupSelectionView: View {
                     )
                 )
                 .onTapGesture {
-                    Constants.vibrateLight()
+                    VibrateService.vibrateLight()
                     self.showIconsList.toggle()
                     self.selectedCategory.moneyGroupType = .recurringExpense
                 }
@@ -98,7 +98,7 @@ struct CategoryGroupSelectionView: View {
                         )
                     )
                     .onTapGesture {
-                        Constants.vibrateLight()
+                        VibrateService.vibrateLight()
                         self.showIconsList.toggle()
                         self.selectedCategory.moneyGroupType = .regularIncome
                     }
@@ -121,7 +121,7 @@ struct CategoryGroupSelectionView: View {
                         )
                     )
                     .onTapGesture {
-                        Constants.vibrateLight()
+                        VibrateService.vibrateLight()
                         self.showIconsList.toggle()
                         self.selectedCategory.moneyGroupType = .temporaryIncome
                     }
