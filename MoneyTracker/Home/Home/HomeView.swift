@@ -11,8 +11,6 @@ import CoreData
 struct HomeView: View {
     
     // MARK: - State
-    /// Player
-    @StateObject var player = AudioPlayer()
     /// Views
     @State var isMakeNewRecordViewPresented = false
     @State var isDetailCellViewPresented = false
@@ -77,7 +75,6 @@ struct HomeView: View {
                 .onTapGesture {
                     self.animateChart = true
                     self.viewModel.vibrate()
-                    self.player.playSound(for: .chart)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self.animateChart = false
                     }
@@ -118,7 +115,6 @@ struct HomeView: View {
             .fullScreenCover(
                 isPresented: self.$isMakeNewRecordViewPresented) {
                     withAnimation {
-                        self.playSound()
                         self.updateAnimatedValues()
                     }
                 }
@@ -134,15 +130,6 @@ struct HomeView: View {
         self.animatedLeftover = self.leftover
         self.animatedBudget = self.budget
         self.animatedExpenses = self.expenses
-    }
-    
-    private func playSound() {
-        if self.leftover > self.animatedLeftover {
-            self.player.playSound(for: .income)
-        }
-        if self.leftover < self.animatedLeftover {
-            self.player.playSound(for: .expenses)
-        }
     }
 }
 

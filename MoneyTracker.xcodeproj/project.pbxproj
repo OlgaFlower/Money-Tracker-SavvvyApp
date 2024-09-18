@@ -48,11 +48,6 @@
 		42C9EB0E2C71C52100D5D6EA /* DateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */; };
 		42C9EB122C71EB5600D5D6EA /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB112C71EB5600D5D6EA /* TextView.swift */; };
 		42CA52152C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */; };
-		42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52282C29DF140024DF8B /* AudioPlayer.swift */; };
-		42CA523C2C2ADF730024DF8B /* incomeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */; };
-		42CA523E2C2AE0710024DF8B /* chartSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523D2C2AE0710024DF8B /* chartSound.mp3 */; };
-		42CA52402C2AEC590024DF8B /* gameCoinSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA523F2C2AEC590024DF8B /* gameCoinSound.mp3 */; };
-		42CA52422C2AEF750024DF8B /* cashRegisterSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52412C2AEF750024DF8B /* cashRegisterSound.mp3 */; };
 		42CA52452C2B42F30024DF8B /* ExpensesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52442C2B42F30024DF8B /* ExpensesDetailView.swift */; };
 		42CA52472C2B44C40024DF8B /* ExpensesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52462C2B44C40024DF8B /* ExpensesDetailViewModel.swift */; };
 		42CA52492C2B52F90024DF8B /* Int+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52482C2B52F90024DF8B /* Int+String.swift */; };
@@ -143,11 +138,6 @@
 		42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderView.swift; sourceTree = "<group>"; };
 		42C9EB112C71EB5600D5D6EA /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataFetchedProperties.swift"; sourceTree = "<group>"; };
-		42CA52282C29DF140024DF8B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
-		42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incomeSound.mp3; sourceTree = "<group>"; };
-		42CA523D2C2AE0710024DF8B /* chartSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chartSound.mp3; sourceTree = "<group>"; };
-		42CA523F2C2AEC590024DF8B /* gameCoinSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameCoinSound.mp3; sourceTree = "<group>"; };
-		42CA52412C2AEF750024DF8B /* cashRegisterSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cashRegisterSound.mp3; sourceTree = "<group>"; };
 		42CA52442C2B42F30024DF8B /* ExpensesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDetailView.swift; sourceTree = "<group>"; };
 		42CA52462C2B44C40024DF8B /* ExpensesDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDetailViewModel.swift; sourceTree = "<group>"; };
 		42CA52482C2B52F90024DF8B /* Int+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+String.swift"; sourceTree = "<group>"; };
@@ -273,7 +263,6 @@
 				42B9F0E92BEA351100D719E3 /* Helpers */,
 				4241F46F2BB1E61A0048A29B /* Constants */,
 				4242750D2BA4FF73001873A3 /* Assets.xcassets */,
-				42CA52272C29DEF10024DF8B /* AudioPlayer */,
 				4242750F2BA4FF73001873A3 /* Preview Content */,
 			);
 			path = MoneyTracker;
@@ -421,26 +410,6 @@
 				42F8F7302C1487DB00C0CE9B /* MoneyEntity */,
 			);
 			path = MoneyTrackerDB;
-			sourceTree = "<group>";
-		};
-		42CA52272C29DEF10024DF8B /* AudioPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				42CA52362C2AAD040024DF8B /* SoundResources */,
-				42CA52282C29DF140024DF8B /* AudioPlayer.swift */,
-			);
-			path = AudioPlayer;
-			sourceTree = "<group>";
-		};
-		42CA52362C2AAD040024DF8B /* SoundResources */ = {
-			isa = PBXGroup;
-			children = (
-				42CA52412C2AEF750024DF8B /* cashRegisterSound.mp3 */,
-				42CA523F2C2AEC590024DF8B /* gameCoinSound.mp3 */,
-				42CA523D2C2AE0710024DF8B /* chartSound.mp3 */,
-				42CA523B2C2ADF730024DF8B /* incomeSound.mp3 */,
-			);
-			path = SoundResources;
 			sourceTree = "<group>";
 		};
 		42CA52432C2B42D70024DF8B /* ExpensesDetail */ = {
@@ -652,12 +621,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42CA523C2C2ADF730024DF8B /* incomeSound.mp3 in Resources */,
 				424275112BA4FF73001873A3 /* Preview Assets.xcassets in Resources */,
 				42CA52572C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf in Resources */,
-				42CA52402C2AEC590024DF8B /* gameCoinSound.mp3 in Resources */,
-				42CA523E2C2AE0710024DF8B /* chartSound.mp3 in Resources */,
-				42CA52422C2AEF750024DF8B /* cashRegisterSound.mp3 in Resources */,
 				4242750E2BA4FF73001873A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,7 +684,6 @@
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
 				4241F4712BB1E62E0048A29B /* Country.swift in Sources */,
 				42CA52532C2C48110024DF8B /* TodayChartView.swift in Sources */,
-				42CA52292C29DF140024DF8B /* AudioPlayer.swift in Sources */,
 				42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */,
 				42ED3BD42C5A712D009385E0 /* CalendarView.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
