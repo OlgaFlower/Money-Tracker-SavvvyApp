@@ -15,15 +15,7 @@ struct MoneyTrackerApp: App {
     
     // MARK: - Init -
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [
-            .font: UIFont(name: "MontserratRoman-Medium", size: 32) ?? .systemFont(ofSize: 32),
-            .foregroundColor: UIColor.white
-        ]
-          /// Inline Navigation Title
-          UINavigationBar.appearance().titleTextAttributes = [
-            .font: UIFont(name: "MontserratRoman-Medium", size: 17) ?? .systemFont(ofSize: 17),
-            .foregroundColor: UIColor.white
-          ]
+        self.configureNavigationBarAppearance()
     }
     
     // MARK: - Body -
@@ -32,5 +24,18 @@ struct MoneyTrackerApp: App {
             ContentView()
                 .environment(\.managedObjectContext, viewContext)
         }
+    }
+    
+    // MARK: - Methods
+    private func configureNavigationBarAppearance() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .font: UIFont(name: CustomFont.appFont + CustomFontStyle.medium.rawValue, size: 32) ?? .systemFont(ofSize: 32),
+            .foregroundColor: UIColor.white
+        ]
+        /// Inline Navigation Title
+        UINavigationBar.appearance().titleTextAttributes = [
+            .font: UIFont(name: CustomFont.appFont + CustomFontStyle.medium.rawValue, size: 17) ?? .systemFont(ofSize: 17),
+            .foregroundColor: UIColor.white
+        ]
     }
 }
