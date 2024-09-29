@@ -35,7 +35,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     }
     
     func refreshCalculations() {
-        DataService.shared.updateTodayExpenses()
+        DataService.shared.updateTodayMoneyValues()
     }
     
     func isCategoryChosen() -> Bool {

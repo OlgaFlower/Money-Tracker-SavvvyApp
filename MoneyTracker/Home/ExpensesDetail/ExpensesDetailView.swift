@@ -89,7 +89,7 @@ struct ExpensesDetailView: View {
     private func handleOnDisappear() {
         if self.itemDeleted {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                DataService.shared.updateTodayExpenses()
+                DataService.shared.updateTodayMoneyValues()
                 self.updateAnimatedValues()
             }
         }
@@ -97,12 +97,13 @@ struct ExpensesDetailView: View {
     
     private func deleteGeneralItem(offsets: IndexSet) {
         CoreDataManager.shared.deleteRecord(at: offsets, from: &viewModel.generalExpenses, in: viewContext)
-        self.itemDeleted.toggle()
+        self.itemDeleted = true 
+        /// not .toggle because 2 and more items can be deleted
     }
     
     private func deleteRecurringItem(offsets: IndexSet) {
         CoreDataManager.shared.deleteRecord(at: offsets, from: &viewModel.recurringExpenses, in: viewContext)
-        self.itemDeleted.toggle()
+        self.itemDeleted = true
     }
 }
 

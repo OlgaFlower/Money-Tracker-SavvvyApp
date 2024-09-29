@@ -12,6 +12,7 @@ struct HomeView: View {
     
     // MARK: - State
     /// Views
+    @StateObject private var viewModel = HomeViewModel()
     @State var isMakeNewRecordViewPresented = false
     @State var isDetailCellViewPresented = false
     @State private var showingAlert = false
@@ -22,34 +23,8 @@ struct HomeView: View {
     @State private var animatedExpenses: Int = 0
     
     // MARK: - Properties
-    @StateObject private var viewModel = HomeViewModel()
-    
-    /// DB - Today Records
-    private var todayRecordsFetchRequest = CoreDataManager.fetchTodayRecords()
-    private var todayRecords: FetchedResults<Money> {
-        todayRecordsFetchRequest.wrappedValue
-    }
-    
-    /// DB - Month Income
-    private var monthIncomeFetchRequest = CoreDataManager.fetchCurrentMonthRecords()
-    private var monthIncome: FetchedResults<Money> {
-        monthIncomeFetchRequest.wrappedValue
-    }
-    
-    private var expenses: Int {
-        self.viewModel.todayExpenses
-    }
-    
-    private var budget: Double {
-        self.viewModel.calcDayBudget(records: monthIncome)
-    }
-    
-    private var leftover: Double {
-        self.viewModel.calcLeftover(dayBudget: budget, expenses: expenses)
-    }
-    
     private var leftoverTextColor: Color {
-        self.viewModel.calcLeftoverColor(dayBudget: self.budget, leftover: self.leftover)
+        self.viewModel.setLeftoverColor()
     }
     
     // MARK: - Body
@@ -123,8 +98,8 @@ struct HomeView: View {
     
     // MARK: - Methods
     private func updateAnimatedValues() {
-        self.animatedLeftover = self.leftover
-        self.animatedBudget = self.budget
+        self.animatedLeftover = self.viewModel.leftover
+        self.animatedBudget = self.viewModel.dayBudget
         self.animatedExpenses = self.viewModel.todayExpenses
     }
 }

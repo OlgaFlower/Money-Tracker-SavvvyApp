@@ -30,6 +30,7 @@ final class CoreDataManager {
     
     //REFACTORING
     
+    // MARK: - Expenses for Day
     func fetchExpensesForDay(date: Date) -> [MoneyModel] {
         let request = NSFetchRequest<Money>(entityName: "Money")
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Money.timestamp , ascending: true)]
@@ -37,18 +38,60 @@ final class CoreDataManager {
             format: "timestamp >= %@ AND timestamp < %@ AND isIncome == %d",
             Calendar.current.startOfDay(for: Date()) as NSDate,
             Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: Date()))! as NSDate,
-        false
+            false
         )
         do {
             let result = try PersistenceController.shared.container.viewContext.fetch(request)
             return MappingService.mapDataToMoneyModel(recordsData: result)
         } catch let error {
-            print("Error fetching. \(error)")
+            print("Error ExpensesForDay fetching. \(error)")
         }
         return []
     }
     
-    func deleteRecord(at offsets: IndexSet, from records: inout [MoneyModel], in viewContext: NSManagedObjectContext) {
+    // MARK: - Month Income
+    func fetchMonthIncomeRecords(for month: Int, year: Int) -> [MoneyModel] {
+        let calendar = Calendar.current
+        
+        // Create date components for the specified month and year
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        
+        // Get the start of the specified month
+        guard let startOfMonth = calendar.date(from: dateComponents) else {
+            fatalError("Could not determine start of the specified month.")
+        }
+        
+        // Get the start of the next month
+        guard let startOfNextMonth = calendar.date(byAdding: .month, value: 1, to: startOfMonth) else {
+            fatalError("Could not determine start of the next month.")
+        }
+        
+        let request = NSFetchRequest<Money>(entityName: "Money")
+        
+        let timestampPredicate = NSPredicate(format: "timestamp >= %@ AND timestamp < %@", startOfMonth as NSDate, startOfNextMonth as NSDate)
+        let isIncomePredicate = NSPredicate(format: "isIncome == %d", true)
+        let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [timestampPredicate, isIncomePredicate])
+        request.predicate = combinedPredicate
+        
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Money.timestamp, ascending: true)]
+        
+        do {
+            let result = try PersistenceController.shared.container.viewContext.fetch(request)
+            return MappingService.mapDataToMoneyModel(recordsData: result)
+        } catch let error {
+            print("Error MonthIncomeRecords fetching. \(error)")
+        }
+        return []
+    }
+    
+    // MARK: - Delete Record
+    func deleteRecord(
+        at offsets: IndexSet,
+        from records: inout [MoneyModel],
+        in viewContext: NSManagedObjectContext
+    ) {
         for index in offsets {
                 let recordToDelete = records[index]
                 
@@ -68,6 +111,7 @@ final class CoreDataManager {
                     print("Error fetching object to delete: \(error)")
                 }
             }
+        // TODO: - take away removing from local array to the viewmodel/view
         // Remove from the local array
             records.remove(atOffsets: offsets)
         // Save the context
@@ -80,48 +124,7 @@ final class CoreDataManager {
     
     
     
-    /// TODAY Records
-    static func fetchTodayRecords() -> FetchRequest<Money> {
-        let timestampSortDescriptor = NSSortDescriptor(keyPath: \Money.timestamp , ascending: true)
-        
-        let timestampPredicate = NSPredicate(format: "timestamp >= %@ AND timestamp < %@", Calendar.current.startOfDay(for: Date()) as NSDate, Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: Date()))! as NSDate)
-        
-        return FetchRequest<Money>(
-            entity: Money.entity(),
-            sortDescriptors: [timestampSortDescriptor],
-            predicate: timestampPredicate
-        )
-    }
     
-    /// CURRENT MONTH Records
-    static func fetchCurrentMonthRecords() -> FetchRequest<Money> {
-        let calendar = Calendar.current
-        let currentDate = Date()
-        
-        // Get the start of the current month
-        guard let startOfMonth = calendar.date(
-            from: calendar.dateComponents([.year, .month], from: currentDate)
-        ) else {
-            fatalError("Could not determine start of the current month.")
-        }
-        
-        // Get the start of the next month (which effectively is the end of the current month)
-        guard let startOfNextMonth = calendar.date(
-            byAdding: .month, value: 1, to: startOfMonth
-        ) else {
-            fatalError("Could not determine start of the next month.")
-        }
-        
-        // Create a predicate to filter records between the start and end of the current month
-        let timestampPredicate = NSPredicate(format: "timestamp >= %@ AND timestamp < %@", startOfMonth as NSDate, startOfNextMonth as NSDate)
-        let timestampSortDescriptor = NSSortDescriptor(keyPath: \Money.timestamp, ascending: true)
-        
-        return FetchRequest<Money>(
-            entity: Money.entity(),
-            sortDescriptors: [timestampSortDescriptor],
-            predicate: timestampPredicate
-        )
-    }
     
     /// Make NEW RECORD
     static func makeNewRecordWith(
