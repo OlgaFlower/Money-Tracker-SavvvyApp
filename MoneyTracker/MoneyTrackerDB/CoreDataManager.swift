@@ -28,22 +28,29 @@ final class CoreDataManager {
                 )
     }
     
-    /// Expenses for DATE
-    static func fetchExpensesForDay(date: Date) -> FetchRequest<Money> {
-        let timestampSortDescriptor = NSSortDescriptor(keyPath: \Money.timestamp , ascending: true)
-        let predicate = NSPredicate(
+    //REFACTORING
+    
+    func fetchExpensesForDay(date: Date) -> [MoneyModel] {
+        let request = NSFetchRequest<Money>(entityName: "Money")
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Money.timestamp , ascending: true)]
+        request.predicate = NSPredicate(
             format: "timestamp >= %@ AND timestamp < %@ AND isIncome == %d",
             Calendar.current.startOfDay(for: Date()) as NSDate,
             Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: Date()))! as NSDate,
         false
         )
-        
-        return FetchRequest<Money>(
-            entity: Money.entity(),
-            sortDescriptors: [timestampSortDescriptor],
-            predicate: predicate
-        )
+        do {
+            let result = try PersistenceController.shared.container.viewContext.fetch(request)
+            return MappingService.mapDataToMoneyModel(recordsData: result)
+        } catch let error {
+            print("Error fetching. \(error)")
+        }
+        return []
     }
+    
+    
+    
+    
     
     /// TODAY Records
     static func fetchTodayRecords() -> FetchRequest<Money> {

@@ -22,11 +22,7 @@ struct HomeView: View {
     @State private var animatedExpenses: Int = 0
     
     // MARK: - Properties
-    private var viewModel: HomeViewModel
-    
-    init() {
-        self.viewModel = HomeViewModel()
-    }
+    @StateObject private var viewModel = HomeViewModel()
     
     /// DB - Today Records
     private var todayRecordsFetchRequest = CoreDataManager.fetchTodayRecords()
@@ -41,7 +37,7 @@ struct HomeView: View {
     }
     
     private var expenses: Int {
-        return self.viewModel.calcExpenses(records: todayRecords)
+        self.viewModel.todayExpenses
     }
     
     private var budget: Double {
@@ -129,7 +125,7 @@ struct HomeView: View {
     private func updateAnimatedValues() {
         self.animatedLeftover = self.leftover
         self.animatedBudget = self.budget
-        self.animatedExpenses = self.expenses
+        self.animatedExpenses = self.viewModel.todayExpenses
     }
 }
 

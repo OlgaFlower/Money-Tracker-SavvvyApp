@@ -33,6 +33,10 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         }
     }
     
+    func refreshCalculations() {
+        CalculationService.shared.updateTodayExpenses()
+    }
+    
     func isCategoryChosen() -> Bool {
         return self.newItem.category.name != "CATEGORY"
     }

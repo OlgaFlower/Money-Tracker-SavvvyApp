@@ -6,22 +6,26 @@
 //
 
 import SwiftUI
+import Combine
 
-final class HomeViewModel {
+final class HomeViewModel: ObservableObject {
+    
+    @Published private(set) var todayExpenses: Int
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        self.todayExpenses = CalculationService.shared.todayExpenses
+        
+        CalculationService.shared.$todayExpenses
+            .sink { [weak self] newValue in
+                self?.todayExpenses = newValue
+            }
+            .store(in: &cancellables)
+    }
+    
+    
     
     // MARK: - Functions
-    /// Expenses
-    func calcExpenses(records: FetchedResults<Money>) -> Int {
-        // Array of MoneyAmounts (records from DB) is converted to Int values and then we get the sum of all values in array
-        // ["1244", "54", "2"] -> [1244, 54, 2] -> 1300 (calculation: 1244+54+2 )
-        
-        let todayExpenses = records.filter { !$0.isIncome }
-        let sum = todayExpenses.compactMap { Int($0.moneyAmount) }.reduce(0, +)
-        // Sum of money is converted from Int to Double and devided to 100 - to get currency value (with cents)
-        // after that it formatted to String (currency format) for TextView
-        // 1300/100 = 13.00 -> "13,00" (currency format)
-        return sum
-    }
     
     /// Month Income
     func calcDayBudget(records: FetchedResults<Money>) -> Double {

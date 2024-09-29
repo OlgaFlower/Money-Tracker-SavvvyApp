@@ -17,10 +17,10 @@ struct ExpensesDetailView: View {
     var updateAnimatedValues: () -> Void
     
     // MARK: - DB
-    var todayExpensesFetchRequest = CoreDataManager.fetchExpensesForDay(date: Date())
-    private var expensesRecords: FetchedResults<Money> {
-        todayExpensesFetchRequest.wrappedValue
-    }
+//    var todayExpensesFetchRequest = CoreDataManager.fetchExpensesForDay(date: Date())
+//    private var expensesRecords: FetchedResults<Money> {
+//        todayExpensesFetchRequest.wrappedValue
+//    }
     
     // MARK: - Body
     var body: some View {
@@ -34,7 +34,7 @@ struct ExpensesDetailView: View {
             .padding(.top, 28)
         }
         .onAppear {
-            self.viewModel.loadExpenses(records: self.expensesRecords)
+//            self.viewModel.loadExpenses(records: self.expensesRecords)
         }
         .onDisappear {
             self.handleOnDisappear()
@@ -97,6 +97,7 @@ struct ExpensesDetailView: View {
     private func handleOnDisappear() {
         if self.itemDeleted {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                CalculationService.shared.updateTodayExpenses()
                 self.updateAnimatedValues()
             }
         }
@@ -121,7 +122,7 @@ struct ExpensesDetailView: View {
         from expenses: inout [MoneyModel]
     ) {
         for index in offsets {
-            viewContext.delete(self.expensesRecords[index])
+//            viewContext.delete(self.expensesRecords[index])
         }
         expenses.remove(atOffsets: offsets)
         try? viewContext.save()

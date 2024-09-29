@@ -23,6 +23,8 @@
 		424275252BA4FF73001873A3 /* MoneyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */; };
 		424275272BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */; };
 		424E3D382C63BF1E005E2181 /* CalendarDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */; };
+		424EC7B12CA852CF00CF76E2 /* MappingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424EC7B02CA852CF00CF76E2 /* MappingService.swift */; };
+		424EC7B32CA94E2200CF76E2 /* CalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424EC7B22CA94E2200CF76E2 /* CalculationService.swift */; };
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
 		42548AF22C71FB3700C35903 /* SmallTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF12C71FB3700C35903 /* SmallTextView.swift */; };
 		42548AF42C72173800C35903 /* EditRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF32C72173800C35903 /* EditRecordViewModel.swift */; };
@@ -48,7 +50,6 @@
 		42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */; };
 		42C9EB0E2C71C52100D5D6EA /* DateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */; };
 		42C9EB122C71EB5600D5D6EA /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9EB112C71EB5600D5D6EA /* TextView.swift */; };
-		42CA52152C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */; };
 		42CA52452C2B42F30024DF8B /* ExpensesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52442C2B42F30024DF8B /* ExpensesDetailView.swift */; };
 		42CA52472C2B44C40024DF8B /* ExpensesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52462C2B44C40024DF8B /* ExpensesDetailViewModel.swift */; };
 		42CA52492C2B52F90024DF8B /* Int+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52482C2B52F90024DF8B /* Int+String.swift */; };
@@ -114,6 +115,8 @@
 		424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITests.swift; sourceTree = "<group>"; };
 		424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsViewModel.swift; sourceTree = "<group>"; };
+		424EC7B02CA852CF00CF76E2 /* MappingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingService.swift; sourceTree = "<group>"; };
+		424EC7B22CA94E2200CF76E2 /* CalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationService.swift; sourceTree = "<group>"; };
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
 		42548AF12C71FB3700C35903 /* SmallTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTextView.swift; sourceTree = "<group>"; };
 		42548AF32C72173800C35903 /* EditRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewModel.swift; sourceTree = "<group>"; };
@@ -139,7 +142,6 @@
 		42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRectangleView.swift; sourceTree = "<group>"; };
 		42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderView.swift; sourceTree = "<group>"; };
 		42C9EB112C71EB5600D5D6EA /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
-		42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoneyTracker+CoreDataFetchedProperties.swift"; sourceTree = "<group>"; };
 		42CA52442C2B42F30024DF8B /* ExpensesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDetailView.swift; sourceTree = "<group>"; };
 		42CA52462C2B44C40024DF8B /* ExpensesDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDetailViewModel.swift; sourceTree = "<group>"; };
 		42CA52482C2B52F90024DF8B /* Int+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+String.swift"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				42B9F0E92BEA351100D719E3 /* Helpers */,
 				4241F46F2BB1E61A0048A29B /* Constants */,
 				42840CEF2C9B30D100E62068 /* Actions */,
+				424EC7B42CA94E3300CF76E2 /* Services */,
 				4242750D2BA4FF73001873A3 /* Assets.xcassets */,
 				4242750F2BA4FF73001873A3 /* Preview Content */,
 			);
@@ -310,6 +313,15 @@
 				42A11C292BB7173B003B617D /* MoneyModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		424EC7B42CA94E3300CF76E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				424EC7B22CA94E2200CF76E2 /* CalculationService.swift */,
+				424EC7B02CA852CF00CF76E2 /* MappingService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		4251FA4E2BAB94960087ABE7 /* Extensions */ = {
@@ -523,7 +535,6 @@
 			children = (
 				42B9F1192BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift */,
 				42B9F11B2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift */,
-				42CA52142C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift */,
 			);
 			path = MoneyEntity;
 			sourceTree = "<group>";
@@ -672,6 +683,7 @@
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42CA524D2C2B558C0024DF8B /* IconView.swift in Sources */,
 				42C9EB122C71EB5600D5D6EA /* TextView.swift in Sources */,
+				424EC7B32CA94E2200CF76E2 /* CalculationService.swift in Sources */,
 				42CA52492C2B52F90024DF8B /* Int+String.swift in Sources */,
 				42CA52452C2B42F30024DF8B /* ExpensesDetailView.swift in Sources */,
 				42EB693E2BFCFEA500FF4E7F /* TemporaryIncome.swift in Sources */,
@@ -709,7 +721,6 @@
 				42840CF12C9B312900E62068 /* VibrateService.swift in Sources */,
 				42F8F73E2C18C2E500C0CE9B /* Date+Extension.swift in Sources */,
 				42AA6C5E2C5FD23300850299 /* CalendarDetailsView.swift in Sources */,
-				42CA52152C235EA50024DF8B /* MoneyTracker+CoreDataFetchedProperties.swift in Sources */,
 				42EB69432BFE00A200FF4E7F /* CategoriesGridViewModel.swift in Sources */,
 				42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */,
 				42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */,
@@ -720,6 +731,7 @@
 				42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */,
 				42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */,
 				425767A02C2148C90053637A /* CoreDataManager.swift in Sources */,
+				424EC7B12CA852CF00CF76E2 /* MappingService.swift in Sources */,
 				4205FFFB2C7136FE0045486B /* EditRecordView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -137,6 +137,7 @@ struct MakeNewMoneyRecordView: View {
                 self.viewModel.vibrateMedium()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.viewModel.refreshCalculations()
                     self.dismiss()
                 }
             }

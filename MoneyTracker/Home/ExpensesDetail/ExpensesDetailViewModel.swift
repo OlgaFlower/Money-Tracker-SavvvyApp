@@ -20,7 +20,7 @@ final class ExpensesDetailViewModel: ObservableObject {
     private func filterAndMap(records: FetchedResults<Money>, forTag tag: Int16) -> [MoneyModel] {
         return records.filter { $0.typeTag == tag }.map { record in
             
-            return MoneyModel(
+            MoneyModel(
                 id: record.id,
                 recordType: .expense,
                 category: Category(

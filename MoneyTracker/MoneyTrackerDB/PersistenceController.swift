@@ -7,23 +7,8 @@
 
 import CoreData
 
-struct PersistenceController {
+final class PersistenceController {
     static let shared = PersistenceController()
-    
-    static var preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
-        let viewContext = result.container.viewContext
-        
-        // Dummy data will go here later
-        
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("*** Preview: Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-        return result
-    }()
     
     let container: NSPersistentContainer
     
@@ -41,14 +26,10 @@ struct PersistenceController {
             }
         }
         
-        container.viewContext.automaticallyMergesChangesFromParent =
-        true
+        container.viewContext.automaticallyMergesChangesFromParent = true
         container.viewContext.name = "viewContext"
-        /// - Tag: viewContextMergePolicy
-        container.viewContext.mergePolicy =
-        NSMergeByPropertyObjectTrumpMergePolicy
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         container.viewContext.undoManager = nil
         container.viewContext.shouldDeleteInaccessibleFaults = true
-        
     }
 }
