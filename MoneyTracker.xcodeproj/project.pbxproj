@@ -24,7 +24,7 @@
 		424275272BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */; };
 		424E3D382C63BF1E005E2181 /* CalendarDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */; };
 		424EC7B12CA852CF00CF76E2 /* MappingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424EC7B02CA852CF00CF76E2 /* MappingService.swift */; };
-		424EC7B32CA94E2200CF76E2 /* CalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424EC7B22CA94E2200CF76E2 /* CalculationService.swift */; };
+		424EC7B32CA94E2200CF76E2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424EC7B22CA94E2200CF76E2 /* DataService.swift */; };
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
 		42548AF22C71FB3700C35903 /* SmallTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF12C71FB3700C35903 /* SmallTextView.swift */; };
 		42548AF42C72173800C35903 /* EditRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF32C72173800C35903 /* EditRecordViewModel.swift */; };
@@ -116,7 +116,7 @@
 		424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsViewModel.swift; sourceTree = "<group>"; };
 		424EC7B02CA852CF00CF76E2 /* MappingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingService.swift; sourceTree = "<group>"; };
-		424EC7B22CA94E2200CF76E2 /* CalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationService.swift; sourceTree = "<group>"; };
+		424EC7B22CA94E2200CF76E2 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
 		42548AF12C71FB3700C35903 /* SmallTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTextView.swift; sourceTree = "<group>"; };
 		42548AF32C72173800C35903 /* EditRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewModel.swift; sourceTree = "<group>"; };
@@ -318,7 +318,7 @@
 		424EC7B42CA94E3300CF76E2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				424EC7B22CA94E2200CF76E2 /* CalculationService.swift */,
+				424EC7B22CA94E2200CF76E2 /* DataService.swift */,
 				424EC7B02CA852CF00CF76E2 /* MappingService.swift */,
 			);
 			path = Services;
@@ -683,7 +683,7 @@
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42CA524D2C2B558C0024DF8B /* IconView.swift in Sources */,
 				42C9EB122C71EB5600D5D6EA /* TextView.swift in Sources */,
-				424EC7B32CA94E2200CF76E2 /* CalculationService.swift in Sources */,
+				424EC7B32CA94E2200CF76E2 /* DataService.swift in Sources */,
 				42CA52492C2B52F90024DF8B /* Int+String.swift in Sources */,
 				42CA52452C2B42F30024DF8B /* ExpensesDetailView.swift in Sources */,
 				42EB693E2BFCFEA500FF4E7F /* TemporaryIncome.swift in Sources */,

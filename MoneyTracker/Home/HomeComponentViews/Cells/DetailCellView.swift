@@ -11,7 +11,7 @@ struct DetailCellView: View {
     
     var iconName: String
     var note: String
-    var sum: String
+    var sum: Int64
     var category: MoneyGroupType
     
     var body: some View {
@@ -36,9 +36,9 @@ struct DetailCellView: View {
     private func makeSumStringView(for type: MoneyGroupType) -> some View {
         switch self.category {
         case .generalExpense, .recurringExpense:
-            Text("-\(sum)€")
+            Text("-\(sum.toString())€")
         case .regularIncome, .temporaryIncome:
-            Text("+\(sum)€")
+            Text("+\(sum.toString())€")
         case .none:
             EmptyView()
         }
@@ -49,7 +49,7 @@ struct DetailCellView: View {
     DetailCellView(
         iconName: "heart",
         note: "Some test note",
-        sum: "32,84",
+        sum: 3284,
         category: .generalExpense
     )
 }

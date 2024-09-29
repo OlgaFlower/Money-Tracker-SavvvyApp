@@ -23,10 +23,11 @@ final class MappingService {
                     name: record.categoryName,
                     icon: record.categoryIcon
                 ),
-                moneyAmount: record.moneyAmount.toString(),
+                moneyAmount: record.moneyAmount,
                 notes: record.notes ?? "",
                 currency: record.currency,
-                timestamp: record.timestamp
+                timestamp: record.timestamp,
+                typeTag: Int(record.typeTag)
             )
         }
     }

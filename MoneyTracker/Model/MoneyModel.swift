@@ -15,10 +15,11 @@ struct MoneyModel: Identifiable {
         name: "CATEGORY",
         icon: "sun.min"
     )
-    var moneyAmount: String = ""
+    var moneyAmount: Int64 = 0
     var notes: String = ""
     var currency: String = "EUR"
     var timestamp: Date = Date()
+    var typeTag: Int = 0
 }
 
 enum RecordType: Identifiable {

@@ -11,28 +11,18 @@ final class ExpensesDetailViewModel: ObservableObject {
     
     @Published var generalExpenses: [MoneyModel] = []
     @Published var recurringExpenses: [MoneyModel] = []
+    private let todayExpenses = DataService.shared.todayExpensesRecords
     
-    func loadExpenses(records: FetchedResults<Money>) {
-        self.generalExpenses = filterAndMap(records: records, forTag: 3)
-        self.recurringExpenses = filterAndMap(records: records, forTag: 4)
+    init() {
+        self.loadExpenses()
     }
     
-    private func filterAndMap(records: FetchedResults<Money>, forTag tag: Int16) -> [MoneyModel] {
-        return records.filter { $0.typeTag == tag }.map { record in
-            
-            MoneyModel(
-                id: record.id,
-                recordType: .expense,
-                category: Category(
-                    moneyGroupType: record.typeTag.tagToGroupType(),
-                    name: record.categoryName,
-                    icon: record.categoryIcon
-                ),
-                moneyAmount: record.moneyAmount.toString(),
-                notes: record.notes ?? "",
-                currency: record.currency,
-                timestamp: record.timestamp
-            )
-        }
+    private func loadExpenses() {
+        self.generalExpenses = self.makeExpensesList(forTag: 3)
+        self.recurringExpenses = self.makeExpensesList(forTag: 4)
+    }
+    
+    private func makeExpensesList(forTag tag: Int16) -> [MoneyModel] {
+        return todayExpenses.filter { $0.typeTag == tag }
     }
 }

@@ -48,7 +48,35 @@ final class CoreDataManager {
         return []
     }
     
-    
+    func deleteRecord(at offsets: IndexSet, from records: inout [MoneyModel], in viewContext: NSManagedObjectContext) {
+        for index in offsets {
+                let recordToDelete = records[index]
+                
+                // Create a fetch request to find the Money object by id
+                let fetchRequest: NSFetchRequest<Money> = Money.fetchRequest() as! NSFetchRequest<Money>
+                fetchRequest.predicate = NSPredicate(format: "id == %@", recordToDelete.id as CVarArg)
+                
+                do {
+                    // Execute the fetch request
+                    let results = try viewContext.fetch(fetchRequest)
+                    
+                    // If the object is found, delete it
+                    if let objectToDelete = results.first {
+                        viewContext.delete(objectToDelete)
+                    }
+                } catch {
+                    print("Error fetching object to delete: \(error)")
+                }
+            }
+        // Remove from the local array
+            records.remove(atOffsets: offsets)
+        // Save the context
+            do {
+                try viewContext.save()
+            } catch {
+                print("Error saving context after deletion: \(error)")
+            }
+    }
     
     
     

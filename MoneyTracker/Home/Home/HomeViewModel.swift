@@ -14,9 +14,9 @@ final class HomeViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        self.todayExpenses = CalculationService.shared.todayExpenses
+        self.todayExpenses = DataService.shared.todayExpensesSum
         
-        CalculationService.shared.$todayExpenses
+        DataService.shared.$todayExpensesSum
             .sink { [weak self] newValue in
                 self?.todayExpenses = newValue
             }
