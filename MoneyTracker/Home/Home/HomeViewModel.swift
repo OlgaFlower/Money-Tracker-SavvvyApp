@@ -6,40 +6,31 @@
 //
 
 import SwiftUI
-import Combine
 
 final class HomeViewModel: ObservableObject {
-    // MARK: - States
-    @Published private(set) var todayExpenses: Int
-    @Published private(set) var dayBudget: Double
-    @Published private(set) var leftover: Double
     
-    // MARK: - Properties
-    private var cancellables = Set<AnyCancellable>()
+    @ObservedObject private var dataService: DataService
+    
+    // MARK: - Computed Properties
+    var leftoverTextColor: Color {
+        self.setLeftoverColor()
+    }
+    
+    var todayExpenses: Int {
+        dataService.todayExpensesSum
+    }
+    
+    var dayBudget: Double {
+        dataService.dayBudget
+    }
+    
+    var leftover: Double {
+        dataService.todayLeftover
+    }
     
     // MARK: - Init
-    init() {
-        self.todayExpenses = DataService.shared.todayExpensesSum
-        self.dayBudget = DataService.shared.dayBudget
-        self.leftover = DataService.shared.todayLeftover
-        
-        DataService.shared.$todayExpensesSum
-            .sink { [weak self] newValue in
-                self?.todayExpenses = newValue
-            }
-            .store(in: &cancellables)
-        
-        DataService.shared.$dayBudget
-            .sink { [weak self] newValue in
-                self?.dayBudget = newValue
-            }
-            .store(in: &cancellables)
-        
-        DataService.shared.$todayLeftover
-            .sink { [weak self] newValue in
-                self?.leftover = newValue
-            }
-            .store(in: &cancellables)
+    init(dataService: DataService = DataService.shared) {
+        self.dataService = dataService
     }
     
     // MARK: - Functions
@@ -47,8 +38,7 @@ final class HomeViewModel: ObservableObject {
         return leftover <= 0.0 ? 0.0 : leftover
     }
     
-    /// Color
-    func setLeftoverColor() -> Color {
+    private func setLeftoverColor() -> Color {
         let orangeLevel = self.dayBudget / 4 /// leftover is 25% of the budget
         let redLevel = self.dayBudget / 6 /// leftover is 16.6% of the budget
         
@@ -62,7 +52,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    /// Vibration
+    // MARK: - Actions
     func vibrate() {
         VibrateService.vibrateMedium()
     }

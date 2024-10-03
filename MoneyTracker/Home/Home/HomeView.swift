@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct HomeView: View {
     
-    // MARK: - State
+    // MARK: - States
     /// Views
     @StateObject private var viewModel = HomeViewModel()
     @State var isMakeNewRecordViewPresented = false
@@ -21,11 +20,6 @@ struct HomeView: View {
     @State private var animatedLeftover: Double = 0.0
     @State private var animatedBudget: Double = 0.0
     @State private var animatedExpenses: Int = 0
-    
-    // MARK: - Properties
-    private var leftoverTextColor: Color {
-        self.viewModel.setLeftoverColor()
-    }
     
     // MARK: - Body
     var body: some View {
@@ -39,7 +33,7 @@ struct HomeView: View {
                 TodayChartView(
                     animatedLeftover: self.animatedLeftover,
                     animatedBudget: self.animatedBudget,
-                    leftoverTextColor: self.leftoverTextColor,
+                    leftoverTextColor: self.viewModel.leftoverTextColor,
                     animateChart: self.animateChart
                 )
                 .frame(width: 260, height: 260)

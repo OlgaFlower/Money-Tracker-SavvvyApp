@@ -9,6 +9,8 @@ import Foundation
 
 final class CalendarManager {
     
+    static let shared = CalendarManager()
+    
     private init() {}
     
     static func getNumberOfDaysInMonth(for date: Date) -> Int {
