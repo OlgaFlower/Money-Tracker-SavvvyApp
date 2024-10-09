@@ -10,13 +10,11 @@ import SwiftUI
 struct HomeView: View {
     
     // MARK: - States
-    /// Views
     @StateObject private var viewModel = HomeViewModel()
-    @State var isMakeNewRecordViewPresented = false
-    @State var isDetailCellViewPresented = false
-    @State private var showingAlert = false
-    /// Animations
-    @State var animateChart = false
+    @State var newRecordViewPresented = false
+    @State var detailViewPresented = false
+    @State private var alertPresented = false
+    @State var chartAnimated = false
     
     // MARK: - Body
     var body: some View {
@@ -31,21 +29,21 @@ struct HomeView: View {
                     animatedLeftover: self.viewModel.leftover,
                     animatedBudget: self.viewModel.dayBudget,
                     leftoverTextColor: self.viewModel.leftoverTextColor,
-                    animateChart: self.animateChart
+                    chartAnimated: self.chartAnimated
                 )
                 .frame(width: 260, height: 260)
                 .onTapGesture {
-                    self.animateChart = true
+                    self.chartAnimated.toggle()
                     self.viewModel.vibrate()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.animateChart = false
+                        self.chartAnimated.toggle()
                     }
                 }
                 
                 /// Budget Information Board
                 HorizontalBudgetBoardView(
-                    showingAlert: self.$showingAlert,
-                    isDetailCellViewPresented: self.$isDetailCellViewPresented,
+                    alertPresented: self.$alertPresented,
+                    detailViewPresented: self.$detailViewPresented,
                     animatedExpenses: self.viewModel.todayExpenses,
                     animatedBudget: self.viewModel.dayBudget,
                     updateAnimatedValues: self.viewModel.updateValues // TODO: - remove closure
@@ -68,14 +66,14 @@ struct HomeView: View {
             Spacer()
             Button(action: {
                 self.viewModel.vibrateLight()
-                self.isMakeNewRecordViewPresented.toggle()
+                self.newRecordViewPresented.toggle()
             }, label: {
                 Image(systemName: "plus")
                     .font(Font.system(size: 36))
                     .foregroundStyle(.white)
             })
             .fullScreenCover(
-                isPresented: self.$isMakeNewRecordViewPresented) {
+                isPresented: self.$newRecordViewPresented) {
                     withAnimation {
                         self.viewModel.updateValues()
                     }

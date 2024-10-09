@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HorizontalBudgetBoardView: View {
     // MARK: - State
-    @Binding var showingAlert: Bool
-    @Binding var isDetailCellViewPresented: Bool
+    @Binding var alertPresented: Bool
+    @Binding var detailViewPresented: Bool
     @State private var budgetTextDisplayed = false
     
     // MARK: - Properties
@@ -56,13 +56,13 @@ struct HorizontalBudgetBoardView: View {
         .frame(width: self.infoBoardWidth)
         .onTapGesture {
             VibrateService.vibrateLight()
-            self.animatedExpenses == 0 ? self.showingAlert.toggle() : self.isDetailCellViewPresented.toggle()
+            self.animatedExpenses == 0 ? self.alertPresented.toggle() : self.detailViewPresented.toggle()
         }
-        .sheet(isPresented: self.$isDetailCellViewPresented, 
+        .sheet(isPresented: self.$detailViewPresented,
                content: {
             ExpensesDetailView(updateAnimatedValues: self.updateAnimatedValues)
         })
-        .alert("No expenses yet", isPresented: self.$showingAlert) {
+        .alert("No expenses yet", isPresented: self.$alertPresented) {
             Button("OK", role: .cancel) {}
         }
     }
@@ -107,8 +107,8 @@ struct HorizontalBudgetBoardView: View {
 
 #Preview {
     HorizontalBudgetBoardView(
-        showingAlert: .constant(false),
-        isDetailCellViewPresented: .constant(false),
+        alertPresented: .constant(false),
+        detailViewPresented: .constant(false),
         animatedExpenses: 0,
         animatedBudget: 0.0, 
         updateAnimatedValues: {}
