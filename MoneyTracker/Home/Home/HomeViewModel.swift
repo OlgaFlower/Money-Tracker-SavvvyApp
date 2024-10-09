@@ -11,36 +11,36 @@ final class HomeViewModel: ObservableObject {
     
     @ObservedObject private var dataService: DataService
     
+    // MARK: - Publishers
+    @Published var todayExpenses: Int = 0
+    @Published var dayBudget: Double = 0.0
+    @Published var leftover: Double = 0.0
+    
     // MARK: - Computed Properties
     var leftoverTextColor: Color {
         self.setLeftoverColor()
     }
     
-    var todayExpenses: Int {
-        dataService.todayExpensesSum
-    }
-    
-    var dayBudget: Double {
-        dataService.dayBudget
-    }
-    
-    var leftover: Double {
-        dataService.todayLeftover
-    }
-    
     // MARK: - Init
     init(dataService: DataService = DataService.shared) {
         self.dataService = dataService
+        self.updateValues()
     }
     
     // MARK: - Functions
+    func updateValues() {
+        self.todayExpenses = dataService.todayExpensesSum
+        self.dayBudget = dataService.dayBudget
+        self.leftover = dataService.todayLeftover
+    }
+    
     func setLeftoverValueForChart(leftover: Double) -> Double {
         return leftover <= 0.0 ? 0.0 : leftover
     }
     
     private func setLeftoverColor() -> Color {
-        let orangeLevel = self.dayBudget / 4 /// leftover is 25% of the budget
-        let redLevel = self.dayBudget / 6 /// leftover is 16.6% of the budget
+        let orangeLevel = self.dayBudget / 4
+        let redLevel = self.dayBudget / 6
         
         switch leftover {
         case ..<redLevel:

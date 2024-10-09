@@ -17,9 +17,6 @@ struct HomeView: View {
     @State private var showingAlert = false
     /// Animations
     @State var animateChart = false
-    @State private var animatedLeftover: Double = 0.0
-    @State private var animatedBudget: Double = 0.0
-    @State private var animatedExpenses: Int = 0
     
     // MARK: - Body
     var body: some View {
@@ -31,8 +28,8 @@ struct HomeView: View {
                 
                 /// Chart View
                 TodayChartView(
-                    animatedLeftover: self.animatedLeftover,
-                    animatedBudget: self.animatedBudget,
+                    animatedLeftover: self.viewModel.leftover,
+                    animatedBudget: self.viewModel.dayBudget,
                     leftoverTextColor: self.viewModel.leftoverTextColor,
                     animateChart: self.animateChart
                 )
@@ -49,9 +46,9 @@ struct HomeView: View {
                 HorizontalBudgetBoardView(
                     showingAlert: self.$showingAlert,
                     isDetailCellViewPresented: self.$isDetailCellViewPresented,
-                    animatedExpenses: self.animatedExpenses,
-                    animatedBudget: self.animatedBudget, 
-                    updateAnimatedValues: self.updateAnimatedValues
+                    animatedExpenses: self.viewModel.todayExpenses,
+                    animatedBudget: self.viewModel.dayBudget,
+                    updateAnimatedValues: self.viewModel.updateValues // TODO: - remove closure
                 )
                 .padding(.horizontal, 24)
                 .padding(.top, 35)
@@ -61,7 +58,7 @@ struct HomeView: View {
             .padding(.top, 25)
         }
         .onAppear {
-            self.updateAnimatedValues()
+            self.viewModel.updateValues()
         }
     }
     
@@ -80,7 +77,7 @@ struct HomeView: View {
             .fullScreenCover(
                 isPresented: self.$isMakeNewRecordViewPresented) {
                     withAnimation {
-                        self.updateAnimatedValues()
+                        self.viewModel.updateValues()
                     }
                 }
         content: { MakeNewMoneyRecordView(
@@ -88,13 +85,6 @@ struct HomeView: View {
           )}
         }
         .padding(.trailing, 40)
-    }
-    
-    // MARK: - Methods
-    private func updateAnimatedValues() {
-        self.animatedLeftover = self.viewModel.leftover
-        self.animatedBudget = self.viewModel.dayBudget
-        self.animatedExpenses = self.viewModel.todayExpenses
     }
 }
 
