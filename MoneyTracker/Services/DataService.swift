@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-final class DataService: ObservableObject, DataServiceProtocol {
+final class DataService: ObservableObject {
     
     static let shared = DataService()
     
@@ -24,17 +24,17 @@ final class DataService: ObservableObject, DataServiceProtocol {
     // MARK: - Computed properties
     var todayExpensesRecords: [MoneyModel] {
         self.dataManager.fetchExpensesForDay(date: Date.now)
-        }
+    }
     
     // MARK: - Init
     private init(
         dataManager: CoreDataManager = CoreDataManager.shared,
         calendarManager: CalendarManager = CalendarManager.shared
     ) {
-            self.dataManager = dataManager
-            self.calendarManager = calendarManager
-            self.updateTodayMoneyValues()
-        }
+        self.dataManager = dataManager
+        self.calendarManager = calendarManager
+        self.updateTodayMoneyValues()
+    }
     
     // MARK: - Functions
     func updateTodayMoneyValues() {
