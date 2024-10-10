@@ -13,7 +13,7 @@ struct TodayChartView: View {
     var animatedLeftover: Double
     var animatedBudget: Double
     var leftoverTextColor: Color
-    var animateChart: Bool
+    var chartAnimated: Bool
     
     // MARK: - Body
     var body: some View {
@@ -36,7 +36,7 @@ struct TodayChartView: View {
         }
         .gaugeStyle(ChartHalfDonut(
             leftoverColor: self.leftoverTextColor,
-            animateChart: self.animateChart)
+            animateChart: self.chartAnimated)
         )
     }
 }
@@ -47,6 +47,6 @@ struct TodayChartView: View {
         animatedLeftover: 9.90,
         animatedBudget: 7.88,
         leftoverTextColor: .red,
-        animateChart: false
+        chartAnimated: false
     )
 }

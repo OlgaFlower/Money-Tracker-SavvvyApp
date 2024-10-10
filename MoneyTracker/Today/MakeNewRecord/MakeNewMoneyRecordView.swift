@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 import CoreData
 
 struct MakeNewMoneyRecordView: View {
@@ -38,7 +37,7 @@ struct MakeNewMoneyRecordView: View {
                     /// Money Field
                     CurrencyTextFieldView(
                         isKeyboardFocused: _isCurrencyKeyboardFocused,
-                        inputAmount: self.$viewModel.newItem.moneyAmount,
+                        inputAmount: self.$viewModel.moneyAmount,
                         currency: self.viewModel.newItem.currency
                     )
                     
@@ -137,6 +136,7 @@ struct MakeNewMoneyRecordView: View {
                 self.viewModel.vibrateMedium()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.viewModel.refreshCalculations()
                     self.dismiss()
                 }
             }

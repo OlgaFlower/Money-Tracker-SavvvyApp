@@ -6,21 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ExpensesDetailView: View {
-    // MARK: - State
+    
+    // MARK: - Environment
     @Environment(\.managedObjectContext) var viewContext
+    
+    // MARK: - State
     @StateObject private var viewModel = ExpensesDetailViewModel()
     @State private var itemDeleted = false
-    
-    // MARK: - Properties
-    var updateAnimatedValues: () -> Void
-    
-    // MARK: - DB
-    var todayExpensesFetchRequest = CoreDataManager.fetchExpensesForDay(date: Date())
-    private var expensesRecords: FetchedResults<Money> {
-        todayExpensesFetchRequest.wrappedValue
-    }
+    @Binding var needToUpdateValues: Bool
     
     // MARK: - Body
     var body: some View {
@@ -32,9 +28,6 @@ struct ExpensesDetailView: View {
             }
             .foregroundStyle(.white)
             .padding(.top, 28)
-        }
-        .onAppear {
-            self.viewModel.loadExpenses(records: self.expensesRecords)
         }
         .onDisappear {
             self.handleOnDisappear()
@@ -97,38 +90,23 @@ struct ExpensesDetailView: View {
     private func handleOnDisappear() {
         if self.itemDeleted {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.updateAnimatedValues()
+                self.needToUpdateValues = self.itemDeleted
             }
         }
     }
     
     private func deleteGeneralItem(offsets: IndexSet) {
-        self.deleteItems(
-            at: offsets,
-            from: &viewModel.generalExpenses
-        )
+        CoreDataManager.shared.deleteRecord(at: offsets, from: &viewModel.generalExpenses, in: viewContext)
+        self.itemDeleted = true 
+        /// not .toggle because 2 and more items can be deleted
     }
     
     private func deleteRecurringItem(offsets: IndexSet) {
-        self.deleteItems(
-            at: offsets,
-            from: &viewModel.recurringExpenses
-        )
-    }
-    
-    private func deleteItems(
-        at offsets: IndexSet,
-        from expenses: inout [MoneyModel]
-    ) {
-        for index in offsets {
-            viewContext.delete(self.expensesRecords[index])
-        }
-        expenses.remove(atOffsets: offsets)
-        try? viewContext.save()
+        CoreDataManager.shared.deleteRecord(at: offsets, from: &viewModel.recurringExpenses, in: viewContext)
         self.itemDeleted = true
     }
 }
 
 #Preview {
-    ExpensesDetailView(updateAnimatedValues: {})
+    ExpensesDetailView(needToUpdateValues: .constant(false))
 }

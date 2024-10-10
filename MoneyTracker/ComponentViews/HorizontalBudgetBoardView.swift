@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct HorizontalBudgetBoardView: View {
+    
     // MARK: - State
-    @Binding var showingAlert: Bool
-    @Binding var isDetailCellViewPresented: Bool
     @State private var budgetTextDisplayed = false
     
-    // MARK: - Properties
-    var animatedExpenses: Int
-    var animatedBudget: Double
-    private let infoBoardWidth = Constants.screenWidth / 2.8
-    private let budgetText = "The daily budget consists of all revenues deposited in the current month and, if available, the positive balance from the previous month."
+    @Binding var alertPresented: Bool
+    @Binding var detailViewPresented: Bool
+    @Binding var dayBudget: Double
+    @Binding var todayExpenses: Int
+    @Binding var needToUpdateValues: Bool
     
-    /// This clouser helps ExpensesDetailView (grand child view) to run an animation func from HomeView (parent view)
-    /// in the certain time after editing and dismissing ExpensesDetailView.
-    var updateAnimatedValues: () -> Void
+    // MARK: - Properties
+    private let infoBoardWidth = Constants.screenWidth / 2.8
+    let budgetAlertText = Constants.budgetTextExplanation
     
     // MARK: - Body
     var body: some View {
@@ -45,24 +44,25 @@ struct HorizontalBudgetBoardView: View {
             
             HStack {
                 Spacer()
-                Text(self.animatedExpenses.toString().formatAsCurrency())
+                Text(self.todayExpenses.toString().formatAsCurrency())
                     .font(.customFont(style: .regular, size: .title))
                     .foregroundStyle(.white.opacity(0.9))
                     .contentTransition(.numericText())
-                    .animation(.linear, value: self.animatedExpenses)
+                    .animation(.linear, value: self.todayExpenses)
             }
             .padding(.trailing, 22)
         }
         .frame(width: self.infoBoardWidth)
         .onTapGesture {
             VibrateService.vibrateLight()
-            self.animatedExpenses == 0 ? self.showingAlert.toggle() : self.isDetailCellViewPresented.toggle()
+            self.todayExpenses == 0 ? self.alertPresented.toggle() : self.detailViewPresented.toggle()
+            self.needToUpdateValues = false
         }
-        .sheet(isPresented: self.$isDetailCellViewPresented, 
+        .sheet(isPresented: self.$detailViewPresented,
                content: {
-            ExpensesDetailView(updateAnimatedValues: self.updateAnimatedValues)
+            ExpensesDetailView(needToUpdateValues: self.$needToUpdateValues)
         })
-        .alert("No expenses yet", isPresented: self.$showingAlert) {
+        .alert("No expenses yet", isPresented: self.$alertPresented) {
             Button("OK", role: .cancel) {}
         }
     }
@@ -85,11 +85,11 @@ struct HorizontalBudgetBoardView: View {
             .padding(.leading, 30)
             
             HStack {
-                Text(String(describing: self.animatedBudget).formatAsCurrency())
+                Text(String(describing: self.dayBudget).formatAsCurrency())
                     .font(.customFont(style: .regular, size: .title))
                     .foregroundStyle(.white.opacity(0.9))
                     .contentTransition(.numericText())
-                    .animation(.linear, value: self.animatedBudget)
+                    .animation(.linear, value: self.dayBudget)
                 Spacer()
             }
             .padding(.leading, 30)
@@ -99,7 +99,7 @@ struct HorizontalBudgetBoardView: View {
             VibrateService.vibrateLight()
             self.budgetTextDisplayed.toggle()
         }
-        .alert(self.budgetText, isPresented: self.$budgetTextDisplayed) {
+        .alert(self.budgetAlertText, isPresented: self.$budgetTextDisplayed) {
             Button("OK", role: .cancel) {}
         }
     }
@@ -107,10 +107,10 @@ struct HorizontalBudgetBoardView: View {
 
 #Preview {
     HorizontalBudgetBoardView(
-        showingAlert: .constant(false),
-        isDetailCellViewPresented: .constant(false),
-        animatedExpenses: 0,
-        animatedBudget: 0.0, 
-        updateAnimatedValues: {}
+        alertPresented: .constant(false),
+        detailViewPresented: .constant(false),
+        dayBudget: .constant(0.0), 
+        todayExpenses: .constant(0), 
+        needToUpdateValues: .constant(false)
     )
 }

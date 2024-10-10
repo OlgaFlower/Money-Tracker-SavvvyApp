@@ -89,5 +89,5 @@ struct ChartHalfDonut: GaugeStyle {
 }
 
 #Preview {
-    HomeView()
+    TodayView()
 }

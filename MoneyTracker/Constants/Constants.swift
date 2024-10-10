@@ -22,4 +22,7 @@ final class Constants {
     /// Add new record
     static let newRecordTypes = [RecordType.expense, RecordType.income]
     
+    // MARK: - Alert texts -
+    static let budgetTextExplanation = "The daily budget consists of all revenues deposited in the current month and, if available, the positive balance from the previous month."
+    
 }

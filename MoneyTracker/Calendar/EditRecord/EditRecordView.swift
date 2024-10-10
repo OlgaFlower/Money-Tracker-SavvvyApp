@@ -43,7 +43,7 @@ struct EditRecordView: View {
                     self.makeDateEditor()
                     CurrencyTextFieldView(
                         isKeyboardFocused: _isCurrencyKeyboardFocused,
-                        inputAmount: self.$viewModel.editingItem.moneyAmount,
+                        inputAmount: self.$viewModel.inputAmount,
                         currency: self.viewModel.editingItem.currency
                     )
                     self.categoryView
