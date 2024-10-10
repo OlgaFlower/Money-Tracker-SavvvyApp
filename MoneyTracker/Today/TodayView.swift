@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  TodayView.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 31.03.24.
@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct TodayView: View {
     
     // MARK: - States
-    @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var viewModel = TodayViewModel()
     @State var newRecordViewPresented = false
     @State var detailViewPresented = false
     @State private var alertPresented = false
     @State var chartAnimated = false
+    @State var needToUpdateValues = false
     
     // MARK: - Body
     var body: some View {
@@ -44,9 +45,9 @@ struct HomeView: View {
                 HorizontalBudgetBoardView(
                     alertPresented: self.$alertPresented,
                     detailViewPresented: self.$detailViewPresented,
-                    animatedExpenses: self.viewModel.todayExpenses,
-                    animatedBudget: self.viewModel.dayBudget,
-                    updateAnimatedValues: self.viewModel.updateValues // TODO: - remove closure
+                    dayBudget: self.$viewModel.dayBudget,
+                    todayExpenses: self.$viewModel.todayExpenses, 
+                    needToUpdateValues: self.$needToUpdateValues
                 )
                 .padding(.horizontal, 24)
                 .padding(.top, 35)
@@ -58,6 +59,11 @@ struct HomeView: View {
         .onAppear {
             self.viewModel.updateValues()
         }
+        .onChange(of: self.needToUpdateValues, {
+            if self.needToUpdateValues {
+                self.viewModel.updateValues()
+            }
+        })
     }
     
     // MARK: - Views
@@ -88,5 +94,5 @@ struct HomeView: View {
 
 // MARK: - Preview
 #Preview {
-    HomeView()
+    TodayView()
 }

@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  TodayViewModel.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 18.05.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class HomeViewModel: ObservableObject {
+final class TodayViewModel: ObservableObject {
     
     @ObservedObject private var dataService: DataService
     
@@ -29,6 +29,7 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: - Functions
     func updateValues() {
+        self.dataService.updateTodayMoneyValues()
         self.todayExpenses = dataService.todayExpensesSum
         self.dayBudget = dataService.dayBudget
         self.leftover = dataService.todayLeftover

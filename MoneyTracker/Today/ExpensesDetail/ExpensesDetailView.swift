@@ -9,13 +9,14 @@ import SwiftUI
 import CoreData
 
 struct ExpensesDetailView: View {
-    // MARK: - State
+    
+    // MARK: - Environment
     @Environment(\.managedObjectContext) var viewContext
+    
+    // MARK: - State
     @StateObject private var viewModel = ExpensesDetailViewModel()
     @State private var itemDeleted = false
-    
-    // MARK: - Properties
-    var updateAnimatedValues: () -> Void
+    @Binding var needToUpdateValues: Bool
     
     // MARK: - Body
     var body: some View {
@@ -89,8 +90,7 @@ struct ExpensesDetailView: View {
     private func handleOnDisappear() {
         if self.itemDeleted {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                DataService.shared.updateTodayMoneyValues()
-                self.updateAnimatedValues()
+                self.needToUpdateValues = self.itemDeleted
             }
         }
     }
@@ -108,5 +108,5 @@ struct ExpensesDetailView: View {
 }
 
 #Preview {
-    ExpensesDetailView(updateAnimatedValues: {})
+    ExpensesDetailView(needToUpdateValues: .constant(false))
 }
