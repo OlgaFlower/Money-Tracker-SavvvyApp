@@ -13,7 +13,7 @@ struct CurrencyTextFieldView: View {
     // MARK: - State -
     @FocusState var isKeyboardFocused: Bool
     @Binding var inputAmount: String
-    @State private var displyedNumber = "0,00"
+    @State private var displyedNumber = "0 ,00"
     
     // MARK: - Properties -
     let currency: String
@@ -57,13 +57,13 @@ struct CurrencyTextFieldView: View {
                                 displyedNumber = TextFormatter.textToCurrency(inputAmount)
                             }
                             if inputAmount.isEmpty {
-                                displyedNumber = "0\(Constants.decimalSeparator)00"
+                                displyedNumber = "0 \(Constants.decimalSeparator)00"
                             }
                             if inputAmount.count == 1 {
-                                displyedNumber = "0\(Constants.decimalSeparator)0\(inputAmount)"
+                                displyedNumber = "0 \(Constants.decimalSeparator)0\(inputAmount)"
                             }
                             if inputAmount.count == 2 {
-                                displyedNumber = "0\(Constants.decimalSeparator)\(inputAmount)"
+                                displyedNumber = "0 \(Constants.decimalSeparator)\(inputAmount)"
                             }
                         }
                 }
@@ -77,7 +77,7 @@ struct CurrencyTextFieldView: View {
 
 #Preview {
     CurrencyTextFieldView(
-        inputAmount: .constant("0,00"),
+        inputAmount: .constant("0 ,00"),
         currency: "EUR"
     )
 }
