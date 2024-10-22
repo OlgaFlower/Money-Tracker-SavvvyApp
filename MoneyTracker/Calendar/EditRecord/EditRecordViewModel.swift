@@ -9,21 +9,26 @@ import SwiftUI
 
 final class EditRecordViewModel: ObservableObject {
     
-    @Published var editingItem = MoneyModel()
+    @ObservedObject private var dataService: DataService
+    
+    // MARK: - Publishers
+    @Published var editingItem = MoneyModel() // TODO: - Handle error if id.isEmpty (record can't be found)
     @Published var inputAmount = ""
     
-    func loadRecord(records: FetchedResults<Money>) {
-        guard let record = records.first else { return }
-        
-        self.editingItem = MoneyModel(
-            id: record.id,
-            recordType: record.isIncome ? .income : .expense,
-            category: self.createCategory(from: record),
-            moneyAmount: record.moneyAmount,
-            notes: record.notes ?? "",
-            currency: record.currency,
-            timestamp: record.timestamp
-        )
+    // MARK: - Init
+    init(
+        dataService: DataService = DataService.shared,
+        recordId: String
+    ) {
+        self.dataService = dataService
+        self.loadRecord(recordId: recordId)
+    }
+    
+    // MARK: - Functions
+    func loadRecord(recordId: String) {
+        guard let record = self.dataService.getRecordById(recordId: recordId) else { return }
+        self.editingItem = record
+        self.inputAmount = record.moneyAmount.toString()
     }
     
     private func createCategory(from record: Money) -> Category {

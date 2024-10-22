@@ -5,7 +5,7 @@
 //  Created by Olha Bereziuk on 18.06.24.
 //
 
-import CoreData 
+import CoreData
 import SwiftUI
 
 final class CoreDataManager {
@@ -22,13 +22,29 @@ final class CoreDataManager {
     /// All Records for DATE
     static func predicateForSelectedDay(date: Date) -> NSPredicate {
         return NSPredicate(
-                    format: "timestamp >= %@ AND timestamp < %@",
-                    Calendar.current.startOfDay(for: date) as NSDate,
-                    Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: date))! as NSDate
-                )
+            format: "timestamp >= %@ AND timestamp < %@",
+            Calendar.current.startOfDay(for: date) as NSDate,
+            Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: date))! as NSDate
+        )
     }
     
     //REFACTORING
+    // MARK: - Record by ID
+    func fetchRecordById(recordId: String) -> MoneyModel? {
+        let request = NSFetchRequest<Money>(entityName: "Money")
+        request.predicate = NSPredicate(format: "id == %@", recordId)
+        
+        do {
+            let result = try PersistenceController.shared.container.viewContext.fetch(request)
+            if !result.isEmpty {
+                let record = MappingService.mapDataToMoneyModel(recordsData: result)
+                return record.first
+            }
+        } catch let error {
+            print("Error fetching a record by Id. \(error)")
+        }
+        return nil
+    }
     
     // MARK: - Expenses for Day
     func fetchExpensesForDay(date: Date) -> [MoneyModel] {
@@ -93,40 +109,40 @@ final class CoreDataManager {
         in viewContext: NSManagedObjectContext
     ) {
         for index in offsets {
-                let recordToDelete = records[index]
+            let recordToDelete = records[index]
+            
+            // Create a fetch request to find the Money object by id
+            let fetchRequest: NSFetchRequest<Money> = Money.fetchRequest() as! NSFetchRequest<Money>
+            fetchRequest.predicate = NSPredicate(format: "id == %@", recordToDelete.id as CVarArg)
+            
+            do {
+                // Execute the fetch request
+                let results = try viewContext.fetch(fetchRequest)
                 
-                // Create a fetch request to find the Money object by id
-                let fetchRequest: NSFetchRequest<Money> = Money.fetchRequest() as! NSFetchRequest<Money>
-                fetchRequest.predicate = NSPredicate(format: "id == %@", recordToDelete.id as CVarArg)
-                
-                do {
-                    // Execute the fetch request
-                    let results = try viewContext.fetch(fetchRequest)
-                    
-                    // If the object is found, delete it
-                    if let objectToDelete = results.first {
-                        viewContext.delete(objectToDelete)
-                    }
-                } catch {
-                    print("Error fetching object to delete: \(error)")
+                // If the object is found, delete it
+                if let objectToDelete = results.first {
+                    viewContext.delete(objectToDelete)
                 }
+            } catch {
+                print("Error fetching object to delete: \(error)")
             }
+        }
         // TODO: - take away removing from local array to the viewmodel/view
         // Remove from the local array
-            records.remove(atOffsets: offsets)
+        records.remove(atOffsets: offsets)
         // Save the context
-            do {
-                try viewContext.save()
-            } catch {
-                print("Error saving context after deletion: \(error)")
-            }
+        do {
+            try viewContext.save()
+        } catch {
+            print("Error saving context after deletion: \(error)")
+        }
     }
     
     
     
     
     
-    /// Make NEW RECORD
+    //MARK: - Make NEW RECORD
     static func makeNewRecordWith(
         id: String,
         moneyAmount: Int64,

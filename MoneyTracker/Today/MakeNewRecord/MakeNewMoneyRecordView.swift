@@ -36,9 +36,10 @@ struct MakeNewMoneyRecordView: View {
                     
                     /// Money Field
                     CurrencyTextFieldView(
-                        isKeyboardFocused: _isCurrencyKeyboardFocused,
                         inputAmount: self.$viewModel.moneyAmount,
-                        currency: self.viewModel.newItem.currency
+                        currency: self.viewModel.newItem.currency,
+                        useCase: .newRecord,
+                        isKeyboardFocused: _isCurrencyKeyboardFocused
                     )
                     
                     /// Category

@@ -8,15 +8,39 @@
 import SwiftUI
 import Combine
 
+enum CurrencyTextfieldCase {
+    case newRecord
+    case editRecord
+}
+
 struct CurrencyTextFieldView: View {
     
     // MARK: - State -
     @FocusState var isKeyboardFocused: Bool
     @Binding var inputAmount: String
-    @State private var displyedNumber = "0 ,00"
+    @State private var displayedNumber: String
     
     // MARK: - Properties -
     let currency: String
+    
+    // MARK: - Init
+    init(
+        inputAmount: Binding<String>,
+        currency: String,
+        useCase: CurrencyTextfieldCase,
+        isKeyboardFocused: FocusState<Bool>
+    ) {
+        self._inputAmount = inputAmount
+        self._isKeyboardFocused = isKeyboardFocused
+        self.currency = currency
+        
+        switch useCase {
+        case .editRecord:
+            self._displayedNumber = State(initialValue: inputAmount.wrappedValue)
+        case .newRecord:
+            self._displayedNumber = State(initialValue: "0 ,00")
+        }
+    }
     
     // MARK: - Body -
     var body: some View {
@@ -27,7 +51,7 @@ struct CurrencyTextFieldView: View {
                 
                 /// Displayed Number
                 HStack {
-                    Text("\(displyedNumber) \(currency)")
+                    Text("\(displayedNumber) \(currency)")
                         .multilineTextAlignment(.center)
                         .font(.customFont(style: .regular, size: .title))
                         .keyboardType(.decimalPad)
@@ -54,16 +78,16 @@ struct CurrencyTextFieldView: View {
                         .onChange(of: inputAmount) {
                             // Format the input amount as currency
                             if inputAmount.count > 2 {
-                                displyedNumber = TextFormatter.textToCurrency(inputAmount)
+                                displayedNumber = TextFormatter.textToCurrency(inputAmount)
                             }
                             if inputAmount.isEmpty {
-                                displyedNumber = "0 \(Constants.decimalSeparator)00"
+                                displayedNumber = "0 \(Constants.decimalSeparator)00"
                             }
                             if inputAmount.count == 1 {
-                                displyedNumber = "0 \(Constants.decimalSeparator)0\(inputAmount)"
+                                displayedNumber = "0 \(Constants.decimalSeparator)0\(inputAmount)"
                             }
                             if inputAmount.count == 2 {
-                                displyedNumber = "0 \(Constants.decimalSeparator)\(inputAmount)"
+                                displayedNumber = "0 \(Constants.decimalSeparator)\(inputAmount)"
                             }
                         }
                 }
@@ -73,11 +97,4 @@ struct CurrencyTextFieldView: View {
             self.isKeyboardFocused = true
         }
     }
-}
-
-#Preview {
-    CurrencyTextFieldView(
-        inputAmount: .constant("0 ,00"),
-        currency: "EUR"
-    )
 }

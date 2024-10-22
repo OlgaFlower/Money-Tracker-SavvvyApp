@@ -47,10 +47,17 @@ struct CalendarDetailsView: View {
             content: self.errorAlert
         )
         .onChange(of: self.selectedRecordId, {
-            self.showRecordEditor.toggle()
+            if !self.selectedRecordId.isEmpty {
+                self.showRecordEditor = true
+            }
         })
-        .fullScreenCover(isPresented: self.$showRecordEditor, content: {
-            EditRecordView(id: self.selectedRecordId)
+        .fullScreenCover(
+            isPresented: self.$showRecordEditor,
+            onDismiss: {
+                self.selectedRecordId = ""
+            },
+            content: {
+            EditRecordView(recordId: self.selectedRecordId)
         })
     }
     
