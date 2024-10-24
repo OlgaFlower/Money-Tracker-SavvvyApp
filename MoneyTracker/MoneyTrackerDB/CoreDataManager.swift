@@ -152,7 +152,7 @@ final class CoreDataManager {
         }
     }
     
-    // MARK: - Delete Record (old = to check)
+    // TODO: - old func => to check and replace with func above
     func deleteRecord(
         at offsets: IndexSet,
         from records: inout [MoneyModel],

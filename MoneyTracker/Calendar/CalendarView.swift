@@ -14,6 +14,7 @@ struct CalendarView: View {
     @State private var daysInMonth: [Date] = []
     @State var selectedDate = Date.now
     @State private var isCalendarDetailsPresented = false
+    @State private var rotationAngle = 0.0
     
     // MARK: - Properties
     let daysOfWeek = Date.uppercasedWeekdays
@@ -95,7 +96,10 @@ struct CalendarView: View {
                 Image(systemName: "arrow.counterclockwise")
                     .font(.customFont(style: .semibold, size: .title))
                     .opacity(0.9)
+                    .rotationEffect(.degrees(self.rotationAngle))
+                    .animation(.easeInOut(duration: 0.4), value: self.rotationAngle)
                     .onTapGesture {
+                        self.rotationAngle -= 360
                         self.currentDate = Date.now
                         VibrateService.vibrateLight()
                     }
