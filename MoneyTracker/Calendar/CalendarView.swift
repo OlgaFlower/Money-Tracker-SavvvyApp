@@ -12,7 +12,7 @@ struct CalendarView: View {
     // MARK: - States
     @State private var currentDate = Date.now
     @State private var daysInMonth: [Date] = []
-    @State private var selectedDate = Date.now
+    @State var selectedDate = Date.now
     @State private var isCalendarDetailsPresented = false
     
     // MARK: - Properties
@@ -52,9 +52,7 @@ struct CalendarView: View {
             .fullScreenCover(
                 isPresented: self.$isCalendarDetailsPresented,
                 content: {
-                    CalendarDetailsView(
-                        selectedDay: self.selectedDate
-                    )
+                    CalendarDetailsView(viewModel: CalendarDetailsViewModel(selectedDay: self.$selectedDate))
                 })
         }
     }
@@ -138,13 +136,13 @@ struct CalendarView: View {
         ) {
             
             ForEach(self.daysInMonth, id: \.self) { day in
-                self.calendarDayView(for: day)
+                self.makeDayCell(for: day)
             }
         }
     }
     
     @ViewBuilder
-    private func calendarDayView(for day: Date) -> some View {
+    private func makeDayCell(for day: Date) -> some View {
         
         if day.monthInt != self.currentDate.monthInt {
             Text("")
@@ -156,43 +154,44 @@ struct CalendarView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 4.0)
                         .foregroundStyle(
-                            Date.now.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15)
+                            selectedDate.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15)
                         )
                 )
                 .onTapGesture {
-                    self.selectedDate = day.startOfDay
-                    self.isCalendarDetailsPresented.toggle()
+                    self.handleDateTap(day)
                 }
         }
     }
     
+    // MARK: - Functions
+    private func handleDateTap(_ day: Date) {
+        self.selectedDate = day.startOfDay
+        self.isCalendarDetailsPresented = true
+    }
+    
     // MARK: - Actions
     private func moveToPreviousMonth() {
-        
         if let newDate = Calendar.current.date(byAdding: .month, value: -1, to: self.currentDate) {
             self.currentDate = newDate
         }
     }
     
     private func moveToNextMonth() {
-        
         if let newDate = Calendar.current.date(byAdding: .month, value: 1, to: self.currentDate) {
             self.currentDate = newDate
         }
     }
     
     private func loadCurrentMonthDays() {
-        
         self.currentDate = Date.now
         self.daysInMonth = currentDate.calendarDisplayDays
     }
     
     private func updateDaysInMonth() {
-        
         self.daysInMonth = self.currentDate.calendarDisplayDays
     }
 }
 
 #Preview {
-    CalendarView()
+    CalendarView(selectedDate: Date.now)
 }

@@ -6,48 +6,43 @@
 //
 
 import SwiftUI
+import CoreData
 
 final class CalendarDetailsViewModel: ObservableObject {
     
+    @ObservedObject private var dataService: DataService
+    
+    // MARK: - Publishers
     @Published var expenses: [MoneyModel] = []
     @Published var income: [MoneyModel] = []
     
-    func getIncomeRecords(records: FetchedResults<Money>) {
-        self.income = self.filterAndMapRecords(
-            records: records,
-            isIncome: true
-        )
+    @Binding var selectedDay: Date
+    
+    // MARK: - Init
+    init(
+        dataService: DataService = DataService.shared,
+        selectedDay: Binding<Date>
+    ) {
+        self.dataService = dataService
+        self._selectedDay = selectedDay
+        self.prepareRecords()
     }
     
-    func getExpensesRecords(records: FetchedResults<Money>) {
-        self.expenses = self.filterAndMapRecords(
-            records: records,
-            isIncome: false
-        )
+    // MARK: - Functions
+    func prepareRecords() {
+        let allRecords = self.dataService.getRecords(for: self.selectedDay)
+        self.filterRecords(records: allRecords)
     }
     
-    private func filterAndMapRecords(
-        records: FetchedResults<Money>,
-        isIncome: Bool
-    ) -> [MoneyModel] {
-        return records.filter { $0.isIncome == isIncome }.map { record in
-            MoneyModel(
-                id: record.id, 
-                recordType: isIncome ? .income : .expense,
-                category: self.createCategory(from: record),
-                moneyAmount: record.moneyAmount,
-                notes: record.notes ?? "",
-                currency: record.currency,
-                timestamp: record.timestamp
-            )
-        }
+    func filterRecords(records: [MoneyModel]) {
+        self.income = records.filter { $0.recordType == .income }
+        self.expenses = records.filter { $0.recordType == .expense }
     }
     
-    private func createCategory(from record: Money) -> Category {
-        return Category(
-            moneyGroupType: record.typeTag.tagToGroupType(),
-            name: record.categoryName,
-            icon: record.categoryIcon
-        )
+    func deleteItem(
+        recordId: String,
+        in viewContext: NSManagedObjectContext
+    ) {
+        self.dataService.deleteRecord(recordId: recordId, in: viewContext)
     }
 }

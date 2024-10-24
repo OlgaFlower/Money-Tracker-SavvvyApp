@@ -29,6 +29,31 @@ final class CoreDataManager {
     }
     
     //REFACTORING
+    // MARK: - Records by Date
+    func fetchRecords(for date: Date) -> [MoneyModel] {
+        let request = NSFetchRequest<Money>(entityName: "Money")
+        request.predicate = NSPredicate(
+            format: "timestamp >= %@ AND timestamp < %@",
+            Calendar.current.startOfDay(for: date) as NSDate,
+            Calendar.current.date(
+                byAdding: .day,
+                value: 1,
+                to: Calendar.current.startOfDay(for: date)
+            )! as NSDate
+        )
+        
+        do {
+            let result = try PersistenceController.shared.container.viewContext.fetch(request)
+            if !result.isEmpty {
+                let records = MappingService.mapDataToMoneyModel(recordsData: result)
+                return records
+            }
+        } catch let error {
+            print("Error fetching a record by Id. \(error)")
+        }
+        return []
+    }
+    
     // MARK: - Record by ID
     func fetchRecordById(recordId: String) -> MoneyModel? {
         let request = NSFetchRequest<Money>(entityName: "Money")
@@ -103,6 +128,31 @@ final class CoreDataManager {
     }
     
     // MARK: - Delete Record
+    func deleteRecord(
+        recordId: String,
+        in viewContext: NSManagedObjectContext
+    ) {
+        let request = NSFetchRequest<Money>(entityName: "Money")
+        request.predicate = NSPredicate(format: "id == %@", recordId)
+        
+        do {
+            let results = try viewContext.fetch(request)
+            
+            if let itemObject = results.first {
+                viewContext.delete(itemObject)
+            }
+        } catch {
+            print("Error fetching object to delete: \(error)")
+        }
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Error saving context after deletion: \(error)")
+        }
+    }
+    
+    // MARK: - Delete Record (old = to check)
     func deleteRecord(
         at offsets: IndexSet,
         from records: inout [MoneyModel],

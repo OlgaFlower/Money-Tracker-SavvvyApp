@@ -46,6 +46,20 @@ final class DataService: ObservableObject {
     func getRecordById(recordId: String) -> MoneyModel? {
         return self.dataManager.fetchRecordById(recordId: recordId)
     }
+    
+    func getRecords(for date: Date) -> [MoneyModel] {
+        return self.dataManager.fetchRecords(for: date)
+    }
+    
+    func deleteRecord(
+        recordId: String,
+        in viewContext: NSManagedObjectContext
+    ) {
+        self.dataManager.deleteRecord(
+            recordId: recordId,
+            in: viewContext
+        )
+    }
 }
 
 // MARK: - Extension

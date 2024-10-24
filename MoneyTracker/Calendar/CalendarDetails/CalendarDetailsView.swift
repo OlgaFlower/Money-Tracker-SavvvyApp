@@ -13,25 +13,11 @@ struct CalendarDetailsView: View {
     @Environment(\.managedObjectContext) var viewContext
     
     // MARK: - State
-    @State private var selectedDay: Date
     @State private var selectedRecordId: String = ""
-    @StateObject private var viewModel = CalendarDetailsViewModel()
+    @StateObject var viewModel: CalendarDetailsViewModel
     @State private var showErrorAlert = false
     @State private var errorMessage = "Smth went wrong"
     @State private var showRecordEditor = false
-    
-    // MARK: - DB
-    @FetchRequest private var records: FetchedResults<Money>
-    
-    // MARK: - Init
-    init(selectedDay: Date) {
-        self._selectedDay = State(initialValue: selectedDay)
-        self._records = FetchRequest(
-            entity: Money.entity(),
-            sortDescriptors: [NSSortDescriptor(keyPath: \Money.timestamp, ascending: true)],
-            predicate: CoreDataManager.predicateForSelectedDay(date: selectedDay)
-        )
-    }
     
     // MARK: - Body
     var body: some View {
@@ -41,7 +27,6 @@ struct CalendarDetailsView: View {
                 .padding(.top, 16)
                 .foregroundStyle(.white)
         }
-        .onAppear(perform: self.loadRecords)
         .alert(
             isPresented: self.$showErrorAlert,
             content: self.errorAlert
@@ -65,7 +50,7 @@ struct CalendarDetailsView: View {
     private var content: some View {
         VStack(spacing: 16) {
             CancelButtonView(action: { dismiss() })
-            DateHeaderView(date: self.selectedDay)
+            DateHeaderView(date: self.viewModel.selectedDay)
             self.recordsList
             Spacer()
         }
@@ -144,29 +129,8 @@ struct CalendarDetailsView: View {
         
         offsets.forEach { index in
             let record = section == "INCOME" ? self.viewModel.income[index] : self.viewModel.expenses[index]
-            
-            if let moneyObject = records.first(where: { $0.timestamp == record.timestamp }) {
-                self.viewContext.delete(moneyObject)
-            }
+            self.viewModel.deleteItem(recordId: record.id, in: self.viewContext)
         }
-        do {
-            try self.viewContext.save()
-            
-        } catch {
-            self.errorMessage = "Failed to delete record. Try again."
-            print("Failed to delete record: \(error.localizedDescription)")
-            self.showErrorAlert.toggle()
-        }
-        self.loadRecords()
+        self.viewModel.prepareRecords()
     }
-    
-    // MARK: - Methods
-    private func loadRecords() {
-        self.viewModel.getIncomeRecords(records: records)
-        self.viewModel.getExpensesRecords(records: records)
-    }
-}
-
-#Preview {
-    CalendarDetailsView(selectedDay: Date.now)
 }
