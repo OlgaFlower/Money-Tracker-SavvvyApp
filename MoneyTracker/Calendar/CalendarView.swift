@@ -101,6 +101,7 @@ struct CalendarView: View {
                     .onTapGesture {
                         self.rotationAngle -= 360
                         self.currentDate = Date.now
+                        self.selectedDate = self.currentDate
                         VibrateService.vibrateLight()
                     }
                 Spacer()
