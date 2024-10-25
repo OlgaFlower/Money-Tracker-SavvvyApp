@@ -10,6 +10,7 @@ import SwiftUI
 struct EditRecordView: View {
     // MARK: - Environment
     @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) var viewContext
     
     // MARK: - State
     @StateObject private var viewModel: EditRecordViewModel
@@ -122,6 +123,7 @@ struct EditRecordView: View {
     // Save
     private var saveButtonView: some View {
         Button {
+            self.viewModel.saveChanges(using: self.viewContext)
             self.viewModel.vibrateMedium()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.viewModel.vibrateMedium()

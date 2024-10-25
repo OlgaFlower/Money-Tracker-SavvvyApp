@@ -19,7 +19,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         if let intValue = Int64(self.moneyAmount),
            self.newItem.category.name != "CATEGORY" {
             
-            CoreDataManager.makeNewRecordWith(
+            CoreDataManager.shared.makeNewRecordWith(
                 id: UUID().uuidString,
                 moneyAmount: intValue,
                 currency: self.newItem.currency,

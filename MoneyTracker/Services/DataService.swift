@@ -60,6 +60,30 @@ final class DataService: ObservableObject {
             in: viewContext
         )
     }
+    
+    func saveEditedRecord(
+        id: String,
+        timestamp: Date,
+        moneyAmount: Int64,
+        categoryName: String,
+        categoryIcon: String,
+        notes: String?,
+        typeTag: Int16,
+        using managedObjectContext: NSManagedObjectContext
+    ) {
+        self.dataManager.makeNewRecordWith(
+            id: id,
+            moneyAmount: moneyAmount,
+            currency: "",
+            isIncome: false,
+            categoryName: categoryName,
+            categoryIcon: categoryIcon,
+            timestamp: timestamp,
+            notes: notes,
+            typeTag: typeTag,
+            using: managedObjectContext
+        )
+    }
 }
 
 // MARK: - Extension

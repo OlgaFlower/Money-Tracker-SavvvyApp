@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MoneyModel: Identifiable {
+struct MoneyModel: Identifiable, Equatable {
     var id: String = ""
     var recordType: RecordType = .expense
     var category: Category = Category(
@@ -20,6 +20,17 @@ struct MoneyModel: Identifiable {
     var currency: String = "EUR"
     var timestamp: Date = Date()
     var typeTag: Int = 0
+    
+    static func == (lhs: MoneyModel, rhs: MoneyModel) -> Bool {
+            return lhs.id == rhs.id &&
+                   lhs.recordType == rhs.recordType &&
+                   lhs.category == rhs.category &&
+                   lhs.moneyAmount == rhs.moneyAmount &&
+                   lhs.notes == rhs.notes &&
+                   lhs.currency == rhs.currency &&
+                   lhs.timestamp == rhs.timestamp &&
+                   lhs.typeTag == rhs.typeTag
+        }
 }
 
 enum RecordType: Identifiable {

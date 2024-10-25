@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 final class EditRecordViewModel: ObservableObject {
     
@@ -14,6 +15,9 @@ final class EditRecordViewModel: ObservableObject {
     // MARK: - Publishers
     @Published var editingItem = MoneyModel() // TODO: - Handle error if id.isEmpty (record can't be found)
     @Published var inputAmount = ""
+    
+    // MARK: - Properties
+    private var itemBeforeChanges = MoneyModel()
     
     // MARK: - Init
     init(
@@ -28,16 +32,24 @@ final class EditRecordViewModel: ObservableObject {
     func loadRecord(recordId: String) {
         guard let record = self.dataService.getRecordById(recordId: recordId) else { return }
         self.editingItem = record
+        self.itemBeforeChanges = record
         self.inputAmount = record.moneyAmount.toString()
     }
     
-    private func createCategory(from record: Money) -> Category {
-            return Category(
-                moneyGroupType: record.typeTag.tagToGroupType(),
-                name: record.categoryName,
-                icon: record.categoryIcon
+    func saveChanges(using viewContext: NSManagedObjectContext) {
+        if self.editingItem != self.itemBeforeChanges {
+            self.dataService.saveEditedRecord(
+                id: self.editingItem.id,
+                timestamp: self.editingItem.timestamp,
+                moneyAmount: self.editingItem.moneyAmount,
+                categoryName: self.editingItem.category.name,
+                categoryIcon: self.editingItem.category.icon,
+                notes: self.editingItem.notes,
+                typeTag: self.editingItem.category.moneyGroupType.typeTag,
+                using: viewContext
             )
         }
+    }
     
     func vibrateMedium() {
         VibrateService.vibrateMedium()

@@ -40,6 +40,7 @@ struct CalendarDetailsView: View {
             isPresented: self.$showRecordEditor,
             onDismiss: {
                 self.selectedRecordId = ""
+                self.viewModel.prepareRecords()
             },
             content: {
             EditRecordView(recordId: self.selectedRecordId)
