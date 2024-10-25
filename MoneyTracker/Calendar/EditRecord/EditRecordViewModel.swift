@@ -37,7 +37,15 @@ final class EditRecordViewModel: ObservableObject {
     }
     
     func saveChanges(using viewContext: NSManagedObjectContext) {
+        
+        if let editedMoneyAmount = Int64(self.inputAmount), 
+            editedMoneyAmount != self.editingItem.moneyAmount {
+            
+            self.editingItem.moneyAmount = editedMoneyAmount
+        }
+        
         if self.editingItem != self.itemBeforeChanges {
+            
             self.dataService.saveEditedRecord(
                 id: self.editingItem.id,
                 timestamp: self.editingItem.timestamp,
