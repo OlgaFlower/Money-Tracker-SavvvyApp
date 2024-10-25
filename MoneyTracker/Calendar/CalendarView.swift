@@ -47,6 +47,9 @@ struct CalendarView: View {
             .onAppear {
                 self.loadCurrentMonthDays()
             }
+            .onDisappear {
+                self.selectedDate = self.currentDate
+            }
             .onChange(of: self.currentDate) {
                 self.updateDaysInMonth()
             }
