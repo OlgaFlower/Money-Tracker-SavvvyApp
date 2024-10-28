@@ -36,7 +36,7 @@ struct CurrencyTextFieldView: View {
         
         switch useCase {
         case .editRecord:
-            self._displayedNumber = State(initialValue: inputAmount.wrappedValue)
+            self._displayedNumber = State(initialValue: TextFormatter.textToCurrency(inputAmount.wrappedValue))
         case .newRecord:
             self._displayedNumber = State(initialValue: TextFormatter.textToCurrency("000"))
         }

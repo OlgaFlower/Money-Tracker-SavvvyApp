@@ -33,7 +33,7 @@ final class EditRecordViewModel: ObservableObject {
         guard let record = self.dataService.getRecordById(recordId: recordId) else { return }
         self.editingItem = record
         self.itemBeforeChanges = record
-        self.inputAmount = record.moneyAmount.toString()
+        self.inputAmount = String(record.moneyAmount)
     }
     
     func saveChanges(using viewContext: NSManagedObjectContext) {
