@@ -42,13 +42,55 @@ final class DataService: ObservableObject {
         self.dayBudget = self.calcDayBudgetForCurrentMonth()
         self.todayLeftover = self.calcTodayLeftover()
     }
+    
+    func getRecordById(recordId: String) -> MoneyModel? {
+        return self.dataManager.fetchRecordById(recordId: recordId)
+    }
+    
+    func getRecords(for date: Date) -> [MoneyModel] {
+        return self.dataManager.fetchRecords(for: date)
+    }
+    
+    func deleteRecord(
+        recordId: String,
+        in viewContext: NSManagedObjectContext
+    ) {
+        self.dataManager.deleteRecord(
+            recordId: recordId,
+            in: viewContext
+        )
+    }
+    
+    func saveEditedRecord(
+        id: String,
+        timestamp: Date,
+        moneyAmount: Int64,
+        categoryName: String,
+        categoryIcon: String,
+        notes: String?,
+        typeTag: Int16,
+        using managedObjectContext: NSManagedObjectContext
+    ) {
+        self.dataManager.makeNewRecordWith(
+            id: id,
+            moneyAmount: moneyAmount,
+            currency: "",
+            isIncome: false,
+            categoryName: categoryName,
+            categoryIcon: categoryIcon,
+            timestamp: timestamp,
+            notes: notes,
+            typeTag: typeTag,
+            using: managedObjectContext
+        )
+    }
 }
 
 // MARK: - Extension
 extension DataService {
     
     private func calcTodayExpenses() -> Int {
-        let expenses = CoreDataManager.shared.fetchExpensesForDay(date: Date.now)
+        let expenses = self.dataManager.fetchExpensesForDay(date: Date.now)
         let sum = expenses.reduce(0) { $0 + Int($1.moneyAmount) }
         return sum
     }
@@ -58,7 +100,7 @@ extension DataService {
         let calendar = Calendar.current
         let currentMonth = calendar.component(.month, from: currentDate)
         let currentYear = calendar.component(.year, from: currentDate)
-        let incomes = CoreDataManager.shared.fetchMonthIncomeRecords(
+        let incomes = self.dataManager.fetchMonthIncomeRecords(
             for: currentMonth,
             year: currentYear
         )
@@ -67,7 +109,7 @@ extension DataService {
     }
     
     private func calcDayBudgetForCurrentMonth() -> Double {
-        let daysInMonth = CalendarManager.getNumberOfDaysInMonth(for: Date())
+        let daysInMonth = self.calendarManager.getNumberOfDaysInMonth(for: Date())
         let dailyBudget = self.calcCurrentMonthIncome() / daysInMonth
         return Double(dailyBudget)/100
     }

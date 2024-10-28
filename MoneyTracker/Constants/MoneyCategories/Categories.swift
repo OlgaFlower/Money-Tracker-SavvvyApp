@@ -22,6 +22,12 @@ struct Category: Hashable {
     var moneyGroupType: MoneyGroupType
     var name: String
     var icon: String
+    
+    static func == (lhs: Category, rhs: Category) -> Bool {
+        return lhs.moneyGroupType == rhs.moneyGroupType &&
+        lhs.name == rhs.name &&
+        lhs.icon == rhs.icon
+    }
 }
 
 final class Categories {
@@ -114,7 +120,7 @@ final class Categories {
             name: TemporaryIncome.debt.string,
             icon: TemporaryIncome.debt.icon
         )
-        ]
+    ]
     
     // MARK: - General Expenses -
     static let generalExpenseItems: [Category] = [
@@ -208,7 +214,7 @@ final class Categories {
             name: GeneralExpenses.debtRefund.string,
             icon: GeneralExpenses.debtRefund.icon
         )
-        ]
+    ]
     
     // MARK: - Recurring Expenses
     static let recurringExpenseItems: [RecurringCategories] = [
@@ -251,7 +257,7 @@ final class Categories {
         RecurringCategories(
             sectionTitle: RecurringExpenses.pets.sectionTitle,
             categoryItems: RecurringExpenses.pets.items)
-        ]
+    ]
     
     // MARK: - Functions -
     /// INCOME

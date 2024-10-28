@@ -12,16 +12,18 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var newItem = MoneyModel()
-    @Published var moneyAmount = ""
+    @Published var inputAmount = ""
     
     // MARK: - Functions
     func saveNewRecord(context: NSManagedObjectContext) {
-        if let intValue = Int64(self.moneyAmount),
+        let moneyAmount = self.inputAmount.toInt64()
+        
+        if moneyAmount != 0,
            self.newItem.category.name != "CATEGORY" {
             
-            CoreDataManager.makeNewRecordWith(
+            CoreDataManager.shared.makeNewRecordWith(
                 id: UUID().uuidString,
-                moneyAmount: intValue,
+                moneyAmount: moneyAmount,
                 currency: self.newItem.currency,
                 isIncome: self.newItem.recordType == .income ? true : false,
                 categoryName: self.newItem.category.name,
@@ -43,7 +45,7 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     }
     
     func isSaveBtnActive() -> Bool {
-        return self.isCategoryChosen() && !self.moneyAmount.isEmpty
+        return self.isCategoryChosen() && !self.inputAmount.isEmpty
     }
     
     func vibrateMedium() {

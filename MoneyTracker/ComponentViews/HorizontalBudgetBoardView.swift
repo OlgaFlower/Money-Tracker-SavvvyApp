@@ -44,7 +44,7 @@ struct HorizontalBudgetBoardView: View {
             
             HStack {
                 Spacer()
-                Text(self.todayExpenses.toString().formatAsCurrency())
+                Text(self.todayExpenses.toString())
                     .font(.customFont(style: .regular, size: .title))
                     .foregroundStyle(.white.opacity(0.9))
                     .contentTransition(.numericText())

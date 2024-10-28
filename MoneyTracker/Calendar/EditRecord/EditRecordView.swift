@@ -10,6 +10,7 @@ import SwiftUI
 struct EditRecordView: View {
     // MARK: - Environment
     @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) var viewContext
     
     // MARK: - State
     @StateObject private var viewModel: EditRecordViewModel
@@ -17,15 +18,11 @@ struct EditRecordView: View {
     @State private var isCategoryPresented = false
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyKeyboardFocused: Bool
-    @FetchRequest private var records: FetchedResults<Money>
     
     // MARK: - Init
-    init(id: String) {
-        _viewModel = StateObject(wrappedValue: EditRecordViewModel())
-        self._records = FetchRequest(
-            entity: Money.entity(),
-            sortDescriptors: [],
-            predicate: CoreDataManager.fetchRecord(withID: id)
+    init(recordId: String) {
+        _viewModel = StateObject(
+            wrappedValue: EditRecordViewModel(recordId: recordId)
         )
     }
     
@@ -42,9 +39,10 @@ struct EditRecordView: View {
                 VStack(spacing: 26) {
                     self.makeDateEditor()
                     CurrencyTextFieldView(
-                        isKeyboardFocused: _isCurrencyKeyboardFocused,
                         inputAmount: self.$viewModel.inputAmount,
-                        currency: self.viewModel.editingItem.currency
+                        currency: self.viewModel.editingItem.currency, 
+                        useCase: .editRecord,
+                        isKeyboardFocused: _isCurrencyKeyboardFocused
                     )
                     self.categoryView
                         .padding(.top, 4)
@@ -73,9 +71,6 @@ struct EditRecordView: View {
         .onTapGesture {
             self.isKeyboardFocused = false
             self.isCurrencyKeyboardFocused = false
-        }
-        .onAppear {
-            viewModel.loadRecord(records: records)
         }
     }
     
@@ -128,6 +123,7 @@ struct EditRecordView: View {
     // Save
     private var saveButtonView: some View {
         Button {
+            self.viewModel.saveChanges(using: self.viewContext)
             self.viewModel.vibrateMedium()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.viewModel.vibrateMedium()
@@ -150,5 +146,5 @@ struct EditRecordView: View {
 }
 
 #Preview {
-    EditRecordView(id: "")
+    EditRecordView(recordId: "")
 }

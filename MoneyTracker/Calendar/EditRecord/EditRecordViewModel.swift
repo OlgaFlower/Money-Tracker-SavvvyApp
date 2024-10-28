@@ -6,33 +6,68 @@
 //
 
 import SwiftUI
+import CoreData
 
 final class EditRecordViewModel: ObservableObject {
     
-    @Published var editingItem = MoneyModel()
+    @ObservedObject private var dataService: DataService
+    
+    // MARK: - Publishers
+    @Published var editingItem = MoneyModel() // TODO: - Handle error if id.isEmpty (record can't be found)
     @Published var inputAmount = ""
     
-    func loadRecord(records: FetchedResults<Money>) {
-        guard let record = records.first else { return }
+    // MARK: - Properties
+    private var itemBeforeChanges = MoneyModel()
+    
+    // MARK: - Init
+    init(
+        dataService: DataService = DataService.shared,
+        recordId: String
+    ) {
+        self.dataService = dataService
+        self.loadRecord(recordId: recordId)
+    }
+    
+    // MARK: - Functions
+    func loadRecord(recordId: String) {
+        guard let record = self.dataService.getRecordById(recordId: recordId) else { return }
+        self.editingItem = record
+        self.itemBeforeChanges = record
+        self.inputAmount = String(record.moneyAmount)
+    }
+    
+    func saveChanges(using viewContext: NSManagedObjectContext) {
+        let editedMoneyAmount = self.inputAmount.toInt64()
         
-        self.editingItem = MoneyModel(
-            id: record.id,
-            recordType: record.isIncome ? .income : .expense,
-            category: self.createCategory(from: record),
-            moneyAmount: record.moneyAmount,
-            notes: record.notes ?? "",
-            currency: record.currency,
-            timestamp: record.timestamp
+        self.updateMoneyAmountIfChanged(editedMoneyAmount)
+        
+        if self.hasItemChanged() {
+            self.saveEditedRecord(using: viewContext)
+        }
+    }
+    
+    private func saveEditedRecord(using viewContext: NSManagedObjectContext) {
+        self.dataService.saveEditedRecord(
+            id: self.editingItem.id,
+            timestamp: self.editingItem.timestamp,
+            moneyAmount: self.editingItem.moneyAmount,
+            categoryName: self.editingItem.category.name,
+            categoryIcon: self.editingItem.category.icon,
+            notes: self.editingItem.notes,
+            typeTag: self.editingItem.category.moneyGroupType.typeTag,
+            using: viewContext
         )
     }
     
-    private func createCategory(from record: Money) -> Category {
-            return Category(
-                moneyGroupType: record.typeTag.tagToGroupType(),
-                name: record.categoryName,
-                icon: record.categoryIcon
-            )
+    private func updateMoneyAmountIfChanged(_ editedAmount: Int64) {
+        if editedAmount != self.editingItem.moneyAmount {
+            self.editingItem.moneyAmount = editedAmount
         }
+    }
+    
+    private func hasItemChanged() -> Bool {
+        return self.editingItem != self.itemBeforeChanges
+    }
     
     func vibrateMedium() {
         VibrateService.vibrateMedium()

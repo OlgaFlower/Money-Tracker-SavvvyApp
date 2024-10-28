@@ -13,29 +13,36 @@ final class TextFormatter {
     
     // MARK: - Text to Currency format
     static func textToCurrency(_ inputString: String) -> String {
-        var formattedAmount = ""
-        let decimalSeparator = Constants.decimalSeparator
-        let groupingSeparator = Constants.groupingSeparator
+        
+        let decimalSeparator = Locale.current.decimalSeparator ?? "."
         
         // Remove non-numeric characters
-        let cleanAmount = inputString.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        let digits = inputString.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
         
-        // Add thousands separator
-        let length = cleanAmount.count
-        for i in 0..<length {
-            if i > 0 && ((length - 2) - i) % 3 == 0 {
-                formattedAmount += groupingSeparator
+        // Check if the input is all zeros
+        if digits == "000" {
+            return "0" + decimalSeparator + "00"
+        }
+        
+        // Ensure we always have at least 3 digits
+        let number = digits.padLeft(toLength: 3, withPad: "0")
+        
+        // Separate integer and decimal parts
+        let integerPart = String(number.dropLast(2))
+        let decimalPart = String(number.suffix(2))
+        
+        // Format integer part with thousands separator
+        var formattedInteger = ""
+        for (index, char) in integerPart.reversed().enumerated() {
+            if index > 0 && index % 3 == 0 {
+                formattedInteger = " " + formattedInteger
             }
-            let index = cleanAmount.index(cleanAmount.startIndex, offsetBy: i)
-            formattedAmount += String(cleanAmount[index]).reversed()
+            formattedInteger = String(char) + formattedInteger
         }
         
-        // Add decimal separator
-        if length >= 3 {
-            let index = formattedAmount.index(formattedAmount.endIndex, offsetBy: -2)
-            formattedAmount.insert(contentsOf: decimalSeparator, at: index)
-        }
+        // Combine integer and decimal parts
+        let formattedNumber = formattedInteger + decimalSeparator + decimalPart
         
-        return formattedAmount
+        return formattedNumber
     }
 }

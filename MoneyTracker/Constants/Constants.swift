@@ -14,10 +14,6 @@ final class Constants {
     // MARK: - Screen Width -
     static let screenWidth: CGFloat = UIScreen.main.bounds.width
     
-    // MARK: - Currency TextField -
-    static let decimalSeparator = Locale.current.decimalSeparator ?? "."
-    static let groupingSeparator = Locale.current.groupingSeparator ?? ","
-    
     // MARK: - DropDown Menu -
     /// Add new record
     static let newRecordTypes = [RecordType.expense, RecordType.income]

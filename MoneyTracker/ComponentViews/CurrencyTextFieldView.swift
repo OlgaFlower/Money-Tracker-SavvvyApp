@@ -8,15 +8,39 @@
 import SwiftUI
 import Combine
 
+enum CurrencyTextfieldCase {
+    case newRecord
+    case editRecord
+}
+
 struct CurrencyTextFieldView: View {
     
     // MARK: - State -
     @FocusState var isKeyboardFocused: Bool
     @Binding var inputAmount: String
-    @State private var displyedNumber = "0,00"
+    @State private var displayedNumber: String
     
     // MARK: - Properties -
     let currency: String
+    
+    // MARK: - Init
+    init(
+        inputAmount: Binding<String>,
+        currency: String,
+        useCase: CurrencyTextfieldCase,
+        isKeyboardFocused: FocusState<Bool>
+    ) {
+        self._inputAmount = inputAmount
+        self._isKeyboardFocused = isKeyboardFocused
+        self.currency = currency
+        
+        switch useCase {
+        case .editRecord:
+            self._displayedNumber = State(initialValue: TextFormatter.textToCurrency(inputAmount.wrappedValue))
+        case .newRecord:
+            self._displayedNumber = State(initialValue: TextFormatter.textToCurrency("000"))
+        }
+    }
     
     // MARK: - Body -
     var body: some View {
@@ -27,14 +51,14 @@ struct CurrencyTextFieldView: View {
                 
                 /// Displayed Number
                 HStack {
-                    Text("\(displyedNumber) \(currency)")
+                    Text("\(displayedNumber) \(currency)")
                         .multilineTextAlignment(.center)
                         .font(.customFont(style: .regular, size: .title))
                         .keyboardType(.decimalPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .foregroundStyle(Color.white)
                 }
-                /// User Input Amount of Money - not visible
+                /// User Input Amount of Money - hidden field
                 HStack {
                     Spacer()
                     TextField("", text: $inputAmount)
@@ -51,20 +75,8 @@ struct CurrencyTextFieldView: View {
                                 inputAmount = String(inputAmount.prefix(15))
                             }
                         }
-                        .onChange(of: inputAmount) {
-                            // Format the input amount as currency
-                            if inputAmount.count > 2 {
-                                displyedNumber = TextFormatter.textToCurrency(inputAmount)
-                            }
-                            if inputAmount.isEmpty {
-                                displyedNumber = "0\(Constants.decimalSeparator)00"
-                            }
-                            if inputAmount.count == 1 {
-                                displyedNumber = "0\(Constants.decimalSeparator)0\(inputAmount)"
-                            }
-                            if inputAmount.count == 2 {
-                                displyedNumber = "0\(Constants.decimalSeparator)\(inputAmount)"
-                            }
+                        .onChange(of: self.inputAmount) {
+                            self.formatAndUpdateCurrency()
                         }
                 }
             }
@@ -73,11 +85,15 @@ struct CurrencyTextFieldView: View {
             self.isKeyboardFocused = true
         }
     }
-}
-
-#Preview {
-    CurrencyTextFieldView(
-        inputAmount: .constant("0,00"),
-        currency: "EUR"
-    )
+    
+    private func formatAndUpdateCurrency() {
+        let cleanNumber = inputAmount.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        
+        if cleanNumber.isEmpty {
+            displayedNumber = TextFormatter.textToCurrency("000")
+        } else {
+            let paddedNumber = cleanNumber.padLeft(toLength: 3, withPad: "0")
+            displayedNumber = TextFormatter.textToCurrency(paddedNumber)
+        }
+    }
 }

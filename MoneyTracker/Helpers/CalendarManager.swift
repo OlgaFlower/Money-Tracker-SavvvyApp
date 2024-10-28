@@ -13,7 +13,7 @@ final class CalendarManager {
     
     private init() {}
     
-    static func getNumberOfDaysInMonth(for date: Date) -> Int {
+    func getNumberOfDaysInMonth(for date: Date) -> Int {
         let calendar = Calendar.current
 
         let range = calendar.range(of: .day, in: .month, for: date)!
