@@ -13,28 +13,28 @@ final class TextFormatter {
     
     // MARK: - Text to Currency format
     static func textToCurrency(_ inputString: String) -> String {
-        var formattedAmount = ""
-        let decimalSeparator = Constants.decimalSeparator
-        let groupingSeparator = Constants.groupingSeparator
+        
+        let decimalSeparator = Locale.current.decimalSeparator ?? "."
         
         // Remove non-numeric characters
         let cleanAmount = inputString.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
         
-        // Add thousands separator
+        // Separate integer and decimal parts
         let length = cleanAmount.count
-        for i in 0..<length {
-            if i > 0 && ((length - 2) - i) % 3 == 0 {
-                formattedAmount += groupingSeparator
+        let integerPart = length > 2 ? String(cleanAmount.prefix(length - 2)) : cleanAmount
+        let decimalPart = length > 2 ? String(cleanAmount.suffix(2)) : ""
+        
+        // Format integer part with thousands separator
+        var formattedInteger = ""
+        for (index, char) in integerPart.reversed().enumerated() {
+            if index > 0 && index % 3 == 0 {
+                formattedInteger = " " + formattedInteger
             }
-            let index = cleanAmount.index(cleanAmount.startIndex, offsetBy: i)
-            formattedAmount += String(cleanAmount[index]).reversed()
+            formattedInteger = String(char) + formattedInteger
         }
         
-        // Add decimal separator
-        if length >= 3 {
-            let index = formattedAmount.index(formattedAmount.endIndex, offsetBy: -2)
-            formattedAmount.insert(contentsOf: decimalSeparator, at: index)
-        }
+        // Combine integer and decimal parts
+        let formattedAmount = formattedInteger + (decimalPart.isEmpty ? "" : decimalSeparator + decimalPart)
         
         return formattedAmount
     }

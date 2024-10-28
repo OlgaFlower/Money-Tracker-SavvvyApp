@@ -38,7 +38,7 @@ struct CurrencyTextFieldView: View {
         case .editRecord:
             self._displayedNumber = State(initialValue: inputAmount.wrappedValue)
         case .newRecord:
-            self._displayedNumber = State(initialValue: "0 ,00")
+            self._displayedNumber = State(initialValue: TextFormatter.textToCurrency("000"))
         }
     }
     
@@ -58,7 +58,7 @@ struct CurrencyTextFieldView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .foregroundStyle(Color.white)
                 }
-                /// User Input Amount of Money - not visible
+                /// User Input Amount of Money - hidden field
                 HStack {
                     Spacer()
                     TextField("", text: $inputAmount)
@@ -75,19 +75,19 @@ struct CurrencyTextFieldView: View {
                                 inputAmount = String(inputAmount.prefix(15))
                             }
                         }
-                        .onChange(of: inputAmount) {
-                            // Format the input amount as currency
-                            if inputAmount.count > 2 {
+                        .onChange(of: self.inputAmount) {
+                            // Format the input as currency
+                            if inputAmount.count >= 3 {
                                 displayedNumber = TextFormatter.textToCurrency(inputAmount)
                             }
                             if inputAmount.isEmpty {
-                                displayedNumber = "0 \(Constants.decimalSeparator)00"
+                                displayedNumber = TextFormatter.textToCurrency("000")
                             }
                             if inputAmount.count == 1 {
-                                displayedNumber = "0 \(Constants.decimalSeparator)0\(inputAmount)"
+                                displayedNumber = TextFormatter.textToCurrency("00" + inputAmount)
                             }
                             if inputAmount.count == 2 {
-                                displayedNumber = "0 \(Constants.decimalSeparator)\(inputAmount)"
+                                displayedNumber = TextFormatter.textToCurrency("0" + inputAmount)
                             }
                         }
                 }
