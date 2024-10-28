@@ -95,12 +95,5 @@ struct CurrencyTextFieldView: View {
             let paddedNumber = cleanNumber.padLeft(toLength: 3, withPad: "0")
             displayedNumber = TextFormatter.textToCurrency(paddedNumber)
         }
-        
-        /// Update inputAmount to the actual value
-        if let doubleValue = Double(displayedNumber.replacingOccurrences(of: " ", with: "")) {
-            inputAmount = String(format: "%.2f", doubleValue)
-        } else {
-            inputAmount = "0.00"
-        }
     }
 }

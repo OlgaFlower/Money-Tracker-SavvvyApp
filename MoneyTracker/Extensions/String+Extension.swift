@@ -34,6 +34,6 @@ extension String {
     }
     
     func toInt64() -> Int64 {
-        return Int64((Double(self) ?? 0) * 100)
+        return Int64(Double(self) ?? 0)
     }
 }
