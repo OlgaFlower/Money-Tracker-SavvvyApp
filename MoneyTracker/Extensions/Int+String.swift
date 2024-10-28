@@ -10,13 +10,13 @@ import Foundation
 extension Int64 {
     
     func toString() -> String {
-        return String(describing: Double(self) / 100).formatAsCurrency()
+        return String(describing: Double(self) / 100)
     }
 }
 
 extension Int {
     
     func toString() -> String {
-        return String(describing: Double(self) / 100).formatAsCurrency()
+        return String(describing: Double(self) / 100)
     }
 }

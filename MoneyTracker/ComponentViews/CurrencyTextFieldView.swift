@@ -76,25 +76,31 @@ struct CurrencyTextFieldView: View {
                             }
                         }
                         .onChange(of: self.inputAmount) {
-                            // Format the input as currency
-                            if inputAmount.count >= 3 {
-                                displayedNumber = TextFormatter.textToCurrency(inputAmount)
-                            }
-                            if inputAmount.isEmpty {
-                                displayedNumber = TextFormatter.textToCurrency("000")
-                            }
-                            if inputAmount.count == 1 {
-                                displayedNumber = TextFormatter.textToCurrency("00" + inputAmount)
-                            }
-                            if inputAmount.count == 2 {
-                                displayedNumber = TextFormatter.textToCurrency("0" + inputAmount)
-                            }
+                            self.formatAndUpdateCurrency()
                         }
                 }
             }
         }
         .onTapGesture {
             self.isKeyboardFocused = true
+        }
+    }
+    
+    private func formatAndUpdateCurrency() {
+        let cleanNumber = inputAmount.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        
+        if cleanNumber.isEmpty {
+            displayedNumber = TextFormatter.textToCurrency("000")
+        } else {
+            let paddedNumber = cleanNumber.padLeft(toLength: 3, withPad: "0")
+            displayedNumber = TextFormatter.textToCurrency(paddedNumber)
+        }
+        
+        /// Update inputAmount to the actual value
+        if let doubleValue = Double(displayedNumber.replacingOccurrences(of: " ", with: "")) {
+            inputAmount = String(format: "%.2f", doubleValue)
+        } else {
+            inputAmount = "0.00"
         }
     }
 }

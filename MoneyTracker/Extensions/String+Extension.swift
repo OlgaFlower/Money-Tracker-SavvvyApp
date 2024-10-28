@@ -10,7 +10,6 @@ import Foundation
 extension String {
     
     func formatAsCurrency() -> String {
-        
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         /// Current locale for currency separator
@@ -23,5 +22,18 @@ extension String {
         } else {
             return self
         }
+    }
+    
+    /// Manages numbers with leading zeros (CurrencyTextFieldView)
+    func padLeft(toLength length: Int, withPad pad: Character) -> String {
+        let paddingLength = length - self.count
+        if paddingLength > 0 {
+            return String(repeating: pad, count: paddingLength) + self
+        }
+        return self
+    }
+    
+    func toInt64() -> Int64 {
+        return Int64((Double(self) ?? 0) * 100)
     }
 }

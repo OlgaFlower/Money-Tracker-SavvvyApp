@@ -17,12 +17,19 @@ final class TextFormatter {
         let decimalSeparator = Locale.current.decimalSeparator ?? "."
         
         // Remove non-numeric characters
-        let cleanAmount = inputString.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        let digits = inputString.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        
+        // Check if the input is all zeros
+        if digits == "000" {
+            return "0" + decimalSeparator + "00"
+        }
+        
+        // Ensure we always have at least 3 digits
+        let number = digits.padLeft(toLength: 3, withPad: "0")
         
         // Separate integer and decimal parts
-        let length = cleanAmount.count
-        let integerPart = length > 2 ? String(cleanAmount.prefix(length - 2)) : cleanAmount
-        let decimalPart = length > 2 ? String(cleanAmount.suffix(2)) : ""
+        let integerPart = String(number.dropLast(2))
+        let decimalPart = String(number.suffix(2))
         
         // Format integer part with thousands separator
         var formattedInteger = ""
@@ -34,8 +41,8 @@ final class TextFormatter {
         }
         
         // Combine integer and decimal parts
-        let formattedAmount = formattedInteger + (decimalPart.isEmpty ? "" : decimalSeparator + decimalPart)
+        let formattedNumber = formattedInteger + decimalSeparator + decimalPart
         
-        return formattedAmount
+        return formattedNumber
     }
 }

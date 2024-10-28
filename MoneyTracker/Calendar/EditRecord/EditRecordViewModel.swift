@@ -37,26 +37,36 @@ final class EditRecordViewModel: ObservableObject {
     }
     
     func saveChanges(using viewContext: NSManagedObjectContext) {
+        let editedMoneyAmount = self.inputAmount.toInt64()
         
-        if let editedMoneyAmount = Int64(self.inputAmount), 
-            editedMoneyAmount != self.editingItem.moneyAmount {
-            
-            self.editingItem.moneyAmount = editedMoneyAmount
-        }
+        self.updateMoneyAmountIfChanged(editedMoneyAmount)
         
-        if self.editingItem != self.itemBeforeChanges {
-            
-            self.dataService.saveEditedRecord(
-                id: self.editingItem.id,
-                timestamp: self.editingItem.timestamp,
-                moneyAmount: self.editingItem.moneyAmount,
-                categoryName: self.editingItem.category.name,
-                categoryIcon: self.editingItem.category.icon,
-                notes: self.editingItem.notes,
-                typeTag: self.editingItem.category.moneyGroupType.typeTag,
-                using: viewContext
-            )
+        if self.hasItemChanged() {
+            self.saveEditedRecord(using: viewContext)
         }
+    }
+    
+    private func saveEditedRecord(using viewContext: NSManagedObjectContext) {
+        self.dataService.saveEditedRecord(
+            id: self.editingItem.id,
+            timestamp: self.editingItem.timestamp,
+            moneyAmount: self.editingItem.moneyAmount,
+            categoryName: self.editingItem.category.name,
+            categoryIcon: self.editingItem.category.icon,
+            notes: self.editingItem.notes,
+            typeTag: self.editingItem.category.moneyGroupType.typeTag,
+            using: viewContext
+        )
+    }
+    
+    private func updateMoneyAmountIfChanged(_ editedAmount: Int64) {
+        if editedAmount != self.editingItem.moneyAmount {
+            self.editingItem.moneyAmount = editedAmount
+        }
+    }
+    
+    private func hasItemChanged() -> Bool {
+        return self.editingItem != self.itemBeforeChanges
     }
     
     func vibrateMedium() {
