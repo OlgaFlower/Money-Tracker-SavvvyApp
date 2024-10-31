@@ -27,12 +27,9 @@ struct MakeNewMoneyRecordView: View {
             BackgroundGradView()
             
             VStack {
-                VStack {
-                    CancelButtonView(action: { dismiss() })
-                    TextHeaderView(text: "new record")
-                        .padding(.top, 16)
-                }
-                .opacity(isKeyboardVisible ? 0 : 1)
+                CancelButtonView(action: { dismiss() })
+                TextHeaderView(text: "new record")
+                    .padding(.top, 16)
                 
                 VStack(spacing: 22) {
                     /// Expense / Income
@@ -58,9 +55,11 @@ struct MakeNewMoneyRecordView: View {
                     .padding(.top, 16)
                     
                     /// Save
-                    self.saveButtonView
-                        .padding(.top, 62)
-                        .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
+                    if !self.isKeyboardVisible {
+                        self.saveButtonView
+                            .padding(.top, 62)
+                            .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
+                    }
                 }
                 .padding(.top, 62)
                 Spacer()

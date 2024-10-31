@@ -28,6 +28,7 @@ struct DescriptionTextfieldView: View {
                 .padding(.horizontal)
                 .lineLimit(1...3)
                 .autocorrectionDisabled(true)
+                .keyboardType(.asciiCapable)
                 .frame(width: UIScreen.main.bounds.width - 24)
         }
     }
