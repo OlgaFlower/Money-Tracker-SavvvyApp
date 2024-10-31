@@ -70,7 +70,7 @@ struct MakeNewMoneyRecordView: View {
             self.isKeyboardFocused = false
             self.isCurrencyKeyboardFocused = false
         }
-        .onChange(of: self.isKeyboardFocused || self.isCurrencyKeyboardFocused) { oldValue, newValue in
+        .onChange(of: self.isKeyboardFocused || self.isCurrencyKeyboardFocused) { _, newValue in
             withAnimation(.easeIn(duration: 0.2)) {
                 self.isKeyboardVisible = newValue
             }

@@ -41,11 +41,11 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
     }
     
     func isCategoryChosen() -> Bool {
-        return self.newItem.category.name != "CATEGORY"
+        self.newItem.category.name != "CATEGORY"
     }
     
     func isSaveBtnActive() -> Bool {
-        return self.isCategoryChosen() && !self.inputAmount.isEmpty
+        self.isCategoryChosen() && !self.inputAmount.isEmpty
     }
     
     func vibrateMedium() {

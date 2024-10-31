@@ -36,10 +36,12 @@ final class EditRecordViewModel: ObservableObject {
         self.inputAmount = String(record.moneyAmount)
     }
     
+    func isSaveBtnActive() -> Bool {
+        (self.inputAmount.toInt64() != self.editingItem.moneyAmount) || self.hasItemChanged()
+    }
+    
     func saveChanges(using viewContext: NSManagedObjectContext) {
-        let editedMoneyAmount = self.inputAmount.toInt64()
-        
-        self.updateMoneyAmountIfChanged(editedMoneyAmount)
+        self.updateMoneyAmountIfChanged(self.inputAmount.toInt64())
         
         if self.hasItemChanged() {
             self.saveEditedRecord(using: viewContext)
@@ -66,7 +68,7 @@ final class EditRecordViewModel: ObservableObject {
     }
     
     private func hasItemChanged() -> Bool {
-        return self.editingItem != self.itemBeforeChanges
+        self.editingItem != self.itemBeforeChanges
     }
     
     func vibrateMedium() {

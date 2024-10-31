@@ -18,6 +18,7 @@ struct EditRecordView: View {
     @State private var isCategoryPresented = false
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyKeyboardFocused: Bool
+    @State private var isKeyboardVisible: Bool = false
     
     // MARK: - Init
     init(recordId: String) {
@@ -53,11 +54,19 @@ struct EditRecordView: View {
                 }
                 .padding(.top, 30)
                 
+                if !self.isKeyboardVisible {
+                    self.saveButtonView
+                        .padding(.top, 62)
+                        .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
+                }
                 Spacer()
-                self.saveButtonView
             }
-            .padding(.top, 16)
             .blur(radius: isDatePickerPresented ? 10 : 0)
+            .onChange(of: self.isKeyboardFocused || self.isCurrencyKeyboardFocused) { _, newValue in
+                withAnimation(.easeIn(duration: 0.2)) {
+                    self.isKeyboardVisible = newValue
+                }
+            }
             
             self.datePickerView
         }
@@ -137,11 +146,12 @@ struct EditRecordView: View {
                 .padding(.vertical, 10)
                 .frame(width: 130)
         }
+        .disabled(!self.viewModel.isSaveBtnActive())
+        .animation(.linear(duration: 0.2), value: self.viewModel.isSaveBtnActive())
         .overlay(
             RoundedRectangle(cornerRadius: 6, style: .continuous)
                 .stroke(.white, lineWidth: 0.5)
         )
-        .padding(.bottom, 100)
     }
 }
 
