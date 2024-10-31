@@ -22,7 +22,6 @@ struct CalendarView: View {
     
     // MARK: - Body
     var body: some View {
-        
         GeometryReader { geometry in
             /// UI adjusted for iPhones with small screen (screen width of the iPhone SE 3-g)
             let isSmallScreen = geometry.size.width < 376
@@ -64,14 +63,12 @@ struct CalendarView: View {
     // MARK: - Views
     //TODO: - replace it with TitleView()
     private var titleView: some View {
-        
         Text(self.currentDate.formattedMonthYear().uppercased())
             .font(.customFont(style: .semibold, size: .body))
             .opacity(0.9)
     }
     
     private var chevronLeft: some View {
-        
         Image(systemName: "chevron.left")
             .font(.customFont(style: .semibold, size: .body))
             .onTapGesture {
@@ -81,7 +78,6 @@ struct CalendarView: View {
     }
     
     private var chevronRight: some View {
-        
         Image(systemName: "chevron.right")
             .font(.customFont(style: .semibold, size: .body))
             .onTapGesture {
@@ -91,14 +87,13 @@ struct CalendarView: View {
     }
     
     private var returnButtonView: some View {
-        
         VStack {
             Spacer()
             HStack {
                 Spacer()
                 Image(systemName: "arrow.counterclockwise")
                     .font(.customFont(style: .semibold, size: .title))
-                    .opacity(0.9)
+                    .opacity(0.8)
                     .rotationEffect(.degrees(self.rotationAngle))
                     .animation(.easeInOut(duration: 0.4), value: self.rotationAngle)
                     .onTapGesture {
@@ -113,7 +108,6 @@ struct CalendarView: View {
     }
     
     private var monthAndYearView: some View {
-        
         HStack {
             self.chevronLeft
             Spacer()
@@ -124,7 +118,6 @@ struct CalendarView: View {
     }
     
     private var weekDaysHeaderView: some View {
-        
         HStack {
             ForEach(self.daysOfWeek.indices, id: \.self) { index in
                 Text(self.daysOfWeek[index])
@@ -137,7 +130,6 @@ struct CalendarView: View {
     }
     
     private func calendarGridView(isSmallScreen: Bool) -> some View {
-        
         LazyVGrid(
             columns: self.gridColumns,
             spacing: isSmallScreen ? 8 : 10
@@ -151,7 +143,6 @@ struct CalendarView: View {
     
     @ViewBuilder
     private func makeDayCell(for day: Date) -> some View {
-        
         if day.monthInt != self.currentDate.monthInt {
             Text("")
         } else {
@@ -162,7 +153,7 @@ struct CalendarView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 4.0)
                         .foregroundStyle(
-                            selectedDate.startOfDay == day.startOfDay ? .blue : .white.opacity(0.15)
+                            selectedDate.startOfDay == day.startOfDay ? .blue : .black.opacity(0.2)
                         )
                 )
                 .onTapGesture {
