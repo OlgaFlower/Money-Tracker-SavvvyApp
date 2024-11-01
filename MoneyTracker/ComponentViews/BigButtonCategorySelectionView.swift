@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BigButtonCategorySelectionView: View {
     
+    // MARK: - States
     @Binding var hideRectangle: Bool
     
     // MARK: - Properties
@@ -27,6 +28,10 @@ struct BigButtonCategorySelectionView: View {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(.lightBlue.opacity(self.hideRectangle ? 0 : 0.5))
                 .frame(width: UIScreen.main.bounds.width * 0.55 + 20, height: 100 + 20)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 6, style: .continuous)
+                        .stroke(.white.opacity(self.hideRectangle ? 0 : 0.5), lineWidth: 0.5)
+                )
         }
     }
 }
@@ -35,9 +40,11 @@ struct BigButtonCategorySelectionView: View {
 #Preview {
     CategoryGroupSelectionView(
         recordType: .constant(.expense),
-        selectedCategory: .constant(.init(moneyGroupType: .recurringExpense,
-                                          name: RegularIncome.salary.string,
-                                          icon: RegularIncome.salary.icon)
+        selectedCategory: .constant(
+            .init(
+                moneyGroupType: .recurringExpense,
+                name: RegularIncome.salary.string,
+                icon: RegularIncome.salary.icon)
         )
     )
 }

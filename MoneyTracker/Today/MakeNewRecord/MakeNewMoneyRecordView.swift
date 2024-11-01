@@ -14,11 +14,12 @@ struct MakeNewMoneyRecordView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.dismiss) var dismiss
     
-    // MARK: - State
+    // MARK: - States
     @ObservedObject var viewModel: MakeNewMoneyRecordViewModel
     @FocusState var isKeyboardFocused: Bool
     @FocusState var isCurrencyKeyboardFocused: Bool
     @State var isIconGroupsViewPresented: Bool = false
+    @State private var isKeyboardVisible: Bool = false
     
     // MARK: - Body
     var body: some View {
@@ -53,10 +54,14 @@ struct MakeNewMoneyRecordView: View {
                     .focused(self.$isKeyboardFocused)
                     .padding(.top, 16)
                     
-                    self.saveButtonView
-                        .padding(.top, 62)
+                    /// Save
+                    if !self.isKeyboardVisible {
+                        self.saveButtonView
+                            .padding(.top, 62)
+                            .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
+                    }
                 }
-                .padding(.top, 52)
+                .padding(.top, 62)
                 Spacer()
             }
             .foregroundStyle(.white)
@@ -64,6 +69,11 @@ struct MakeNewMoneyRecordView: View {
         .onTapGesture {
             self.isKeyboardFocused = false
             self.isCurrencyKeyboardFocused = false
+        }
+        .onChange(of: self.isKeyboardFocused || self.isCurrencyKeyboardFocused) { _, newValue in
+            withAnimation(.easeIn(duration: 0.2)) {
+                self.isKeyboardVisible = newValue
+            }
         }
     }
     
@@ -143,18 +153,15 @@ struct MakeNewMoneyRecordView: View {
             }
         } label: {
             TextView(text: "save", style: .medium)
-                .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.5)
                 .padding(.vertical, 10)
                 .frame(width: 130)
-                .clipShape(.rect(cornerRadius: 8, style: .continuous))
         }
         .disabled(!self.viewModel.isSaveBtnActive())
         .animation(.linear(duration: 0.2), value: self.viewModel.isSaveBtnActive())
-        .background {
-            /// Border
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .fill(.lightBlue.opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.5))
-        }
+        .overlay(
+            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                .stroke(.white, lineWidth: 0.5)
+        )
     }
 }
 
