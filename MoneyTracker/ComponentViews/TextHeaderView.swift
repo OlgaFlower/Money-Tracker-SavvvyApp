@@ -17,7 +17,7 @@ struct TextHeaderView: View {
             Text(self.text.uppercased())
                 .font(.customFont(style: .medium, size: .title))
                 .foregroundStyle(.white)
-                .padding(.leading, 16)
+                .padding(.leading, self.alignCenter ? 0 : 16)
             if !self.alignCenter {
                 Spacer()
             }
