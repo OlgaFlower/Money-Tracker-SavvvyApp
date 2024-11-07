@@ -26,7 +26,6 @@ struct ExpensesDetailView: View {
                 self.headerView
                 self.expensesListView
             }
-            .foregroundStyle(.white)
             .padding(.top, 28)
         }
         .onDisappear {

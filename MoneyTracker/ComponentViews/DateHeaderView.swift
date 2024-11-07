@@ -18,6 +18,7 @@ struct DateHeaderView: View {
                 .padding(.leading, 16)
             Spacer()
         }
+        .foregroundStyle(.white)
     }
 }
 

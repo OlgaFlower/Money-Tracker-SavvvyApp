@@ -10,6 +10,8 @@
 		4205FFF82C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205FFF72C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift */; };
 		4205FFFB2C7136FE0045486B /* EditRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205FFFA2C7136FE0045486B /* EditRecordView.swift */; };
 		4205FFFD2C713AED0045486B /* TextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205FFFC2C713AED0045486B /* TextHeaderView.swift */; };
+		42203A232CD4CF5700F91C9E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42203A222CD4CF5600F91C9E /* OnboardingView.swift */; };
+		42203A252CD6061800F91C9E /* BorderedTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42203A242CD6061800F91C9E /* BorderedTextInputView.swift */; };
 		422E82D02BF6BF5B00139B94 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422E82CF2BF6BF5B00139B94 /* String+Extension.swift */; };
 		423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */; };
 		423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4222BD6369000CBB6D5 /* Constants.swift */; };
@@ -99,6 +101,8 @@
 		4205FFF72C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int16+MoneyGroupTypeTags.swift"; sourceTree = "<group>"; };
 		4205FFFA2C7136FE0045486B /* EditRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordView.swift; sourceTree = "<group>"; };
 		4205FFFC2C713AED0045486B /* TextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeaderView.swift; sourceTree = "<group>"; };
+		42203A222CD4CF5600F91C9E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		42203A242CD6061800F91C9E /* BorderedTextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextInputView.swift; sourceTree = "<group>"; };
 		422E82CF2BF6BF5B00139B94 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradView.swift; sourceTree = "<group>"; };
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -205,6 +209,14 @@
 			path = EditRecord;
 			sourceTree = "<group>";
 		};
+		42203A212CD4CEBC00F91C9E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				42203A222CD4CF5600F91C9E /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		4241F46F2BB1E61A0048A29B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +257,7 @@
 				42B9F1152BF60F0600D719E3 /* MoneyTrackerDB */,
 				424275342BA503BF001873A3 /* Model */,
 				424EC7B42CA94E3300CF76E2 /* Services */,
+				42203A212CD4CEBC00F91C9E /* Onboarding */,
 				42CA524F2C2C406D0024DF8B /* Today */,
 				42ED3BD12C5A69F8009385E0 /* Calendar */,
 				42700A9F2C6FADDC0022063A /* ComponentViews */,
@@ -342,6 +355,7 @@
 				42548AF12C71FB3700C35903 /* SmallTextView.swift */,
 				42840CE42C8DD0AE00E62068 /* DatePickerView.swift */,
 				42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */,
+				42203A242CD6061800F91C9E /* BorderedTextInputView.swift */,
 			);
 			path = ComponentViews;
 			sourceTree = "<group>";
@@ -635,6 +649,7 @@
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42CA524D2C2B558C0024DF8B /* IconView.swift in Sources */,
 				42C9EB122C71EB5600D5D6EA /* TextView.swift in Sources */,
+				42203A232CD4CF5700F91C9E /* OnboardingView.swift in Sources */,
 				424EC7B32CA94E2200CF76E2 /* DataService.swift in Sources */,
 				42CA52492C2B52F90024DF8B /* Int+String.swift in Sources */,
 				42CA52452C2B42F30024DF8B /* ExpensesDetailView.swift in Sources */,
@@ -642,6 +657,7 @@
 				42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */,
 				42B9F10E2BF3CF0700D719E3 /* Categories.swift in Sources */,
 				42CA524B2C2B54900024DF8B /* DetailCellView.swift in Sources */,
+				42203A252CD6061800F91C9E /* BorderedTextInputView.swift in Sources */,
 				422E82D02BF6BF5B00139B94 /* String+Extension.swift in Sources */,
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */,

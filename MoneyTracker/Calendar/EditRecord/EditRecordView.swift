@@ -70,7 +70,6 @@ struct EditRecordView: View {
             
             self.datePickerView
         }
-        .foregroundStyle(.white)
         .animation(.easeInOut(duration: 0.4), value: self.isDatePickerPresented)
         .sheet(isPresented: self.$isCategoryPresented) {
             CategoryGroupSelectionView(
@@ -119,6 +118,7 @@ struct EditRecordView: View {
         HStack {
             Image(systemName: self.viewModel.editingItem.category.icon)
                 .padding(.trailing)
+                .foregroundStyle(.white)
             TextTitleView(
                 text: self.$viewModel.editingItem.category.name,
                 style: .medium,

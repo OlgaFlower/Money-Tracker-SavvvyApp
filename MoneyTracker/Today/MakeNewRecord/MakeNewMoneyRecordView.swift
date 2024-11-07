@@ -64,7 +64,6 @@ struct MakeNewMoneyRecordView: View {
                 .padding(.top, 62)
                 Spacer()
             }
-            .foregroundStyle(.white)
         }
         .onTapGesture {
             self.isKeyboardFocused = false
@@ -93,6 +92,7 @@ struct MakeNewMoneyRecordView: View {
             Spacer()
             Rectangle()
                 .frame(width: 1)
+                .foregroundStyle(.white)
             Spacer()
             
             /// Income
@@ -117,6 +117,7 @@ struct MakeNewMoneyRecordView: View {
                     .font(.title)
                     .frame(width: 28, height: 28)
                     .opacity(self.viewModel.isCategoryChosen() ? 0.9 : 0.5)
+                    .foregroundStyle(.white)
                 
                 /// CATEGORY
                 TextView(text: self.viewModel.newItem.category.name)

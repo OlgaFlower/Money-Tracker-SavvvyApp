@@ -16,6 +16,20 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            
+            /// Test
+            NavigationStack {
+                OnboardingView()
+            }
+            .tabItem {
+                Label(
+                    title: {},
+                    icon: {
+                        self.makeTabBarIcon("chart")
+                    }
+                )
+            }
+            
             ///Home
             NavigationStack {
                 TodayView()
