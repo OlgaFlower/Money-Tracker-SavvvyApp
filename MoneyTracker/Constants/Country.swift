@@ -9,12 +9,31 @@ import Foundation
 
 enum Country: String {
     ///Europe
-    case euro = "Euro"
+    case austria = "Austria"
+    case belgium = "Belgium"
+    case estonia = "Estonia"
+    case finland = "Finland"
+    case france = "France"
+    case germany = "Germany"
+    case greece = "Greece"
+    case ireland = "Ireland"
+    case italy = "Italy"
+    case latvia = "Latvia"
+    case lithuania = "Lithuania"
+    case luxembourg = "Luxembourg"
+    case malta = "Malta"
+    case netherlands = "Netherlands"
+    case portugal = "Portugal"
+    case slovakia = "Slovakia"
+    case slovenia = "Slovenia"
+    case spain = "spain"
+    
+    
     case albania = "Albania"
     case bosniaHerzegovina = "Bosnia and Herzegovina"
     case bulgaria = "Bulgaria"
     case croatia = "Croatia"
-    case czechia = "Czechia"
+    case czechia = "Czech Republic"
     case denmark = "Denmark"
     case georgia = "Georgia"
     case greenland = "Greenland"
@@ -76,7 +95,6 @@ enum Country: String {
     case bahrain = "Bahrain"
     case cyprus = "Cyprus"
     case iraq = "Iraq"
-    case iran = "Iran"
     case israel = "Israel"
     case jordan = "Jordan"
     case kuwait = "Kuwait"
@@ -136,11 +154,31 @@ enum Country: String {
     var currencySymbol: String {
         switch self {
             ///Europe
-        case .euro: return "€"
+        case 
+                .austria,
+                .belgium,
+                .croatia,
+                .cyprus,
+                .finland,
+                .france,
+                .germany,
+                .greece,
+                .ireland,
+                .italy,
+                .latvia,
+                .lithuania,
+                .luxembourg,
+                .malta,
+                .netherlands,
+                .portugal,
+                .slovakia,
+                .slovenia,
+                .spain,
+                .estonia: return "€"
+            
         case .albania: return "L"
         case .bosniaHerzegovina: return "KM"
         case .bulgaria: return "лв"
-        case .croatia: return "kn"
         case .czechia: return "Kč"
         case .denmark: return "kr"
         case .georgia: return "₾"
@@ -199,9 +237,7 @@ enum Country: String {
         case .armenia: return "դր"
         case .azerbaijan: return "₼"
         case .bahrain: return ".د.ب"
-        case .cyprus: return "€"
         case .iraq: return "ع.د"
-        case .iran: return "﷼"
         case .israel: return "₪"
         case .jordan: return "ينار"
         case .kuwait: return "ك"
@@ -263,11 +299,31 @@ enum Country: String {
     var currencyCode: String {
         switch self {
             ///Europe
-        case .euro: return "EUR"
+        case 
+                .austria,
+                .belgium,
+                .croatia,
+                .cyprus,
+                .finland,
+                .france,
+                .germany,
+                .greece,
+                .ireland,
+                .italy,
+                .latvia,
+                .lithuania,
+                .luxembourg,
+                .malta,
+                .netherlands,
+                .portugal,
+                .slovakia,
+                .slovenia,
+                .spain,
+                .estonia: return "EUR"
+            
         case .albania: return "ALL"
         case .bosniaHerzegovina: return "BAM"
         case .bulgaria: return "BGN"
-        case .croatia: return "HRK"
         case .czechia: return "CZK"
         case .denmark: return "DKK"
         case .georgia: return "GEL"
@@ -326,9 +382,7 @@ enum Country: String {
         case .armenia: return "AMD"
         case .azerbaijan: return "AZN"
         case .bahrain: return "BHD"
-        case .cyprus: return "EUR"
         case .iraq: return "IQD"
-        case .iran: return "IRR"
         case .israel: return "ILS"
         case .jordan: return "JOD"
         case .kuwait: return "KWD"
