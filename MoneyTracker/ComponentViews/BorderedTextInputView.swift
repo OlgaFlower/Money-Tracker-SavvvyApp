@@ -9,9 +9,12 @@ import SwiftUI
 
 struct BorderedTextInputView<T: RawRepresentable & CaseIterable & Identifiable>: View where T.RawValue == String {
     
+    // MARK: - States
     @Binding var input: String
     @State private var isEditing = false
     @FocusState private var isFocused: Bool
+    
+    // MARK: - Properties
     var placeholder: String
     var suggestions: T.Type
     
@@ -22,6 +25,10 @@ struct BorderedTextInputView<T: RawRepresentable & CaseIterable & Identifiable>:
         }
     }
     
+    // MARK: - Action
+    var onSelection: ((T) -> Void)?
+    
+    // MARK: - Body
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -63,19 +70,22 @@ struct BorderedTextInputView<T: RawRepresentable & CaseIterable & Identifiable>:
                                         input = suggestion.rawValue
                                         self.isEditing = false
                                         self.isFocused = false
+                                        onSelection?(suggestion)
                                     }
                             }
                         }
                     }
-                    .frame(maxWidth: .infinity, maxHeight: 200)
+                    .frame(maxWidth: .infinity, maxHeight: 150)
                     .background(.black.opacity(0.1))
                     .cornerRadius(10)
+                    .scrollIndicators(.hidden)
                 }
             }
         }
     }
 }
 
+// MARK: - Preview
 #Preview {
     BorderedTextInputView<Country>(
         input: .constant(""),

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @State var countryName: String = ""
-    @State var currency: String = ""
+    @State var selectedCountry: String = ""
+    @State var selectedCurrency: String = ""
     
     var body: some View {
         ZStack {
@@ -24,15 +24,15 @@ struct OnboardingView: View {
             
             VStack(spacing: 32) {
                 BorderedTextInputView<Country>(
-                    input: self.$countryName,
-                    placeholder: "your country name", 
+                    input: self.$selectedCountry,
+                    placeholder: "your country name",
                     suggestions: Country.self
                 )
                 
-                BorderedTextInputView<Country>(
-                    input: self.$currency,
-                    placeholder: "currency", 
-                    suggestions: Country.self
+                BorderedTextInputView<Currency>(
+                    input: self.$selectedCurrency,
+                    placeholder: "currency",
+                    suggestions: Currency.self
                 )
             }
             .padding(.horizontal, 32)
@@ -42,7 +42,7 @@ struct OnboardingView: View {
 
 #Preview {
     OnboardingView(
-        countryName: "ukraine",
-        currency: "EUR"
+        selectedCountry: "ukraine",
+        selectedCurrency: "EUR"
     )
 }
