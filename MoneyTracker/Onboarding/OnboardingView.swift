@@ -18,19 +18,21 @@ struct OnboardingView: View {
             
             VStack {
                 TextHeaderView(text: "welcome", alignCenter: true)
-                    .padding(.top, 32)
+                    .padding(.top, 100)
                 Spacer()
             }
             
             VStack(spacing: 32) {
-                BorderedTextInputView(
+                BorderedTextInputView<Country>(
                     input: self.$countryName,
-                    placeholder: "your country name"
+                    placeholder: "your country name", 
+                    suggestions: Country.self
                 )
                 
-                BorderedTextInputView(
+                BorderedTextInputView<Country>(
                     input: self.$currency,
-                    placeholder: "currency"
+                    placeholder: "currency", 
+                    suggestions: Country.self
                 )
             }
             .padding(.horizontal, 32)

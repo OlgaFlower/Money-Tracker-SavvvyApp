@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Country: String {
+enum Country: String, CaseIterable, Identifiable {
     ///Europe
     case austria = "Austria"
     case belgium = "Belgium"
@@ -150,6 +150,14 @@ enum Country: String {
     case zimbabwe = "Zimbabwe"
     ///Asia & The Pacific region
     case australia = "Australia"
+    
+    var id: String {
+        self.rawValue
+    }
+    
+    var name: String {
+        self.rawValue
+    }
     
     var currencySymbol: String {
         switch self {

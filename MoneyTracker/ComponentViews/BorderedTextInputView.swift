@@ -7,39 +7,79 @@
 
 import SwiftUI
 
-struct BorderedTextInputView: View {
+struct BorderedTextInputView<T: RawRepresentable & CaseIterable & Identifiable>: View where T.RawValue == String {
     
     @Binding var input: String
+    @State private var isEditing = false
+    @FocusState private var isFocused: Bool
     var placeholder: String
+    var suggestions: T.Type
+    
+    var filteredSuggestions: [T] {
+        guard !input.isEmpty else { return [] }
+        return T.allCases.filter {
+            $0.rawValue.lowercased().hasPrefix(input.lowercased())
+        }
+    }
     
     var body: some View {
-        
-        ZStack(alignment: .leading) {
-            
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(
-                    .white.opacity(0.8),
-                    lineWidth: 0.5
-                )
-                .frame(height: 50)
-            
-            if input.isEmpty {
-                Text(placeholder.uppercased())
-                    .foregroundStyle(.white.opacity(self.input.isEmpty ?  0.3 : 0))
-                    .padding(.leading, 32)
+        ZStack {
+            VStack(alignment: .leading, spacing: 0) {
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(
+                            .white.opacity(0.8),
+                            lineWidth: 0.5
+                        )
+                        .frame(height: 50)
+                    
+                    if input.isEmpty {
+                        Text(placeholder.uppercased())
+                            .foregroundStyle(.white.opacity(self.input.isEmpty ?  0.3 : 0))
+                            .padding(.leading, 32)
+                    }
+                    
+                    TextField("", text: self.$input, onEditingChanged: { editing in
+                        self.isEditing = editing
+                    })
+                        .textInputAutocapitalization(.characters)
+                        .textCase(.uppercase)
+                        .autocorrectionDisabled(true)
+                        .foregroundStyle(.white.opacity(0.8))
+                        .padding(.leading, 32)
+                        .focused($isFocused)
+                }
+                
+                if self.isEditing && !self.filteredSuggestions.isEmpty {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 8) {
+                            ForEach(self.filteredSuggestions) { suggestion in
+                                
+                                Text(suggestion.rawValue.uppercased())
+                                    .foregroundColor(.white)
+                                    .padding(.vertical, 6)
+                                    .padding(.horizontal, 8)
+                                    .onTapGesture {
+                                        input = suggestion.rawValue
+                                        self.isEditing = false
+                                        self.isFocused = false
+                                    }
+                            }
+                        }
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 200)
+                    .background(.black.opacity(0.1))
+                    .cornerRadius(10)
+                }
             }
-            TextField("", text: self.$input)
-                .textInputAutocapitalization(.characters)
-                .textCase(.uppercase)
-                .foregroundStyle(.white.opacity(0.8))
-                .padding(.leading, 32)
         }
     }
 }
 
 #Preview {
-    BorderedTextInputView(
+    BorderedTextInputView<Country>(
         input: .constant(""),
-        placeholder: "your country name"
+        placeholder: "your country name",
+        suggestions: Country.self
     )
 }
