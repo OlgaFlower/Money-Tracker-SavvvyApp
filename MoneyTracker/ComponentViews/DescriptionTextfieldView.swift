@@ -31,6 +31,7 @@ struct DescriptionTextfieldView: View {
                 .keyboardType(.asciiCapable)
                 .frame(width: UIScreen.main.bounds.width - 24)
         }
+        .foregroundStyle(.white)
     }
 }
 

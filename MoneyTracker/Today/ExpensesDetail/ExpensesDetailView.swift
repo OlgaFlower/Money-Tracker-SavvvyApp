@@ -68,6 +68,7 @@ struct ExpensesDetailView: View {
             Section(
                 header: Text(title)
                     .font(.customFont(style: .regular, size: .small))
+                    .foregroundStyle(.white)
                     .opacity(0.9)
             ) {
                 ForEach(expenses.wrappedValue) { record in

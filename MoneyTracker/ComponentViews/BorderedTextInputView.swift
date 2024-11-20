@@ -75,7 +75,7 @@ struct BorderedTextInputView<T: RawRepresentable & CaseIterable & Identifiable>:
                             }
                         }
                     }
-                    .frame(maxWidth: .infinity, maxHeight: 150)
+                    .frame(maxWidth: .infinity, maxHeight: 120)
                     .background(.black.opacity(0.1))
                     .cornerRadius(10)
                     .scrollIndicators(.hidden)
