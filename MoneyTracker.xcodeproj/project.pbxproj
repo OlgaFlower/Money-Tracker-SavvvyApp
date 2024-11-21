@@ -342,22 +342,16 @@
 		42700A9F2C6FADDC0022063A /* ComponentViews */ = {
 			isa = PBXGroup;
 			children = (
+				428BE9852CEF748400700550 /* Buttons */,
+				428BE9842CEF745E00700550 /* Pickers */,
+				428BE9832CEF743700700550 /* DateViews */,
+				428BE9822CEF741300700550 /* TextViews */,
 				42CA524E2C2C40210024DF8B /* Cells */,
 				42CA52502C2C41D10024DF8B /* HorizontalBudgetBoardView.swift */,
-				42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */,
 				42CA524C2C2B558C0024DF8B /* IconView.swift */,
 				423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */,
 				42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */,
-				42700AA02C6FAE0D0022063A /* CancelButtonView.swift */,
-				42700AA22C6FB1200022063A /* DateTitleView.swift */,
-				42C9EB092C71B4CF00D5D6EA /* TextTitleView.swift */,
 				42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */,
-				4205FFFC2C713AED0045486B /* TextHeaderView.swift */,
-				42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */,
-				42C9EB112C71EB5600D5D6EA /* TextView.swift */,
-				42548AF12C71FB3700C35903 /* SmallTextView.swift */,
-				42840CE42C8DD0AE00E62068 /* DatePickerView.swift */,
-				4268B4882CEF4D99007900C5 /* CurrencyPickerView.swift */,
 				42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */,
 			);
 			path = ComponentViews;
@@ -378,6 +372,44 @@
 				42840CF02C9B312900E62068 /* VibrateService.swift */,
 			);
 			path = Actions;
+			sourceTree = "<group>";
+		};
+		428BE9822CEF741300700550 /* TextViews */ = {
+			isa = PBXGroup;
+			children = (
+				42C9EB092C71B4CF00D5D6EA /* TextTitleView.swift */,
+				4205FFFC2C713AED0045486B /* TextHeaderView.swift */,
+				42C9EB112C71EB5600D5D6EA /* TextView.swift */,
+				42548AF12C71FB3700C35903 /* SmallTextView.swift */,
+			);
+			path = TextViews;
+			sourceTree = "<group>";
+		};
+		428BE9832CEF743700700550 /* DateViews */ = {
+			isa = PBXGroup;
+			children = (
+				42C9EB0D2C71C52100D5D6EA /* DateHeaderView.swift */,
+				42700AA22C6FB1200022063A /* DateTitleView.swift */,
+			);
+			path = DateViews;
+			sourceTree = "<group>";
+		};
+		428BE9842CEF745E00700550 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				42840CE42C8DD0AE00E62068 /* DatePickerView.swift */,
+				4268B4882CEF4D99007900C5 /* CurrencyPickerView.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		428BE9852CEF748400700550 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */,
+				42700AA02C6FAE0D0022063A /* CancelButtonView.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		42AA6C5C2C5FD1F500850299 /* CalendarDetails */ = {
