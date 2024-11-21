@@ -1,46 +1,56 @@
 //
-//  DatePickerView.swift
+//  CurrencyPickerView.swift
 //  MoneyTracker
 //
-//  Created by Olha Bereziuk on 08.09.24.
+//  Created by Olha Bereziuk on 21.11.24.
 //
 
 import SwiftUI
 
-struct DatePickerView: View {
+struct CurrencyPickerView: View {
     // MARK: - States
-    @Binding var recordTimestamp: Date
+    @Binding var selectedCurrency: String
     @Binding var isPresented: Bool
-    @State var newDate = Date.now
+    @State private var tempCurrency: String
     
     // MARK: - Properties
-    var dateRange: ClosedRange<Date>
+    var sortedCurrencies: [Currency] {
+        Currency.allCases.sorted { $0.rawValue < $1.rawValue }
+    }
     
     // MARK: - Init
-    init(recordTimestamp: Binding<Date>, isPresented: Binding<Bool>) {
-        self._recordTimestamp = recordTimestamp
+    init(
+        selectedCurrency: Binding<String>,
+        isPresented: Binding<Bool>
+    ) {
+        self._selectedCurrency = selectedCurrency
         self._isPresented = isPresented
-        dateRange = Date.distantPast...Date.distantFuture
+        self._tempCurrency = State(initialValue: selectedCurrency.wrappedValue)
     }
     
     // MARK: - Body
     var body: some View {
         VStack {
             ZStack {
+                
                 RoundedRectangle(cornerRadius: 5)
-                    .frame(width: UIScreen.main.bounds.size.width - 90, height: 36)
+                    .frame(width: UIScreen.main.bounds.size.width - 90, height: 28)
                     .foregroundColor(.lightBlue)
-                DatePicker(
-                    "",
-                    selection: $newDate,
-                    in: dateRange,
-                    displayedComponents: [.date]
-                )
-                .datePickerStyle(WheelDatePickerStyle())
+                
+                Picker("Currency", selection: $tempCurrency) {
+                    
+                    ForEach(self.sortedCurrencies) { currency in
+                        Text(currency.rawValue)
+                            .tag(currency)
+                    }
+                }
+                .pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .padding()
             }
+            
             HStack {
+                
                 Button("CANCEL") {
                     isPresented.toggle()
                 }
@@ -51,7 +61,7 @@ struct DatePickerView: View {
                 Spacer()
                 
                 Button("UPDATE") {
-                    self.recordTimestamp = self.newDate
+                    self.selectedCurrency = self.tempCurrency
                     isPresented.toggle()
                 }
                 .font(.customFont(style: .medium, size: .body))
@@ -74,5 +84,8 @@ struct DatePickerView: View {
 }
 
 #Preview {
-    DatePickerView(recordTimestamp: .constant(Date.now), isPresented: .constant(false))
+    CurrencyPickerView(
+        selectedCurrency: .constant(Currency.eur.rawValue),
+        isPresented: .constant(true)
+    )
 }

@@ -39,6 +39,7 @@ struct EditRecordView: View {
                 
                 VStack(spacing: 26) {
                     self.makeDateEditor()
+                    
                     CurrencyTextFieldView(
                         inputAmount: self.$viewModel.inputAmount,
                         currency: self.viewModel.editingItem.currency, 
@@ -86,14 +87,14 @@ struct EditRecordView: View {
     // Date Picker
     @ViewBuilder
     private var datePickerView: some View {
-        if isDatePickerPresented {
+        if self.isDatePickerPresented {
             Rectangle()
                 .fill(.darkBlue.opacity(0.6))
                 .ignoresSafeArea()
             
             DatePickerView(
-                recordTimestamp: $viewModel.editingItem.timestamp,
-                isPresented: $isDatePickerPresented
+                recordTimestamp: self.$viewModel.editingItem.timestamp,
+                isPresented: self.$isDatePickerPresented
             )
             .padding(.horizontal, 32)
             .transition(.scale)
@@ -106,6 +107,7 @@ struct EditRecordView: View {
                 self.isDatePickerPresented.toggle()
             }
     }
+    
     private var dateEditorView: some View {
         DateTitleView(
             date: self.$viewModel.editingItem.timestamp,

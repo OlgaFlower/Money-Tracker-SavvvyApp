@@ -9,8 +9,8 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @State var selectedCountry: String = ""
-    @State var selectedCurrency: String = ""
+    @State var selectedCurrency: String = Currency.eur.rawValue
+    @State private var isCurrencyPickerPresented = false
     
     var body: some View {
         ZStack {
@@ -23,26 +23,52 @@ struct OnboardingView: View {
             }
             
             VStack(spacing: 32) {
-                BorderedTextInputView<Country>(
-                    input: self.$selectedCountry,
-                    placeholder: "your country name",
-                    suggestions: Country.self
-                )
-                
-                BorderedTextInputView<Currency>(
-                    input: self.$selectedCurrency,
-                    placeholder: "currency",
-                    suggestions: Currency.self
-                )
+                self.makeCurrencyEditor()
             }
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 30)
+            .blur(radius: isCurrencyPickerPresented ? 10 : 0)
+            
+            self.currencyPickerView
         }
+        .animation(.easeInOut(duration: 0.4), value: self.isCurrencyPickerPresented)
+    }
+    
+    // MARK: - Views
+    @ViewBuilder
+    private var currencyPickerView: some View {
+        if self.isCurrencyPickerPresented {
+            Rectangle()
+                .fill(.darkBlue.opacity(0.6))
+                .ignoresSafeArea()
+            
+            CurrencyPickerView(
+                selectedCurrency: self.$selectedCurrency,
+                isPresented: self.$isCurrencyPickerPresented
+            )
+            .padding(.horizontal, 32)
+            .transition(.scale)
+        }
+    }
+    
+    // MARK: - Functions
+    private func makeCurrencyEditor() -> some View {
+        self.currencyEditorView
+            .onTapGesture {
+                self.isCurrencyPickerPresented.toggle()
+            }
+    }
+    
+    private var currencyEditorView: some View {
+        TextTitleView(
+            text: self.$selectedCurrency,
+            style: .medium,
+            isCentered: true
+        )
     }
 }
 
 #Preview {
     OnboardingView(
-        selectedCountry: "ukraine",
         selectedCurrency: "EUR"
     )
 }

@@ -10,7 +10,7 @@ import Foundation
 enum Currency: String, CaseIterable, Identifiable {
     
     case eur = "EUR"
-    case all = "ALL"
+    case all = "ALL" //Albanian lek
     case bam = "BAM"
     case bgn = "BGN"
     case czk = "CZK"
