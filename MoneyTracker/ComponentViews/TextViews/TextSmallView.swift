@@ -1,5 +1,5 @@
 //
-//  SmallTextView.swift
+//  TextSmallView.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 18.08.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SmallTextView: View {
+struct TextSmallView: View {
     
     let text: String
     
@@ -19,5 +19,5 @@ struct SmallTextView: View {
 }
 
 #Preview {
-    SmallTextView(text: "Text example")
+    TextSmallView(text: "Text example")
 }

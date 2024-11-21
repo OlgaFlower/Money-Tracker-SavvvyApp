@@ -28,7 +28,7 @@
 		424EC7B12CA852CF00CF76E2 /* MappingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424EC7B02CA852CF00CF76E2 /* MappingService.swift */; };
 		424EC7B32CA94E2200CF76E2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424EC7B22CA94E2200CF76E2 /* DataService.swift */; };
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
-		42548AF22C71FB3700C35903 /* SmallTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF12C71FB3700C35903 /* SmallTextView.swift */; };
+		42548AF22C71FB3700C35903 /* TextSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF12C71FB3700C35903 /* TextSmallView.swift */; };
 		42548AF42C72173800C35903 /* EditRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF32C72173800C35903 /* EditRecordViewModel.swift */; };
 		425767A02C2148C90053637A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257679F2C2148C90053637A /* CoreDataManager.swift */; };
 		42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */; };
@@ -40,6 +40,7 @@
 		42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CE42C8DD0AE00E62068 /* DatePickerView.swift */; };
 		42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */; };
 		42840CF12C9B312900E62068 /* VibrateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CF02C9B312900E62068 /* VibrateService.swift */; };
+		428BE9872CEF764900700550 /* TextLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE9862CEF764900700550 /* TextLargeView.swift */; };
 		42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C292BB7173B003B617D /* MoneyModel.swift */; };
 		42A11C2F2BB935E5003B617D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C2E2BB935E5003B617D /* TodayView.swift */; };
 		42AA6C5E2C5FD23300850299 /* CalendarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA6C5D2C5FD23300850299 /* CalendarDetailsView.swift */; };
@@ -123,7 +124,7 @@
 		424EC7B02CA852CF00CF76E2 /* MappingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingService.swift; sourceTree = "<group>"; };
 		424EC7B22CA94E2200CF76E2 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
-		42548AF12C71FB3700C35903 /* SmallTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTextView.swift; sourceTree = "<group>"; };
+		42548AF12C71FB3700C35903 /* TextSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSmallView.swift; sourceTree = "<group>"; };
 		42548AF32C72173800C35903 /* EditRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewModel.swift; sourceTree = "<group>"; };
 		4257679F2C2148C90053637A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCategoryCellViewModel.swift; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		42840CE42C8DD0AE00E62068 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextfieldView.swift; sourceTree = "<group>"; };
 		42840CF02C9B312900E62068 /* VibrateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateService.swift; sourceTree = "<group>"; };
+		428BE9862CEF764900700550 /* TextLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLargeView.swift; sourceTree = "<group>"; };
 		42A11C292BB7173B003B617D /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		42A11C2E2BB935E5003B617D /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		42AA6C5D2C5FD23300850299 /* CalendarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsView.swift; sourceTree = "<group>"; };
@@ -380,7 +382,8 @@
 				42C9EB092C71B4CF00D5D6EA /* TextTitleView.swift */,
 				4205FFFC2C713AED0045486B /* TextHeaderView.swift */,
 				42C9EB112C71EB5600D5D6EA /* TextView.swift */,
-				42548AF12C71FB3700C35903 /* SmallTextView.swift */,
+				42548AF12C71FB3700C35903 /* TextSmallView.swift */,
+				428BE9862CEF764900700550 /* TextLargeView.swift */,
 			);
 			path = TextViews;
 			sourceTree = "<group>";
@@ -716,7 +719,7 @@
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */,
-				42548AF22C71FB3700C35903 /* SmallTextView.swift in Sources */,
+				42548AF22C71FB3700C35903 /* TextSmallView.swift in Sources */,
 				42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */,
 				42C9EB0A2C71B4CF00D5D6EA /* TextTitleView.swift in Sources */,
 				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
@@ -730,6 +733,7 @@
 				42CA52472C2B44C40024DF8B /* ExpensesDetailViewModel.swift in Sources */,
 				42CA52512C2C41D10024DF8B /* HorizontalBudgetBoardView.swift in Sources */,
 				424E3D382C63BF1E005E2181 /* CalendarDetailsViewModel.swift in Sources */,
+				428BE9872CEF764900700550 /* TextLargeView.swift in Sources */,
 				42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */,
 				42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */,
 				4268B4892CEF4D99007900C5 /* CurrencyPickerView.swift in Sources */,

@@ -17,7 +17,7 @@ struct OnboardingView: View {
             BackgroundGradView()
             
             VStack {
-                TextHeaderView(text: "welcome", alignCenter: true)
+                TextLargeView(text: "welcome", alignCenter: true)
                     .padding(.top, 100)
                 Spacer()
             }
@@ -59,11 +59,7 @@ struct OnboardingView: View {
     }
     
     private var currencyEditorView: some View {
-        TextTitleView(
-            text: self.$selectedCurrency,
-            style: .medium,
-            isCentered: true
-        )
+        TextHeaderView(text: self.selectedCurrency, alignCenter: true)
     }
 }
 
