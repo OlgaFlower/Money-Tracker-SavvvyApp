@@ -32,7 +32,7 @@
 		42548AF42C72173800C35903 /* EditRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42548AF32C72173800C35903 /* EditRecordViewModel.swift */; };
 		425767A02C2148C90053637A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4257679F2C2148C90053637A /* CoreDataManager.swift */; };
 		42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */; };
-		4268B4892CEF4D99007900C5 /* CurrencyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268B4882CEF4D99007900C5 /* CurrencyPickerView.swift */; };
+		4268B4892CEF4D99007900C5 /* GenericPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268B4882CEF4D99007900C5 /* GenericPickerView.swift */; };
 		42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA02C6FAE0D0022063A /* CancelButtonView.swift */; };
 		42700AA32C6FB1200022063A /* DateTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA22C6FB1200022063A /* DateTitleView.swift */; };
 		42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */; };
@@ -41,6 +41,8 @@
 		42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */; };
 		42840CF12C9B312900E62068 /* VibrateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CF02C9B312900E62068 /* VibrateService.swift */; };
 		428BE9872CEF764900700550 /* TextLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE9862CEF764900700550 /* TextLargeView.swift */; };
+		428BE9892CEF868300700550 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE9882CEF868300700550 /* OnboardingViewModel.swift */; };
+		428BE98D2CEF8B8500700550 /* PickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE98C2CEF8B8500700550 /* PickerItem.swift */; };
 		42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C292BB7173B003B617D /* MoneyModel.swift */; };
 		42A11C2F2BB935E5003B617D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C2E2BB935E5003B617D /* TodayView.swift */; };
 		42AA6C5E2C5FD23300850299 /* CalendarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA6C5D2C5FD23300850299 /* CalendarDetailsView.swift */; };
@@ -128,7 +130,7 @@
 		42548AF32C72173800C35903 /* EditRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewModel.swift; sourceTree = "<group>"; };
 		4257679F2C2148C90053637A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		42580AF72C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCategoryCellViewModel.swift; sourceTree = "<group>"; };
-		4268B4882CEF4D99007900C5 /* CurrencyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerView.swift; sourceTree = "<group>"; };
+		4268B4882CEF4D99007900C5 /* GenericPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPickerView.swift; sourceTree = "<group>"; };
 		42700AA02C6FAE0D0022063A /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
 		42700AA22C6FB1200022063A /* DateTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTitleView.swift; sourceTree = "<group>"; };
 		42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHalfDonut.swift; sourceTree = "<group>"; };
@@ -137,6 +139,8 @@
 		42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextfieldView.swift; sourceTree = "<group>"; };
 		42840CF02C9B312900E62068 /* VibrateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateService.swift; sourceTree = "<group>"; };
 		428BE9862CEF764900700550 /* TextLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLargeView.swift; sourceTree = "<group>"; };
+		428BE9882CEF868300700550 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		428BE98C2CEF8B8500700550 /* PickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerItem.swift; sourceTree = "<group>"; };
 		42A11C292BB7173B003B617D /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		42A11C2E2BB935E5003B617D /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		42AA6C5D2C5FD23300850299 /* CalendarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsView.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				42203A222CD4CF5600F91C9E /* OnboardingView.swift */,
+				428BE9882CEF868300700550 /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				42CA524F2C2C406D0024DF8B /* Today */,
 				42ED3BD12C5A69F8009385E0 /* Calendar */,
 				42700A9F2C6FADDC0022063A /* ComponentViews */,
+				428BE98B2CEF8B6900700550 /* Protocols */,
 				4251FA4E2BAB94960087ABE7 /* Extensions */,
 				42B9F0E92BEA351100D719E3 /* Helpers */,
 				4241F46F2BB1E61A0048A29B /* Constants */,
@@ -401,7 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				42840CE42C8DD0AE00E62068 /* DatePickerView.swift */,
-				4268B4882CEF4D99007900C5 /* CurrencyPickerView.swift */,
+				4268B4882CEF4D99007900C5 /* GenericPickerView.swift */,
 			);
 			path = Pickers;
 			sourceTree = "<group>";
@@ -413,6 +419,14 @@
 				42700AA02C6FAE0D0022063A /* CancelButtonView.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		428BE98B2CEF8B6900700550 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				428BE98C2CEF8B8500700550 /* PickerItem.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		42AA6C5C2C5FD1F500850299 /* CalendarDetails */ = {
@@ -696,6 +710,7 @@
 				42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */,
 				42B9F10E2BF3CF0700D719E3 /* Categories.swift in Sources */,
 				42CA524B2C2B54900024DF8B /* DetailCellView.swift in Sources */,
+				428BE98D2CEF8B8500700550 /* PickerItem.swift in Sources */,
 				422E82D02BF6BF5B00139B94 /* String+Extension.swift in Sources */,
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */,
@@ -717,6 +732,7 @@
 				42ED3BD42C5A712D009385E0 /* CalendarView.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
+				428BE9892CEF868300700550 /* OnboardingViewModel.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */,
 				42548AF22C71FB3700C35903 /* TextSmallView.swift in Sources */,
@@ -736,7 +752,7 @@
 				428BE9872CEF764900700550 /* TextLargeView.swift in Sources */,
 				42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */,
 				42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */,
-				4268B4892CEF4D99007900C5 /* CurrencyPickerView.swift in Sources */,
+				4268B4892CEF4D99007900C5 /* GenericPickerView.swift in Sources */,
 				42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */,
 				425767A02C2148C90053637A /* CoreDataManager.swift in Sources */,
 				424EC7B12CA852CF00CF76E2 /* MappingService.swift in Sources */,

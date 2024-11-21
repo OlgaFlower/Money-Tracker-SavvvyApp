@@ -8,7 +8,7 @@
 import Foundation
 
 enum Currency: String, CaseIterable, Identifiable {
-    
+
     case eur = "EUR"
     case all = "ALL" //Albanian lek
     case bam = "BAM"
@@ -122,3 +122,6 @@ enum Currency: String, CaseIterable, Identifiable {
         self.rawValue
     }
 }
+
+// MARK: - Extension
+extension Currency: PickerItem {}

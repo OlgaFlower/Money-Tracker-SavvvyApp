@@ -26,7 +26,7 @@ enum Country: String, CaseIterable, Identifiable {
     case portugal = "Portugal"
     case slovakia = "Slovakia"
     case slovenia = "Slovenia"
-    case spain = "spain"
+    case spain = "Spain"
     case albania = "Albania"
     case bosniaHerzegovina = "Bosnia and Herzegovina"
     case bulgaria = "Bulgaria"
@@ -147,3 +147,6 @@ enum Country: String, CaseIterable, Identifiable {
         self.rawValue
     }
 }
+
+// MARK: - Extension
+extension Country: PickerItem {}

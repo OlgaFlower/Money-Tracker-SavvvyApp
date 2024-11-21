@@ -1,5 +1,5 @@
 //
-//  CurrencyPickerView.swift
+//  GenericPickerView.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 21.11.24.
@@ -7,25 +7,25 @@
 
 import SwiftUI
 
-struct CurrencyPickerView: View {
+struct GenericPickerView<T: PickerItem & Hashable>: View {
     // MARK: - States
-    @Binding var selectedCurrency: String
+    @Binding var selectedItem: T
     @Binding var isPresented: Bool
-    @State private var tempCurrency: String
+    @State private var tempItem: T
     
     // MARK: - Properties
-    var sortedCurrencies: [Currency] {
-        Currency.allCases.sorted { $0.rawValue < $1.rawValue }
-    }
+    let items: [T]
     
     // MARK: - Init
     init(
-        selectedCurrency: Binding<String>,
-        isPresented: Binding<Bool>
+        selectedItem: Binding<T>,
+        isPresented: Binding<Bool>,
+        items: [T]
     ) {
-        self._selectedCurrency = selectedCurrency
+        self._selectedItem = selectedItem
         self._isPresented = isPresented
-        self._tempCurrency = State(initialValue: selectedCurrency.wrappedValue)
+        self._tempItem = State(initialValue: selectedItem.wrappedValue)
+        self.items = items
     }
     
     // MARK: - Body
@@ -37,11 +37,10 @@ struct CurrencyPickerView: View {
                     .frame(width: UIScreen.main.bounds.size.width - 90, height: 28)
                     .foregroundColor(.lightBlue)
                 
-                Picker("Currency", selection: $tempCurrency) {
-                    
-                    ForEach(self.sortedCurrencies) { currency in
-                        Text(currency.rawValue)
-                            .tag(currency)
+                Picker("", selection: $tempItem) {
+                    ForEach(items) { item in
+                        Text(item.rawValue)
+                            .tag(item)
                     }
                 }
                 .pickerStyle(WheelPickerStyle())
@@ -61,7 +60,7 @@ struct CurrencyPickerView: View {
                 Spacer()
                 
                 Button("UPDATE") {
-                    self.selectedCurrency = self.tempCurrency
+                    self.selectedItem = self.tempItem
                     isPresented.toggle()
                 }
                 .font(.customFont(style: .medium, size: .body))
@@ -84,8 +83,9 @@ struct CurrencyPickerView: View {
 }
 
 #Preview {
-    CurrencyPickerView(
-        selectedCurrency: .constant(Currency.eur.rawValue),
-        isPresented: .constant(true)
+    GenericPickerView(
+        selectedItem: .constant(Currency.eur),
+        isPresented: .constant(true),
+        items: Currency.allCases
     )
 }
