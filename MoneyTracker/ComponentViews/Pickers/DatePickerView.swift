@@ -28,7 +28,7 @@ struct DatePickerView: View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 5)
-                    .frame(width: UIScreen.main.bounds.size.width - 90, height: 36)
+                    .frame(width: UIScreen.main.bounds.size.width - 84, height: 36)
                     .foregroundColor(.lightBlue)
                 DatePicker(
                     "",

@@ -16,7 +16,7 @@ struct TextLargeView: View {
         HStack {
             Text(self.text.uppercased())
                 .font(.customFont(style: .medium, size: .large))
-                .foregroundStyle(.white)
+                .foregroundStyle(.white.opacity(0.9))
                 .padding(.leading, self.alignCenter ? 0 : 16)
             if !self.alignCenter {
                 Spacer()

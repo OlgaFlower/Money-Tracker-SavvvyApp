@@ -56,9 +56,12 @@ struct MakeNewMoneyRecordView: View {
                     
                     /// Save
                     if !self.isKeyboardVisible {
-                        self.saveButtonView
-                            .padding(.top, 62)
-                            .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
+                        VStack {
+                            Spacer()
+                            self.saveButtonView
+                                .padding(.bottom, 32)
+                                .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
+                        }
                     }
                 }
                 .padding(.top, 62)
@@ -153,15 +156,19 @@ struct MakeNewMoneyRecordView: View {
                 }
             }
         } label: {
-            TextView(text: "save", style: .medium)
+            TextView(text: "save", style: .regular)
                 .padding(.vertical, 10)
-                .frame(width: 130)
+                .frame(width: Constants.buttonWidth)
         }
+        .background(
+            RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                .fill(.white.opacity(Constants.buttonFillOpacity))
+        )
         .disabled(!self.viewModel.isSaveBtnActive())
         .animation(.linear(duration: 0.2), value: self.viewModel.isSaveBtnActive())
         .overlay(
-            RoundedRectangle(cornerRadius: 6, style: .continuous)
-                .stroke(.white, lineWidth: 0.5)
+            RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)
+                .stroke(.white.opacity(Constants.strokeOpacity), lineWidth: 0.5)
         )
     }
 }

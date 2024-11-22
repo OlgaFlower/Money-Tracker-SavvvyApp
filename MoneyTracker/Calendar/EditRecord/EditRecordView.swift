@@ -42,7 +42,7 @@ struct EditRecordView: View {
                     
                     CurrencyTextFieldView(
                         inputAmount: self.$viewModel.inputAmount,
-                        currency: self.viewModel.editingItem.currency, 
+                        currency: self.viewModel.editingItem.currency,
                         useCase: .editRecord,
                         isKeyboardFocused: _isCurrencyKeyboardFocused
                     )
@@ -56,9 +56,12 @@ struct EditRecordView: View {
                 .padding(.top, 30)
                 
                 if !self.isKeyboardVisible {
-                    self.saveButtonView
-                        .padding(.top, 62)
-                        .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
+                    VStack {
+                        Spacer()
+                        self.saveButtonView
+                            .padding(.bottom, 32)
+                            .opacity(self.viewModel.isSaveBtnActive() ? 1 : 0.4)
+                    }
                 }
                 Spacer()
             }
@@ -144,15 +147,19 @@ struct EditRecordView: View {
                 }
             }
         } label: {
-            TextView(text: "save", style: .medium)
+            TextView(text: "save", style: .regular)
                 .padding(.vertical, 10)
-                .frame(width: 130)
+                .frame(width: Constants.buttonWidth)
         }
+        .background(
+            RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                .fill(.white.opacity(Constants.buttonFillOpacity))
+        )
         .disabled(!self.viewModel.isSaveBtnActive())
         .animation(.linear(duration: 0.2), value: self.viewModel.isSaveBtnActive())
         .overlay(
-            RoundedRectangle(cornerRadius: 6, style: .continuous)
-                .stroke(.white, lineWidth: 0.5)
+            RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)
+                .stroke(.white.opacity(Constants.strokeOpacity), lineWidth: Constants.strokeLineWidth)
         )
     }
 }

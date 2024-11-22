@@ -21,16 +21,20 @@ struct BigButtonCategorySelectionView: View {
         
         HStack(spacing: 16) {
             Image(systemName: icon)
-            TextView(text: title, style: .medium)
+            TextView(text: title, style: .regular)
         }
-        .clipShape(.rect(cornerRadius: 8, style: .continuous))
+        .clipShape(.rect(cornerRadius: Constants.cornerRadius, style: .continuous))
         .background {
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .fill(.lightBlue.opacity(self.hideRectangle ? 0 : 0.5))
+            RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)
+                .fill(.white.opacity(self.hideRectangle ? 0 : 0.1))
                 .frame(width: UIScreen.main.bounds.width * 0.55 + 20, height: 100 + 20)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 6, style: .continuous)
-                        .stroke(.white.opacity(self.hideRectangle ? 0 : 0.5), lineWidth: 0.5)
+                    RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)
+                        .stroke(
+                            .white.opacity(
+                                self.hideRectangle ? 0 : Constants.strokeOpacity),
+                            lineWidth: Constants.strokeLineWidth
+                        )
                 )
         }
     }

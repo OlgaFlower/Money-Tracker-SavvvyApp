@@ -135,3 +135,8 @@ struct CalendarDetailsView: View {
         self.viewModel.prepareRecords()
     }
 }
+
+#Preview {
+    let specificDate = Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15))!
+    return CalendarDetailsView(viewModel: CalendarDetailsViewModel(selectedDay: .constant(specificDate)))
+}

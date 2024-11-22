@@ -41,7 +41,7 @@ struct CategoriesGridView: View {
             Image(systemName: item.icon)
                 .frame(width: 80, height: 80, alignment: .center)
                 .background(.blue)
-                .cornerRadius(10)
+                .cornerRadius(Constants.cornerRadius)
             
             Text(item.name)
                 .font(.customFont(style: .regular, size: .small))

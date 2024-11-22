@@ -15,43 +15,47 @@ struct OnboardingView: View {
     @State private var showCountryPicker = false
     
     // MARK: - Properties
-    let width = UIScreen.main.bounds.width / 1.5
-    let height = UIScreen.main.bounds.width / 3.5
+    let height: CGFloat = 60
     
     // MARK: - Body
     var body: some View {
         ZStack {
             BackgroundGradView()
             
-            /// Header
             VStack {
                 TextLargeView(text: "welcome", alignCenter: true)
                     .padding(.top, 100)
                 Spacer()
             }
             
-            VStack(spacing: 2) {
+            VStack(spacing: 6) {
                 /// Country
                 HStack {
-                    TextSmallView(text: "Select country")
+                    TextSmallView(text: "country")
                         .opacity(0.7)
                     Spacer()
                 }
                 self.makeCountryView()
                     .frame(height: self.height)
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 24)
                 
                 /// Currency
                 HStack {
-                    TextSmallView(text: "Select currency")
+                    TextSmallView(text: "currency")
                         .opacity(0.7)
                     Spacer()
                 }
                 self.makeCurrencyView()
                     .frame(height: self.height)
             }
-            .frame(width: self.width)
+            .frame(width: Constants.buttonWidth)
             .blur(radius: (self.showCurrencyPicker || self.showCountryPicker) ? 10 : 0)
+            
+            VStack {
+                Spacer()
+                self.startButtonView
+                    .padding(.bottom, 32)
+            }
             
             /// Picker
             self.pickerView
@@ -73,7 +77,6 @@ struct OnboardingView: View {
                 isPresented: self.$showCurrencyPicker,
                 items: self.viewModel.currencies
             )
-            .padding(.horizontal, 32)
             .transition(.scale)
         }
         
@@ -88,12 +91,10 @@ struct OnboardingView: View {
                 isPresented: self.$showCountryPicker,
                 items: self.viewModel.countries
             )
-            .padding(.horizontal, 32)
             .transition(.scale)
         }
     }
     
-    // MARK: - Functions
     /// Country
     private func makeCountryView() -> some View {
         self.countryEditorView
@@ -104,15 +105,11 @@ struct OnboardingView: View {
     
     private var countryEditorView: some View {
         TextView(text: self.viewModel.selectedCountry.rawValue)
-            .background {
-                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(.lightBlue.opacity(0.5))
-                    .frame(width: self.width, height: self.height)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.white.opacity(0.5), lineWidth: 0.5)
-                    )
-            }
+            .overlay(
+                RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                    .stroke(.white.opacity(0.5), lineWidth: 0.5)
+                    .frame(width: Constants.buttonWidth, height: self.height)
+            )
     }
     
     /// Currency
@@ -125,15 +122,37 @@ struct OnboardingView: View {
     
     private var currencyEditorView: some View {
         TextView(text: self.viewModel.selectedCurrency.rawValue)
-            .background {
-                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(.lightBlue.opacity(0.5))
-                    .frame(width: self.width, height: self.height)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.white.opacity(0.5), lineWidth: 0.5)
-                    )
+            .overlay(
+                RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                    .stroke(.white.opacity(0.5), lineWidth: 0.5)
+                    .frame(width: Constants.buttonWidth, height: self.height)
+            )
+    }
+    
+    private var startButtonView: some View {
+        Button {
+            VibrateService.vibrateMedium()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                VibrateService.vibrateMedium()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    
+                }
             }
+        } label: {
+            TextView(text: "start", style: .regular)
+                .padding(.vertical, 10)
+                .frame(width: Constants.buttonWidth)
+        }
+        .background(
+            RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                .fill(.white.opacity(Constants.buttonFillOpacity))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)
+                .stroke(.white, lineWidth: 0.5)
+        )
     }
 }
 

@@ -34,7 +34,7 @@ struct GenericPickerView<T: PickerItem & Hashable>: View {
             ZStack {
                 
                 RoundedRectangle(cornerRadius: 5)
-                    .frame(width: UIScreen.main.bounds.size.width - 90, height: 28)
+                    .frame(width: UIScreen.main.bounds.size.width - 84, height: 36)
                     .foregroundColor(.lightBlue)
                 
                 Picker("", selection: $tempItem) {
