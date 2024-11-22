@@ -22,48 +22,67 @@ struct OnboardingView: View {
         ZStack {
             BackgroundGradView()
             
-            VStack {
-                TextLargeView(text: "welcome", alignCenter: true)
-                    .padding(.top, 100)
-                Spacer()
-            }
+            self.welcomeView
             
-            VStack(spacing: 6) {
-                /// Country
-                HStack {
-                    TextSmallView(text: "country")
-                        .opacity(0.7)
-                    Spacer()
-                }
-                self.makeCountryView()
-                    .frame(height: self.height)
-                    .padding(.bottom, 24)
-                
-                /// Currency
-                HStack {
-                    TextSmallView(text: "currency")
-                        .opacity(0.7)
-                    Spacer()
-                }
-                self.makeCurrencyView()
-                    .frame(height: self.height)
-            }
-            .frame(width: Constants.buttonWidth)
-            .blur(radius: (self.showCurrencyPicker || self.showCountryPicker) ? 10 : 0)
+            self.countryAndCurrencyBlock
             
-            VStack {
-                Spacer()
-                self.startButtonView
-                    .padding(.bottom, 32)
-            }
+            self.startBtn
             
-            /// Picker
             self.pickerView
         }
-        .animation(.easeInOut(duration: 0.4), value: self.showCurrencyPicker || self.showCountryPicker)
+        .animation(
+            .easeInOut(duration: 0.4),
+            value: self.showCurrencyPicker || self.showCountryPicker
+        )
     }
     
     // MARK: - Views
+    private var startBtn: some View {
+        VStack {
+            Spacer()
+            
+            self.startButtonView
+                .padding(.bottom, 32)
+                .opacity(self.showCountryPicker || self.showCurrencyPicker ? 0 : 1)
+        }
+    }
+    
+    private var welcomeView: some View {
+        VStack {
+            TextLargeView(text: "welcome", alignCenter: true)
+                .padding(.top, 76)
+            Spacer()
+        }
+    }
+    
+    private var countryAndCurrencyBlock: some View {
+        VStack(spacing: 6) {
+            /// Country
+            HStack {
+                TextSmallView(text: "country")
+                    .opacity(0.7)
+                Spacer()
+            }
+            self.makeCountryView()
+                .frame(height: self.height)
+                .padding(.bottom, 24)
+            
+            /// Currency
+            HStack {
+                TextSmallView(text: "currency")
+                    .opacity(0.7)
+                Spacer()
+            }
+            self.makeCurrencyView()
+                .frame(height: self.height)
+            
+            Spacer()
+        }
+        .padding(.top, 200)
+        .frame(width: Constants.buttonWidth)
+        .blur(radius: (self.showCurrencyPicker || self.showCountryPicker) ? 10 : 0)
+    }
+    
     @ViewBuilder
     private var pickerView: some View {
         /// Currency Picker
