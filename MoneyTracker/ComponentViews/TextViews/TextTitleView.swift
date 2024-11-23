@@ -21,6 +21,7 @@ struct TextTitleView: View {
                     size: .body
                 ))
                 .opacity(0.9)
+                .foregroundStyle(.white)
             if !isCentered {
                 Spacer()
             }

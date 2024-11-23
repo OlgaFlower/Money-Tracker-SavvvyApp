@@ -10,13 +10,17 @@ import SwiftUI
 struct TextHeaderView: View {
     
     let text: String
+    var alignCenter: Bool = false
     
     var body: some View {
         HStack {
-            Text(text.uppercased())
+            Text(self.text.uppercased())
                 .font(.customFont(style: .medium, size: .title))
-                .padding(.leading, 16)
+                .foregroundStyle(.white)
+                .padding(.leading, self.alignCenter ? 0 : 16)
+            if !self.alignCenter {
                 Spacer()
+            }
         }
     }
 }

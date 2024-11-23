@@ -22,6 +22,7 @@ struct DateTitleView: View {
                     size: self.size
                 ))
                 .opacity(0.9)
+                .foregroundStyle(.white)
         }
     }
 }

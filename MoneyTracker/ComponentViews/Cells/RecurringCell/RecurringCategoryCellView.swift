@@ -36,7 +36,7 @@ struct RecurringCategoryCellView: View {
     
     private func makeCellView(item: Category) -> some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: Constants.cornerRadius)
                 .foregroundStyle(.white.opacity(0.07))
                 .padding(.leading, 40)
                 .padding(.trailing, -10)

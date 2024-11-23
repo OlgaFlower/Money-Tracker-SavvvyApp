@@ -151,7 +151,7 @@ struct CalendarView: View {
                 .opacity(0.9)
                 .frame(maxWidth: .infinity, minHeight: 40)
                 .background(
-                    RoundedRectangle(cornerRadius: 4.0)
+                    RoundedRectangle(cornerRadius: 5.0)
                         .foregroundStyle(
                             selectedDate.startOfDay == day.startOfDay ? .blue : .black.opacity(0.2)
                         )

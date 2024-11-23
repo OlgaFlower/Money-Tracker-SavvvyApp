@@ -1,57 +1,66 @@
 //
-//  DatePickerView.swift
+//  GenericPickerView.swift
 //  MoneyTracker
 //
-//  Created by Olha Bereziuk on 08.09.24.
+//  Created by Olha Bereziuk on 21.11.24.
 //
 
 import SwiftUI
 
-struct DatePickerView: View {
+struct GenericPickerView<T: PickerItem & Hashable>: View {
     // MARK: - States
-    @Binding var recordTimestamp: Date
+    @Binding var selectedItem: T
     @Binding var isPresented: Bool
-    @State var newDate = Date.now
+    @State private var tempItem: T
     
     // MARK: - Properties
-    var dateRange: ClosedRange<Date>
+    let items: [T]
     
     // MARK: - Init
-    init(recordTimestamp: Binding<Date>, isPresented: Binding<Bool>) {
-        self._recordTimestamp = recordTimestamp
+    init(
+        selectedItem: Binding<T>,
+        isPresented: Binding<Bool>,
+        items: [T]
+    ) {
+        self._selectedItem = selectedItem
         self._isPresented = isPresented
-        dateRange = Date.distantPast...Date.distantFuture
+        self._tempItem = State(initialValue: selectedItem.wrappedValue)
+        self.items = items
     }
     
     // MARK: - Body
     var body: some View {
         VStack {
             ZStack {
+                
                 RoundedRectangle(cornerRadius: 5)
-                    .frame(width: UIScreen.main.bounds.size.width - 90, height: 36)
+                    .frame(width: UIScreen.main.bounds.size.width - 84, height: 36)
                     .foregroundColor(.lightBlue)
-                DatePicker(
-                    "",
-                    selection: $newDate,
-                    in: dateRange,
-                    displayedComponents: [.date]
-                )
-                .datePickerStyle(WheelDatePickerStyle())
+                
+                Picker("", selection: $tempItem) {
+                    ForEach(items) { item in
+                        Text(item.rawValue)
+                            .tag(item)
+                    }
+                }
+                .pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .padding()
             }
+            
             HStack {
+                
                 Button("CANCEL") {
                     isPresented.toggle()
                 }
-                .font(.customFont(style: .medium, size: .body))
+                .font(.customFont(style: .regular, size: .body))
                 .foregroundColor(.white.opacity(0.9))
                 .padding(.leading, 42)
                 
                 Spacer()
                 
                 Button("UPDATE") {
-                    self.recordTimestamp = self.newDate
+                    self.selectedItem = self.tempItem
                     isPresented.toggle()
                 }
                 .font(.customFont(style: .medium, size: .body))
@@ -74,5 +83,9 @@ struct DatePickerView: View {
 }
 
 #Preview {
-    DatePickerView(recordTimestamp: .constant(Date.now), isPresented: .constant(false))
+    GenericPickerView(
+        selectedItem: .constant(Currency.eur),
+        isPresented: .constant(true),
+        items: Currency.allCases
+    )
 }
