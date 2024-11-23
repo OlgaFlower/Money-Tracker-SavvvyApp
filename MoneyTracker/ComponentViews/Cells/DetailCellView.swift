@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct DetailCellView: View {
+    // "€" - default value
+    @AppStorage("userCurrencySign") var currencySign: String = "€"
     
+    // MARK: - Properties
     var iconName: String
     var note: String
     var sum: Int64
     var category: MoneyGroupType
     
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -32,13 +36,14 @@ struct DetailCellView: View {
         .foregroundStyle(.white)
     }
     
+    // MARK: - Views
     @ViewBuilder
     private func makeSumStringView(for type: MoneyGroupType) -> some View {
         switch self.category {
         case .generalExpense, .recurringExpense:
-            Text("-\(sum.toString())€")
+            Text("-\(sum.toString())\(self.currencySign)")
         case .regularIncome, .temporaryIncome:
-            Text("+\(sum.toString())€")
+            Text("+\(sum.toString())\(self.currencySign)")
         case .none:
             EmptyView()
         }

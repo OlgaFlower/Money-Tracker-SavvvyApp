@@ -19,4 +19,10 @@ final class OnboardingViewModel: ObservableObject {
         self.currencies = Currency.allCases.sorted { $0.rawValue < $1.rawValue }
         self.countries = Country.allCases.sorted { $0.rawValue < $1.rawValue }
     }
+    
+    func savePreferences() {
+        UserPreferences.country = self.selectedCountry.rawValue
+        UserPreferences.currency = self.selectedCurrency.rawValue
+        UserPreferences.currencySign = self.selectedCurrency.sign
+    }
 }

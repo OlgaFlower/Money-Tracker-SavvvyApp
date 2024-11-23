@@ -43,6 +43,7 @@
 		428BE9872CEF764900700550 /* TextLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE9862CEF764900700550 /* TextLargeView.swift */; };
 		428BE9892CEF868300700550 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE9882CEF868300700550 /* OnboardingViewModel.swift */; };
 		428BE98D2CEF8B8500700550 /* PickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE98C2CEF8B8500700550 /* PickerItem.swift */; };
+		428BE9902CF1F60600700550 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE98F2CF1F60600700550 /* UserPreferences.swift */; };
 		42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C292BB7173B003B617D /* MoneyModel.swift */; };
 		42A11C2F2BB935E5003B617D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C2E2BB935E5003B617D /* TodayView.swift */; };
 		42AA6C5E2C5FD23300850299 /* CalendarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA6C5D2C5FD23300850299 /* CalendarDetailsView.swift */; };
@@ -141,6 +142,7 @@
 		428BE9862CEF764900700550 /* TextLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLargeView.swift; sourceTree = "<group>"; };
 		428BE9882CEF868300700550 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		428BE98C2CEF8B8500700550 /* PickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerItem.swift; sourceTree = "<group>"; };
+		428BE98F2CF1F60600700550 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		42A11C292BB7173B003B617D /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		42A11C2E2BB935E5003B617D /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		42AA6C5D2C5FD23300850299 /* CalendarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsView.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		424275082BA4FF72001873A3 /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				428BE98E2CF1F5CD00700550 /* User */,
 				42CA52582C2C5AF90024DF8B /* Info.plist */,
 				424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */,
 				4242750B2BA4FF72001873A3 /* ContentView.swift */,
@@ -427,6 +430,14 @@
 				428BE98C2CEF8B8500700550 /* PickerItem.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		428BE98E2CF1F5CD00700550 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				428BE98F2CF1F60600700550 /* UserPreferences.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		42AA6C5C2C5FD1F500850299 /* CalendarDetails */ = {
@@ -696,6 +707,7 @@
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
 				42203A272CE3D2A200F91C9E /* Currency.swift in Sources */,
 				42C9EB0E2C71C52100D5D6EA /* DateHeaderView.swift in Sources */,
+				428BE9902CF1F60600700550 /* UserPreferences.swift in Sources */,
 				42700AA32C6FB1200022063A /* DateTitleView.swift in Sources */,
 				42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */,
 				42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */,

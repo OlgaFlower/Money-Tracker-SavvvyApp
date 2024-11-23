@@ -11,6 +11,7 @@ struct OnboardingView: View {
     
     // MARK: - States
     @StateObject private var viewModel = OnboardingViewModel()
+    
     @State private var showCurrencyPicker = false
     @State private var showCountryPicker = false
     
@@ -150,6 +151,7 @@ struct OnboardingView: View {
     
     private var startButtonView: some View {
         Button {
+            self.viewModel.savePreferences()
             VibrateService.vibrateMedium()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

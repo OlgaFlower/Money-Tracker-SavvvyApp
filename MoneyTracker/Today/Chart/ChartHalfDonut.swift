@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ChartHalfDonut: GaugeStyle {
+    // "EUR" - default value
+    @AppStorage("userCurrency") var currency: String = "EUR"
     
     // MARK: - Properties
     private var gradient = LinearGradient(gradient: Gradient(colors: [.lightBlue, .chartGreen, .red]), startPoint: .leading, endPoint: .trailing)
@@ -70,7 +72,7 @@ struct ChartHalfDonut: GaugeStyle {
                     .foregroundColor(self.leftoverColor)
                 
                 /// Currency
-                Text("EUR")
+                Text(self.currency)
                     .font(.customFont(style: .regular, size: .body))
                     .foregroundColor(.white).opacity(0.9)
             }

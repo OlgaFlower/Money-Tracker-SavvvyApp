@@ -6,13 +6,18 @@
 //
 
 import CoreData
-import Foundation
+import SwiftUI
 
 final class MakeNewMoneyRecordViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var newItem = MoneyModel()
     @Published var inputAmount = ""
+    @AppStorage("userCurrency") var currency: String = "EUR"
+    
+    init() {
+        self.newItem.currency = self.currency
+    }
     
     // MARK: - Functions
     func saveNewRecord(context: NSManagedObjectContext) {
