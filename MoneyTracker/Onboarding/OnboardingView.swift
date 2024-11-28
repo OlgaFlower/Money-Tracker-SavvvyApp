@@ -11,6 +11,7 @@ struct OnboardingView: View {
     
     // MARK: - States
     @StateObject private var viewModel = OnboardingViewModel()
+    @Binding var isFirstLaunch: Bool
     
     @State private var showCurrencyPicker = false
     @State private var showCountryPicker = false
@@ -149,6 +150,7 @@ struct OnboardingView: View {
             )
     }
     
+    /// Start
     private var startButtonView: some View {
         Button {
             self.viewModel.savePreferences()
@@ -158,7 +160,7 @@ struct OnboardingView: View {
                 VibrateService.vibrateMedium()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    
+                    self.isFirstLaunch.toggle()
                 }
             }
         } label: {
@@ -178,5 +180,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(isFirstLaunch: .constant(true))
 }

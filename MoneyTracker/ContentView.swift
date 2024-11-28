@@ -10,56 +10,49 @@ import CoreData
 
 struct ContentView: View {
     
+    @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
+    
     init() {
         UITabBar.appearance().unselectedItemTintColor = .tabBarInactive
     }
     
     var body: some View {
-        TabView {
-            
-            /// Test
-            NavigationStack {
-                OnboardingView()
+        
+        if self.isFirstLaunch {
+            OnboardingView(isFirstLaunch: self.$isFirstLaunch)
+        } else {
+            TabView {
+                ///Home
+                NavigationStack {
+                    TodayView()
+                        .navigationTitle("TODAY'S BUDGET")
+                        .navigationBarTitleDisplayMode(.large)
+                }
+                .tabItem {
+                    Label(
+                        title: {},
+                        icon: {
+                            self.makeTabBarIcon("expenses")
+                        }
+                    )
+                }
+                ///Calendar
+                NavigationStack {
+                    CalendarView()
+                        .navigationTitle("CALENDAR")
+                        .navigationBarTitleDisplayMode(.large)
+                }
+                .tabItem {
+                    Label(
+                        title: {},
+                        icon: {
+                            self.makeTabBarIcon("calendar")
+                        }
+                    )
+                }
             }
-            .tabItem {
-                Label(
-                    title: {},
-                    icon: {
-                        self.makeTabBarIcon("chart")
-                    }
-                )
-            }
-            
-            ///Home
-            NavigationStack {
-                TodayView()
-                    .navigationTitle("TODAY'S BUDGET")
-                    .navigationBarTitleDisplayMode(.large)
-            }
-            .tabItem {
-                Label(
-                    title: {},
-                    icon: {
-                        self.makeTabBarIcon("expenses")
-                    }
-                )
-            }
-            ///Calendar
-            NavigationStack {
-                CalendarView()
-                    .navigationTitle("CALENDAR")
-                    .navigationBarTitleDisplayMode(.large)
-            }
-            .tabItem {
-                Label(
-                    title: {},
-                    icon: {
-                        self.makeTabBarIcon("calendar")
-                    }
-                )
-            }
+            .accentColor(.white)
         }
-        .accentColor(.white)
     }
     
     // MARK: - Views
