@@ -12,9 +12,10 @@ struct OnboardingView: View {
     // MARK: - States
     @StateObject private var viewModel = OnboardingViewModel()
     @Binding var isFirstLaunch: Bool
-    
     @State private var showCurrencyPicker = false
     @State private var showCountryPicker = false
+    @State private var currencyPickerScale: CGFloat = 1
+    @State private var countryPickerScale: CGFloat = 1
     
     // MARK: - Properties
     let height: CGFloat = 60
@@ -25,15 +26,13 @@ struct OnboardingView: View {
             BackgroundGradView()
             
             self.welcomeView
-            
             self.countryAndCurrencyBlock
-            
             self.startBtn
             
             self.pickerView
         }
         .animation(
-            .easeInOut(duration: 0.4),
+            .easeOut(duration: 0.2),
             value: self.showCurrencyPicker || self.showCountryPicker
         )
     }
@@ -82,20 +81,17 @@ struct OnboardingView: View {
         }
         .padding(.top, 200)
         .frame(width: Constants.buttonWidth)
-        .blur(radius: (self.showCurrencyPicker || self.showCountryPicker) ? 10 : 0)
+        .blur(radius: (self.showCurrencyPicker || self.showCountryPicker) ? 8 : 0)
     }
     
     @ViewBuilder
     private var pickerView: some View {
         /// Currency Picker
         if self.showCurrencyPicker {
-            Rectangle()
-                .fill(.darkBlue.opacity(0.6))
-                .ignoresSafeArea()
-            
             GenericPickerView(
                 selectedItem: self.$viewModel.selectedCurrency,
-                isPresented: self.$showCurrencyPicker,
+                isPresented: self.$showCurrencyPicker, 
+                scale: self.$currencyPickerScale,
                 items: self.viewModel.currencies
             )
             .transition(.scale)
@@ -103,13 +99,10 @@ struct OnboardingView: View {
         
         /// Country Picker
         if self.showCountryPicker {
-            Rectangle()
-                .fill(.darkBlue.opacity(0.6))
-                .ignoresSafeArea()
-            
             GenericPickerView(
                 selectedItem: self.$viewModel.selectedCountry,
-                isPresented: self.$showCountryPicker,
+                isPresented: self.$showCountryPicker, 
+                scale: self.$countryPickerScale,
                 items: self.viewModel.countries
             )
             .transition(.scale)

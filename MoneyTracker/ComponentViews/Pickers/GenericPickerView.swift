@@ -11,6 +11,7 @@ struct GenericPickerView<T: PickerItem & Hashable>: View {
     // MARK: - States
     @Binding var selectedItem: T
     @Binding var isPresented: Bool
+    @Binding var scale: CGFloat
     @State private var tempItem: T
     
     // MARK: - Properties
@@ -20,11 +21,13 @@ struct GenericPickerView<T: PickerItem & Hashable>: View {
     init(
         selectedItem: Binding<T>,
         isPresented: Binding<Bool>,
+        scale: Binding<CGFloat>,
         items: [T]
     ) {
         self._selectedItem = selectedItem
         self._isPresented = isPresented
         self._tempItem = State(initialValue: selectedItem.wrappedValue)
+        self._scale = scale
         self.items = items
     }
     
@@ -51,7 +54,7 @@ struct GenericPickerView<T: PickerItem & Hashable>: View {
             HStack {
                 
                 Button("CANCEL") {
-                    isPresented.toggle()
+                    self.scalePicker()
                 }
                 .font(.customFont(style: .regular, size: .body))
                 .foregroundColor(.white.opacity(0.9))
@@ -60,8 +63,7 @@ struct GenericPickerView<T: PickerItem & Hashable>: View {
                 Spacer()
                 
                 Button("UPDATE") {
-                    self.selectedItem = self.tempItem
-                    isPresented.toggle()
+                    self.scalePicker()
                 }
                 .font(.customFont(style: .medium, size: .body))
                 .foregroundColor(.white.opacity(0.9))
@@ -79,13 +81,26 @@ struct GenericPickerView<T: PickerItem & Hashable>: View {
         .cornerRadius(12)
         .shadow(radius: 10)
         .colorScheme(.dark)
+        .scaleEffect(self.scale)
+        .animation(.easeInOut(duration: 0.3), value: self.scale)
+    }
+    
+    // MARK: - Functions
+    private func scalePicker() {
+        self.scale = 0
+        self.selectedItem = self.tempItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.isPresented.toggle()
+            self.scale = 1
+        }
     }
 }
 
 #Preview {
     GenericPickerView(
         selectedItem: .constant(Currency.eur),
-        isPresented: .constant(true),
+        isPresented: .constant(true), 
+        scale: .constant(0),
         items: Currency.allCases
     )
 }
