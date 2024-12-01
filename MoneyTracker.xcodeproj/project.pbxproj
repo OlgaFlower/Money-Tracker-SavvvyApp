@@ -46,6 +46,7 @@
 		428BE9902CF1F60600700550 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE98F2CF1F60600700550 /* UserPreferences.swift */; };
 		42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C292BB7173B003B617D /* MoneyModel.swift */; };
 		42A11C2F2BB935E5003B617D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A11C2E2BB935E5003B617D /* TodayView.swift */; };
+		42A264BB2CFCD142002BED58 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A264BA2CFCD142002BED58 /* UserSettings.swift */; };
 		42AA6C5E2C5FD23300850299 /* CalendarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA6C5D2C5FD23300850299 /* CalendarDetailsView.swift */; };
 		42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F0EA2BEA354D00D719E3 /* TextFormatter.swift */; };
 		42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9F10B2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift */; };
@@ -145,6 +146,7 @@
 		428BE98F2CF1F60600700550 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		42A11C292BB7173B003B617D /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		42A11C2E2BB935E5003B617D /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		42A264BA2CFCD142002BED58 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		42AA6C5D2C5FD23300850299 /* CalendarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsView.swift; sourceTree = "<group>"; };
 		42B9F0EA2BEA354D00D719E3 /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		42B9F10B2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroupSelectionView.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				42203A212CD4CEBC00F91C9E /* Onboarding */,
 				42CA524F2C2C406D0024DF8B /* Today */,
 				42ED3BD12C5A69F8009385E0 /* Calendar */,
+				42A264B92CFCD10F002BED58 /* UserSettings */,
 				42700A9F2C6FADDC0022063A /* ComponentViews */,
 				428BE98B2CEF8B6900700550 /* Protocols */,
 				4251FA4E2BAB94960087ABE7 /* Extensions */,
@@ -438,6 +441,14 @@
 				428BE98F2CF1F60600700550 /* UserPreferences.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		42A264B92CFCD10F002BED58 /* UserSettings */ = {
+			isa = PBXGroup;
+			children = (
+				42A264BA2CFCD142002BED58 /* UserSettings.swift */,
+			);
+			path = UserSettings;
 			sourceTree = "<group>";
 		};
 		42AA6C5C2C5FD1F500850299 /* CalendarDetails */ = {
@@ -746,6 +757,7 @@
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
 				428BE9892CEF868300700550 /* OnboardingViewModel.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
+				42A264BB2CFCD142002BED58 /* UserSettings.swift in Sources */,
 				42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */,
 				42548AF22C71FB3700C35903 /* TextSmallView.swift in Sources */,
 				42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */,

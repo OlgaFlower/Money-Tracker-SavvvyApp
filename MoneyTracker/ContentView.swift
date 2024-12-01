@@ -22,7 +22,8 @@ struct ContentView: View {
             OnboardingView(isFirstLaunch: self.$isFirstLaunch)
         } else {
             TabView {
-                ///Home
+                
+                /// Home
                 NavigationStack {
                     TodayView()
                         .navigationTitle("TODAY'S BUDGET")
@@ -36,7 +37,8 @@ struct ContentView: View {
                         }
                     )
                 }
-                ///Calendar
+                
+                /// Calendar
                 NavigationStack {
                     CalendarView()
                         .navigationTitle("CALENDAR")
@@ -47,6 +49,21 @@ struct ContentView: View {
                         title: {},
                         icon: {
                             self.makeTabBarIcon("calendar")
+                        }
+                    )
+                }
+                
+                /// Account
+                NavigationStack {
+                    UserSettings()
+                        .navigationTitle("SETTINGS")
+                        .navigationBarTitleDisplayMode(.large)
+                }
+                .tabItem {
+                    Label(
+                        title: {},
+                        icon: {
+                            self.makeTabBarIcon("tool")
                         }
                     )
                 }
