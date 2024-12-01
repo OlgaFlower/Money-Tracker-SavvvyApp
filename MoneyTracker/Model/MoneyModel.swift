@@ -17,7 +17,7 @@ struct MoneyModel: Identifiable, Equatable {
     )
     var moneyAmount: Int64 = 0
     var notes: String = ""
-    var currency: String = "EUR"
+    var currency: String = ""
     var timestamp: Date = Date()
     var typeTag: Int = 0
     
