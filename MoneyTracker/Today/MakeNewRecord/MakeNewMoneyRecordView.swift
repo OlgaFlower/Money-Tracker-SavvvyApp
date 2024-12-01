@@ -86,6 +86,7 @@ struct MakeNewMoneyRecordView: View {
             /// Expense
             Button(action: {
                 self.viewModel.vibrateLight()
+                self.viewModel.checkCategoryFor(.expense)
                 self.viewModel.newItem.recordType = .expense
             }, label: {
                 TextView(text: RecordType.expense.value, style: .medium)
@@ -101,6 +102,7 @@ struct MakeNewMoneyRecordView: View {
             /// Income
             Button(action: {
                 self.viewModel.vibrateLight()
+                self.viewModel.checkCategoryFor(.income)
                 self.viewModel.newItem.recordType = .income
             }, label: {
                 TextView(text: RecordType.income.value, style: .medium)

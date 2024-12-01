@@ -49,6 +49,24 @@ final class MakeNewMoneyRecordViewModel: ObservableObject {
         self.newItem.category.name != "CATEGORY"
     }
     
+    func checkCategoryFor(_ recordType: RecordType) {
+        switch recordType {
+        case .expense:
+            if self.newItem.recordType != .expense {
+                self.applyDefaultCategory()
+            }
+        case .income:
+            if self.newItem.recordType != .income {
+                self.applyDefaultCategory()
+            }
+        }
+    }
+    
+    private func applyDefaultCategory() {
+        self.newItem.category.name = "CATEGORY"
+        self.newItem.category.icon = "sun.min"
+    }
+    
     func isSaveBtnActive() -> Bool {
         self.isCategoryChosen() && !self.inputAmount.isEmpty
     }
