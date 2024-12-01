@@ -55,7 +55,7 @@ struct ContentView: View {
                 
                 /// Account
                 NavigationStack {
-                    UserSettings()
+                    SettingsView()
                         .navigationTitle("SETTINGS")
                         .navigationBarTitleDisplayMode(.large)
                 }

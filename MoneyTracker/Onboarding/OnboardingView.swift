@@ -14,8 +14,10 @@ struct OnboardingView: View {
     @Binding var isFirstLaunch: Bool
     @State private var showCurrencyPicker = false
     @State private var showCountryPicker = false
+    @State private var showLanguagePicker = false
     @State private var currencyPickerScale: CGFloat = 1
     @State private var countryPickerScale: CGFloat = 1
+    @State private var languagePickerScale: CGFloat = 1
     
     // MARK: - Properties
     let height: CGFloat = 60
@@ -26,14 +28,14 @@ struct OnboardingView: View {
             BackgroundGradView()
             
             self.welcomeView
-            self.countryAndCurrencyBlock
+            self.preferencesListView
             self.startBtn
             
             self.pickerView
         }
         .animation(
             .easeOut(duration: 0.2),
-            value: self.showCurrencyPicker || self.showCountryPicker
+            value: self.isPickerShown()
         )
     }
     
@@ -44,21 +46,31 @@ struct OnboardingView: View {
             
             self.startButtonView
                 .padding(.bottom, 32)
-                .opacity(self.showCountryPicker || self.showCurrencyPicker ? 0 : 1)
+                .opacity(self.isPickerShown() ? 0 : 1)
         }
     }
     
     private var welcomeView: some View {
         VStack {
             TextLargeView(text: "welcome", alignCenter: true)
-                .padding(.top, 76)
+                .padding(.top, 60)
             Spacer()
         }
     }
     
-    private var countryAndCurrencyBlock: some View {
+    private var preferencesListView: some View {
         VStack(spacing: 6) {
-            /// Country
+            // Language
+            HStack {
+                TextSmallView(text: "language")
+                    .opacity(0.7)
+                Spacer()
+            }
+            self.makeLanguageView()
+                .frame(height: self.height)
+                .padding(.bottom, 24)
+            
+            // Country
             HStack {
                 TextSmallView(text: "country")
                     .opacity(0.7)
@@ -68,7 +80,7 @@ struct OnboardingView: View {
                 .frame(height: self.height)
                 .padding(.bottom, 24)
             
-            /// Currency
+            // Currency
             HStack {
                 TextSmallView(text: "currency")
                     .opacity(0.7)
@@ -79,14 +91,24 @@ struct OnboardingView: View {
             
             Spacer()
         }
-        .padding(.top, 200)
+        .padding(.top, 170)
         .frame(width: Constants.buttonWidth)
-        .blur(radius: (self.showCurrencyPicker || self.showCountryPicker) ? 8 : 0)
+        .blur(radius: self.isPickerShown() ? 8 : 0)
     }
     
     @ViewBuilder
     private var pickerView: some View {
-        /// Currency Picker
+        // Language Picker
+        if self.showLanguagePicker {
+            GenericPickerView(
+                selectedItem: self.$viewModel.selectedLanguage,
+                isPresented: self.$showLanguagePicker,
+                scale: self.$languagePickerScale,
+                items: self.viewModel.languages
+            )
+        }
+        
+        // Currency Picker
         if self.showCurrencyPicker {
             GenericPickerView(
                 selectedItem: self.$viewModel.selectedCurrency,
@@ -97,7 +119,7 @@ struct OnboardingView: View {
             .transition(.scale)
         }
         
-        /// Country Picker
+        // Country Picker
         if self.showCountryPicker {
             GenericPickerView(
                 selectedItem: self.$viewModel.selectedCountry,
@@ -109,7 +131,24 @@ struct OnboardingView: View {
         }
     }
     
-    /// Country
+    /// Language view
+    private func makeLanguageView() -> some View {
+        self.languageEditorView
+            .onTapGesture {
+                self.showLanguagePicker.toggle()
+            }
+    }
+    
+    private var languageEditorView: some View {
+        TextView(text: self.viewModel.selectedLanguage.rawValue)
+            .overlay(
+                RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                    .stroke(.white.opacity(0.5), lineWidth: 0.5)
+                    .frame(width: Constants.buttonWidth, height: self.height)
+            )
+    }
+    
+    /// Country view
     private func makeCountryView() -> some View {
         self.countryEditorView
             .onTapGesture {
@@ -126,7 +165,7 @@ struct OnboardingView: View {
             )
     }
     
-    /// Currency
+    /// Currency view
     private func makeCurrencyView() -> some View {
         self.currencyEditorView
             .onTapGesture {
@@ -169,6 +208,11 @@ struct OnboardingView: View {
             RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)
                 .stroke(.white, lineWidth: 0.5)
         )
+    }
+    
+    // MARK: - Functions
+    private func isPickerShown() -> Bool {
+        return self.showCurrencyPicker || self.showCountryPicker || self.showLanguagePicker
     }
 }
 
