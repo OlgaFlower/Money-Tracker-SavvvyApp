@@ -29,4 +29,8 @@ final class OnboardingViewModel: ObservableObject {
         UserPreferences.currencySign = self.selectedCurrency.sign
         UserPreferences.language = self.selectedLanguage.rawValue
     }
+    
+    func vibrate() {
+        VibrateService.vibrateMedium()
+    }
 }

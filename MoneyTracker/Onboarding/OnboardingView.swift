@@ -186,10 +186,10 @@ struct OnboardingView: View {
     private var startButtonView: some View {
         Button {
             self.viewModel.savePreferences()
-            VibrateService.vibrateMedium()
+            self.viewModel.vibrate()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                VibrateService.vibrateMedium()
+                self.viewModel.vibrate()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.isFirstLaunch.toggle()

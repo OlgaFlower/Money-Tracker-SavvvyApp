@@ -37,6 +37,7 @@
 		42700AA32C6FB1200022063A /* DateTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700AA22C6FB1200022063A /* DateTitleView.swift */; };
 		42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */; };
 		42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */; };
+		427A90602D00886F00633C5C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A905F2D00886F00633C5C /* SettingsViewModel.swift */; };
 		42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CE42C8DD0AE00E62068 /* DatePickerView.swift */; };
 		42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */; };
 		42840CF12C9B312900E62068 /* VibrateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CF02C9B312900E62068 /* VibrateService.swift */; };
@@ -140,6 +141,7 @@
 		42700AA22C6FB1200022063A /* DateTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTitleView.swift; sourceTree = "<group>"; };
 		42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHalfDonut.swift; sourceTree = "<group>"; };
 		42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordView.swift; sourceTree = "<group>"; };
+		427A905F2D00886F00633C5C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		42840CE42C8DD0AE00E62068 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextfieldView.swift; sourceTree = "<group>"; };
 		42840CF02C9B312900E62068 /* VibrateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateService.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				42A264BA2CFCD142002BED58 /* Settings.swift */,
+				427A905F2D00886F00633C5C /* SettingsViewModel.swift */,
 				42A264BE2CFDE00C002BED58 /* SettingsDetailedList */,
 			);
 			path = Settings;
@@ -762,6 +765,7 @@
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,
 				423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */,
 				4205FFFD2C713AED0045486B /* TextHeaderView.swift in Sources */,
+				427A90602D00886F00633C5C /* SettingsViewModel.swift in Sources */,
 				42D45CE72BF86749002CD159 /* TodayViewModel.swift in Sources */,
 				42A264C22CFDE1FC002BED58 /* TextCellView.swift in Sources */,
 				4205FFF82C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift in Sources */,

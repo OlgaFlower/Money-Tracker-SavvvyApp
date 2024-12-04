@@ -43,6 +43,8 @@ struct SettingsDetailedListView<T: PickerItem & Hashable>: View {
                     }
                 }
             }
+            .padding(.vertical)
+            .scrollIndicators(.hidden)
         }
         .navigationTitle("SELECT \(String(describing: T.self).uppercased())") // TODO: - check for mistakes for each language
         .navigationBarTitleDisplayMode(.inline)

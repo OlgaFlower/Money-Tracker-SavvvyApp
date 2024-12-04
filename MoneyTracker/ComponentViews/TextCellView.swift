@@ -18,15 +18,17 @@ struct TextCellView: View {
         VStack(spacing: 0) {
             HStack {
                 Text(self.item)
-                    .lineLimit(1)
+                    .lineLimit(2)
                     .font(
                         .customFont(
                             style: .regular, size: .body
                         )
                     )
-                    .padding(.leading, 8)
+                Spacer()
             }
             .opacity(0.9)
+            .padding(.vertical, 6)
+            .padding(.horizontal, 32)
         }
         .foregroundStyle(.white)
     }
