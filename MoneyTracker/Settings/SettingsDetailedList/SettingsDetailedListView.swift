@@ -43,7 +43,8 @@ struct SettingsDetailedListView<T: PickerItem & Hashable>: View {
                     }
                 }
             }
-            .padding(.vertical)
+            .padding(.top)
+            .padding(.bottom, 4)
             .scrollIndicators(.hidden)
         }
         .navigationTitle("SELECT \(String(describing: T.self).uppercased())") // TODO: - check for mistakes for each language
@@ -57,7 +58,18 @@ struct SettingsDetailedListView<T: PickerItem & Hashable>: View {
                     Text("Done")
                 }
             }
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(.white)
+                }
+
+            }
         }
+        .navigationBarBackButtonHidden(true)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

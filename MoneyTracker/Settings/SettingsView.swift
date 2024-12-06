@@ -1,5 +1,5 @@
 //
-//  Settings.swift
+//  SettingsView.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 01.12.24.
@@ -77,7 +77,7 @@ struct SettingsView: View {
             Spacer()
             self.saveChangesButton
                 .padding(.bottom, 32)
-                .opacity(self.viewModel.isButtonActive ? 1 : 0)
+                .opacity(self.viewModel.isButtonActive ? 1 : 0.4)
         }
     }
     
