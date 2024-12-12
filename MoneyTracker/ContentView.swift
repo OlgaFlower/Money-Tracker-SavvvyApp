@@ -19,7 +19,8 @@ struct ContentView: View {
     var body: some View {
         
         if self.isFirstLaunch {
-            OnboardingView(isFirstLaunch: self.$isFirstLaunch)
+//            OnboardingView(isFirstLaunch: self.$isFirstLaunch)
+            OnboardingView()
         } else {
             TabView {
                 
