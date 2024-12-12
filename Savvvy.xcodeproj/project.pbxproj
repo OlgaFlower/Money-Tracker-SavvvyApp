@@ -118,14 +118,14 @@
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4241F4702BB1E62E0048A29B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		4241F47A2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalAlignment+UnderlineLeading.swift"; sourceTree = "<group>"; };
-		424275062BA4FF72001873A3 /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		424275062BA4FF72001873A3 /* Savvvy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Savvvy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
 		4242750B2BA4FF72001873A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4242750D2BA4FF73001873A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		424275102BA4FF73001873A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		424275162BA4FF73001873A3 /* MoneyTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		424275162BA4FF73001873A3 /* SavvvyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavvvyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4242751A2BA4FF73001873A3 /* MoneyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerTests.swift; sourceTree = "<group>"; };
-		424275202BA4FF73001873A3 /* MoneyTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		424275202BA4FF73001873A3 /* SavvvyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavvvyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITests.swift; sourceTree = "<group>"; };
 		424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -264,9 +264,9 @@
 		424275072BA4FF72001873A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				424275062BA4FF72001873A3 /* MoneyTracker.app */,
-				424275162BA4FF73001873A3 /* MoneyTrackerTests.xctest */,
-				424275202BA4FF73001873A3 /* MoneyTrackerUITests.xctest */,
+				424275062BA4FF72001873A3 /* Savvvy.app */,
+				424275162BA4FF73001873A3 /* SavvvyTests.xctest */,
+				424275202BA4FF73001873A3 /* SavvvyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -602,9 +602,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		424275052BA4FF72001873A3 /* MoneyTracker */ = {
+		424275052BA4FF72001873A3 /* Savvvy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4242752A2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MoneyTracker" */;
+			buildConfigurationList = 4242752A2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "Savvvy" */;
 			buildPhases = (
 				424275022BA4FF72001873A3 /* Sources */,
 				424275032BA4FF72001873A3 /* Frameworks */,
@@ -614,14 +614,14 @@
 			);
 			dependencies = (
 			);
-			name = MoneyTracker;
+			name = Savvvy;
 			productName = MoneyTracker;
-			productReference = 424275062BA4FF72001873A3 /* MoneyTracker.app */;
+			productReference = 424275062BA4FF72001873A3 /* Savvvy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		424275152BA4FF73001873A3 /* MoneyTrackerTests */ = {
+		424275152BA4FF73001873A3 /* SavvvyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4242752D2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MoneyTrackerTests" */;
+			buildConfigurationList = 4242752D2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "SavvvyTests" */;
 			buildPhases = (
 				424275122BA4FF73001873A3 /* Sources */,
 				424275132BA4FF73001873A3 /* Frameworks */,
@@ -632,14 +632,14 @@
 			dependencies = (
 				424275182BA4FF73001873A3 /* PBXTargetDependency */,
 			);
-			name = MoneyTrackerTests;
+			name = SavvvyTests;
 			productName = MoneyTrackerTests;
-			productReference = 424275162BA4FF73001873A3 /* MoneyTrackerTests.xctest */;
+			productReference = 424275162BA4FF73001873A3 /* SavvvyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4242751F2BA4FF73001873A3 /* MoneyTrackerUITests */ = {
+		4242751F2BA4FF73001873A3 /* SavvvyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 424275302BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MoneyTrackerUITests" */;
+			buildConfigurationList = 424275302BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "SavvvyUITests" */;
 			buildPhases = (
 				4242751C2BA4FF73001873A3 /* Sources */,
 				4242751D2BA4FF73001873A3 /* Frameworks */,
@@ -650,9 +650,9 @@
 			dependencies = (
 				424275222BA4FF73001873A3 /* PBXTargetDependency */,
 			);
-			name = MoneyTrackerUITests;
+			name = SavvvyUITests;
 			productName = MoneyTrackerUITests;
-			productReference = 424275202BA4FF73001873A3 /* MoneyTrackerUITests.xctest */;
+			productReference = 424275202BA4FF73001873A3 /* SavvvyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -678,7 +678,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 424275012BA4FF71001873A3 /* Build configuration list for PBXProject "MoneyTracker" */;
+			buildConfigurationList = 424275012BA4FF71001873A3 /* Build configuration list for PBXProject "Savvvy" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -691,9 +691,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				424275052BA4FF72001873A3 /* MoneyTracker */,
-				424275152BA4FF73001873A3 /* MoneyTrackerTests */,
-				4242751F2BA4FF73001873A3 /* MoneyTrackerUITests */,
+				424275052BA4FF72001873A3 /* Savvvy */,
+				424275152BA4FF73001873A3 /* SavvvyTests */,
+				4242751F2BA4FF73001873A3 /* SavvvyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -830,12 +830,12 @@
 /* Begin PBXTargetDependency section */
 		424275182BA4FF73001873A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 424275052BA4FF72001873A3 /* MoneyTracker */;
+			target = 424275052BA4FF72001873A3 /* Savvvy */;
 			targetProxy = 424275172BA4FF73001873A3 /* PBXContainerItemProxy */;
 		};
 		424275222BA4FF73001873A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 424275052BA4FF72001873A3 /* MoneyTracker */;
+			target = 424275052BA4FF72001873A3 /* Savvvy */;
 			targetProxy = 424275212BA4FF73001873A3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1044,7 +1044,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoneyTracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Savvvy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Savvvy";
 			};
 			name = Debug;
 		};
@@ -1064,7 +1064,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoneyTracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Savvvy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Savvvy";
 			};
 			name = Release;
 		};
@@ -1107,7 +1107,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		424275012BA4FF71001873A3 /* Build configuration list for PBXProject "MoneyTracker" */ = {
+		424275012BA4FF71001873A3 /* Build configuration list for PBXProject "Savvvy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				424275282BA4FF73001873A3 /* Debug */,
@@ -1116,7 +1116,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4242752A2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MoneyTracker" */ = {
+		4242752A2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "Savvvy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4242752B2BA4FF73001873A3 /* Debug */,
@@ -1125,7 +1125,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4242752D2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MoneyTrackerTests" */ = {
+		4242752D2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "SavvvyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4242752E2BA4FF73001873A3 /* Debug */,
@@ -1134,7 +1134,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		424275302BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MoneyTrackerUITests" */ = {
+		424275302BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "SavvvyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				424275312BA4FF73001873A3 /* Debug */,
