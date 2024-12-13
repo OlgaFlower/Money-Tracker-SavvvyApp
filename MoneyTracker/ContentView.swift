@@ -19,8 +19,7 @@ struct ContentView: View {
     var body: some View {
         
         if self.isFirstLaunch {
-//            OnboardingView(isFirstLaunch: self.$isFirstLaunch)
-            OnboardingView()
+            OnboardingView(isFirstLaunch: self.$isFirstLaunch)
         } else {
             TabView {
                 
@@ -50,21 +49,6 @@ struct ContentView: View {
                         title: {},
                         icon: {
                             self.makeTabBarIcon("calendar")
-                        }
-                    )
-                }
-                
-                /// Account
-                NavigationStack {
-                    SettingsView()
-                        .navigationTitle("SETTINGS")
-                        .navigationBarTitleDisplayMode(.large)
-                }
-                .tabItem {
-                    Label(
-                        title: {},
-                        icon: {
-                            self.makeTabBarIcon("tool")
                         }
                     )
                 }

@@ -32,16 +32,16 @@ struct SettingsView: View {
                 self.saveBtnView
             }
             .navigationDestination(for: String.self) { destination in
-                switch destination {
-                case "language":
-                    SettingsDetailedListView(items: Language.allCases, selectedValue: $viewModel.tempLanguage)
-                case "country":
-                    SettingsDetailedListView(items: Country.allCases, selectedValue: $viewModel.tempCountry)
-                case "currency":
-                    SettingsDetailedListView(items: Currency.allCases, selectedValue: $viewModel.tempCurrency)
-                default:
-                    EmptyView()
-                }
+//                switch destination {
+//                case "language":
+//                    SettingsDetailedListView_OLD(items: Language, selectedValue: $viewModel.tempLanguage)
+//                case "country":
+//                    SettingsDetailedListView_OLD(items: Country.allCases, selectedValue: $viewModel.tempCountry)
+//                case "currency":
+//                    SettingsDetailedListView_OLD(items: Currency.allCases, selectedValue: $viewModel.tempCurrency)
+//                default:
+//                    EmptyView()
+//                }
             }
         }
         .onAppear {

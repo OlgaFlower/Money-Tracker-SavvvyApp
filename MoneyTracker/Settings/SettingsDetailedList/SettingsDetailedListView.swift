@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SettingsDetailedListView<T: PickerItem & Hashable>: View {
+    
     // MARK: - States
-    @Binding var selectedValue: String
-    @State private var tempItem: T
+    @Binding var selectedValue: T
     @Environment(\.dismiss) var dismiss
     
     // MARK: - Properties
@@ -19,63 +19,67 @@ struct SettingsDetailedListView<T: PickerItem & Hashable>: View {
     // MARK: - Init
     init(
         items: [T],
-        selectedValue: Binding<String>
+        selectedValue: Binding<T>
     ) {
         self.items = items.sorted { $0.rawValue < $1.rawValue }
         self._selectedValue = selectedValue
-        self._tempItem = State(initialValue: items.first(where: { $0.rawValue == selectedValue.wrappedValue }) ?? items[0])
     }
     
     // MARK: - Body
     var body: some View {
-        
         ZStack {
-            BackgroundGradView()
+            Rectangle()
+                .foregroundStyle(.background)
+                .ignoresSafeArea()
             
-            ScrollView {
-                LazyVStack(spacing: 0) {
-                    ForEach(items) { item in
-                        TextCellView(item: item.rawValue)
-                            .background(tempItem == item ? Color.white.opacity(0.2) : Color.clear)
-                            .onTapGesture {
-                                self.tempItem = item
-                            }
-                    }
+            List {
+                ForEach(self.items) { item in
+                    self.makeCell(item: item)
+                        .listRowBackground(Color(uiColor: UIColor.secondarySystemBackground))
                 }
             }
-            .padding(.top)
-            .padding(.bottom, 4)
+            .listStyle(InsetGroupedListStyle())
+            .scrollContentBackground(.hidden)
             .scrollIndicators(.hidden)
+            .padding(.bottom, -36)
+            .padding(.horizontal, 24)
         }
-        .navigationTitle("SELECT \(String(describing: T.self).uppercased())") // TODO: - check for mistakes for each language
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    self.selectedValue = self.tempItem.rawValue
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
                     dismiss()
-                } label: {
-                    Text("Done")
+                }) {
+                    Image(systemName: "chevron.left.circle.fill")
+                        .foregroundStyle(Color(hex: "E3E3E5")) // TODO: - make Colour constants
                 }
-            }
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundStyle(.white)
-                }
-
             }
         }
         .navigationBarBackButtonHidden(true)
-        .toolbar(.hidden, for: .tabBar)
+    }
+    
+    // MARK: - Views
+    private func makeCell(item: T) -> some View {
+        HStack {
+            Text(item.rawValue)
+                .font(.system(size: 16, weight: .medium, design: .default))
+            Spacer()
+            
+            if item == self.selectedValue {
+                Image(systemName: "checkmark")
+                    .foregroundStyle(.pink)
+            }
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            self.selectedValue = item
+        }
     }
 }
 
 #Preview {
     SettingsDetailedListView(
         items: Country.allCases,
-        selectedValue: .constant("Ukraine")
+        selectedValue: .constant(Country(rawValue: "Ukraine") ?? .albania)
     )
 }

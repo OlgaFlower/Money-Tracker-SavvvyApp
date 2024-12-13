@@ -41,6 +41,7 @@
 		427A90622D0B6BD800633C5C /* OnboardingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90612D0B6BD800633C5C /* OnboardingBackgroundView.swift */; };
 		427A90652D0B8AB600633C5C /* SelectorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90642D0B8AB600633C5C /* SelectorButtonView.swift */; };
 		427A90672D0B93B700633C5C /* PinkButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90662D0B93B700633C5C /* PinkButtonView.swift */; };
+		427A906E2D0CBF5900633C5C /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A906D2D0CBF5900633C5C /* Color+hex.swift */; };
 		42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CE42C8DD0AE00E62068 /* DatePickerView.swift */; };
 		42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */; };
 		42840CF12C9B312900E62068 /* VibrateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CF02C9B312900E62068 /* VibrateService.swift */; };
@@ -148,6 +149,7 @@
 		427A90612D0B6BD800633C5C /* OnboardingBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBackgroundView.swift; sourceTree = "<group>"; };
 		427A90642D0B8AB600633C5C /* SelectorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorButtonView.swift; sourceTree = "<group>"; };
 		427A90662D0B93B700633C5C /* PinkButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkButtonView.swift; sourceTree = "<group>"; };
+		427A906D2D0CBF5900633C5C /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 		42840CE42C8DD0AE00E62068 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextfieldView.swift; sourceTree = "<group>"; };
 		42840CF02C9B312900E62068 /* VibrateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateService.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				42CA52482C2B52F90024DF8B /* Int+String.swift */,
 				42CA525B2C2C5EAF0024DF8B /* Fonts.swift */,
 				4205FFF72C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift */,
+				427A906D2D0CBF5900633C5C /* Color+hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				42A264C22CFDE1FC002BED58 /* TextCellView.swift in Sources */,
 				4205FFF82C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift in Sources */,
 				42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */,
+				427A906E2D0CBF5900633C5C /* Color+hex.swift in Sources */,
 				42CA525A2C2C5D190024DF8B /* CustomFont.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,

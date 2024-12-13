@@ -30,7 +30,7 @@ struct TextCellView: View {
             .padding(.vertical, 6)
             .padding(.horizontal, 32)
         }
-        .foregroundStyle(.white)
+//        .foregroundStyle(.white)
     }
 }
 
