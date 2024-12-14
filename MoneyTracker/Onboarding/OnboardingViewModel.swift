@@ -14,7 +14,7 @@ final class OnboardingViewModel: ObservableObject {
     @Published var languages: [Language] = []
     
     @Published var selectedCurrency: Currency = .eur
-    @Published var selectedCountry: Country = .ukraine
+    @Published var selectedCountry: Country = .germany
     @Published var selectedLanguage: Language = .english
     
     init() {

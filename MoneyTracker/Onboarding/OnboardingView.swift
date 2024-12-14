@@ -19,15 +19,17 @@ struct OnboardingView: View {
     // MARK: - Body
     var body: some View {
         NavigationStack(path: $path) {
+            
             GeometryReader { geometry in
                 /// UI adjusted for iPhones with small screen (screen width of the iPhone SE 3-g)
                 let isSmallScreen = geometry.size.width < 376
                 
                 ZStack {
                     OnboardingBackgroundView()
-                    self.makeLogoView(smallScreen: isSmallScreen)
                     
                     VStack(spacing: 0) {
+                        self.makeSpaceView(smallScreen: isSmallScreen)
+                        self.makeLogoView()
                         self.makeTitleView(smallScreen: isSmallScreen)
                         self.makeSubtitleView(smallScreen: isSmallScreen)
                         self.countryButton
@@ -58,15 +60,17 @@ struct OnboardingView: View {
     }
     
     // MARK: - Views
+    private func makeSpaceView(smallScreen: Bool) -> some View {
+        Rectangle()
+            .frame(height: smallScreen ? 80 : 120)
+            .foregroundStyle(.clear)
+    }
+    
     /// Logo
-    private func makeLogoView(smallScreen: Bool) -> some View {
-        VStack(spacing: 0) {
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(height: smallScreen ? 80 : 110)
-            self.logo
-            Spacer()
-        }
+    private func makeLogoView() -> some View {
+        self.logo
+            .shadow(color: .pink.opacity(0.4), radius: 15, x: -10, y: 10)
+            .padding(.leading, 38)
     }
     
     private var logo: some View {
@@ -78,28 +82,22 @@ struct OnboardingView: View {
     
     /// Title
     private func makeTitleView(smallScreen: Bool) -> some View {
-        VStack {
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(height: smallScreen ? 197 : 227)
-            HStack {
-                Text("Welcome to ")
-                    .font(.system(size: 29, weight: .heavy, design: .default))
-                Image("nameLogo")
-                    .renderingMode(.template)
-                    .foregroundColor(colorScheme == .dark ? .white : .black)
-                Spacer()
-            }
-            .padding(.top, 28)
-            .padding(.leading, 39)
-            
+        HStack {
+            Text("Welcome to ")
+                .font(.system(size: 29, weight: .heavy, design: .default))
+            Image("nameLogo")
+                .renderingMode(.template)
+                .foregroundColor(colorScheme == .dark ? .white : .black)
+            Spacer()
         }
+        .padding(.top, 22)
+        .padding(.leading, 39)
     }
     
     /// Subtitle
     private func makeSubtitleView(smallScreen: Bool) -> some View {
         HStack {
-            Text("Select country & currency to start:")
+            Text("Select a country & currency to start:")
                 .font(.system(size: smallScreen ? 16 : 18, weight: .bold, design: .default))
                 .foregroundStyle(.tertiary)
             Spacer()
@@ -139,6 +137,7 @@ struct OnboardingView: View {
         PinkButtonView(title: "Let's go")
             .padding(.horizontal, 27)
             .padding(.top, 30)
+            .shadow(color: .pink.opacity(0.4), radius: 15, x: -5, y: 5)
             .onTapGesture {
                 self.viewModel.savePreferences()
                 self.viewModel.vibrate()

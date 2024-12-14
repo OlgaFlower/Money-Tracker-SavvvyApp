@@ -16,6 +16,7 @@ struct PinkButtonView: View {
     var body: some View {
         ZStack {
             self.backgroundView
+            self.innerShadowView
             self.titleView
         }
     }
@@ -31,12 +32,34 @@ struct PinkButtonView: View {
                             Color(red: 1.0, green: 0.51, blue: 0.64)
                         ]
                     ),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
+                    startPoint: .leading,
+                    endPoint: .trailing
                 )
             )
             .frame(height: 55)
     }
+    
+    private var innerShadowView: some View {
+            LinearGradient(
+                gradient: Gradient(
+                    colors: [
+                        Color.clear,
+                        Color.pink.opacity(0.4)
+                    ]
+                ),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .frame(height: 55)
+            .mask(
+                VStack(spacing: 0) {
+                    Rectangle().fill(Color.clear)
+                    Rectangle().fill(Color.white)
+                }
+            )
+            .blur(radius: 6)
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+        }
     
     private var titleView: some View {
         Text(self.title)
