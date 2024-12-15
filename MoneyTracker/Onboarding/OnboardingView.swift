@@ -69,7 +69,7 @@ struct OnboardingView: View {
     /// Logo
     private func makeLogoView() -> some View {
         self.logo
-            .shadow(color: .pink.opacity(0.4), radius: 15, x: -10, y: 10)
+            .shadow(color: .pink.opacity(0.3), radius: 15, x: -10, y: 10)
             .padding(.leading, 38)
     }
     
@@ -115,6 +115,7 @@ struct OnboardingView: View {
             .padding(.horizontal, 27)
             .padding(.top, 28)
             .onTapGesture {
+                self.viewModel.vibrate()
                 self.path.append("Country")
             }
     }
@@ -128,6 +129,7 @@ struct OnboardingView: View {
             .padding(.horizontal, 27)
             .padding(.top, 12)
             .onTapGesture {
+                self.viewModel.vibrate()
                 self.path.append("Currency")
             }
     }
@@ -137,7 +139,7 @@ struct OnboardingView: View {
         PinkButtonView(title: "Let's go")
             .padding(.horizontal, 27)
             .padding(.top, 30)
-            .shadow(color: .pink.opacity(0.4), radius: 15, x: -5, y: 5)
+            .shadow(color: .pink.opacity(0.3), radius: 15, x: -7, y: 7)
             .onTapGesture {
                 self.viewModel.savePreferences()
                 self.viewModel.vibrate()

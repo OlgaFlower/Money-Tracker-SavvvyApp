@@ -22,8 +22,20 @@ struct ContentView: View {
             OnboardingView(isFirstLaunch: self.$isFirstLaunch)
         } else {
             TabView {
+                /// Home NEW
+                NavigationStack {
+                    HomeView()
+                }
+                .tabItem {
+                    Label(
+                        title: { Text("NEW") },
+                        icon: {
+                            self.makeTabBarIcon("expenses")
+                        }
+                    )
+                }
                 
-                /// Home
+                /// Home OLD
                 NavigationStack {
                     TodayView()
                         .navigationTitle("TODAY'S BUDGET")
@@ -31,7 +43,7 @@ struct ContentView: View {
                 }
                 .tabItem {
                     Label(
-                        title: {},
+                        title: { Text("OLD") },
                         icon: {
                             self.makeTabBarIcon("expenses")
                         }
@@ -46,7 +58,7 @@ struct ContentView: View {
                 }
                 .tabItem {
                     Label(
-                        title: {},
+                        title: { Text("OLD") },
                         icon: {
                             self.makeTabBarIcon("calendar")
                         }

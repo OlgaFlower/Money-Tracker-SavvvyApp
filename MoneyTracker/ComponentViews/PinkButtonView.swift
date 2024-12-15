@@ -11,6 +11,8 @@ struct PinkButtonView: View {
     
     // MARK: - Properties
     var title: String
+    var systemImage: String?
+    var isHeavyFont: Bool = false
     
     // MARK: - Body
     var body: some View {
@@ -62,12 +64,23 @@ struct PinkButtonView: View {
         }
     
     private var titleView: some View {
-        Text(self.title)
-            .font(.system(size: 16, weight: .bold, design: .default))
-            .foregroundStyle(.white)
+        HStack(spacing: 6) {
+            Text(self.title)
+            if let systemImage = self.systemImage {
+                Image(systemName: systemImage)
+            }
+        }
+        .font(
+            .system(
+                size: 16, 
+                weight: self.isHeavyFont ? .heavy : .bold,
+                design: .default
+            )
+        )
+        .foregroundStyle(.white)
     }
 }
 
 #Preview {
-    PinkButtonView(title: "Let's go")
+    PinkButtonView(title: "Let's go", systemImage: "plus")
 }

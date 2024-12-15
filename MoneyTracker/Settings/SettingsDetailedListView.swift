@@ -48,6 +48,7 @@ struct SettingsDetailedListView<T: PickerItem & Hashable>: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
+                    VibrateService.vibrateMedium()
                     dismiss()
                 }) {
                     Image(systemName: "chevron.left.circle.fill")
@@ -72,6 +73,7 @@ struct SettingsDetailedListView<T: PickerItem & Hashable>: View {
         }
         .contentShape(Rectangle())
         .onTapGesture {
+            VibrateService.vibrateMedium()
             self.selectedValue = item
         }
     }

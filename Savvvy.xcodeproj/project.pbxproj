@@ -41,6 +41,9 @@
 		427A90652D0B8AB600633C5C /* SelectorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90642D0B8AB600633C5C /* SelectorButtonView.swift */; };
 		427A90672D0B93B700633C5C /* PinkButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90662D0B93B700633C5C /* PinkButtonView.swift */; };
 		427A906E2D0CBF5900633C5C /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A906D2D0CBF5900633C5C /* Color+hex.swift */; };
+		427A90712D0E29D000633C5C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90702D0E29D000633C5C /* HomeView.swift */; };
+		427A90732D0EDB7800633C5C /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90722D0EDB7800633C5C /* HomeHeaderView.swift */; };
+		427A90752D0EE97F00633C5C /* InitialBudgetSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90742D0EE97F00633C5C /* InitialBudgetSetupView.swift */; };
 		42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CE42C8DD0AE00E62068 /* DatePickerView.swift */; };
 		42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */; };
 		42840CF12C9B312900E62068 /* VibrateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CF02C9B312900E62068 /* VibrateService.swift */; };
@@ -147,6 +150,9 @@
 		427A90642D0B8AB600633C5C /* SelectorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorButtonView.swift; sourceTree = "<group>"; };
 		427A90662D0B93B700633C5C /* PinkButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkButtonView.swift; sourceTree = "<group>"; };
 		427A906D2D0CBF5900633C5C /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
+		427A90702D0E29D000633C5C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		427A90722D0EDB7800633C5C /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		427A90742D0EE97F00633C5C /* InitialBudgetSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialBudgetSetupView.swift; sourceTree = "<group>"; };
 		42840CE42C8DD0AE00E62068 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextfieldView.swift; sourceTree = "<group>"; };
 		42840CF02C9B312900E62068 /* VibrateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateService.swift; sourceTree = "<group>"; };
@@ -286,6 +292,7 @@
 				424275342BA503BF001873A3 /* Model */,
 				424EC7B42CA94E3300CF76E2 /* Services */,
 				42203A212CD4CEBC00F91C9E /* Onboarding */,
+				427A906F2D0E29B300633C5C /* Main */,
 				42CA524F2C2C406D0024DF8B /* Today */,
 				42ED3BD12C5A69F8009385E0 /* Calendar */,
 				42A264B92CFCD10F002BED58 /* Settings */,
@@ -402,8 +409,18 @@
 				427A90612D0B6BD800633C5C /* OnboardingBackgroundView.swift */,
 				427A90642D0B8AB600633C5C /* SelectorButtonView.swift */,
 				427A90662D0B93B700633C5C /* PinkButtonView.swift */,
+				427A90722D0EDB7800633C5C /* HomeHeaderView.swift */,
+				427A90742D0EE97F00633C5C /* InitialBudgetSetupView.swift */,
 			);
 			path = ComponentViews;
+			sourceTree = "<group>";
+		};
+		427A906F2D0E29B300633C5C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				427A90702D0E29D000633C5C /* HomeView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		42840CEF2C9B30D100E62068 /* Actions */ = {
@@ -759,6 +776,7 @@
 				42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */,
 				42A264BD2CFCEE4C002BED58 /* Language.swift in Sources */,
 				42B9F10E2BF3CF0700D719E3 /* Categories.swift in Sources */,
+				427A90732D0EDB7800633C5C /* HomeHeaderView.swift in Sources */,
 				42CA524B2C2B54900024DF8B /* DetailCellView.swift in Sources */,
 				42A264C02CFDE038002BED58 /* SettingsDetailedListView.swift in Sources */,
 				428BE98D2CEF8B8500700550 /* PickerItem.swift in Sources */,
@@ -775,6 +793,7 @@
 				42D45CE72BF86749002CD159 /* TodayViewModel.swift in Sources */,
 				42A264C22CFDE1FC002BED58 /* TextCellView.swift in Sources */,
 				4205FFF82C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift in Sources */,
+				427A90752D0EE97F00633C5C /* InitialBudgetSetupView.swift in Sources */,
 				42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */,
 				427A906E2D0CBF5900633C5C /* Color+hex.swift in Sources */,
 				42CA525A2C2C5D190024DF8B /* CustomFont.swift in Sources */,
@@ -785,6 +804,7 @@
 				42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */,
 				42ED3BD42C5A712D009385E0 /* CalendarView.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
+				427A90712D0E29D000633C5C /* HomeView.swift in Sources */,
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
 				428BE9892CEF868300700550 /* OnboardingViewModel.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
