@@ -11,35 +11,44 @@ struct ContentView: View {
     
     @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
     @AppStorage("selectedDesign") private var selectedDesign: String = "old"
+    @State private var isSplashActive: Bool = true
     
     var body: some View {
-        
-        if self.isFirstLaunch {
-            OnboardingView(isFirstLaunch: self.$isFirstLaunch)
-        } else {
-            TabView {
-                /// Home NEW
-                NavigationStack {
-                    DesignSwitcherView(selectedDesign: self.$selectedDesign)
-                }
-                .tabItem {
-                    Label(
-                        title: {},
-                        icon: {
-                            self.makeTabBarIcon("toggle")
+        ZStack {
+            
+            if isSplashActive {
+                SplashScreenView(isSplashActive: $isSplashActive)
+                
+            } else {
+                if self.isFirstLaunch {
+                    OnboardingView(isFirstLaunch: self.$isFirstLaunch)
+                    
+                } else {
+                    TabView {
+                        /// Home NEW
+                        NavigationStack {
+                            DesignSwitcherView(selectedDesign: self.$selectedDesign)
                         }
-                    )
-                }
-                
-                if selectedDesign == "old" {
-                    LazyView(OldDesignTabItems())
-                }
-                
-                if selectedDesign == "new" {
-                    LazyView(NewDesignTabItems())
+                        .tabItem {
+                            Label(
+                                title: {},
+                                icon: {
+                                    self.makeTabBarIcon("toggle")
+                                }
+                            )
+                        }
+                        
+                        if selectedDesign == "old" {
+                            LazyView(OldDesignTabItems())
+                        }
+                        
+                        if selectedDesign == "new" {
+                            LazyView(NewDesignTabItems())
+                        }
+                    }
+                    .accentColor(.pink)
                 }
             }
-            .accentColor(.pink)
         }
     }
     
