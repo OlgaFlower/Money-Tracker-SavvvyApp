@@ -36,7 +36,10 @@ struct InitialBudgetSetupView: View {
         PinkButtonView(
             title: "New Budget",
             systemImage: "plus",
-            isHeavyFont: true
+            isHeavyFont: true, 
+            action: {
+                // TODO: -
+            }
         )
         .frame(width: 196)
         .shadow(color: .pink.opacity(0.3), radius: 15, x: -7, y: 7)

@@ -136,24 +136,22 @@ struct OnboardingView: View {
     
     /// Let's go button
     private var letsGoButton: some View {
-        PinkButtonView(title: "Let's go")
-            .padding(.horizontal, 27)
-            .padding(.top, 30)
-            .shadow(color: .pink.opacity(0.3), radius: 15, x: -7, y: 7)
-            .onTapGesture {
-                self.viewModel.savePreferences()
+        PinkButtonView(title: "Let's go", action: {
+            self.viewModel.savePreferences()
+            self.viewModel.vibrate()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.viewModel.vibrate()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.viewModel.vibrate()
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.isFirstLaunch.toggle()
-                    }
+                    self.isFirstLaunch.toggle()
                 }
             }
+        })
+            .padding(.horizontal, 27)
+            .padding(.top, 30)
+            .shadow(color: .pink.opacity(0.3), radius: 15, x: -7, y: 7)
     }
-    
 }
 
 #Preview {

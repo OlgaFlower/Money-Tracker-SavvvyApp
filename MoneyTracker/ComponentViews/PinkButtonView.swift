@@ -14,12 +14,17 @@ struct PinkButtonView: View {
     var systemImage: String?
     var isHeavyFont: Bool = false
     
+    var action: () -> Void
+    
     // MARK: - Body
     var body: some View {
         ZStack {
             self.backgroundView
             self.innerShadowView
             self.titleView
+        }
+        .onTapGesture {
+            self.action()
         }
     }
     
@@ -82,5 +87,5 @@ struct PinkButtonView: View {
 }
 
 #Preview {
-    PinkButtonView(title: "Let's go", systemImage: "plus")
+    PinkButtonView(title: "Let's go", systemImage: "plus", action: {})
 }

@@ -44,6 +44,10 @@
 		427A90712D0E29D000633C5C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90702D0E29D000633C5C /* HomeView.swift */; };
 		427A90732D0EDB7800633C5C /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90722D0EDB7800633C5C /* HomeHeaderView.swift */; };
 		427A90752D0EE97F00633C5C /* InitialBudgetSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90742D0EE97F00633C5C /* InitialBudgetSetupView.swift */; };
+		427A90782D0EED7200633C5C /* DesignSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90772D0EED7200633C5C /* DesignSwitcherView.swift */; };
+		427A907A2D0F284600633C5C /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90792D0F284600633C5C /* LazyView.swift */; };
+		427A907D2D0F292C00633C5C /* OldDesignTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A907C2D0F292C00633C5C /* OldDesignTabItems.swift */; };
+		427A907F2D0F299400633C5C /* NewDesignTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A907E2D0F299400633C5C /* NewDesignTabItems.swift */; };
 		42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CE42C8DD0AE00E62068 /* DatePickerView.swift */; };
 		42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */; };
 		42840CF12C9B312900E62068 /* VibrateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CF02C9B312900E62068 /* VibrateService.swift */; };
@@ -153,6 +157,10 @@
 		427A90702D0E29D000633C5C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		427A90722D0EDB7800633C5C /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		427A90742D0EE97F00633C5C /* InitialBudgetSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialBudgetSetupView.swift; sourceTree = "<group>"; };
+		427A90772D0EED7200633C5C /* DesignSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSwitcherView.swift; sourceTree = "<group>"; };
+		427A90792D0F284600633C5C /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		427A907C2D0F292C00633C5C /* OldDesignTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldDesignTabItems.swift; sourceTree = "<group>"; };
+		427A907E2D0F299400633C5C /* NewDesignTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDesignTabItems.swift; sourceTree = "<group>"; };
 		42840CE42C8DD0AE00E62068 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextfieldView.swift; sourceTree = "<group>"; };
 		42840CF02C9B312900E62068 /* VibrateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateService.swift; sourceTree = "<group>"; };
@@ -284,15 +292,17 @@
 		424275082BA4FF72001873A3 /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
-				428BE98E2CF1F5CD00700550 /* UserPreferences */,
 				42CA52582C2C5AF90024DF8B /* Info.plist */,
 				424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */,
 				4242750B2BA4FF72001873A3 /* ContentView.swift */,
+				427A907B2D0F28F200633C5C /* TabBar */,
 				42B9F1152BF60F0600D719E3 /* MoneyTrackerDB */,
 				424275342BA503BF001873A3 /* Model */,
 				424EC7B42CA94E3300CF76E2 /* Services */,
+				428BE98E2CF1F5CD00700550 /* UserPreferences */,
 				42203A212CD4CEBC00F91C9E /* Onboarding */,
-				427A906F2D0E29B300633C5C /* Main */,
+				427A90762D0EED3200633C5C /* TemporaryViewForRedisignProcess */,
+				427A906F2D0E29B300633C5C /* Home */,
 				42CA524F2C2C406D0024DF8B /* Today */,
 				42ED3BD12C5A69F8009385E0 /* Calendar */,
 				42A264B92CFCD10F002BED58 /* Settings */,
@@ -411,16 +421,34 @@
 				427A90662D0B93B700633C5C /* PinkButtonView.swift */,
 				427A90722D0EDB7800633C5C /* HomeHeaderView.swift */,
 				427A90742D0EE97F00633C5C /* InitialBudgetSetupView.swift */,
+				427A90792D0F284600633C5C /* LazyView.swift */,
 			);
 			path = ComponentViews;
 			sourceTree = "<group>";
 		};
-		427A906F2D0E29B300633C5C /* Main */ = {
+		427A906F2D0E29B300633C5C /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				427A90702D0E29D000633C5C /* HomeView.swift */,
 			);
-			path = Main;
+			path = Home;
+			sourceTree = "<group>";
+		};
+		427A90762D0EED3200633C5C /* TemporaryViewForRedisignProcess */ = {
+			isa = PBXGroup;
+			children = (
+				427A90772D0EED7200633C5C /* DesignSwitcherView.swift */,
+			);
+			path = TemporaryViewForRedisignProcess;
+			sourceTree = "<group>";
+		};
+		427A907B2D0F28F200633C5C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				427A907C2D0F292C00633C5C /* OldDesignTabItems.swift */,
+				427A907E2D0F299400633C5C /* NewDesignTabItems.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		42840CEF2C9B30D100E62068 /* Actions */ = {
@@ -756,6 +784,7 @@
 				42548AF42C72173800C35903 /* EditRecordViewModel.swift in Sources */,
 				42A11C2F2BB935E5003B617D /* TodayView.swift in Sources */,
 				423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */,
+				427A90782D0EED7200633C5C /* DesignSwitcherView.swift in Sources */,
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
 				42EB69362BFCD8F700FF4E7F /* MoneySectionType.swift in Sources */,
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
@@ -763,6 +792,7 @@
 				42C9EB0E2C71C52100D5D6EA /* DateHeaderView.swift in Sources */,
 				428BE9902CF1F60600700550 /* UserPreferences.swift in Sources */,
 				42700AA32C6FB1200022063A /* DateTitleView.swift in Sources */,
+				427A907F2D0F299400633C5C /* NewDesignTabItems.swift in Sources */,
 				42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */,
 				42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
@@ -784,7 +814,9 @@
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */,
 				427A90672D0B93B700633C5C /* PinkButtonView.swift in Sources */,
+				427A907A2D0F284600633C5C /* LazyView.swift in Sources */,
 				42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */,
+				427A907D2D0F292C00633C5C /* OldDesignTabItems.swift in Sources */,
 				42EF87EB2BFBEB6D009E0272 /* RecurringCategoryCellView.swift in Sources */,
 				42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */,
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,

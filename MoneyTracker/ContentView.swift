@@ -6,15 +6,11 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
     
     @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
-    
-    init() {
-        UITabBar.appearance().unselectedItemTintColor = .tabBarInactive
-    }
+    @AppStorage("selectedDesign") private var selectedDesign: String = "old"
     
     var body: some View {
         
@@ -24,48 +20,26 @@ struct ContentView: View {
             TabView {
                 /// Home NEW
                 NavigationStack {
-                    HomeView()
+                    DesignSwitcherView(selectedDesign: self.$selectedDesign)
                 }
                 .tabItem {
                     Label(
-                        title: { Text("NEW") },
+                        title: {},
                         icon: {
-                            self.makeTabBarIcon("expenses")
+                            self.makeTabBarIcon("toggle")
                         }
                     )
                 }
                 
-                /// Home OLD
-                NavigationStack {
-                    TodayView()
-                        .navigationTitle("TODAY'S BUDGET")
-                        .navigationBarTitleDisplayMode(.large)
-                }
-                .tabItem {
-                    Label(
-                        title: { Text("OLD") },
-                        icon: {
-                            self.makeTabBarIcon("expenses")
-                        }
-                    )
+                if selectedDesign == "old" {
+                    LazyView(OldDesignTabItems())
                 }
                 
-                /// Calendar
-                NavigationStack {
-                    CalendarView()
-                        .navigationTitle("CALENDAR")
-                        .navigationBarTitleDisplayMode(.large)
-                }
-                .tabItem {
-                    Label(
-                        title: { Text("OLD") },
-                        icon: {
-                            self.makeTabBarIcon("calendar")
-                        }
-                    )
+                if selectedDesign == "new" {
+                    LazyView(NewDesignTabItems())
                 }
             }
-            .accentColor(.white)
+            .accentColor(.pink)
         }
     }
     
