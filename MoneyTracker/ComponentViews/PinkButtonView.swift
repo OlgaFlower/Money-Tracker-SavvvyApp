@@ -9,27 +9,42 @@ import SwiftUI
 
 struct PinkButtonView: View {
     
+    // MARK: - States
+    @Binding var isActive: Bool
+    
     // MARK: - Properties
     var title: String
     var systemImage: String?
     var isHeavyFont: Bool = false
     
+    // MARK: - Actions
     var action: () -> Void
     
     // MARK: - Body
     var body: some View {
         ZStack {
-            self.backgroundView
-            self.innerShadowView
+            if self.isActive {
+                self.gradientView
+                self.innerShadowView
+            } else {
+                self.greyView
+            }
             self.titleView
         }
+        .animation(.easeInOut(duration: 0.5), value: self.isActive)
         .onTapGesture {
             self.action()
         }
     }
     
     // MARK: - Views
-    private var backgroundView: some View {
+    private var greyView: some View {
+        RoundedRectangle(cornerRadius: 25.0)
+            .fill(.white)
+            .frame(height: 55)
+    }
+    
+    private var gradientView: some View {
         RoundedRectangle(cornerRadius: 25.0)
             .fill(
                 LinearGradient(
@@ -82,10 +97,10 @@ struct PinkButtonView: View {
                 design: .default
             )
         )
-        .foregroundStyle(.white)
+        .foregroundStyle(self.isActive ? .white : .black)
     }
 }
 
 #Preview {
-    PinkButtonView(title: "Let's go", systemImage: "plus", action: {})
+    PinkButtonView(isActive: .constant(false), title: "Let's go", systemImage: "plus", action: {})
 }

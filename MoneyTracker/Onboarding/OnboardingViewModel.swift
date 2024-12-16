@@ -17,6 +17,8 @@ final class OnboardingViewModel: ObservableObject {
     @Published var selectedCountry: Country = .germany
     @Published var selectedLanguage: Language = .english
     
+    @Published var isButtonActive: Bool = true
+    
     init() {
         self.currencies = Currency.allCases.sorted { $0.rawValue < $1.rawValue }
         self.countries = Country.allCases.sorted { $0.rawValue < $1.rawValue }

@@ -136,7 +136,10 @@ struct OnboardingView: View {
     
     /// Let's go button
     private var letsGoButton: some View {
-        PinkButtonView(title: "Let's go", action: {
+        PinkButtonView(
+            isActive: self.$viewModel.isButtonActive,
+            title: "Let's go",
+            action: {
             self.viewModel.savePreferences()
             self.viewModel.vibrate()
             
@@ -150,7 +153,7 @@ struct OnboardingView: View {
         })
             .padding(.horizontal, 27)
             .padding(.top, 30)
-            .shadow(color: .pink.opacity(0.3), radius: 15, x: -7, y: 7)
+            .shadow(color: .pink.opacity(0.3), radius: 15, x: -7, y: 7) // TODO: - common extension
     }
 }
 

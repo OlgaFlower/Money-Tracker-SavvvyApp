@@ -12,6 +12,8 @@ import SwiftUI
 struct DesignSwitcherView: View {
     
     @Binding var selectedDesign: String
+    @State var isOldDesignActive: Bool = true
+    @State var isNewDesignActive: Bool = false
     
     init(selectedDesign: Binding<String>) {
         self._selectedDesign = selectedDesign
@@ -31,17 +33,30 @@ struct DesignSwitcherView: View {
             .padding(.horizontal, 24)
             
             VStack(spacing: 24) {
-                PinkButtonView(title: "Old Design", action: {
-                    self.selectedDesign = "old"
-                    UserPreferences.selectedDesign = self.selectedDesign
-                })
-                    .frame(width: 196)
-                    .padding(.top, 50)
-                PinkButtonView(title: "New Design", action: {
-                    self.selectedDesign = "new"
-                    UserPreferences.selectedDesign = self.selectedDesign
-                })
-                    .frame(width: 196)
+                PinkButtonView(
+                    isActive: self.$isOldDesignActive,
+                    title: "Old Design",
+                    action: {
+                        self.selectedDesign = "old"
+                        self.isOldDesignActive = true
+                        self.isNewDesignActive = false
+                        UserPreferences.selectedDesign = self.selectedDesign
+                    })
+                .frame(width: 196)
+                .padding(.top, 50)
+                .shadow(color: .pink.opacity(self.isOldDesignActive ? 0.3 : 0), radius: 15, x: -7, y: 7)
+                
+                PinkButtonView(
+                    isActive: self.$isNewDesignActive,
+                    title: "New Design",
+                    action: {
+                        self.selectedDesign = "new"
+                        self.isOldDesignActive = false
+                        self.isNewDesignActive = true
+                        UserPreferences.selectedDesign = self.selectedDesign
+                    })
+                .frame(width: 196)
+                .shadow(color: .pink.opacity(self.isNewDesignActive ? 0.3 : 0), radius: 15, x: -7, y: 7)
             }
         }
     }

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct InitialBudgetSetupView: View {
     
+    // MARK: - States
+    @State var icButtonActive: Bool = true
+    
     // MARK: - Body
     var body: some View {
         VStack(spacing: 4) {
@@ -34,6 +37,7 @@ struct InitialBudgetSetupView: View {
     
     private var addNewBudgetButton: some View {
         PinkButtonView(
+            isActive: self.$icButtonActive,
             title: "New Budget",
             systemImage: "plus",
             isHeavyFont: true, 
