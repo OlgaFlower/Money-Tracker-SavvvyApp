@@ -26,7 +26,7 @@ struct HomeHeaderView: View {
     // MARK: - Views
     private var dayOfWeekView: some View {
         HStack {
-            Text("Sun")
+            Text(CalendarManager.shared.weekdayAbbreviation())
                 .font(.system(size: 35, weight: .bold, design: .default))
             Circle()
                 .frame(height: 25)
@@ -39,7 +39,7 @@ struct HomeHeaderView: View {
     private var monthView: some View {
         HStack {
             Spacer()
-            Text("November 24")
+            Text(CalendarManager.shared.monthAndDay())
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundStyle(Color(uiColor: .secondaryLabel))
         }
@@ -49,7 +49,7 @@ struct HomeHeaderView: View {
     private var yearView: some View {
         HStack {
             Spacer()
-            Text("2024")
+            Text(CalendarManager.shared.year())
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundStyle(Color(uiColor: .tertiaryLabel))
         }

@@ -306,8 +306,8 @@
 				42203A212CD4CEBC00F91C9E /* Onboarding */,
 				427A90762D0EED3200633C5C /* DesignSwitcherView */,
 				427A906F2D0E29B300633C5C /* Home */,
-				42CA524F2C2C406D0024DF8B /* Today */,
-				42ED3BD12C5A69F8009385E0 /* Calendar */,
+				42CA524F2C2C406D0024DF8B /* Today_OLD */,
+				42ED3BD12C5A69F8009385E0 /* Calendar_OLD */,
 				42A264B92CFCD10F002BED58 /* Settings */,
 				427A90632D0B8A7200633C5C /* ComponentViews */,
 				42700A9F2C6FADDC0022063A /* ComponentViews_OLD */,
@@ -581,7 +581,7 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		42CA524F2C2C406D0024DF8B /* Today */ = {
+		42CA524F2C2C406D0024DF8B /* Today_OLD */ = {
 			isa = PBXGroup;
 			children = (
 				42A11C2E2BB935E5003B617D /* TodayView.swift */,
@@ -591,7 +591,7 @@
 				42B9F10A2BF3CE8700D719E3 /* Categories */,
 				42F8CF612CB683D30008517A /* Chart */,
 			);
-			path = Today;
+			path = Today_OLD;
 			sourceTree = "<group>";
 		};
 		42CA52552C2C5A570024DF8B /* Fonts */ = {
@@ -625,14 +625,14 @@
 			path = CategoriesGrid;
 			sourceTree = "<group>";
 		};
-		42ED3BD12C5A69F8009385E0 /* Calendar */ = {
+		42ED3BD12C5A69F8009385E0 /* Calendar_OLD */ = {
 			isa = PBXGroup;
 			children = (
 				42ED3BD32C5A712D009385E0 /* CalendarView.swift */,
 				42AA6C5C2C5FD1F500850299 /* CalendarDetails */,
 				4205FFF92C7136D80045486B /* EditRecord */,
 			);
-			path = Calendar;
+			path = Calendar_OLD;
 			sourceTree = "<group>";
 		};
 		42F8CF612CB683D30008517A /* Chart */ = {
