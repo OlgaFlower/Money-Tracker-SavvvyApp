@@ -12,8 +12,8 @@ import SwiftUI
 struct DesignSwitcherView: View {
     
     @Binding var selectedDesign: String
-    @State var isOldDesignActive: Bool = true
-    @State var isNewDesignActive: Bool = false
+    @State var isOldDesignActive: Bool = false
+    @State var isNewDesignActive: Bool = true
     
     init(selectedDesign: Binding<String>) {
         self._selectedDesign = selectedDesign
