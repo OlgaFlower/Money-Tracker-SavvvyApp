@@ -9,47 +9,20 @@ import SwiftUI
 
 struct InitialBudgetSetupView: View {
     
-    // MARK: - States
-    @State var icButtonActive: Bool = true
-    
     // MARK: - Body
     var body: some View {
         VStack(spacing: 4) {
-            self.titleView
-            self.subtitleView
-            self.addNewBudgetButton
-                .padding(.top, 20)
+            self.styledText("A budget First,")
+                .foregroundStyle(Color(uiColor: .tertiaryLabel))
+            self.styledText("then you can start Savvving.")
+                .foregroundStyle(Color(uiColor: .secondaryLabel))
         }
     }
     
     // MARK: - Views
-    private var titleView: some View {
-        Text("A budget First,")
+    private func styledText(_ text: String) -> some View {
+        Text(text)
             .font(.system(size: 18, weight: .bold, design: .default))
-            .foregroundStyle(Color(uiColor: .tertiaryLabel))
-    }
-    
-    private var subtitleView: some View {
-        Text("then you can start Savvving.")
-            .font(.system(size: 18, weight: .bold, design: .default))
-            .foregroundStyle(Color(uiColor: .secondaryLabel))
-    }
-    
-    private var addNewBudgetButton: some View {
-        PinkButtonView(
-            isActive: self.$icButtonActive,
-            title: "New Budget",
-            systemImage: "plus",
-            isHeavyFont: true, 
-            action: {
-                // TODO: -
-            }
-        )
-        .frame(width: 196)
-        .shadow(color: .pink.opacity(0.3), radius: 15, x: -7, y: 7)
-        .onTapGesture {
-            VibrateService.vibrateMedium()
-        }
     }
 }
 

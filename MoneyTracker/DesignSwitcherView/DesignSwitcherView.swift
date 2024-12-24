@@ -37,6 +37,7 @@ struct DesignSwitcherView: View {
                     isActive: self.$isOldDesignActive,
                     title: "Old Design",
                     action: {
+                        VibrateService.vibrateMedium()
                         self.selectedDesign = "old"
                         self.isOldDesignActive = true
                         self.isNewDesignActive = false
@@ -50,6 +51,7 @@ struct DesignSwitcherView: View {
                     isActive: self.$isNewDesignActive,
                     title: "New Design",
                     action: {
+                        VibrateService.vibrateMedium()
                         self.selectedDesign = "new"
                         self.isOldDesignActive = false
                         self.isNewDesignActive = true

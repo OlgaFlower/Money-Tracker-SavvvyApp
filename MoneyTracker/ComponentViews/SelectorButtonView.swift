@@ -51,6 +51,7 @@ struct SelectorButtonView: View {
     private var iconView: some View {
         Image(systemName: self.systemIconName)
             .frame(width: 24, height: 22)
+            .font(.system(size: 20, weight: .regular, design: .default))
             .foregroundStyle(.tertiary)
             .padding(.leading, 15)
     }
