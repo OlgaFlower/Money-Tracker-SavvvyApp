@@ -12,7 +12,4 @@ final class NewRecordViewModel: ObservableObject {
     @Published var currencySign = UserPreferences.currencySign
     @Published var category: String = ""
     
-    func vibrate() {
-        VibrateService.vibrateMedium()
-    }
 }

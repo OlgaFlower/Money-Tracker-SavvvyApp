@@ -26,6 +26,9 @@ struct NewRecordView: View {
                     .padding(.top, 6)
                 self.cancelButton
                     .padding(.top, 8)
+                self.moneyAmountView
+                self.categoryButton
+                self.recurringButton
                 Spacer()
             }
         }
@@ -53,8 +56,45 @@ struct NewRecordView: View {
                 .padding(.trailing, 28)
         }
         .onTapGesture {
-            self.onDismiss()
+            onDismiss()
         }
+    }
+    
+    // TODO: textfield for currency
+    private var moneyAmountView: some View {
+        HStack {
+            Text("50.00")
+                .font(.system(size: 60, weight: .bold, design: .default))
+            Text(" \(self.viewModel.currencySign)")
+                .font(.system(size: 35, weight: .bold, design: .default))
+                .foregroundStyle(.tertiary)
+                .padding(.top)
+        }
+    }
+    
+    private var categoryButton: some View {
+        SelectorButtonView(
+            title: "Category",
+            systemIconName: "circle.hexagonpath.fill", 
+            action: ({
+                
+            })
+        )
+        .padding(.horizontal, 27)
+        .padding(.top, 18)
+    }
+    
+    private var recurringButton: some View {
+        SelectorButtonView(
+            title: "Recurring",
+            systemIconName: "repeat.circle.fill",
+            roundViewIcon: "calendar.badge.clock", 
+            action: ({
+                
+            })
+        )
+        .padding(.horizontal, 27)
+        .padding(.top, 18)
     }
 }
 

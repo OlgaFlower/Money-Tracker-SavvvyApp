@@ -110,28 +110,26 @@ struct OnboardingView: View {
     private var countryButton: some View {
         SelectorButtonView(
             title: self.viewModel.selectedCountry.rawValue,
-            systemIconName: "flag.fill"
+            systemIconName: "flag.fill", 
+            action: ({
+                self.path.append("Country")
+            })
         )
             .padding(.horizontal, 27)
             .padding(.top, 28)
-            .onTapGesture {
-                self.viewModel.vibrate()
-                self.path.append("Country")
-            }
     }
     
     /// Currency selector
     private var currencyButton: some View {
         SelectorButtonView(
             title: self.viewModel.selectedCurrency.rawValue,
-            systemIconName: "coloncurrencysign.circle.fill"
+            systemIconName: "coloncurrencysign.circle.fill", 
+            action: ({
+                self.path.append("Currency")
+            })
         )
             .padding(.horizontal, 27)
             .padding(.top, 12)
-            .onTapGesture {
-                self.viewModel.vibrate()
-                self.path.append("Currency")
-            }
     }
     
     /// Let's go button
@@ -141,8 +139,6 @@ struct OnboardingView: View {
             title: "Let's go",
             action: {
             self.viewModel.savePreferences()
-            self.viewModel.vibrate()
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.viewModel.vibrate()
                 

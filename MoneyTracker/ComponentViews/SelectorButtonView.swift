@@ -12,10 +12,11 @@ struct SelectorButtonView: View {
     // MARK: - Properties
     var title: String
     var systemIconName: String
+    var roundViewIcon: String = "chevron.right"
+    var action: () -> Void
     
     // MARK: - Body
     var body: some View {
-        
         ZStack {
             self.backgroundView
             
@@ -23,8 +24,7 @@ struct SelectorButtonView: View {
                 self.iconView
                 self.titleView
                 Spacer()
-                self.circleWithChevron
-                
+                self.tappableView
             }
         }
     }
@@ -36,16 +36,20 @@ struct SelectorButtonView: View {
             .frame(height: 55)
     }
     
-    private var circleWithChevron: some View {
+    private var tappableView: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20.0)
                 .frame(width: 40, height: 40)
                 .foregroundStyle(.background.tertiary)
             
-            Image(systemName: "chevron.right")
+            Image(systemName: self.roundViewIcon)
                 .foregroundStyle(.pink)
         }
         .padding(.trailing, 8)
+        .onTapGesture {
+            VibrateService.vibrateMedium()
+            action()
+        }
     }
     
     private var iconView: some View {
@@ -64,5 +68,9 @@ struct SelectorButtonView: View {
 }
 
 #Preview {
-    SelectorButtonView(title: "Country", systemIconName: "flag.fill")
+    SelectorButtonView(
+        title: "Country",
+        systemIconName: "flag.fill",
+        action: {}
+    )
 }
