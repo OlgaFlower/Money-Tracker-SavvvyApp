@@ -54,15 +54,15 @@ struct SelectorButtonView: View {
     
     private var iconView: some View {
         Image(systemName: self.systemIconName)
-            .frame(width: 24, height: 22)
+            .frame(width: 22, height: 22)
             .font(.system(size: 20, weight: .regular, design: .default))
-            .foregroundStyle(.tertiary)
+            .foregroundStyle(.blue)
             .padding(.leading, 15)
     }
     
     private var titleView: some View {
         Text(self.title)
-            .font(.system(size: 16, weight: .semibold, design: .default))
+            .font(.system(size: 16, weight: .medium, design: .default))
             .padding(.leading, 10)
     }
 }
@@ -70,7 +70,7 @@ struct SelectorButtonView: View {
 #Preview {
     SelectorButtonView(
         title: "Country",
-        systemIconName: "flag.fill",
+        systemIconName: "flag.circle.fill",
         action: {}
     )
 }

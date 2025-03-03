@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum Language: String, CaseIterable, Identifiable {
+enum Language: String {
     
     case english = "English"
-    case ukrainian = "Ukrainian"
-    case german = "German"
+    case ukrainian = "Українська"
+    case german = "Deutsch"
     
     var id: String {
         self.rawValue

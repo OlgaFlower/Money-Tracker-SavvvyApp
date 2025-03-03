@@ -25,7 +25,3 @@ struct NewDesignTabItems: View {
         }
     }
 }
-
-#Preview {
-    NewDesignTabItems()
-}

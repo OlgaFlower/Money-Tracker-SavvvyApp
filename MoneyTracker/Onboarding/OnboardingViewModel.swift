@@ -9,8 +9,8 @@ import Foundation
 
 final class OnboardingViewModel: ObservableObject {
     
-    @Published var currencies: [Currency] = []
     @Published var countries: [Country] = []
+    @Published var currencies: [Currency] = []
     @Published var languages: [Language] = []
     
     @Published var selectedCurrency: Currency = .eur

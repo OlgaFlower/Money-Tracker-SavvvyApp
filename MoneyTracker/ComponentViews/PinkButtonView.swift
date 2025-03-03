@@ -103,5 +103,5 @@ struct PinkButtonView: View {
 }
 
 #Preview {
-    PinkButtonView(isActive: .constant(false), title: "Let's go", systemImage: "plus", action: {})
+    PinkButtonView(isActive: .constant(true), title: "Let's go", systemImage: "plus", action: {})
 }

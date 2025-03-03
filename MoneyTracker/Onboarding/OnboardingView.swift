@@ -34,11 +34,13 @@ struct OnboardingView: View {
                         self.makeSubtitleView(smallScreen: isSmallScreen)
                         self.countryButton
                         self.currencyButton
+                        self.languageButton
                         self.letsGoButton
                         Spacer()
                     }
                 }
                 .navigationDestination(for: String.self) { destination in
+                    
                     switch destination {
                     case "Country":
                         SettingsDetailedListView(
@@ -49,6 +51,11 @@ struct OnboardingView: View {
                         SettingsDetailedListView(
                             items: Currency.allCases,
                             selectedValue: $viewModel.selectedCurrency
+                        )
+                    case "Language":
+                        SettingsDetailedListView(
+                            items: Language.allCases,
+                            selectedValue: $viewModel.selectedLanguage
                         )
                     default:
                         // TODO: -
@@ -62,55 +69,49 @@ struct OnboardingView: View {
     // MARK: - Views
     private func makeSpaceView(smallScreen: Bool) -> some View {
         Rectangle()
-            .frame(height: smallScreen ? 80 : 120)
+            .frame(height: smallScreen ? 50 : 80)
             .foregroundStyle(.clear)
     }
     
-    /// Logo
+    // Logo
     private func makeLogoView() -> some View {
-        self.logo
-            .shadow(color: .pink.opacity(0.3), radius: 15, x: -10, y: 10)
-            .padding(.leading, 38)
-    }
-    
-    private var logo: some View {
         HStack {
             Image("logo")
+                .resizable()
+                .frame(width: 100, height: 100)
             Spacer()
         }
+        .padding(.leading, 38)
     }
     
-    /// Title
+    // Title
     private func makeTitleView(smallScreen: Bool) -> some View {
         HStack {
-            Text("Welcome to ")
-                .font(.system(size: 29, weight: .heavy, design: .default))
-            Image("nameLogo")
-                .renderingMode(.template)
-                .foregroundColor(colorScheme == .dark ? .white : .black)
+            Text("Welcome to Monika")
+                .font(.system(size: 29, weight: .bold, design: .default))
             Spacer()
         }
-        .padding(.top, 22)
+        .padding(.top, 30)
         .padding(.leading, 39)
     }
     
-    /// Subtitle
+    // Subtitle
     private func makeSubtitleView(smallScreen: Bool) -> some View {
         HStack {
-            Text("Select a country & currency to start:")
-                .font(.system(size: smallScreen ? 16 : 18, weight: .bold, design: .default))
-                .foregroundStyle(.tertiary)
+            Text("Select a country, currency and language to start:")
+                .font(.system(size: smallScreen ? 16 : 18, weight: .regular, design: .default))
+                .foregroundStyle(.primary)
             Spacer()
         }
-        .padding(.leading, 39)
+        .padding(.horizontal, 39)
         .padding(.top, 10)
     }
     
-    /// Country selector
+    // Country
     private var countryButton: some View {
         SelectorButtonView(
             title: self.viewModel.selectedCountry.rawValue,
-            systemIconName: "flag.fill", 
+            systemIconName: "flag.circle.fill",
             action: ({
                 self.path.append("Country")
             })
@@ -119,7 +120,7 @@ struct OnboardingView: View {
             .padding(.top, 28)
     }
     
-    /// Currency selector
+    // Currency
     private var currencyButton: some View {
         SelectorButtonView(
             title: self.viewModel.selectedCurrency.rawValue,
@@ -132,7 +133,20 @@ struct OnboardingView: View {
             .padding(.top, 12)
     }
     
-    /// Let's go button
+    // Lnguage
+    private var languageButton: some View {
+        SelectorButtonView(
+            title: self.viewModel.selectedLanguage.rawValue,
+            systemIconName: "globe.europe.africa.fill",
+            action: ({
+                self.path.append("Language")
+            })
+        )
+            .padding(.horizontal, 27)
+            .padding(.top, 12)
+    }
+    
+    // Let's go
     private var letsGoButton: some View {
         PinkButtonView(
             isActive: self.$viewModel.isButtonActive,
@@ -148,8 +162,7 @@ struct OnboardingView: View {
             }
         })
             .padding(.horizontal, 27)
-            .padding(.top, 30)
-            .shadow(color: .pink.opacity(0.3), radius: 15, x: -7, y: 7) // TODO: - common extension
+            .padding(.top, 40)
     }
 }
 

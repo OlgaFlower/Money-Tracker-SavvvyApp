@@ -43,7 +43,3 @@ struct OldDesignTabItems: View {
         }
     }
 }
-
-#Preview {
-    OldDesignTabItems()
-}
