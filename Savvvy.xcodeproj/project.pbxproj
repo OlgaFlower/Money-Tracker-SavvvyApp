@@ -48,14 +48,14 @@
 		427A90752D0EE97F00633C5C /* InitialBudgetSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90742D0EE97F00633C5C /* InitialBudgetSetupView.swift */; };
 		427A90782D0EED7200633C5C /* DesignSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90772D0EED7200633C5C /* DesignSwitcherView.swift */; };
 		427A907A2D0F284600633C5C /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90792D0F284600633C5C /* LazyView.swift */; };
-		427A907D2D0F292C00633C5C /* OldDesignTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A907C2D0F292C00633C5C /* OldDesignTabItems.swift */; };
-		427A907F2D0F299400633C5C /* NewDesignTabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A907E2D0F299400633C5C /* NewDesignTabItems.swift */; };
+		427A907F2D0F299400633C5C /* TabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A907E2D0F299400633C5C /* TabItems.swift */; };
 		427A90812D0F338000633C5C /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90802D0F338000633C5C /* SplashScreenView.swift */; };
 		427A90842D19A3FA00633C5C /* NewRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90832D19A3FA00633C5C /* NewRecordView.swift */; };
 		427A90892D19B6EF00633C5C /* SlideUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90882D19B6EF00633C5C /* SlideUpView.swift */; };
 		42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CE42C8DD0AE00E62068 /* DatePickerView.swift */; };
 		42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */; };
 		42840CF12C9B312900E62068 /* VibrateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CF02C9B312900E62068 /* VibrateService.swift */; };
+		42877D902D76349700F5EC13 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42877D8F2D76349700F5EC13 /* SettingsView.swift */; };
 		428BE9872CEF764900700550 /* TextLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE9862CEF764900700550 /* TextLargeView.swift */; };
 		428BE9892CEF868300700550 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE9882CEF868300700550 /* OnboardingViewModel.swift */; };
 		428BE98D2CEF8B8500700550 /* PickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE98C2CEF8B8500700550 /* PickerItem.swift */; };
@@ -166,14 +166,14 @@
 		427A90742D0EE97F00633C5C /* InitialBudgetSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialBudgetSetupView.swift; sourceTree = "<group>"; };
 		427A90772D0EED7200633C5C /* DesignSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSwitcherView.swift; sourceTree = "<group>"; };
 		427A90792D0F284600633C5C /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
-		427A907C2D0F292C00633C5C /* OldDesignTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldDesignTabItems.swift; sourceTree = "<group>"; };
-		427A907E2D0F299400633C5C /* NewDesignTabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDesignTabItems.swift; sourceTree = "<group>"; };
+		427A907E2D0F299400633C5C /* TabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItems.swift; sourceTree = "<group>"; };
 		427A90802D0F338000633C5C /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		427A90832D19A3FA00633C5C /* NewRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordView.swift; sourceTree = "<group>"; };
 		427A90882D19B6EF00633C5C /* SlideUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideUpView.swift; sourceTree = "<group>"; };
 		42840CE42C8DD0AE00E62068 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextfieldView.swift; sourceTree = "<group>"; };
 		42840CF02C9B312900E62068 /* VibrateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateService.swift; sourceTree = "<group>"; };
+		42877D8F2D76349700F5EC13 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		428BE9862CEF764900700550 /* TextLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLargeView.swift; sourceTree = "<group>"; };
 		428BE9882CEF868300700550 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		428BE98C2CEF8B8500700550 /* PickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerItem.swift; sourceTree = "<group>"; };
@@ -467,8 +467,7 @@
 		427A907B2D0F28F200633C5C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				427A907C2D0F292C00633C5C /* OldDesignTabItems.swift */,
-				427A907E2D0F299400633C5C /* NewDesignTabItems.swift */,
+				427A907E2D0F299400633C5C /* TabItems.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -557,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				42A264BF2CFDE038002BED58 /* SettingsDetailedListView.swift */,
+				42877D8F2D76349700F5EC13 /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -833,7 +833,7 @@
 				42C9EB0E2C71C52100D5D6EA /* DateHeaderView.swift in Sources */,
 				428BE9902CF1F60600700550 /* UserPreferences.swift in Sources */,
 				42700AA32C6FB1200022063A /* DateTitleView.swift in Sources */,
-				427A907F2D0F299400633C5C /* NewDesignTabItems.swift in Sources */,
+				427A907F2D0F299400633C5C /* TabItems.swift in Sources */,
 				42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */,
 				42700AA12C6FAE0D0022063A /* CancelButtonView.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
@@ -858,7 +858,6 @@
 				427A90672D0B93B700633C5C /* PinkButtonView.swift in Sources */,
 				427A907A2D0F284600633C5C /* LazyView.swift in Sources */,
 				42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */,
-				427A907D2D0F292C00633C5C /* OldDesignTabItems.swift in Sources */,
 				42EF87EB2BFBEB6D009E0272 /* RecurringCategoryCellView.swift in Sources */,
 				42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */,
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,
@@ -895,6 +894,7 @@
 				42F8F73E2C18C2E500C0CE9B /* Date+Extension.swift in Sources */,
 				42AA6C5E2C5FD23300850299 /* CalendarDetailsView.swift in Sources */,
 				42EB69432BFE00A200FF4E7F /* CategoriesGridViewModel.swift in Sources */,
+				42877D902D76349700F5EC13 /* SettingsView.swift in Sources */,
 				42580AF82C0CA51E00AC9F58 /* RecurringCategoryCellViewModel.swift in Sources */,
 				42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */,
 				42CA52472C2B44C40024DF8B /* ExpensesDetailViewModel.swift in Sources */,

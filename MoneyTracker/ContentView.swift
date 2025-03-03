@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
-    @AppStorage("selectedDesign") private var selectedDesign: String = "old"
     @State private var isSplashActive: Bool = true
     
     var body: some View {
@@ -25,26 +24,7 @@ struct ContentView: View {
                     
                 } else {
                     TabView {
-                        /// Home NEW
-                        NavigationStack {
-                            DesignSwitcherView(selectedDesign: self.$selectedDesign)
-                        }
-                        .tabItem {
-                            Label(
-                                title: {},
-                                icon: {
-                                    self.makeTabBarIcon("toggle")
-                                }
-                            )
-                        }
-                        
-                        if selectedDesign == "old" {
-                            LazyView(OldDesignTabItems())
-                        }
-                        
-                        if selectedDesign == "new" {
-                            LazyView(NewDesignTabItems())
-                        }
+                            LazyView(TabItems())
                     }
                     .accentColor(.pink)
                 }

@@ -1,5 +1,5 @@
 //
-//  OldDesignTabItems.swift
+//  TabItems.swift
 //  Savvvy
 //
 //  Created by Olha Bereziuk on 15.12.24.
@@ -7,35 +7,44 @@
 
 import SwiftUI
 
-struct OldDesignTabItems: View {
+struct TabItems: View {
     
     var body: some View {
         Group {
             NavigationStack {
-                TodayView()
-                    .navigationTitle("TODAY'S BUDGET")
-                    .navigationBarTitleDisplayMode(.large)
+                CalendarView()
             }
             .tabItem {
                 Label(
                     title: {},
                     icon: {
-                        Image("expenses")
+                        Image(systemName: "calendar")
                             .renderingMode(.template)
                     }
                 )
             }
             
             NavigationStack {
-                CalendarView()
-                    .navigationTitle("CALENDAR")
-                    .navigationBarTitleDisplayMode(.large)
+                HomeView()
             }
             .tabItem {
                 Label(
                     title: {},
                     icon: {
-                        Image("calendar")
+                        Image(systemName: "plus")
+                            .renderingMode(.template)
+                    }
+                )
+            }
+            
+            NavigationStack {
+                SettingsView()
+            }
+            .tabItem {
+                Label(
+                    title: {},
+                    icon: {
+                        Image(systemName: "gearshape")
                             .renderingMode(.template)
                     }
                 )
