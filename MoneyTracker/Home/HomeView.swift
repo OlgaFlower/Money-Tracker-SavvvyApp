@@ -21,8 +21,17 @@ struct HomeView: View {
             HomeHeaderView()
                 .padding(.horizontal, 20)
             VStack {
-                InitialBudgetSetupView()
-                self.newBudgetButton
+                WelcomeView()
+                
+            }
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    self.addNewRecord()
+                        .padding(.trailing, 12)
+                }
+                .padding(.bottom, 12)
             }
         }
         .slideUpView(isPresented: self.$showNewRecordView) {
@@ -38,23 +47,22 @@ struct HomeView: View {
             .ignoresSafeArea()
     }
     
-    private var newBudgetButton: some View {
-        PinkButtonView(
-            isActive: self.$isButtonActive,
-            title: "New Budget",
-            systemImage: "plus",
-            isHeavyFont: true,
-            action: {
+    private var addButtonView: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 25.0)
+                .frame(width: 50, height: 50)
+                .foregroundStyle(.blue)
+            Image(systemName: "plus")
+                .font(.system(size: 26, weight: .regular, design: .default))
+                .foregroundStyle(.white)
+        }
+    }
+    
+    private func addNewRecord() -> some View {
+        self.addButtonView
+            .onTapGesture {
                 VibrateService.vibrateMedium()
-                self.showNewRecordView.toggle()
             }
-        )
-        .frame(width: 196)
-        .padding(.top, 20)
-        .shadow(
-            color: .pink.opacity(0.3),
-            radius: 20, x: -7, y: 7
-        )
     }
 }
 

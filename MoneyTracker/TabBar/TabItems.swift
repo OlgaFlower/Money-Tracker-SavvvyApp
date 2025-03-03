@@ -12,26 +12,26 @@ struct TabItems: View {
     var body: some View {
         Group {
             NavigationStack {
-                CalendarView()
-            }
-            .tabItem {
-                Label(
-                    title: {},
-                    icon: {
-                        Image(systemName: "calendar")
-                            .renderingMode(.template)
-                    }
-                )
-            }
-            
-            NavigationStack {
                 HomeView()
             }
             .tabItem {
                 Label(
                     title: {},
                     icon: {
-                        Image(systemName: "plus")
+                        Image("expenses")
+                            .renderingMode(.template)
+                    }
+                )
+            }
+            
+            NavigationStack {
+                CalendarView()
+            }
+            .tabItem {
+                Label(
+                    title: {},
+                    icon: {
+                        Image("calendar")
                             .renderingMode(.template)
                     }
                 )
@@ -44,7 +44,7 @@ struct TabItems: View {
                 Label(
                     title: {},
                     icon: {
-                        Image(systemName: "gearshape")
+                        Image("settings")
                             .renderingMode(.template)
                     }
                 )
