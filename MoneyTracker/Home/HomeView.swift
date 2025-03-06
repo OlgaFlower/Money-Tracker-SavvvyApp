@@ -11,7 +11,7 @@ struct HomeView: View {
     
     // MARK: - States
     @State var isButtonActive: Bool = true
-    @State private var showNewRecordView: Bool = false
+    @State private var isNewRecordPresented = false
     
     // MARK: - Body
     var body: some View {
@@ -34,11 +34,11 @@ struct HomeView: View {
                 .padding(.bottom, 12)
             }
         }
-        .slideUpView(isPresented: self.$showNewRecordView) {
+        .fullScreenCover(isPresented: self.$isNewRecordPresented, content: {
             NewRecordView(onDismiss: {
-                self.showNewRecordView.toggle()
+                self.isNewRecordPresented.toggle()
             })
-        }
+        })
     }
     
     //MARK: - Views
@@ -62,6 +62,7 @@ struct HomeView: View {
         self.addButtonView
             .onTapGesture {
                 VibrateService.vibrateMedium()
+                self.isNewRecordPresented.toggle()
             }
     }
 }

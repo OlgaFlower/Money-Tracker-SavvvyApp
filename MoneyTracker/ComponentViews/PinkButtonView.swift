@@ -14,8 +14,6 @@ struct PinkButtonView: View {
     
     // MARK: - Properties
     var title: String
-    var systemImage: String?
-    var isHeavyFont: Bool = false
     
     // MARK: - Actions
     var action: () -> Void
@@ -63,45 +61,40 @@ struct PinkButtonView: View {
     }
     
     private var innerShadowView: some View {
-            LinearGradient(
-                gradient: Gradient(
-                    colors: [
-                        Color.clear,
-                        Color.pink.opacity(0.4)
-                    ]
-                ),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .frame(height: 55)
-            .mask(
-                VStack(spacing: 0) {
-                    Rectangle().fill(Color.clear)
-                    Rectangle().fill(Color.white)
-                }
-            )
-            .blur(radius: 6)
-            .clipShape(RoundedRectangle(cornerRadius: 25.0))
-        }
+        LinearGradient(
+            gradient: Gradient(
+                colors: [
+                    Color.clear,
+                    Color.pink.opacity(0.4)
+                ]
+            ),
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .frame(height: 55)
+        .mask(
+            VStack(spacing: 0) {
+                Rectangle().fill(Color.clear)
+                Rectangle().fill(Color.white)
+            }
+        )
+        .blur(radius: 6)
+        .clipShape(RoundedRectangle(cornerRadius: 25.0))
+    }
     
     private var titleView: some View {
-        HStack(spacing: 6) {
-            Text(self.title)
-            if let systemImage = self.systemImage {
-                Image(systemName: systemImage)
-            }
-        }
-        .font(
-            .system(
-                size: 16, 
-                weight: self.isHeavyFont ? .heavy : .bold,
-                design: .default
+        Text(self.title)
+            .font(
+                .system(
+                    size: 16,
+                    weight: .medium,
+                    design: .default
+                )
             )
-        )
-        .foregroundStyle(self.isActive ? .white : .black)
+            .foregroundStyle(self.isActive ? .white : .black)
     }
 }
 
 #Preview {
-    PinkButtonView(isActive: .constant(true), title: "Let's go", systemImage: "plus", action: {})
+    PinkButtonView(isActive: .constant(true), title: "Let's go", action: {})
 }

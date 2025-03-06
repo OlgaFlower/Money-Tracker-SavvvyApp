@@ -11,5 +11,5 @@ final class NewRecordViewModel: ObservableObject {
     
     @Published var currencySign = UserPreferences.currencySign
     @Published var category: String = ""
-    
+    @Published var recurringNumber: Int = 10
 }

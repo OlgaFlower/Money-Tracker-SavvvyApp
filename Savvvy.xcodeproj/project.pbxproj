@@ -55,6 +55,7 @@
 		42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */; };
 		42840CF12C9B312900E62068 /* VibrateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42840CF02C9B312900E62068 /* VibrateService.swift */; };
 		42877D902D76349700F5EC13 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42877D8F2D76349700F5EC13 /* SettingsView.swift */; };
+		42877D922D764CCF00F5EC13 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42877D912D764CCF00F5EC13 /* CustomSegmentedControl.swift */; };
 		428BE9872CEF764900700550 /* TextLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE9862CEF764900700550 /* TextLargeView.swift */; };
 		428BE9892CEF868300700550 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE9882CEF868300700550 /* OnboardingViewModel.swift */; };
 		428BE98D2CEF8B8500700550 /* PickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428BE98C2CEF8B8500700550 /* PickerItem.swift */; };
@@ -172,6 +173,7 @@
 		42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextfieldView.swift; sourceTree = "<group>"; };
 		42840CF02C9B312900E62068 /* VibrateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateService.swift; sourceTree = "<group>"; };
 		42877D8F2D76349700F5EC13 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		42877D912D764CCF00F5EC13 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		428BE9862CEF764900700550 /* TextLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLargeView.swift; sourceTree = "<group>"; };
 		428BE9882CEF868300700550 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		428BE98C2CEF8B8500700550 /* PickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerItem.swift; sourceTree = "<group>"; };
@@ -314,7 +316,7 @@
 				427A90802D0F338000633C5C /* SplashScreenView.swift */,
 				427A907B2D0F28F200633C5C /* TabBar */,
 				42B9F1152BF60F0600D719E3 /* MoneyTrackerDB */,
-				424275342BA503BF001873A3 /* Model */,
+				424275342BA503BF001873A3 /* Models */,
 				424EC7B42CA94E3300CF76E2 /* Services */,
 				428BE98E2CF1F5CD00700550 /* UserPreferences */,
 				42203A212CD4CEBC00F91C9E /* Onboarding */,
@@ -363,12 +365,12 @@
 			path = MoneyTrackerUITests;
 			sourceTree = "<group>";
 		};
-		424275342BA503BF001873A3 /* Model */ = {
+		424275342BA503BF001873A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				42A11C292BB7173B003B617D /* MoneyModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		424EC7B42CA94E3300CF76E2 /* Services */ = {
@@ -441,6 +443,7 @@
 				427A90722D0EDB7800633C5C /* HomeHeaderView.swift */,
 				427A90742D0EE97F00633C5C /* WelcomeView.swift */,
 				427A90792D0F284600633C5C /* LazyView.swift */,
+				42877D912D764CCF00F5EC13 /* CustomSegmentedControl.swift */,
 			);
 			path = ComponentViews;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */,
 				42ED3BD42C5A712D009385E0 /* CalendarView.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
+				42877D922D764CCF00F5EC13 /* CustomSegmentedControl.swift in Sources */,
 				427A90712D0E29D000633C5C /* HomeView.swift in Sources */,
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
 				428BE9892CEF868300700550 /* OnboardingViewModel.swift in Sources */,

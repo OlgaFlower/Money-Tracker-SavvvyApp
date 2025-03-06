@@ -31,15 +31,15 @@ struct SelectorButtonView: View {
     
     // MARK: - Views
     private var backgroundView: some View {
-        RoundedRectangle(cornerRadius: 25.0)
+        RoundedRectangle(cornerRadius: 22.0)
             .foregroundStyle(.background.secondary)
-            .frame(height: 55)
+            .frame(height: 44)
     }
     
     private var tappableView: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 20.0)
-                .frame(width: 40, height: 40)
+            RoundedRectangle(cornerRadius: 16.0)
+                .frame(width: 33, height: 33)
                 .foregroundStyle(.background.tertiary)
             
             Image(systemName: self.roundViewIcon)
@@ -62,7 +62,7 @@ struct SelectorButtonView: View {
     
     private var titleView: some View {
         Text(self.title)
-            .font(.system(size: 16, weight: .medium, design: .default))
+            .font(.system(size: 16, weight: .regular, design: .default))
             .padding(.leading, 10)
     }
 }
