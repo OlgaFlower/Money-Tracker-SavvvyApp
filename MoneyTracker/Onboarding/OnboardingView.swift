@@ -35,9 +35,9 @@ struct OnboardingView: View {
                         self.countryButton
                         self.currencyButton
                         self.languageButton
-                        self.letsGoButton
                         Spacer()
                     }
+                    self.nextButton
                 }
                 .navigationDestination(for: String.self) { destination in
                     
@@ -78,7 +78,7 @@ struct OnboardingView: View {
         HStack {
             Image("logo")
                 .resizable()
-                .frame(width: 100, height: 100)
+                .frame(width: 80, height: 80)
             Spacer()
         }
         .padding(.leading, 38)
@@ -91,14 +91,14 @@ struct OnboardingView: View {
                 .font(.system(size: 29, weight: .bold, design: .default))
             Spacer()
         }
-        .padding(.top, 30)
+        .padding(.top, 50)
         .padding(.leading, 39)
     }
     
     // Subtitle
     private func makeSubtitleView(smallScreen: Bool) -> some View {
         HStack {
-            Text("Select a country, currency and language to start:")
+            Text("Select a country, currency, and language. You can change these settings later.")
                 .font(.system(size: smallScreen ? 16 : 18, weight: .regular, design: .default))
                 .foregroundStyle(.primary)
             Spacer()
@@ -158,23 +158,21 @@ struct OnboardingView: View {
             .padding(.top, 12)
     }
     
-    // Let's go
-    private var letsGoButton: some View {
-        PinkButtonView(
-            isActive: self.$viewModel.isButtonActive,
-            title: "Let's go",
-            action: {
-            self.viewModel.savePreferences()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.viewModel.vibrate()
-                
+    private var nextButton: some View {
+        VStack {
+            Spacer()
+            PinkButtonView(title: "Start") {
+                self.viewModel.savePreferences()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.isFirstLaunch.toggle()
+                    self.viewModel.vibrate()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.isFirstLaunch.toggle()
+                    }
                 }
             }
-        })
-            .padding(.horizontal, 27)
-            .padding(.top, 40)
+            .padding(.bottom, 24)
+        }
     }
 }
 

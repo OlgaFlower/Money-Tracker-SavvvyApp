@@ -24,14 +24,19 @@ struct NewRecordView: View {
                     CancelButtonView {
                         onDismiss()
                     }
+                    .padding(.bottom, 24)
                     self.segmentedControlView
                     
                     self.moneyAmountView
-                    self.categoryButton
-                    self.recurringButton
+                    self.categorySelector
+                    self.recurringSelector
                     
-                    self.recurringDateSelector
-                    self.descriptionView
+                    if self.viewModel.regularCatSelected {
+                        self.recurringDateRangeSelector
+                    }
+                    
+                    DescriptionView(text: self.$descriptionText)
+                        .padding(.top, 24)
                     Spacer()
                 }
                 .padding(.horizontal, 24)
@@ -62,12 +67,12 @@ struct NewRecordView: View {
         .padding(.vertical)
     }
     
-    private var categoryButton: some View {
+    private var categorySelector: some View {
         SelectorButtonView(
             title: "Regular",
             iconName: "cart.circle.fill",
             isSelected: Binding(
-                get: { self.viewModel.isRegularCatSelected },
+                get: { self.viewModel.regularCatSelected },
                 set: { _ in }
             ),
             action: ({
@@ -76,12 +81,12 @@ struct NewRecordView: View {
         )
     }
     
-    private var recurringButton: some View {
+    private var recurringSelector: some View {
         SelectorButtonView(
             title: "Recurring",
             iconName: "repeat.circle.fill",
             isSelected: Binding(
-                get: { self.viewModel.isRecurringCatSelected },
+                get: { self.viewModel.recurringCatSelected },
                 set: { _ in }
             ),
             action: ({
@@ -90,7 +95,7 @@ struct NewRecordView: View {
         )
     }
     
-    private var recurringDateSelector: some View {
+    private var recurringDateRangeSelector: some View {
         RecurringRangeSelectorView(
             recurringRange: self.$viewModel.recurringRange) {
                 self.viewModel.reduceRange()
@@ -99,30 +104,12 @@ struct NewRecordView: View {
             }
     }
     
-    private var descriptionView: some View {
-        ZStack {
-            
-            RoundedRectangle(cornerRadius: 12.0)
-                .fill(Color(.secondarySystemBackground))
-                .frame(height: 44)
-            VStack {
-                TextField("Add more details...", text: $descriptionText)
-                    .padding(.horizontal)
-                    .autocorrectionDisabled(true)
-                    .frame(width: UIScreen.main.bounds.width - 24, height: 44)
-                    .keyboardType(.asciiCapable)
-                    .focused($isKeyboardActive)
-            }
-        }
-    }
-    
     private var saveBtn: some View {
         VStack {
             Spacer()
             PinkButtonView(title: "Save") {
                 // TODO: -
             }
-            .frame(width: 120, height: 44)
             .padding(.bottom, 24)
         }
         .transition(.move(edge: .bottom))

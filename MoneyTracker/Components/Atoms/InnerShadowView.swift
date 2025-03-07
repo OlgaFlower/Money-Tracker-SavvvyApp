@@ -20,7 +20,7 @@ struct InnerShadowView: View {
             startPoint: .top,
             endPoint: .bottom
         )
-        .frame(height: 55)
+        .frame(width: 120, height: 44)
         .mask(
             VStack(spacing: 0) {
                 Rectangle().fill(Color.clear)

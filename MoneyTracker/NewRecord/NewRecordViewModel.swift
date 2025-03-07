@@ -14,11 +14,11 @@ final class NewRecordViewModel: ObservableObject {
     @Published var recurringCategory: String = ""
     @Published var recurringRange: Int = 10
     
-    var isRegularCatSelected: Bool {
+    var regularCatSelected: Bool {
         !self.regularCategory.isEmpty
     }
     
-    var isRecurringCatSelected: Bool {
+    var recurringCatSelected: Bool {
         !self.recurringCategory.isEmpty
     }
     

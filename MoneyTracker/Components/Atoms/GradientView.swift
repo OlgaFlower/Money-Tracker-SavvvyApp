@@ -23,7 +23,7 @@ struct GradientView: View {
                     endPoint: .trailing
                 )
             )
-            .frame(height: 55)
+            .frame(width: 120, height: 44)
     }
 }
 

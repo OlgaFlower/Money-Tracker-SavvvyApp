@@ -35,6 +35,10 @@
 		42369D362D7B674700744D95 /* InactiveButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D352D7B674700744D95 /* InactiveButtonBackgroundView.swift */; };
 		42369D382D7B67B900744D95 /* ButtonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D372D7B67B900744D95 /* ButtonContentView.swift */; };
 		42369D3A2D7B684600744D95 /* PinkButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D392D7B684600744D95 /* PinkButtonView.swift */; };
+		42369D3C2D7B783800744D95 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D3B2D7B783800744D95 /* TextFieldView.swift */; };
+		42369D3E2D7B78CC00744D95 /* DescriptionBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D3D2D7B78CC00744D95 /* DescriptionBackgroundView.swift */; };
+		42369D402D7B790D00744D95 /* DescriptionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D3F2D7B790D00744D95 /* DescriptionInputView.swift */; };
+		42369D422D7B79CA00744D95 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D412D7B79CA00744D95 /* DescriptionView.swift */; };
 		423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */; };
 		423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4222BD6369000CBB6D5 /* Constants.swift */; };
 		4241F4712BB1E62E0048A29B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4702BB1E62E0048A29B /* Country.swift */; };
@@ -165,6 +169,10 @@
 		42369D352D7B674700744D95 /* InactiveButtonBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveButtonBackgroundView.swift; sourceTree = "<group>"; };
 		42369D372D7B67B900744D95 /* ButtonContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContentView.swift; sourceTree = "<group>"; };
 		42369D392D7B684600744D95 /* PinkButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkButtonView.swift; sourceTree = "<group>"; };
+		42369D3B2D7B783800744D95 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		42369D3D2D7B78CC00744D95 /* DescriptionBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionBackgroundView.swift; sourceTree = "<group>"; };
+		42369D3F2D7B790D00744D95 /* DescriptionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionInputView.swift; sourceTree = "<group>"; };
+		42369D412D7B79CA00744D95 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradView.swift; sourceTree = "<group>"; };
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4241F4702BB1E62E0048A29B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -312,6 +320,8 @@
 				42369D312D7B66B600744D95 /* GradientView.swift */,
 				42369D332D7B66EC00744D95 /* InnerShadowView.swift */,
 				42369D352D7B674700744D95 /* InactiveButtonBackgroundView.swift */,
+				42369D3B2D7B783800744D95 /* TextFieldView.swift */,
+				42369D3D2D7B78CC00744D95 /* DescriptionBackgroundView.swift */,
 			);
 			path = Atoms;
 			sourceTree = "<group>";
@@ -335,6 +345,7 @@
 				42369D1F2D7B2E4A00744D95 /* SegmentCtrlItemView.swift */,
 				42369D292D7B58AB00744D95 /* PlusMinusBtnView.swift */,
 				42369D372D7B67B900744D95 /* ButtonContentView.swift */,
+				42369D3F2D7B790D00744D95 /* DescriptionInputView.swift */,
 			);
 			path = Molecules;
 			sourceTree = "<group>";
@@ -346,6 +357,7 @@
 				42369D212D7B2F4C00744D95 /* CustomSegmentedControlView.swift */,
 				42369D2B2D7B596000744D95 /* RecurringRangeSelectorView.swift */,
 				42369D392D7B684600744D95 /* PinkButtonView.swift */,
+				42369D412D7B79CA00744D95 /* DescriptionView.swift */,
 			);
 			path = Organisms;
 			sourceTree = "<group>";
@@ -878,6 +890,7 @@
 				42A11C2F2BB935E5003B617D /* TodayView.swift in Sources */,
 				423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */,
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
+				42369D402D7B790D00744D95 /* DescriptionInputView.swift in Sources */,
 				42EB69362BFCD8F700FF4E7F /* MoneySectionType.swift in Sources */,
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
 				42203A272CE3D2A200F91C9E /* Currency.swift in Sources */,
@@ -911,6 +924,7 @@
 				428BE98D2CEF8B8500700550 /* PickerItem.swift in Sources */,
 				422E82D02BF6BF5B00139B94 /* String+Extension.swift in Sources */,
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
+				42369D422D7B79CA00744D95 /* DescriptionView.swift in Sources */,
 				42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */,
 				427A907A2D0F284600633C5C /* LazyView.swift in Sources */,
 				42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */,
@@ -944,9 +958,11 @@
 				428BE9892CEF868300700550 /* OnboardingViewModel.swift in Sources */,
 				4242750A2BA4FF72001873A3 /* MoneyTrackerApp.swift in Sources */,
 				427A90842D19A3FA00633C5C /* NewRecordView.swift in Sources */,
+				42369D3C2D7B783800744D95 /* TextFieldView.swift in Sources */,
 				42840CEE2C93258B00E62068 /* DescriptionTextfieldView.swift in Sources */,
 				42548AF22C71FB3700C35903 /* TextSmallView.swift in Sources */,
 				42A11C2A2BB7173B003B617D /* MoneyModel.swift in Sources */,
+				42369D3E2D7B78CC00744D95 /* DescriptionBackgroundView.swift in Sources */,
 				42C9EB0A2C71B4CF00D5D6EA /* TextTitleView.swift in Sources */,
 				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
 				42F8F7262C122C3200C0CE9B /* CalendarManager.swift in Sources */,

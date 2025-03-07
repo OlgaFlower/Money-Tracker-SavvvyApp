@@ -12,7 +12,7 @@ struct InactiveButtonBackgroundView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 25.0)
             .fill(.secondary.opacity(0.2))
-            .frame(height: 55)
+            .frame(width: 120, height: 44)
     }
 }
 
