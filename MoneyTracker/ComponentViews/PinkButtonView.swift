@@ -8,28 +8,43 @@
 import SwiftUI
 
 struct PinkButtonView: View {
-    
-    // MARK: - States
-    @Binding var isActive: Bool
-    
-    // MARK: - Properties
+    private var isActiveBinding: Binding<Bool>?
+    @State private var isActiveBtnState: Bool = true
     var title: String
-    
-    // MARK: - Actions
     var action: () -> Void
+    
+    // MARK: - Initializers
+        init(
+            isActive: Binding<Bool>,
+            title: String,
+            action: @escaping () -> Void
+        ) {
+            self.isActiveBinding = isActive
+            self.title = title
+            self.action = action
+        }
+        
+        init(
+            title: String,
+            action: @escaping () -> Void
+        ) {
+            self.title = title
+            self.action = action
+        }
     
     // MARK: - Body
     var body: some View {
+        let isActive = isActiveBinding?.wrappedValue ?? isActiveBtnState
         ZStack {
-            if self.isActive {
+            if isActive {
                 self.gradientView
                 self.innerShadowView
             } else {
                 self.greyView
             }
-            self.titleView
+            self.makeTitleView(isActive: isActive)
         }
-        .animation(.easeInOut(duration: 0.5), value: self.isActive)
+        .animation(.easeInOut(duration: 0.5), value: isActive)
         .onTapGesture {
             VibrateService.vibrateMedium()
             self.action()
@@ -82,7 +97,7 @@ struct PinkButtonView: View {
         .clipShape(RoundedRectangle(cornerRadius: 25.0))
     }
     
-    private var titleView: some View {
+    private func makeTitleView(isActive: Bool) -> some View {
         Text(self.title)
             .font(
                 .system(
@@ -91,7 +106,7 @@ struct PinkButtonView: View {
                     design: .default
                 )
             )
-            .foregroundStyle(self.isActive ? .white : .black)
+            .foregroundStyle(isActive ? .white : .black)
     }
 }
 

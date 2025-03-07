@@ -13,6 +13,7 @@ struct NewRecordView: View {
     @StateObject private var viewModel = NewRecordViewModel()
     @State private var preselectedTag: Int = 0
     @State private var descriptionText: String = ""
+    @FocusState private var isKeyboardActive: Bool
     
     // MARK: - Actions
     var onDismiss: () -> Void
@@ -38,6 +39,9 @@ struct NewRecordView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 24)
+            }
+            if !isKeyboardActive {
+                self.saveBtn
             }
         }
     }
@@ -187,8 +191,21 @@ struct NewRecordView: View {
                     .autocorrectionDisabled(true)
                     .frame(width: UIScreen.main.bounds.width - 24, height: 44)
                     .keyboardType(.asciiCapable)
+                    .focused($isKeyboardActive)
             }
         }
+    }
+    
+    private var saveBtn: some View {
+        VStack {
+            Spacer()
+            PinkButtonView(title: "Save") {
+                // TODO: -
+            }
+            .frame(width: 120, height: 44)
+            .padding(.bottom, 24)
+        }
+        .transition(.move(edge: .bottom))
     }
 }
 
