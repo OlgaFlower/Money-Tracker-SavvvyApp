@@ -1,6 +1,6 @@
 //
 //  NewRecordViewModel.swift
-//  Savvvy
+//  Monika
 //
 //  Created by Olha Bereziuk on 23.12.24.
 //

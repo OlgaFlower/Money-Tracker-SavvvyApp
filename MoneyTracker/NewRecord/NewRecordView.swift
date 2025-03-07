@@ -1,6 +1,6 @@
 //
 //  NewRecordView.swift
-//  Savvvy
+//  Monika
 //
 //  Created by Olha Bereziuk on 23.12.24.
 //
@@ -21,57 +21,36 @@ struct NewRecordView: View {
     // MARK: - Body
     var body: some View {
         
-        ZStack {
-            self.backgroundView
-            
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 11) {
-                    
-                    self.cancelButton
-                    self.segmentedControlView
-                    
-                    self.moneyAmountView
-                    self.categoryButton
-                    self.recurringButton
-                    
-                    self.recurringDateSelector
-                    self.descriptionView
-                    Spacer()
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 11) {
+                
+                CancelButtonView {
+                    onDismiss()
                 }
-                .padding(.horizontal, 24)
+                self.segmentedControlView
+                
+                self.moneyAmountView
+                self.categoryButton
+                self.recurringButton
+                
+                self.recurringDateSelector
+                self.descriptionView
+                Spacer()
             }
-            if !isKeyboardActive {
-                self.saveBtn
-            }
+            .padding(.horizontal, 24)
+        }
+        if !isKeyboardActive {
+            self.saveBtn
         }
     }
     
     // MARK: - Views
-    private var backgroundView: some View {
-        Rectangle()
-            .ignoresSafeArea()
-            .foregroundStyle(.background)
-    }
-    
-    private var cancelButton: some View {
-        HStack {
-            Spacer()
-            Image(systemName: "xmark.circle.fill")
-                .font(.system(size: 25, weight: .regular, design: .default))
-                .foregroundStyle(Color(hex: "E3E3E5"))
-        }
-        .padding(.top, 24)
-        .onTapGesture {
-            onDismiss()
-        }
-    }
     
     private var segmentedControlView: some View {
-        CustomSegmentedControl(
+        CustomSegmentedControlView(
             tag: self.$preselectedTag,
             controlOptions: ["Expense", "Income"]
         )
-        .padding(.vertical, 13)
     }
     
     // TODO: textfield for currency

@@ -1,5 +1,5 @@
 //
-//  IconView.swift
+//  TitleForBtnView.swift
 //  Monika
 //
 //  Created by Olha Bereziuk on 07.03.25.
@@ -7,25 +7,22 @@
 
 import SwiftUI
 
-struct IconView: View {
+struct TitleForBtnView: View {
     
-    var iconName: String
-    var color: Color = .blue
+    var title: String
     
     var body: some View {
-        Image(systemName: self.iconName)
-            .frame(width: 22, height: 22)
+        Text(title)
             .font(
                 .system(
-                    size: 20,
+                    size: 16,
                     weight: .regular,
                     design: .default
                 )
             )
-            .foregroundStyle(self.color)
     }
 }
 
 #Preview {
-    IconView(iconName: "star")
+    TitleForBtnView(title: "Category")
 }
