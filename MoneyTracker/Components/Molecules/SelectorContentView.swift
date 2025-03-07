@@ -11,12 +11,16 @@ struct SelectorContentView: View {
     
     var title: String
     var iconName: String
+    var iconColor: Color
     
     var body: some View {
         HStack(spacing: 10) {
-            IconView(iconName: iconName)
+            IconView(
+                iconName: self.iconName,
+                color: self.iconColor
+            )
                 .padding(.leading, 15)
-            TitleForBtnView(title: title)
+            TitleForBtnView(title: self.title)
         }
     }
 }
@@ -24,6 +28,7 @@ struct SelectorContentView: View {
 #Preview {
     SelectorContentView(
         title: "Category",
-        iconName: "star"
+        iconName: "star", 
+        iconColor: .blue
     )
 }

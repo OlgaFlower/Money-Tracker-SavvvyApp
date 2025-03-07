@@ -112,6 +112,10 @@ struct OnboardingView: View {
         SelectorButtonView(
             title: self.viewModel.selectedCountry.rawValue,
             iconName: "flag.circle.fill",
+            isSelected: Binding(
+                get: { self.viewModel.preselectedData },
+                set: { _ in }
+            ),
             action: ({
                 self.path.append("Country")
             })
@@ -125,6 +129,10 @@ struct OnboardingView: View {
         SelectorButtonView(
             title: self.viewModel.selectedCurrency.rawValue,
             iconName: "coloncurrencysign.circle.fill",
+            isSelected: Binding(
+                get: { self.viewModel.preselectedData },
+                set: { _ in }
+            ),
             action: ({
                 self.path.append("Currency")
             })
@@ -138,6 +146,10 @@ struct OnboardingView: View {
         SelectorButtonView(
             title: self.viewModel.selectedLanguage.rawValue,
             iconName: "globe.europe.africa.fill",
+            isSelected: Binding(
+                get: { self.viewModel.preselectedData },
+                set: { _ in }
+            ),
             action: ({
                 self.path.append("Language")
             })

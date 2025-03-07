@@ -10,6 +10,15 @@ import Foundation
 final class NewRecordViewModel: ObservableObject {
     
     @Published var currencySign = UserPreferences.currencySign
-    @Published var category: String = ""
-    @Published var recurringNumber: Int = 10
+    @Published var regularCategory: String = ""
+    @Published var recurringCategory: String = ""
+    @Published var recurringRange: Int = 10
+    
+    var isRegularCatSelected: Bool {
+        !self.regularCategory.isEmpty
+    }
+    
+    var isRecurringCatSelected: Bool {
+        !self.recurringCategory.isEmpty
+    }
 }

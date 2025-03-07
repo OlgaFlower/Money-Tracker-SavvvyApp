@@ -12,15 +12,22 @@ struct SelectorButtonView: View {
     var title: String
     var iconName: String
     var roundViewIcon: String = "chevron.right"
+    @Binding var isSelected: Bool
     var action: () -> Void
     
     var body: some View {
         ZStack {
             self.backgroundView
             HStack {
-                SelectorContentView(title: title, iconName: iconName)
+                SelectorContentView(
+                    title: self.title,
+                    iconName: self.iconName,
+                    iconColor: self.isSelected ? .blue : .secondary)
                 Spacer()
-                TappableRoundView(iconName: roundViewIcon, action: action)
+                TappableRoundView(
+                    iconName: self.roundViewIcon,
+                    action: action
+                )
             }
         }
     }
@@ -36,6 +43,7 @@ struct SelectorButtonView: View {
     SelectorButtonView(
         title: "Country",
         iconName: "flag.circle.fill",
+        isSelected: .constant(false),
         action: {}
     )
 }

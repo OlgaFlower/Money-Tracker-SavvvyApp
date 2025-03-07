@@ -10,7 +10,7 @@ import SwiftUI
 struct IconView: View {
     
     var iconName: String
-    var color: Color = .blue
+    var color: Color
     
     var body: some View {
         Image(systemName: self.iconName)
@@ -27,5 +27,5 @@ struct IconView: View {
 }
 
 #Preview {
-    IconView(iconName: "star")
+    IconView(iconName: "star", color: .blue)
 }

@@ -20,27 +20,28 @@ struct NewRecordView: View {
     
     // MARK: - Body
     var body: some View {
-        
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 11) {
-                
-                CancelButtonView {
-                    onDismiss()
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 11) {
+                    
+                    CancelButtonView {
+                        onDismiss()
+                    }
+                    self.segmentedControlView
+                    
+                    self.moneyAmountView
+                    self.categoryButton
+                    self.recurringButton
+                    
+                    self.recurringDateSelector
+                    self.descriptionView
+                    Spacer()
                 }
-                self.segmentedControlView
-                
-                self.moneyAmountView
-                self.categoryButton
-                self.recurringButton
-                
-                self.recurringDateSelector
-                self.descriptionView
-                Spacer()
+                .padding(.horizontal, 24)
             }
-            .padding(.horizontal, 24)
-        }
-        if !isKeyboardActive {
-            self.saveBtn
+            if !isKeyboardActive {
+                self.saveBtn
+            }
         }
     }
     
@@ -67,8 +68,12 @@ struct NewRecordView: View {
     
     private var categoryButton: some View {
         SelectorButtonView(
-            title: "Category",
-            iconName: "repeat.circle.fill",
+            title: "Regular",
+            iconName: "cart.circle.fill",
+            isSelected: Binding(
+                get: { self.viewModel.isRegularCatSelected },
+                set: { _ in }
+            ),
             action: ({
                 // TODO: -
             })
@@ -79,6 +84,10 @@ struct NewRecordView: View {
         SelectorButtonView(
             title: "Recurring",
             iconName: "repeat.circle.fill",
+            isSelected: Binding(
+                get: { self.viewModel.isRecurringCatSelected },
+                set: { _ in }
+            ),
             action: ({
                 // TODO: -
             })
@@ -97,7 +106,7 @@ struct NewRecordView: View {
             
             Text("Every")
             
-            Text("\(self.viewModel.recurringNumber)")
+            Text("\(self.viewModel.recurringRange)")
                 .font(.system(size: 18, weight: .medium, design: .default))
                 .foregroundStyle(.blue)
             
@@ -128,7 +137,7 @@ struct NewRecordView: View {
             
             HStack(spacing: 0) {
                 Image(systemName: "minus")
-                    .frame(width: 43)
+                    .frame(width: 44)
                     .font(.system(size: 14, weight: .regular, design: .default))
                     .onTapGesture {
                         VibrateService.vibrateMedium()
@@ -137,7 +146,7 @@ struct NewRecordView: View {
                 self.verticalDevider
                 
                 Image(systemName: "plus")
-                    .frame(width: 43)
+                    .frame(width: 44)
                     .font(.system(size: 14, weight: .regular, design: .default))
                     .onTapGesture {
                         VibrateService.vibrateMedium()
