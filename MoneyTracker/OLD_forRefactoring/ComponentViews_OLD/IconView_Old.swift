@@ -1,5 +1,5 @@
 //
-//  IconView.swift
+//  IconView_Old.swift
 //  MoneyTracker
 //
 //  Created by Olha Bereziuk on 25.06.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IconView: View {
+struct IconView_Old: View {
     
     var iconName: String
     var frameWidth: CGFloat
@@ -24,5 +24,5 @@ struct IconView: View {
 }
 
 #Preview {
-    IconView(iconName: "heart", frameWidth: 45)
+    IconView_Old(iconName: "heart", frameWidth: 45)
 }

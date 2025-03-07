@@ -21,7 +21,7 @@ struct DetailCellView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                IconView(iconName: iconName, frameWidth: 34)
+                IconView_Old(iconName: iconName, frameWidth: 34)
                 Text(note)
                     .lineLimit(1)
                     .font(.customFont(style: .regular, size: .body))

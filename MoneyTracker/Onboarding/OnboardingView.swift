@@ -111,7 +111,7 @@ struct OnboardingView: View {
     private var countryButton: some View {
         SelectorButtonView(
             title: self.viewModel.selectedCountry.rawValue,
-            systemIconName: "flag.circle.fill",
+            iconName: "flag.circle.fill",
             action: ({
                 self.path.append("Country")
             })
@@ -124,7 +124,7 @@ struct OnboardingView: View {
     private var currencyButton: some View {
         SelectorButtonView(
             title: self.viewModel.selectedCurrency.rawValue,
-            systemIconName: "coloncurrencysign.circle.fill", 
+            iconName: "coloncurrencysign.circle.fill",
             action: ({
                 self.path.append("Currency")
             })
@@ -137,7 +137,7 @@ struct OnboardingView: View {
     private var languageButton: some View {
         SelectorButtonView(
             title: self.viewModel.selectedLanguage.rawValue,
-            systemIconName: "globe.europe.africa.fill",
+            iconName: "globe.europe.africa.fill",
             action: ({
                 self.path.append("Language")
             })

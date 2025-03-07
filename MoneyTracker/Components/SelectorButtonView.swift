@@ -11,7 +11,7 @@ struct SelectorButtonView: View {
     
     // MARK: - Properties
     var title: String
-    var systemIconName: String
+    var iconName: String
     var roundViewIcon: String = "chevron.right"
     var action: () -> Void
     
@@ -53,7 +53,7 @@ struct SelectorButtonView: View {
     }
     
     private var iconView: some View {
-        Image(systemName: self.systemIconName)
+        Image(systemName: self.iconName)
             .frame(width: 22, height: 22)
             .font(.system(size: 20, weight: .regular, design: .default))
             .foregroundStyle(.blue)
@@ -70,7 +70,7 @@ struct SelectorButtonView: View {
 #Preview {
     SelectorButtonView(
         title: "Country",
-        systemIconName: "flag.circle.fill",
+        iconName: "flag.circle.fill",
         action: {}
     )
 }

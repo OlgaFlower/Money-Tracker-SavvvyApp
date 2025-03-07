@@ -89,7 +89,7 @@ struct NewRecordView: View {
     private var categoryButton: some View {
         SelectorButtonView(
             title: "Category",
-            systemIconName: "repeat.circle.fill",
+            iconName: "repeat.circle.fill",
             action: ({
                 // TODO: -
             })
@@ -99,7 +99,7 @@ struct NewRecordView: View {
     private var recurringButton: some View {
         SelectorButtonView(
             title: "Recurring",
-            systemIconName: "repeat.circle.fill",
+            iconName: "repeat.circle.fill",
             action: ({
                 // TODO: -
             })
