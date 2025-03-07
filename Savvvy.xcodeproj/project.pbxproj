@@ -23,6 +23,11 @@
 		42369D1E2D7B2DE500744D95 /* SegmentCtrlTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D1D2D7B2DE500744D95 /* SegmentCtrlTextView.swift */; };
 		42369D202D7B2E4B00744D95 /* SegmentCtrlItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D1F2D7B2E4A00744D95 /* SegmentCtrlItemView.swift */; };
 		42369D222D7B2F4C00744D95 /* CustomSegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D212D7B2F4C00744D95 /* CustomSegmentedControlView.swift */; };
+		42369D242D7B55C000744D95 /* ArrowBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D232D7B55C000744D95 /* ArrowBtnView.swift */; };
+		42369D262D7B568800744D95 /* RecurringFormTxtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D252D7B568800744D95 /* RecurringFormTxtView.swift */; };
+		42369D282D7B586200744D95 /* VerticalDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D272D7B586200744D95 /* VerticalDividerView.swift */; };
+		42369D2A2D7B58AB00744D95 /* PlusMinusBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D292D7B58AB00744D95 /* PlusMinusBtnView.swift */; };
+		42369D2C2D7B596000744D95 /* RecurringRangeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D2B2D7B596000744D95 /* RecurringRangeSelectorView.swift */; };
 		423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */; };
 		423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4222BD6369000CBB6D5 /* Constants.swift */; };
 		4241F4712BB1E62E0048A29B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4702BB1E62E0048A29B /* Country.swift */; };
@@ -142,6 +147,11 @@
 		42369D1D2D7B2DE500744D95 /* SegmentCtrlTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCtrlTextView.swift; sourceTree = "<group>"; };
 		42369D1F2D7B2E4A00744D95 /* SegmentCtrlItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCtrlItemView.swift; sourceTree = "<group>"; };
 		42369D212D7B2F4C00744D95 /* CustomSegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControlView.swift; sourceTree = "<group>"; };
+		42369D232D7B55C000744D95 /* ArrowBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowBtnView.swift; sourceTree = "<group>"; };
+		42369D252D7B568800744D95 /* RecurringFormTxtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringFormTxtView.swift; sourceTree = "<group>"; };
+		42369D272D7B586200744D95 /* VerticalDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalDividerView.swift; sourceTree = "<group>"; };
+		42369D292D7B58AB00744D95 /* PlusMinusBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusMinusBtnView.swift; sourceTree = "<group>"; };
+		42369D2B2D7B596000744D95 /* RecurringRangeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringRangeSelectorView.swift; sourceTree = "<group>"; };
 		423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradView.swift; sourceTree = "<group>"; };
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4241F4702BB1E62E0048A29B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -282,6 +292,9 @@
 				42369D132D7B080E00744D95 /* TappableRoundView.swift */,
 				42369D1B2D7B2A7700744D95 /* CancelButtonView.swift */,
 				42369D1D2D7B2DE500744D95 /* SegmentCtrlTextView.swift */,
+				42369D232D7B55C000744D95 /* ArrowBtnView.swift */,
+				42369D252D7B568800744D95 /* RecurringFormTxtView.swift */,
+				42369D272D7B586200744D95 /* VerticalDividerView.swift */,
 			);
 			path = Atoms;
 			sourceTree = "<group>";
@@ -303,6 +316,7 @@
 			children = (
 				42369D162D7B09FA00744D95 /* SelectorContentView.swift */,
 				42369D1F2D7B2E4A00744D95 /* SegmentCtrlItemView.swift */,
+				42369D292D7B58AB00744D95 /* PlusMinusBtnView.swift */,
 			);
 			path = Molecules;
 			sourceTree = "<group>";
@@ -312,6 +326,7 @@
 			children = (
 				42369D192D7B0BE100744D95 /* SelectorButtonView.swift */,
 				42369D212D7B2F4C00744D95 /* CustomSegmentedControlView.swift */,
+				42369D2B2D7B596000744D95 /* RecurringRangeSelectorView.swift */,
 			);
 			path = Organisms;
 			sourceTree = "<group>";
@@ -856,6 +871,7 @@
 				42369D1C2D7B2A7700744D95 /* CancelButtonView.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42CA524D2C2B558C0024DF8B /* IconView_Old.swift in Sources */,
+				42369D282D7B586200744D95 /* VerticalDividerView.swift in Sources */,
 				42369D1E2D7B2DE500744D95 /* SegmentCtrlTextView.swift in Sources */,
 				42C9EB122C71EB5600D5D6EA /* TextView.swift in Sources */,
 				427A90812D0F338000633C5C /* SplashScreenView.swift in Sources */,
@@ -888,6 +904,8 @@
 				42D45CE72BF86749002CD159 /* TodayViewModel.swift in Sources */,
 				42A264C22CFDE1FC002BED58 /* TextCellView.swift in Sources */,
 				4205FFF82C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift in Sources */,
+				42369D2A2D7B58AB00744D95 /* PlusMinusBtnView.swift in Sources */,
+				42369D2C2D7B596000744D95 /* RecurringRangeSelectorView.swift in Sources */,
 				427A90752D0EE97F00633C5C /* WelcomeView.swift in Sources */,
 				42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */,
 				427A906E2D0CBF5900633C5C /* Color+hex.swift in Sources */,
@@ -929,10 +947,12 @@
 				4268B4892CEF4D99007900C5 /* GenericPickerView.swift in Sources */,
 				42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */,
 				42369D0F2D7B03AB00744D95 /* IconView.swift in Sources */,
+				42369D262D7B568800744D95 /* RecurringFormTxtView.swift in Sources */,
 				425767A02C2148C90053637A /* CoreDataManager.swift in Sources */,
 				424EC7B12CA852CF00CF76E2 /* MappingService.swift in Sources */,
 				4205FFFB2C7136FE0045486B /* EditRecordView.swift in Sources */,
 				427A90622D0B6BD800633C5C /* OnboardingBackgroundView.swift in Sources */,
+				42369D242D7B55C000744D95 /* ArrowBtnView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

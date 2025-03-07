@@ -21,4 +21,12 @@ final class NewRecordViewModel: ObservableObject {
     var isRecurringCatSelected: Bool {
         !self.recurringCategory.isEmpty
     }
+    
+    func reduceRange() {
+        self.recurringRange = max(1, self.recurringRange - 1)
+    }
+    
+    func increaseRange() {
+        self.recurringRange += 1
+    }
 }

@@ -9,16 +9,13 @@ import SwiftUI
 
 struct NewRecordView: View {
     
-    // MARK: - States
     @StateObject private var viewModel = NewRecordViewModel()
     @State private var preselectedTag: Int = 0
     @State private var descriptionText: String = ""
     @FocusState private var isKeyboardActive: Bool
     
-    // MARK: - Actions
     var onDismiss: () -> Void
     
-    // MARK: - Body
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
@@ -46,7 +43,6 @@ struct NewRecordView: View {
     }
     
     // MARK: - Views
-    
     private var segmentedControlView: some View {
         CustomSegmentedControlView(
             tag: self.$preselectedTag,
@@ -95,76 +91,12 @@ struct NewRecordView: View {
     }
     
     private var recurringDateSelector: some View {
-        HStack {
-            Image(systemName: "chevron.left")
-                .foregroundStyle(.pink)
-                .onTapGesture {
-                    VibrateService.vibrateMedium()
-                }
-            
-            Spacer()
-            
-            Text("Every")
-            
-            Text("\(self.viewModel.recurringRange)")
-                .font(.system(size: 18, weight: .medium, design: .default))
-                .foregroundStyle(.blue)
-            
-            Text("Days")
-                .padding(.trailing, 4)
-                .font(.system(size: 16, weight: .medium, design: .default))
-            
-            self.plusMinusButton
-            
-            Spacer()
-            
-            Image(systemName: "chevron.right")
-                .foregroundStyle(.pink)
-                .onTapGesture {
-                    VibrateService.vibrateMedium()
-                }
-            
-        }
-        .padding(.vertical)
-        .padding(.horizontal)
-    }
-    
-    private var plusMinusButton: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(.background.secondary)
-                .frame(width: 88, height: 44)
-            
-            HStack(spacing: 0) {
-                Image(systemName: "minus")
-                    .frame(width: 44)
-                    .font(.system(size: 14, weight: .regular, design: .default))
-                    .onTapGesture {
-                        VibrateService.vibrateMedium()
-                    }
-                
-                self.verticalDevider
-                
-                Image(systemName: "plus")
-                    .frame(width: 44)
-                    .font(.system(size: 14, weight: .regular, design: .default))
-                    .onTapGesture {
-                        VibrateService.vibrateMedium()
-                    }
+        RecurringRangeSelectorView(
+            recurringRange: self.$viewModel.recurringRange) {
+                self.viewModel.reduceRange()
+            } onPlusTap: {
+                self.viewModel.increaseRange()
             }
-        }
-    }
-    
-    private var verticalDevider: some View {
-        HStack(spacing: 0) {
-            Rectangle()
-                .frame(width: 1)
-                .foregroundStyle(.primary.opacity(0.25))
-            Rectangle()
-                .frame(width: 1.5)
-                .foregroundStyle(.primary.opacity(0.1))
-        }
-        .frame(width: 2, height: 30)
     }
     
     private var descriptionView: some View {
