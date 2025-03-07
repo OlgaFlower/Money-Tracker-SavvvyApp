@@ -29,5 +29,8 @@ struct CustomSegmentedControlView: View {
 }
 
 #Preview {
-    CustomSegmentedControlView(tag: .constant(1), controlOptions: ["Expense", "Income"])
+    CustomSegmentedControlView(
+        tag: .constant(0),
+        controlOptions: ["Expense", "Income"]
+    )
 }

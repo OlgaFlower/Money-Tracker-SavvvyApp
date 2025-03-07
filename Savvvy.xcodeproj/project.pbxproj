@@ -28,6 +28,13 @@
 		42369D282D7B586200744D95 /* VerticalDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D272D7B586200744D95 /* VerticalDividerView.swift */; };
 		42369D2A2D7B58AB00744D95 /* PlusMinusBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D292D7B58AB00744D95 /* PlusMinusBtnView.swift */; };
 		42369D2C2D7B596000744D95 /* RecurringRangeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D2B2D7B596000744D95 /* RecurringRangeSelectorView.swift */; };
+		42369D2E2D7B657A00744D95 /* ButtonTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D2D2D7B657A00744D95 /* ButtonTitleView.swift */; };
+		42369D302D7B667D00744D95 /* ButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D2F2D7B667D00744D95 /* ButtonBackgroundView.swift */; };
+		42369D322D7B66B600744D95 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D312D7B66B600744D95 /* GradientView.swift */; };
+		42369D342D7B66EC00744D95 /* InnerShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D332D7B66EC00744D95 /* InnerShadowView.swift */; };
+		42369D362D7B674700744D95 /* InactiveButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D352D7B674700744D95 /* InactiveButtonBackgroundView.swift */; };
+		42369D382D7B67B900744D95 /* ButtonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D372D7B67B900744D95 /* ButtonContentView.swift */; };
+		42369D3A2D7B684600744D95 /* PinkButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D392D7B684600744D95 /* PinkButtonView.swift */; };
 		423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */; };
 		423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4222BD6369000CBB6D5 /* Constants.swift */; };
 		4241F4712BB1E62E0048A29B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4702BB1E62E0048A29B /* Country.swift */; };
@@ -52,7 +59,6 @@
 		42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */; };
 		42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */; };
 		427A90622D0B6BD800633C5C /* OnboardingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90612D0B6BD800633C5C /* OnboardingBackgroundView.swift */; };
-		427A90672D0B93B700633C5C /* PinkButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90662D0B93B700633C5C /* PinkButtonView.swift */; };
 		427A906E2D0CBF5900633C5C /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A906D2D0CBF5900633C5C /* Color+hex.swift */; };
 		427A90712D0E29D000633C5C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90702D0E29D000633C5C /* HomeView.swift */; };
 		427A90732D0EDB7800633C5C /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427A90722D0EDB7800633C5C /* HomeHeaderView.swift */; };
@@ -152,6 +158,13 @@
 		42369D272D7B586200744D95 /* VerticalDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalDividerView.swift; sourceTree = "<group>"; };
 		42369D292D7B58AB00744D95 /* PlusMinusBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusMinusBtnView.swift; sourceTree = "<group>"; };
 		42369D2B2D7B596000744D95 /* RecurringRangeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringRangeSelectorView.swift; sourceTree = "<group>"; };
+		42369D2D2D7B657A00744D95 /* ButtonTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTitleView.swift; sourceTree = "<group>"; };
+		42369D2F2D7B667D00744D95 /* ButtonBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBackgroundView.swift; sourceTree = "<group>"; };
+		42369D312D7B66B600744D95 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		42369D332D7B66EC00744D95 /* InnerShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowView.swift; sourceTree = "<group>"; };
+		42369D352D7B674700744D95 /* InactiveButtonBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveButtonBackgroundView.swift; sourceTree = "<group>"; };
+		42369D372D7B67B900744D95 /* ButtonContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContentView.swift; sourceTree = "<group>"; };
+		42369D392D7B684600744D95 /* PinkButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkButtonView.swift; sourceTree = "<group>"; };
 		423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradView.swift; sourceTree = "<group>"; };
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4241F4702BB1E62E0048A29B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -179,7 +192,6 @@
 		42714FC42BBB1C890085FA7C /* ChartHalfDonut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHalfDonut.swift; sourceTree = "<group>"; };
 		42714FD12BBEF6440085FA7C /* MakeNewMoneyRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordView.swift; sourceTree = "<group>"; };
 		427A90612D0B6BD800633C5C /* OnboardingBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBackgroundView.swift; sourceTree = "<group>"; };
-		427A90662D0B93B700633C5C /* PinkButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkButtonView.swift; sourceTree = "<group>"; };
 		427A906D2D0CBF5900633C5C /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 		427A90702D0E29D000633C5C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		427A90722D0EDB7800633C5C /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
@@ -295,6 +307,11 @@
 				42369D232D7B55C000744D95 /* ArrowBtnView.swift */,
 				42369D252D7B568800744D95 /* RecurringFormTxtView.swift */,
 				42369D272D7B586200744D95 /* VerticalDividerView.swift */,
+				42369D2D2D7B657A00744D95 /* ButtonTitleView.swift */,
+				42369D2F2D7B667D00744D95 /* ButtonBackgroundView.swift */,
+				42369D312D7B66B600744D95 /* GradientView.swift */,
+				42369D332D7B66EC00744D95 /* InnerShadowView.swift */,
+				42369D352D7B674700744D95 /* InactiveButtonBackgroundView.swift */,
 			);
 			path = Atoms;
 			sourceTree = "<group>";
@@ -317,6 +334,7 @@
 				42369D162D7B09FA00744D95 /* SelectorContentView.swift */,
 				42369D1F2D7B2E4A00744D95 /* SegmentCtrlItemView.swift */,
 				42369D292D7B58AB00744D95 /* PlusMinusBtnView.swift */,
+				42369D372D7B67B900744D95 /* ButtonContentView.swift */,
 			);
 			path = Molecules;
 			sourceTree = "<group>";
@@ -327,6 +345,7 @@
 				42369D192D7B0BE100744D95 /* SelectorButtonView.swift */,
 				42369D212D7B2F4C00744D95 /* CustomSegmentedControlView.swift */,
 				42369D2B2D7B596000744D95 /* RecurringRangeSelectorView.swift */,
+				42369D392D7B684600744D95 /* PinkButtonView.swift */,
 			);
 			path = Organisms;
 			sourceTree = "<group>";
@@ -492,7 +511,6 @@
 				42369D152D7B09D700744D95 /* Molecules */,
 				42369D182D7B0B7200744D95 /* Organisms */,
 				427A90612D0B6BD800633C5C /* OnboardingBackgroundView.swift */,
-				427A90662D0B93B700633C5C /* PinkButtonView.swift */,
 				427A90722D0EDB7800633C5C /* HomeHeaderView.swift */,
 				427A90742D0EE97F00633C5C /* WelcomeView.swift */,
 				427A90792D0F284600633C5C /* LazyView.swift */,
@@ -887,18 +905,19 @@
 				42369D122D7B078200744D95 /* TitleForBtnView.swift in Sources */,
 				42369D172D7B09FA00744D95 /* SelectorContentView.swift in Sources */,
 				42CA524B2C2B54900024DF8B /* DetailCellView.swift in Sources */,
+				42369D362D7B674700744D95 /* InactiveButtonBackgroundView.swift in Sources */,
 				42A264C02CFDE038002BED58 /* SettingsDetailedListView.swift in Sources */,
 				42369D142D7B080E00744D95 /* TappableRoundView.swift in Sources */,
 				428BE98D2CEF8B8500700550 /* PickerItem.swift in Sources */,
 				422E82D02BF6BF5B00139B94 /* String+Extension.swift in Sources */,
 				4242750C2BA4FF72001873A3 /* ContentView.swift in Sources */,
 				42B9F1182BF60F2E00D719E3 /* MoneyTrackerDB.xcdatamodeld in Sources */,
-				427A90672D0B93B700633C5C /* PinkButtonView.swift in Sources */,
 				427A907A2D0F284600633C5C /* LazyView.swift in Sources */,
 				42EB693C2BFCFE9100FF4E7F /* RegularIncome.swift in Sources */,
 				42EF87EB2BFBEB6D009E0272 /* RecurringCategoryCellView.swift in Sources */,
 				42714FD22BBEF6440085FA7C /* MakeNewMoneyRecordView.swift in Sources */,
 				42B9F11C2BF6141600D719E3 /* MoneyTracker+CoreDataProperties.swift in Sources */,
+				42369D322D7B66B600744D95 /* GradientView.swift in Sources */,
 				423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */,
 				4205FFFD2C713AED0045486B /* TextHeaderView.swift in Sources */,
 				42D45CE72BF86749002CD159 /* TodayViewModel.swift in Sources */,
@@ -909,12 +928,14 @@
 				427A90752D0EE97F00633C5C /* WelcomeView.swift in Sources */,
 				42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */,
 				427A906E2D0CBF5900633C5C /* Color+hex.swift in Sources */,
+				42369D342D7B66EC00744D95 /* InnerShadowView.swift in Sources */,
 				42CA525A2C2C5D190024DF8B /* CustomFont.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
 				42B9F0EB2BEA354D00D719E3 /* TextFormatter.swift in Sources */,
 				42369D222D7B2F4C00744D95 /* CustomSegmentedControlView.swift in Sources */,
 				4241F4712BB1E62E0048A29B /* Country.swift in Sources */,
 				42CA52532C2C48110024DF8B /* TodayChartView.swift in Sources */,
+				42369D3A2D7B684600744D95 /* PinkButtonView.swift in Sources */,
 				42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */,
 				42ED3BD42C5A712D009385E0 /* CalendarView.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
@@ -951,6 +972,9 @@
 				425767A02C2148C90053637A /* CoreDataManager.swift in Sources */,
 				424EC7B12CA852CF00CF76E2 /* MappingService.swift in Sources */,
 				4205FFFB2C7136FE0045486B /* EditRecordView.swift in Sources */,
+				42369D302D7B667D00744D95 /* ButtonBackgroundView.swift in Sources */,
+				42369D382D7B67B900744D95 /* ButtonContentView.swift in Sources */,
+				42369D2E2D7B657A00744D95 /* ButtonTitleView.swift in Sources */,
 				427A90622D0B6BD800633C5C /* OnboardingBackgroundView.swift in Sources */,
 				42369D242D7B55C000744D95 /* ArrowBtnView.swift in Sources */,
 			);

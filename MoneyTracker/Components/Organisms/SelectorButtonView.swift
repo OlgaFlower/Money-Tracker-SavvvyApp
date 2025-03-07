@@ -40,10 +40,19 @@ struct SelectorButtonView: View {
 }
 
 #Preview {
-    SelectorButtonView(
-        title: "Country",
-        iconName: "flag.circle.fill",
-        isSelected: .constant(false),
-        action: {}
-    )
+    Group {
+        SelectorButtonView(
+            title: "Country",
+            iconName: "flag.circle.fill",
+            isSelected: .constant(true),
+            action: {}
+        )
+        
+        SelectorButtonView(
+            title: "Country",
+            iconName: "flag.circle.fill",
+            isSelected: .constant(false),
+            action: {}
+        )
+    }
 }

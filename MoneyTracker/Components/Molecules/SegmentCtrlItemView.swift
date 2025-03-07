@@ -38,9 +38,17 @@ struct SegmentCtrlItemView: View {
 }
 
 #Preview {
-    SegmentCtrlItemView(
-        title: "Expense",
-        isSelected: false,
-        action: {}
-    )
+    Group {
+        SegmentCtrlItemView(
+            title: "Expense",
+            isSelected: true,
+            action: {}
+        )
+        
+        SegmentCtrlItemView(
+            title: "Expense",
+            isSelected: false,
+            action: {}
+        )
+    }
 }

@@ -20,5 +20,15 @@ struct SegmentCtrlTextView: View {
 }
 
 #Preview {
-    SegmentCtrlTextView(title: "Expense", isSelected: true)
+    Group {
+        SegmentCtrlTextView(
+            title: "Expense",
+            isSelected: true
+        )
+        
+        SegmentCtrlTextView(
+            title: "Expense",
+            isSelected: false
+        )
+    }
 }

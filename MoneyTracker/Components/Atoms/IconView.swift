@@ -27,5 +27,8 @@ struct IconView: View {
 }
 
 #Preview {
-    IconView(iconName: "star", color: .blue)
+    IconView(
+        iconName: "star",
+        color: .blue
+    )
 }
