@@ -13,6 +13,7 @@ struct NewRecordView: View {
     @State private var preselectedTag: Int = 0
     @State private var descriptionText: String = ""
     @FocusState private var isKeyboardActive: Bool
+    @FocusState var isCurrencyKeyboardFocused: Bool
     
     var onDismiss: () -> Void
     
@@ -21,13 +22,9 @@ struct NewRecordView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 11) {
                     
-                    CancelButtonView {
-                        onDismiss()
-                    }
-                    .padding(.bottom, 24)
+                    self.cancelBtnView
                     self.segmentedControlView
-                    
-                    self.moneyAmountView
+                    self.currencyView
                     self.categorySelector
                     self.recurringSelector
                     
@@ -35,19 +32,25 @@ struct NewRecordView: View {
                         self.recurringDateRangeSelector
                     }
                     
-                    DescriptionView(text: self.$descriptionText)
-                        .padding(.top, 24)
+                    self.descriptionView
                     Spacer()
                 }
                 .padding(.horizontal, 24)
             }
-            if !isKeyboardActive {
+            if !isKeyboardActive, !isCurrencyKeyboardFocused {
                 self.saveBtn
             }
         }
     }
     
     // MARK: - Views
+    private var cancelBtnView: some View {
+        CancelButtonView {
+            onDismiss()
+        }
+        .padding(.bottom, 24)
+    }
+    
     private var segmentedControlView: some View {
         CustomSegmentedControlView(
             tag: self.$preselectedTag,
@@ -55,16 +58,11 @@ struct NewRecordView: View {
         )
     }
     
-    // TODO: textfield for currency
-    private var moneyAmountView: some View {
-        HStack {
-            Text("50.00")
-                .font(.system(size: 60, weight: .bold, design: .default))
-            Text(" \(self.viewModel.currencySign)")
-                .font(.system(size: 35, weight: .bold, design: .default))
-                .foregroundStyle(.tertiary)
-        }
-        .padding(.vertical)
+    private var currencyView: some View {
+        CurrencyInputView(
+            inputAmount: self.$viewModel.inputAmount,
+            currency: self.viewModel.currencySign,
+            useCase: .newRecord)
     }
     
     private var categorySelector: some View {
@@ -102,6 +100,11 @@ struct NewRecordView: View {
             } onPlusTap: {
                 self.viewModel.increaseRange()
             }
+    }
+    
+    private var descriptionView: some View {
+        DescriptionView(text: self.$descriptionText)
+            .padding(.top, 24)
     }
     
     private var saveBtn: some View {

@@ -1,6 +1,6 @@
 //
 //  HomeHeaderView.swift
-//  Savvvy
+//  Monika
 //
 //  Created by Olha Bereziuk on 15.12.24.
 //

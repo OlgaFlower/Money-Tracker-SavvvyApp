@@ -7,8 +7,14 @@
 
 import Foundation
 
+enum TextfieldInputCase {
+    case newRecord
+    case editRecord
+}
+
 final class NewRecordViewModel: ObservableObject {
     
+    @Published var inputAmount = ""
     @Published var currencySign = UserPreferences.currencySign
     @Published var regularCategory: String = ""
     @Published var recurringCategory: String = ""

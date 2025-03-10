@@ -39,6 +39,12 @@
 		42369D3E2D7B78CC00744D95 /* DescriptionBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D3D2D7B78CC00744D95 /* DescriptionBackgroundView.swift */; };
 		42369D402D7B790D00744D95 /* DescriptionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D3F2D7B790D00744D95 /* DescriptionInputView.swift */; };
 		42369D422D7B79CA00744D95 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D412D7B79CA00744D95 /* DescriptionView.swift */; };
+		42369D8E2D7F01AE00744D95 /* CurrencyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D8D2D7F01AE00744D95 /* CurrencyTextView.swift */; };
+		42369D902D7F022B00744D95 /* CurrencyHiddenTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D8F2D7F022B00744D95 /* CurrencyHiddenTextfieldView.swift */; };
+		42369D922D7F02C500744D95 /* CurrencyLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D912D7F02C500744D95 /* CurrencyLabelView.swift */; };
+		42369D942D7F032300744D95 /* FormattedMoneyAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D932D7F032300744D95 /* FormattedMoneyAmountView.swift */; };
+		42369D962D7F038600744D95 /* UserInputMoneyAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D952D7F038600744D95 /* UserInputMoneyAmountView.swift */; };
+		42369D982D7F044B00744D95 /* CurrencyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D972D7F044B00744D95 /* CurrencyInputView.swift */; };
 		423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */; };
 		423DF4232BD6369000CBB6D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423DF4222BD6369000CBB6D5 /* Constants.swift */; };
 		4241F4712BB1E62E0048A29B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241F4702BB1E62E0048A29B /* Country.swift */; };
@@ -117,7 +123,7 @@
 		42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */; };
 		42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */; };
 		42EF87EB2BFBEB6D009E0272 /* RecurringCategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF87EA2BFBEB6D009E0272 /* RecurringCategoryCellView.swift */; };
-		42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */; };
+		42F38FA32BE973AF003644F2 /* CurrencyTextFieldView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F38FA22BE973AF003644F2 /* CurrencyTextFieldView_OLD.swift */; };
 		42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4FB5E2BF6415D007A580E /* PersistenceController.swift */; };
 		42F8F7262C122C3200C0CE9B /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F7252C122C3200C0CE9B /* CalendarManager.swift */; };
 		42F8F73E2C18C2E500C0CE9B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F73D2C18C2E500C0CE9B /* Date+Extension.swift */; };
@@ -173,6 +179,12 @@
 		42369D3D2D7B78CC00744D95 /* DescriptionBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionBackgroundView.swift; sourceTree = "<group>"; };
 		42369D3F2D7B790D00744D95 /* DescriptionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionInputView.swift; sourceTree = "<group>"; };
 		42369D412D7B79CA00744D95 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		42369D8D2D7F01AE00744D95 /* CurrencyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextView.swift; sourceTree = "<group>"; };
+		42369D8F2D7F022B00744D95 /* CurrencyHiddenTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHiddenTextfieldView.swift; sourceTree = "<group>"; };
+		42369D912D7F02C500744D95 /* CurrencyLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLabelView.swift; sourceTree = "<group>"; };
+		42369D932D7F032300744D95 /* FormattedMoneyAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedMoneyAmountView.swift; sourceTree = "<group>"; };
+		42369D952D7F038600744D95 /* UserInputMoneyAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputMoneyAmountView.swift; sourceTree = "<group>"; };
+		42369D972D7F044B00744D95 /* CurrencyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyInputView.swift; sourceTree = "<group>"; };
 		423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradView.swift; sourceTree = "<group>"; };
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4241F4702BB1E62E0048A29B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -255,7 +267,7 @@
 		42EF87E62BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonCategorySelectionView.swift; sourceTree = "<group>"; };
 		42EF87E82BFB6E1E009E0272 /* CategoriesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesGridView.swift; sourceTree = "<group>"; };
 		42EF87EA2BFBEB6D009E0272 /* RecurringCategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCategoryCellView.swift; sourceTree = "<group>"; };
-		42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextFieldView.swift; sourceTree = "<group>"; };
+		42F38FA22BE973AF003644F2 /* CurrencyTextFieldView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextFieldView_OLD.swift; sourceTree = "<group>"; };
 		42F4FB5E2BF6415D007A580E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		42F8F7252C122C3200C0CE9B /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		42F8F73D2C18C2E500C0CE9B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -322,6 +334,9 @@
 				42369D352D7B674700744D95 /* InactiveButtonBackgroundView.swift */,
 				42369D3B2D7B783800744D95 /* TextFieldView.swift */,
 				42369D3D2D7B78CC00744D95 /* DescriptionBackgroundView.swift */,
+				42369D8D2D7F01AE00744D95 /* CurrencyTextView.swift */,
+				42369D8F2D7F022B00744D95 /* CurrencyHiddenTextfieldView.swift */,
+				42369D912D7F02C500744D95 /* CurrencyLabelView.swift */,
 			);
 			path = Atoms;
 			sourceTree = "<group>";
@@ -346,6 +361,8 @@
 				42369D292D7B58AB00744D95 /* PlusMinusBtnView.swift */,
 				42369D372D7B67B900744D95 /* ButtonContentView.swift */,
 				42369D3F2D7B790D00744D95 /* DescriptionInputView.swift */,
+				42369D932D7F032300744D95 /* FormattedMoneyAmountView.swift */,
+				42369D952D7F038600744D95 /* UserInputMoneyAmountView.swift */,
 			);
 			path = Molecules;
 			sourceTree = "<group>";
@@ -358,6 +375,7 @@
 				42369D2B2D7B596000744D95 /* RecurringRangeSelectorView.swift */,
 				42369D392D7B684600744D95 /* PinkButtonView.swift */,
 				42369D412D7B79CA00744D95 /* DescriptionView.swift */,
+				42369D972D7F044B00744D95 /* CurrencyInputView.swift */,
 			);
 			path = Organisms;
 			sourceTree = "<group>";
@@ -499,7 +517,7 @@
 				42CA52502C2C41D10024DF8B /* HorizontalBudgetBoardView.swift */,
 				42CA524C2C2B558C0024DF8B /* IconView_Old.swift */,
 				423DF4202BD5A1BF00CBB6D5 /* BackgroundGradView.swift */,
-				42F38FA22BE973AF003644F2 /* CurrencyTextFieldView.swift */,
+				42F38FA22BE973AF003644F2 /* CurrencyTextFieldView_OLD.swift */,
 				42C9EB0B2C71BB8100D5D6EA /* BackgroundRectangleView.swift */,
 				42840CED2C93258B00E62068 /* DescriptionTextfieldView.swift */,
 				42A264C12CFDE1FC002BED58 /* TextCellView.swift */,
@@ -891,6 +909,7 @@
 				423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */,
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
 				42369D402D7B790D00744D95 /* DescriptionInputView.swift in Sources */,
+				42369D942D7F032300744D95 /* FormattedMoneyAmountView.swift in Sources */,
 				42EB69362BFCD8F700FF4E7F /* MoneySectionType.swift in Sources */,
 				42714FC52BBB1C890085FA7C /* ChartHalfDonut.swift in Sources */,
 				42203A272CE3D2A200F91C9E /* Currency.swift in Sources */,
@@ -899,6 +918,7 @@
 				42700AA32C6FB1200022063A /* DateTitleView.swift in Sources */,
 				427A907F2D0F299400633C5C /* TabItems.swift in Sources */,
 				42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */,
+				42369D922D7F02C500744D95 /* CurrencyLabelView.swift in Sources */,
 				42369D1C2D7B2A7700744D95 /* CancelButtonView.swift in Sources */,
 				42B9F10C2BF3CEA200D719E3 /* CategoryGroupSelectionView.swift in Sources */,
 				42CA524D2C2B558C0024DF8B /* IconView_Old.swift in Sources */,
@@ -938,6 +958,7 @@
 				42A264C22CFDE1FC002BED58 /* TextCellView.swift in Sources */,
 				4205FFF82C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift in Sources */,
 				42369D2A2D7B58AB00744D95 /* PlusMinusBtnView.swift in Sources */,
+				42369D902D7F022B00744D95 /* CurrencyHiddenTextfieldView.swift in Sources */,
 				42369D2C2D7B596000744D95 /* RecurringRangeSelectorView.swift in Sources */,
 				427A90752D0EE97F00633C5C /* WelcomeView.swift in Sources */,
 				42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */,
@@ -965,6 +986,7 @@
 				42369D3E2D7B78CC00744D95 /* DescriptionBackgroundView.swift in Sources */,
 				42C9EB0A2C71B4CF00D5D6EA /* TextTitleView.swift in Sources */,
 				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
+				42369D8E2D7F01AE00744D95 /* CurrencyTextView.swift in Sources */,
 				42F8F7262C122C3200C0CE9B /* CalendarManager.swift in Sources */,
 				42840CF12C9B312900E62068 /* VibrateService.swift in Sources */,
 				42F8F73E2C18C2E500C0CE9B /* Date+Extension.swift in Sources */,
@@ -982,11 +1004,13 @@
 				42B9F11A2BF6137000D719E3 /* MoneyTracker+CoreDataClass.swift in Sources */,
 				42EF87E92BFB6E1E009E0272 /* CategoriesGridView.swift in Sources */,
 				4268B4892CEF4D99007900C5 /* GenericPickerView.swift in Sources */,
-				42F38FA32BE973AF003644F2 /* CurrencyTextFieldView.swift in Sources */,
+				42F38FA32BE973AF003644F2 /* CurrencyTextFieldView_OLD.swift in Sources */,
 				42369D0F2D7B03AB00744D95 /* IconView.swift in Sources */,
 				42369D262D7B568800744D95 /* RecurringFormTxtView.swift in Sources */,
 				425767A02C2148C90053637A /* CoreDataManager.swift in Sources */,
 				424EC7B12CA852CF00CF76E2 /* MappingService.swift in Sources */,
+				42369D982D7F044B00744D95 /* CurrencyInputView.swift in Sources */,
+				42369D962D7F038600744D95 /* UserInputMoneyAmountView.swift in Sources */,
 				4205FFFB2C7136FE0045486B /* EditRecordView.swift in Sources */,
 				42369D302D7B667D00744D95 /* ButtonBackgroundView.swift in Sources */,
 				42369D382D7B67B900744D95 /* ButtonContentView.swift in Sources */,

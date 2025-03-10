@@ -1,6 +1,6 @@
 //
 //  OnboardingBackgroundView.swift
-//  Savvvy
+//  Monika
 //
 //  Created by Olha Bereziuk on 12.12.24.
 //

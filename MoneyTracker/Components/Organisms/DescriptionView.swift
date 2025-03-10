@@ -1,6 +1,6 @@
 //
 //  DescriptionView.swift
-//  Savvvy
+//  Monika
 //
 //  Created by Olha Bereziuk on 07.03.25.
 //
