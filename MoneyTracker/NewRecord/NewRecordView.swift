@@ -12,8 +12,7 @@ struct NewRecordView: View {
     @StateObject private var viewModel = NewRecordViewModel()
     @State private var preselectedTag: Int = 0
     @State private var descriptionText: String = ""
-    @FocusState private var isKeyboardActive: Bool
-    @FocusState var isCurrencyKeyboardFocused: Bool
+    @FocusState private var focusedField: TextFieldCase?
     
     var onDismiss: () -> Void
     
@@ -37,7 +36,11 @@ struct NewRecordView: View {
                 }
                 .padding(.horizontal, 24)
             }
-            if !isKeyboardActive, !isCurrencyKeyboardFocused {
+            .onTapGesture {
+                self.focusedField = nil
+            }
+            
+            if self.focusedField == nil {
                 self.saveBtn
             }
         }
@@ -63,6 +66,7 @@ struct NewRecordView: View {
             inputAmount: self.$viewModel.inputAmount,
             currency: self.viewModel.currencySign,
             useCase: .newRecord)
+        .focused(self.$focusedField, equals: .currency)
     }
     
     private var categorySelector: some View {
@@ -104,6 +108,7 @@ struct NewRecordView: View {
     
     private var descriptionView: some View {
         DescriptionView(text: self.$descriptionText)
+            .focused(self.$focusedField, equals: .description)
             .padding(.top, 24)
     }
     
