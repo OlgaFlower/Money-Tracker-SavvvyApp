@@ -9,213 +9,173 @@ import SwiftUI
 
 struct OnboardingView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     // MARK: - States
     @StateObject private var viewModel = OnboardingViewModel()
+    @State private var path = NavigationPath()
     @Binding var isFirstLaunch: Bool
-    @State private var showCurrencyPicker = false
-    @State private var showCountryPicker = false
-    @State private var showLanguagePicker = false
-    @State private var currencyPickerScale: CGFloat = 1
-    @State private var countryPickerScale: CGFloat = 1
-    @State private var languagePickerScale: CGFloat = 1
-    
-    // MARK: - Properties
-    let height: CGFloat = 60
     
     // MARK: - Body
     var body: some View {
-        ZStack {
-            BackgroundGradView()
+        NavigationStack(path: $path) {
             
-            self.welcomeView
-            self.preferencesListView
-            self.startBtn
-            
-            self.pickerView
+            GeometryReader { geometry in
+                /// UI adjusted for iPhones with small screen (screen width of the iPhone SE 3-g)
+                let isSmallScreen = geometry.size.width < 376
+                
+                ZStack {
+                    OnboardingBackgroundView()
+                    
+                    VStack(spacing: 0) {
+                        self.makeSpaceView(smallScreen: isSmallScreen)
+                        self.makeLogoView()
+                        self.makeTitleView(smallScreen: isSmallScreen)
+                        self.makeSubtitleView(smallScreen: isSmallScreen)
+                        self.countryButton
+                        self.currencyButton
+                        self.languageButton
+                        Spacer()
+                    }
+                    self.nextButton
+                }
+                .navigationDestination(for: String.self) { destination in
+                    
+                    switch destination {
+                    case "Country":
+                        SettingsDetailedListView(
+                            items: Country.allCases,
+                            selectedValue: $viewModel.selectedCountry
+                        )
+                    case "Currency":
+                        SettingsDetailedListView(
+                            items: Currency.allCases,
+                            selectedValue: $viewModel.selectedCurrency
+                        )
+                    case "Language":
+                        SettingsDetailedListView(
+                            items: Language.allCases,
+                            selectedValue: $viewModel.selectedLanguage
+                        )
+                    default:
+                        // TODO: -
+                        EmptyView()
+                    }
+                }
+            }
         }
-        .animation(
-            .easeOut(duration: 0.2),
-            value: self.isPickerShown()
-        )
     }
     
     // MARK: - Views
-    private var startBtn: some View {
+    private func makeSpaceView(smallScreen: Bool) -> some View {
+        Rectangle()
+            .frame(height: smallScreen ? 50 : 80)
+            .foregroundStyle(.clear)
+    }
+    
+    // Logo
+    private func makeLogoView() -> some View {
+        HStack {
+            Image("logo")
+                .resizable()
+                .frame(width: 80, height: 80)
+            Spacer()
+        }
+        .padding(.leading, 38)
+    }
+    
+    // Title
+    private func makeTitleView(smallScreen: Bool) -> some View {
+        HStack {
+            Text("Welcome to Monika")
+                .font(.system(size: 29, weight: .bold, design: .default))
+            Spacer()
+        }
+        .padding(.top, 50)
+        .padding(.leading, 39)
+    }
+    
+    // Subtitle
+    private func makeSubtitleView(smallScreen: Bool) -> some View {
+        HStack {
+            Text("Select a country, currency, and language. You can change these settings later.")
+                .font(.system(size: smallScreen ? 16 : 18, weight: .regular, design: .default))
+                .foregroundStyle(.primary)
+            Spacer()
+        }
+        .padding(.horizontal, 39)
+        .padding(.top, 10)
+    }
+    
+    // Country
+    private var countryButton: some View {
+        SelectorButtonView(
+            title: self.viewModel.selectedCountry.rawValue,
+            iconName: "flag.circle.fill",
+            isSelected: Binding(
+                get: { self.viewModel.preselectedData },
+                set: { _ in }
+            ),
+            action: ({
+                self.path.append("Country")
+            })
+        )
+            .padding(.horizontal, 27)
+            .padding(.top, 28)
+    }
+    
+    // Currency
+    private var currencyButton: some View {
+        SelectorButtonView(
+            title: self.viewModel.selectedCurrency.rawValue,
+            iconName: "coloncurrencysign.circle.fill",
+            isSelected: Binding(
+                get: { self.viewModel.preselectedData },
+                set: { _ in }
+            ),
+            action: ({
+                self.path.append("Currency")
+            })
+        )
+            .padding(.horizontal, 27)
+            .padding(.top, 12)
+    }
+    
+    // Lnguage
+    private var languageButton: some View {
+        SelectorButtonView(
+            title: self.viewModel.selectedLanguage.rawValue,
+            iconName: "globe.europe.africa.fill",
+            isSelected: Binding(
+                get: { self.viewModel.preselectedData },
+                set: { _ in }
+            ),
+            action: ({
+                self.path.append("Language")
+            })
+        )
+            .padding(.horizontal, 27)
+            .padding(.top, 12)
+    }
+    
+    private var nextButton: some View {
         VStack {
             Spacer()
-            
-            self.startButtonView
-                .padding(.bottom, 32)
-                .opacity(self.isPickerShown() ? 0 : 1)
-        }
-    }
-    
-    private var welcomeView: some View {
-        VStack {
-            TextLargeView(text: "welcome", alignCenter: true)
-                .padding(.top, 60)
-            Spacer()
-        }
-    }
-    
-    private var preferencesListView: some View {
-        VStack(spacing: 6) {
-            // Language
-            HStack {
-                TextSmallView(text: "language")
-                    .opacity(0.7)
-                Spacer()
-            }
-            self.makeLanguageView()
-                .frame(height: self.height)
-                .padding(.bottom, 24)
-            
-            // Country
-            HStack {
-                TextSmallView(text: "country")
-                    .opacity(0.7)
-                Spacer()
-            }
-            self.makeCountryView()
-                .frame(height: self.height)
-                .padding(.bottom, 24)
-            
-            // Currency
-            HStack {
-                TextSmallView(text: "currency")
-                    .opacity(0.7)
-                Spacer()
-            }
-            self.makeCurrencyView()
-                .frame(height: self.height)
-            
-            Spacer()
-        }
-        .padding(.top, 170)
-        .frame(width: Constants.buttonWidth)
-        .blur(radius: self.isPickerShown() ? 8 : 0)
-    }
-    
-    @ViewBuilder
-    private var pickerView: some View {
-        // Language Picker
-        if self.showLanguagePicker {
-            GenericPickerView(
-                selectedItem: self.$viewModel.selectedLanguage,
-                isPresented: self.$showLanguagePicker,
-                scale: self.$languagePickerScale,
-                items: self.viewModel.languages
-            )
-        }
-        
-        // Currency Picker
-        if self.showCurrencyPicker {
-            GenericPickerView(
-                selectedItem: self.$viewModel.selectedCurrency,
-                isPresented: self.$showCurrencyPicker, 
-                scale: self.$currencyPickerScale,
-                items: self.viewModel.currencies
-            )
-            .transition(.scale)
-        }
-        
-        // Country Picker
-        if self.showCountryPicker {
-            GenericPickerView(
-                selectedItem: self.$viewModel.selectedCountry,
-                isPresented: self.$showCountryPicker, 
-                scale: self.$countryPickerScale,
-                items: self.viewModel.countries
-            )
-            .transition(.scale)
-        }
-    }
-    
-    /// Language view
-    private func makeLanguageView() -> some View {
-        self.languageEditorView
-            .onTapGesture {
-                self.showLanguagePicker.toggle()
-            }
-    }
-    
-    private var languageEditorView: some View {
-        TextView(text: self.viewModel.selectedLanguage.rawValue)
-            .overlay(
-                RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                    .stroke(.white.opacity(0.5), lineWidth: 0.5)
-                    .frame(width: Constants.buttonWidth, height: self.height)
-            )
-    }
-    
-    /// Country view
-    private func makeCountryView() -> some View {
-        self.countryEditorView
-            .onTapGesture {
-                self.showCountryPicker.toggle()
-            }
-    }
-    
-    private var countryEditorView: some View {
-        TextView(text: self.viewModel.selectedCountry.rawValue)
-            .overlay(
-                RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                    .stroke(.white.opacity(0.5), lineWidth: 0.5)
-                    .frame(width: Constants.buttonWidth, height: self.height)
-            )
-    }
-    
-    /// Currency view
-    private func makeCurrencyView() -> some View {
-        self.currencyEditorView
-            .onTapGesture {
-                self.showCurrencyPicker.toggle()
-            }
-    }
-    
-    private var currencyEditorView: some View {
-        TextView(text: self.viewModel.selectedCurrency.rawValue)
-            .overlay(
-                RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                    .stroke(.white.opacity(0.5), lineWidth: 0.5)
-                    .frame(width: Constants.buttonWidth, height: self.height)
-            )
-    }
-    
-    /// Start
-    private var startButtonView: some View {
-        Button {
-            self.viewModel.savePreferences()
-            self.viewModel.vibrate()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.viewModel.vibrate()
-                
+            PinkButtonView(title: "Start") {
+                self.viewModel.savePreferences()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.isFirstLaunch.toggle()
+                    self.viewModel.vibrate()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.isFirstLaunch.toggle()
+                    }
                 }
             }
-        } label: {
-            TextView(text: "start", style: .regular)
-                .padding(.vertical, 10)
-                .frame(width: Constants.buttonWidth)
+            .padding(.bottom, 24)
         }
-        .background(
-            RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                .fill(.white.opacity(Constants.buttonFillOpacity))
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)
-                .stroke(.white, lineWidth: 0.5)
-        )
-    }
-    
-    // MARK: - Functions
-    private func isPickerShown() -> Bool {
-        return self.showCurrencyPicker || self.showCountryPicker || self.showLanguagePicker
     }
 }
 
 #Preview {
-    OnboardingView(isFirstLaunch: .constant(true))
+    OnboardingView(isFirstLaunch: .constant(false))
 }

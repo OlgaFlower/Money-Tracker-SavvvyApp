@@ -6,69 +6,29 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
     
     @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
-    
-    init() {
-        UITabBar.appearance().unselectedItemTintColor = .tabBarInactive
-    }
+    @State private var isSplashActive: Bool = true
     
     var body: some View {
-        
-        if self.isFirstLaunch {
-            OnboardingView(isFirstLaunch: self.$isFirstLaunch)
-        } else {
-            TabView {
+        ZStack {
+            
+            if isSplashActive {
+                SplashScreenView(isSplashActive: $isSplashActive)
                 
-                /// Home
-                NavigationStack {
-                    TodayView()
-                        .navigationTitle("TODAY'S BUDGET")
-                        .navigationBarTitleDisplayMode(.large)
-                }
-                .tabItem {
-                    Label(
-                        title: {},
-                        icon: {
-                            self.makeTabBarIcon("expenses")
-                        }
-                    )
-                }
-                
-                /// Calendar
-                NavigationStack {
-                    CalendarView()
-                        .navigationTitle("CALENDAR")
-                        .navigationBarTitleDisplayMode(.large)
-                }
-                .tabItem {
-                    Label(
-                        title: {},
-                        icon: {
-                            self.makeTabBarIcon("calendar")
-                        }
-                    )
-                }
-                
-                /// Account
-                NavigationStack {
-                    SettingsView()
-                        .navigationTitle("SETTINGS")
-                        .navigationBarTitleDisplayMode(.large)
-                }
-                .tabItem {
-                    Label(
-                        title: {},
-                        icon: {
-                            self.makeTabBarIcon("tool")
-                        }
-                    )
+            } else {
+                if self.isFirstLaunch {
+                    OnboardingView(isFirstLaunch: self.$isFirstLaunch)
+                    
+                } else {
+                    TabView {
+                            LazyView(TabItems())
+                    }
+                    .accentColor(.pink)
                 }
             }
-            .accentColor(.white)
         }
     }
     

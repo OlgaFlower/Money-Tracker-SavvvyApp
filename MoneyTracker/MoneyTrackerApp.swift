@@ -16,6 +16,7 @@ struct MoneyTrackerApp: App {
     // MARK: - Init -
     init() {
         self.configureNavigationBarAppearance()
+        self.configureTabBarAppearance() /// Temporary for redesign
     }
     
     // MARK: - Body -
@@ -38,4 +39,14 @@ struct MoneyTrackerApp: App {
             .foregroundColor: UIColor.white
         ]
     }
+    
+    private func configureTabBarAppearance() { /// Temporary for design
+            let appearance = UITabBarAppearance()
+            appearance.configureWithDefaultBackground()
+            appearance.shadowColor = UIColor.gray // Set separator color
+            
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+            UITabBar.appearance().unselectedItemTintColor = UIColor(named: "tabBarInactive") ?? .gray
+        }
 }
