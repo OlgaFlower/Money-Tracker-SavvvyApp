@@ -191,14 +191,14 @@
 		423DF4222BD6369000CBB6D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4241F4702BB1E62E0048A29B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		4241F47A2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalAlignment+UnderlineLeading.swift"; sourceTree = "<group>"; };
-		424275062BA4FF72001873A3 /* Savvvy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Savvvy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		424275062BA4FF72001873A3 /* Monika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275092BA4FF72001873A3 /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
 		4242750B2BA4FF72001873A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4242750D2BA4FF73001873A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		424275102BA4FF73001873A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		424275162BA4FF73001873A3 /* SavvvyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavvvyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		424275162BA4FF73001873A3 /* MonikaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonikaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4242751A2BA4FF73001873A3 /* MoneyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerTests.swift; sourceTree = "<group>"; };
-		424275202BA4FF73001873A3 /* SavvvyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavvvyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		424275202BA4FF73001873A3 /* MonikaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonikaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITests.swift; sourceTree = "<group>"; };
 		424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		424E3D372C63BF1E005E2181 /* CalendarDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -408,9 +408,9 @@
 		424275072BA4FF72001873A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				424275062BA4FF72001873A3 /* Savvvy.app */,
-				424275162BA4FF73001873A3 /* SavvvyTests.xctest */,
-				424275202BA4FF73001873A3 /* SavvvyUITests.xctest */,
+				424275062BA4FF72001873A3 /* Monika.app */,
+				424275162BA4FF73001873A3 /* MonikaTests.xctest */,
+				424275202BA4FF73001873A3 /* MonikaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -778,9 +778,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		424275052BA4FF72001873A3 /* Savvvy */ = {
+		424275052BA4FF72001873A3 /* Monika */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4242752A2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "Savvvy" */;
+			buildConfigurationList = 4242752A2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "Monika" */;
 			buildPhases = (
 				424275022BA4FF72001873A3 /* Sources */,
 				424275032BA4FF72001873A3 /* Frameworks */,
@@ -790,14 +790,14 @@
 			);
 			dependencies = (
 			);
-			name = Savvvy;
+			name = Monika;
 			productName = MoneyTracker;
-			productReference = 424275062BA4FF72001873A3 /* Savvvy.app */;
+			productReference = 424275062BA4FF72001873A3 /* Monika.app */;
 			productType = "com.apple.product-type.application";
 		};
-		424275152BA4FF73001873A3 /* SavvvyTests */ = {
+		424275152BA4FF73001873A3 /* MonikaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4242752D2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "SavvvyTests" */;
+			buildConfigurationList = 4242752D2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MonikaTests" */;
 			buildPhases = (
 				424275122BA4FF73001873A3 /* Sources */,
 				424275132BA4FF73001873A3 /* Frameworks */,
@@ -808,14 +808,14 @@
 			dependencies = (
 				424275182BA4FF73001873A3 /* PBXTargetDependency */,
 			);
-			name = SavvvyTests;
+			name = MonikaTests;
 			productName = MoneyTrackerTests;
-			productReference = 424275162BA4FF73001873A3 /* SavvvyTests.xctest */;
+			productReference = 424275162BA4FF73001873A3 /* MonikaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4242751F2BA4FF73001873A3 /* SavvvyUITests */ = {
+		4242751F2BA4FF73001873A3 /* MonikaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 424275302BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "SavvvyUITests" */;
+			buildConfigurationList = 424275302BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MonikaUITests" */;
 			buildPhases = (
 				4242751C2BA4FF73001873A3 /* Sources */,
 				4242751D2BA4FF73001873A3 /* Frameworks */,
@@ -826,9 +826,9 @@
 			dependencies = (
 				424275222BA4FF73001873A3 /* PBXTargetDependency */,
 			);
-			name = SavvvyUITests;
+			name = MonikaUITests;
 			productName = MoneyTrackerUITests;
-			productReference = 424275202BA4FF73001873A3 /* SavvvyUITests.xctest */;
+			productReference = 424275202BA4FF73001873A3 /* MonikaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -854,7 +854,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 424275012BA4FF71001873A3 /* Build configuration list for PBXProject "Savvvy" */;
+			buildConfigurationList = 424275012BA4FF71001873A3 /* Build configuration list for PBXProject "Monika" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -867,9 +867,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				424275052BA4FF72001873A3 /* Savvvy */,
-				424275152BA4FF73001873A3 /* SavvvyTests */,
-				4242751F2BA4FF73001873A3 /* SavvvyUITests */,
+				424275052BA4FF72001873A3 /* Monika */,
+				424275152BA4FF73001873A3 /* MonikaTests */,
+				4242751F2BA4FF73001873A3 /* MonikaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1046,12 +1046,12 @@
 /* Begin PBXTargetDependency section */
 		424275182BA4FF73001873A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 424275052BA4FF72001873A3 /* Savvvy */;
+			target = 424275052BA4FF72001873A3 /* Monika */;
 			targetProxy = 424275172BA4FF73001873A3 /* PBXContainerItemProxy */;
 		};
 		424275222BA4FF73001873A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 424275052BA4FF72001873A3 /* Savvvy */;
+			target = 424275052BA4FF72001873A3 /* Monika */;
 			targetProxy = 424275212BA4FF73001873A3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1190,7 +1190,6 @@
 				INFOPLIST_FILE = MoneyTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1199,7 +1198,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MoneyTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.Monika;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1224,7 +1223,6 @@
 				INFOPLIST_FILE = MoneyTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1233,7 +1231,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MoneyTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.Monika;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1255,12 +1253,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MoneyTrackerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MonikaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Savvvy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Savvvy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Monika.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Monika";
 			};
 			name = Debug;
 		};
@@ -1275,12 +1273,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MoneyTrackerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MonikaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Savvvy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Savvvy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Monika.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Monika";
 			};
 			name = Release;
 		};
@@ -1293,7 +1291,7 @@
 				DEVELOPMENT_TEAM = 6YJ62Z4KFL;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MoneyTrackerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MonikaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1311,7 +1309,7 @@
 				DEVELOPMENT_TEAM = 6YJ62Z4KFL;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MoneyTrackerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.MonikaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1323,7 +1321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		424275012BA4FF71001873A3 /* Build configuration list for PBXProject "Savvvy" */ = {
+		424275012BA4FF71001873A3 /* Build configuration list for PBXProject "Monika" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				424275282BA4FF73001873A3 /* Debug */,
@@ -1332,7 +1330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4242752A2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "Savvvy" */ = {
+		4242752A2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "Monika" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4242752B2BA4FF73001873A3 /* Debug */,
@@ -1341,7 +1339,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4242752D2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "SavvvyTests" */ = {
+		4242752D2BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MonikaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4242752E2BA4FF73001873A3 /* Debug */,
@@ -1350,7 +1348,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		424275302BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "SavvvyUITests" */ = {
+		424275302BA4FF73001873A3 /* Build configuration list for PBXNativeTarget "MonikaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				424275312BA4FF73001873A3 /* Debug */,

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "424275052BA4FF72001873A3"
-               BuildableName = "Savvvy.app"
-               BlueprintName = "Savvvy"
-               ReferencedContainer = "container:Savvvy.xcodeproj">
+               BuildableName = "Monika.app"
+               BlueprintName = "Monika"
+               ReferencedContainer = "container:Monika.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "424275052BA4FF72001873A3"
-            BuildableName = "Savvvy.app"
-            BlueprintName = "Savvvy"
-            ReferencedContainer = "container:Savvvy.xcodeproj">
+            BuildableName = "Monika.app"
+            BlueprintName = "Monika"
+            ReferencedContainer = "container:Monika.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "424275052BA4FF72001873A3"
-            BuildableName = "Savvvy.app"
-            BlueprintName = "Savvvy"
-            ReferencedContainer = "container:Savvvy.xcodeproj">
+            BuildableName = "Monika.app"
+            BlueprintName = "Monika"
+            ReferencedContainer = "container:Monika.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
