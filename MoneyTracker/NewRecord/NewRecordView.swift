@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewRecordView: View {
     
-    @StateObject private var viewModel = NewRecordViewModel()
+    @StateObject var viewModel: NewRecordViewModel
     @State private var preselectedTag: Int = 0
     @State private var descriptionText: String = ""
     @FocusState private var focusedField: TextFieldCase?
@@ -120,11 +120,13 @@ struct NewRecordView: View {
             }
             .padding(.bottom, 24)
         }
-        .transition(.move(edge: .bottom))
     }
 }
 
 // MARK: - Preview
 #Preview {
-    NewRecordView(onDismiss: {})
+    NewRecordView(
+        viewModel: NewRecordViewModel(),
+        onDismiss: {}
+    )
 }

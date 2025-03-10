@@ -35,7 +35,9 @@ struct HomeView: View {
             }
         }
         .fullScreenCover(isPresented: self.$isNewRecordPresented, content: {
-            NewRecordView(onDismiss: {
+            NewRecordView(
+                viewModel: NewRecordViewModel(),
+                onDismiss: {
                 self.isNewRecordPresented.toggle()
             })
         })
