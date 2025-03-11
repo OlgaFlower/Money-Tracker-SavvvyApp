@@ -55,8 +55,11 @@ struct NewRecordView: View {
     private var segmentedControlView: some View {
         CustomSegmentedControlView(
             tag: self.$viewModel.preselectedTag,
-            controlOptions: ["Expense", "Income"]
+            controlOptions: self.viewModel.controlOptions
         )
+        .onChange(of: self.viewModel.preselectedTag) { _, _ in
+            self.viewModel.setCategoryToDefault()
+        }
     }
     
     private var currencyView: some View {
@@ -69,8 +72,8 @@ struct NewRecordView: View {
     
     private var categorySelector: some View {
         SelectorButtonView(
-            title: "Regular",
-            iconName: "cart.circle.fill",
+            title: self.viewModel.regularCatTitle,
+            iconName: self.viewModel.regularCatIcon,
             isSelected: Binding(
                 get: { self.viewModel.regularCatSelected },
                 set: { _ in }
@@ -83,8 +86,8 @@ struct NewRecordView: View {
     
     private var recurringSelector: some View {
         SelectorButtonView(
-            title: "Recurring",
-            iconName: "repeat.circle.fill",
+            title: self.viewModel.recurringCatTitle,
+            iconName: self.viewModel.recurringCatIcon,
             isSelected: Binding(
                 get: { self.viewModel.recurringCatSelected },
                 set: { _ in }
