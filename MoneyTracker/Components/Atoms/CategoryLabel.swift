@@ -14,6 +14,7 @@ struct CategoryLabel: View {
     var body: some View {
         Text(self.text)
             .foregroundStyle(.primary)
+            .font(.body)
     }
 }
 

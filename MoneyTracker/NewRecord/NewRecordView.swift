@@ -10,8 +10,6 @@ import SwiftUI
 struct NewRecordView: View {
     
     @StateObject var viewModel: NewRecordViewModel
-    @State private var preselectedTag: Int = 0
-    @State private var descriptionText: String = ""
     @FocusState private var focusedField: TextFieldCase?
     
     var onDismiss: () -> Void
@@ -56,7 +54,7 @@ struct NewRecordView: View {
     
     private var segmentedControlView: some View {
         CustomSegmentedControlView(
-            tag: self.$preselectedTag,
+            tag: self.$viewModel.preselectedTag,
             controlOptions: ["Expense", "Income"]
         )
     }
@@ -107,7 +105,7 @@ struct NewRecordView: View {
     }
     
     private var descriptionView: some View {
-        DescriptionView(text: self.$descriptionText)
+        DescriptionView(text: self.$viewModel.newRecord.description)
             .focused(self.$focusedField, equals: .description)
             .padding(.top, 24)
     }

@@ -13,16 +13,21 @@ struct CategoryIconView: View {
     let color: Color
     
     var body: some View {
-        Image(systemName: self.icon)
-            .foregroundColor(self.color)
-            .frame(width: 30, height: 30)
+        RoundedRectangle(cornerRadius: 16)
+            .foregroundStyle(self.color.opacity(0.15))
+            .frame(width: 32, height: 32)
+            .overlay (
+                Image(systemName: self.icon)
+                    .foregroundColor(self.color)
+                    .frame(width: 28, height: 28)
+            )
     }
 }
 
 
 #Preview {
     CategoryIconView(
-        icon: "cart.fill",
-        color: .green
+        icon: "cup.and.saucer.fill",
+        color: .brown
     )
 }

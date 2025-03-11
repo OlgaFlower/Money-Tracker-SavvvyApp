@@ -7,25 +7,34 @@
 
 import Foundation
 
-enum TextfieldInputCase {
-    case newRecord
-    case editRecord
+struct Record {
+    var id: UUID = UUID()
+    var categoryType: CategoryType = .expense
+    var category = Category(
+        name: "",
+        icon: "",
+        color: .blue
+    )
+    var description: String = ""
 }
 
 final class NewRecordViewModel: ObservableObject {
     
+    @Published var newRecord = Record()
     @Published var inputAmount = ""
     @Published var currencySign = UserPreferences.currencySign
-    @Published var regularCategory: String = ""
-    @Published var recurringCategory: String = ""
+    
     @Published var recurringRange: Int = 10
+    @Published var preselectedTag: Int = 0 // Segmented control
     
     var regularCatSelected: Bool {
-        !self.regularCategory.isEmpty
+        (self.newRecord.categoryType == .expense || self.newRecord.categoryType == .oneTimeIncome)
+                && !self.newRecord.category.name.isEmpty
     }
     
     var recurringCatSelected: Bool {
-        !self.recurringCategory.isEmpty
+        (self.newRecord.categoryType == .recurringExpense || self.newRecord.categoryType == .regularIncome)
+                && !self.newRecord.category.name.isEmpty
     }
     
     func reduceRange() {

@@ -12,6 +12,12 @@
 		42203A232CD4CF5700F91C9E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42203A222CD4CF5600F91C9E /* OnboardingView.swift */; };
 		42203A272CE3D2A200F91C9E /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42203A262CE3D2A200F91C9E /* Currency.swift */; };
 		42210E4B2D8033FD0069A0CD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210E4A2D8033FD0069A0CD /* CalendarView.swift */; };
+		42210E4E2D80354F0069A0CD /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210E4D2D80354F0069A0CD /* CategoryType.swift */; };
+		42210E502D8038A20069A0CD /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210E4F2D8038A20069A0CD /* CategoryList.swift */; };
+		42210E522D803FF70069A0CD /* CategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210E512D803FF70069A0CD /* CategorySection.swift */; };
+		42210E572D8042400069A0CD /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210E562D8042400069A0CD /* CategorySelectionView.swift */; };
+		42210E5B2D8045670069A0CD /* CategoryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210E5A2D8045670069A0CD /* CategoryConstants.swift */; };
+		42210E5D2D804B990069A0CD /* TextfieldInputCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210E5C2D804B990069A0CD /* TextfieldInputCase.swift */; };
 		422E82D02BF6BF5B00139B94 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422E82CF2BF6BF5B00139B94 /* String+Extension.swift */; };
 		422F56D52D1A103000CC3BD7 /* NewRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F56D42D1A103000CC3BD7 /* NewRecordViewModel.swift */; };
 		42369D0F2D7B03AB00744D95 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42369D0E2D7B03AB00744D95 /* IconView.swift */; };
@@ -109,10 +115,10 @@
 		42CA52572C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52562C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf */; };
 		42CA525A2C2C5D190024DF8B /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52592C2C5D190024DF8B /* CustomFont.swift */; };
 		42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA525B2C2C5EAF0024DF8B /* Fonts.swift */; };
-		42D043372D80265A004F3FC6 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D043362D80265A004F3FC6 /* CategoryDetailView.swift */; };
+		42D043372D80265A004F3FC6 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D043362D80265A004F3FC6 /* CategoriesView.swift */; };
 		42D043392D802A57004F3FC6 /* CategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D043382D802A57004F3FC6 /* CategoryIconView.swift */; };
 		42D0433B2D802ABE004F3FC6 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D0433A2D802ABE004F3FC6 /* CategoryLabel.swift */; };
-		42D0433D2D802B30004F3FC6 /* CategoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D0433C2D802B30004F3FC6 /* CategoryRowView.swift */; };
+		42D0433D2D802B30004F3FC6 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D0433C2D802B30004F3FC6 /* CategoryRow.swift */; };
 		42D0433F2D802B6D004F3FC6 /* CategoryGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D0433E2D802B6D004F3FC6 /* CategoryGroup.swift */; };
 		42D043412D802BF8004F3FC6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D043402D802BF8004F3FC6 /* Category.swift */; };
 		42D45CE52BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */; };
@@ -155,6 +161,12 @@
 		42203A222CD4CF5600F91C9E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		42203A262CE3D2A200F91C9E /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		42210E4A2D8033FD0069A0CD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		42210E4D2D80354F0069A0CD /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
+		42210E4F2D8038A20069A0CD /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		42210E512D803FF70069A0CD /* CategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySection.swift; sourceTree = "<group>"; };
+		42210E562D8042400069A0CD /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
+		42210E5A2D8045670069A0CD /* CategoryConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryConstants.swift; sourceTree = "<group>"; };
+		42210E5C2D804B990069A0CD /* TextfieldInputCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldInputCase.swift; sourceTree = "<group>"; };
 		422E82CF2BF6BF5B00139B94 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		422F56D42D1A103000CC3BD7 /* NewRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordViewModel.swift; sourceTree = "<group>"; };
 		42369D0E2D7B03AB00744D95 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
@@ -256,10 +268,10 @@
 		42CA52582C2C5AF90024DF8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		42CA52592C2C5D190024DF8B /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		42CA525B2C2C5EAF0024DF8B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		42D043362D80265A004F3FC6 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
+		42D043362D80265A004F3FC6 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		42D043382D802A57004F3FC6 /* CategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconView.swift; sourceTree = "<group>"; };
 		42D0433A2D802ABE004F3FC6 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
-		42D0433C2D802B30004F3FC6 /* CategoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowView.swift; sourceTree = "<group>"; };
+		42D0433C2D802B30004F3FC6 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		42D0433E2D802B6D004F3FC6 /* CategoryGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroup.swift; sourceTree = "<group>"; };
 		42D043402D802BF8004F3FC6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		42D45CE42BF79976002CD159 /* MakeNewMoneyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeNewMoneyRecordViewModel.swift; sourceTree = "<group>"; };
@@ -313,6 +325,33 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		42210E552D8042310069A0CD /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				42210E562D8042400069A0CD /* CategorySelectionView.swift */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		42210E582D8045010069A0CD /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				42D043402D802BF8004F3FC6 /* Category.swift */,
+				42210E512D803FF70069A0CD /* CategorySection.swift */,
+				42210E4D2D80354F0069A0CD /* CategoryType.swift */,
+				42D0433E2D802B6D004F3FC6 /* CategoryGroup.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		42210E592D8045480069A0CD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				42210E5A2D8045670069A0CD /* CategoryConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		42369D0D2D7B039500744D95 /* Atoms */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,7 +400,7 @@
 				42369D3F2D7B790D00744D95 /* DescriptionInputView.swift */,
 				42369D932D7F032300744D95 /* FormattedMoneyAmountView.swift */,
 				42369D952D7F038600744D95 /* UserInputMoneyAmountView.swift */,
-				42D0433C2D802B30004F3FC6 /* CategoryRowView.swift */,
+				42D0433C2D802B30004F3FC6 /* CategoryRow.swift */,
 			);
 			path = Molecules;
 			sourceTree = "<group>";
@@ -375,11 +414,12 @@
 				42369D392D7B684600744D95 /* PinkButtonView.swift */,
 				42369D412D7B79CA00744D95 /* DescriptionView.swift */,
 				42369D972D7F044B00744D95 /* CurrencyInputView.swift */,
+				42210E4F2D8038A20069A0CD /* CategoryList.swift */,
 			);
 			path = Organisms;
 			sourceTree = "<group>";
 		};
-		4241F46F2BB1E61A0048A29B /* Constants */ = {
+		4241F46F2BB1E61A0048A29B /* Constants_old */ = {
 			isa = PBXGroup;
 			children = (
 				42CA52552C2C5A570024DF8B /* Fonts */,
@@ -389,7 +429,7 @@
 				423DF4222BD6369000CBB6D5 /* Constants.swift */,
 				42203A262CE3D2A200F91C9E /* Currency.swift */,
 			);
-			path = Constants;
+			path = Constants_old;
 			sourceTree = "<group>";
 		};
 		424274FD2BA4FF71001873A3 = {
@@ -422,6 +462,7 @@
 				427A907B2D0F28F200633C5C /* TabBar */,
 				42B9F1152BF60F0600D719E3 /* MoneyTrackerDB */,
 				424275342BA503BF001873A3 /* Models */,
+				42210E592D8045480069A0CD /* Constants */,
 				424EC7B42CA94E3300CF76E2 /* Services */,
 				428BE98E2CF1F5CD00700550 /* UserPreferences */,
 				42203A212CD4CEBC00F91C9E /* Onboarding */,
@@ -431,7 +472,7 @@
 				42D043422D803008004F3FC6 /* Calendar */,
 				42A264B92CFCD10F002BED58 /* Settings */,
 				427A90632D0B8A7200633C5C /* Components */,
-				4241F46F2BB1E61A0048A29B /* Constants */,
+				4241F46F2BB1E61A0048A29B /* Constants_old */,
 				42840CEF2C9B30D100E62068 /* Actions */,
 				428BE98B2CEF8B6900700550 /* Protocols */,
 				42369D102D7B05CD00744D95 /* OLD_forRefactoring */,
@@ -471,8 +512,8 @@
 			children = (
 				42A11C292BB7173B003B617D /* MoneyModel_Old.swift */,
 				42369D992D7F129300744D95 /* TextFieldCase.swift */,
-				42D0433E2D802B6D004F3FC6 /* CategoryGroup.swift */,
-				42D043402D802BF8004F3FC6 /* Category.swift */,
+				42210E5C2D804B990069A0CD /* TextfieldInputCase.swift */,
+				42210E582D8045010069A0CD /* Categories */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -544,6 +585,7 @@
 				42369D0D2D7B039500744D95 /* Atoms */,
 				42369D152D7B09D700744D95 /* Molecules */,
 				42369D182D7B0B7200744D95 /* Organisms */,
+				42210E552D8042310069A0CD /* Templates */,
 				427A90612D0B6BD800633C5C /* OnboardingBackgroundView.swift */,
 				427A90722D0EDB7800633C5C /* HomeHeaderView.swift */,
 				427A90742D0EE97F00633C5C /* WelcomeView.swift */,
@@ -720,7 +762,7 @@
 		42D043352D802639004F3FC6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				42D043362D80265A004F3FC6 /* CategoryDetailView.swift */,
+				42D043362D80265A004F3FC6 /* CategoriesView.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -931,8 +973,9 @@
 				42203A232CD4CF5700F91C9E /* OnboardingView.swift in Sources */,
 				424EC7B32CA94E2200CF76E2 /* DataService.swift in Sources */,
 				42CA52492C2B52F90024DF8B /* Int+String.swift in Sources */,
+				42210E522D803FF70069A0CD /* CategorySection.swift in Sources */,
 				42CA52452C2B42F30024DF8B /* ExpensesDetailView.swift in Sources */,
-				42D043372D80265A004F3FC6 /* CategoryDetailView.swift in Sources */,
+				42D043372D80265A004F3FC6 /* CategoriesView.swift in Sources */,
 				42EB693E2BFCFEA500FF4E7F /* TemporaryIncome.swift in Sources */,
 				42F4FB5F2BF6415D007A580E /* PersistenceController.swift in Sources */,
 				42A264BD2CFCEE4C002BED58 /* Language.swift in Sources */,
@@ -961,6 +1004,7 @@
 				4205FFFD2C713AED0045486B /* TextHeaderView.swift in Sources */,
 				42D45CE72BF86749002CD159 /* TodayViewModel.swift in Sources */,
 				42A264C22CFDE1FC002BED58 /* TextCellView.swift in Sources */,
+				42210E502D8038A20069A0CD /* CategoryList.swift in Sources */,
 				4205FFF82C712A8B0045486B /* Int16+MoneyGroupTypeTags.swift in Sources */,
 				42D043392D802A57004F3FC6 /* CategoryIconView.swift in Sources */,
 				42369D2A2D7B58AB00744D95 /* PlusMinusBtnView.swift in Sources */,
@@ -969,6 +1013,7 @@
 				427A90752D0EE97F00633C5C /* WelcomeView.swift in Sources */,
 				42C9EB0C2C71BB8100D5D6EA /* BackgroundRectangleView.swift in Sources */,
 				427A906E2D0CBF5900633C5C /* Color+hex.swift in Sources */,
+				42210E5D2D804B990069A0CD /* TextfieldInputCase.swift in Sources */,
 				42369D342D7B66EC00744D95 /* InnerShadowView.swift in Sources */,
 				42CA525A2C2C5D190024DF8B /* CustomFont.swift in Sources */,
 				4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */,
@@ -979,6 +1024,7 @@
 				42369D3A2D7B684600744D95 /* PinkButtonView.swift in Sources */,
 				42840CE52C8DD0AE00E62068 /* DatePickerView.swift in Sources */,
 				42EF87E72BFB6B3A009E0272 /* BigButtonCategorySelectionView.swift in Sources */,
+				42210E4E2D80354F0069A0CD /* CategoryType.swift in Sources */,
 				42D0433B2D802ABE004F3FC6 /* CategoryLabel.swift in Sources */,
 				427A90712D0E29D000633C5C /* HomeView.swift in Sources */,
 				42EB69342BFCD8CB00FF4E7F /* RecurringExpenses.swift in Sources */,
@@ -992,11 +1038,13 @@
 				42369D3E2D7B78CC00744D95 /* DescriptionBackgroundView.swift in Sources */,
 				42C9EB0A2C71B4CF00D5D6EA /* TextTitleView.swift in Sources */,
 				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
+				42210E5B2D8045670069A0CD /* CategoryConstants.swift in Sources */,
 				42369D8E2D7F01AE00744D95 /* CurrencyTextView.swift in Sources */,
-				42D0433D2D802B30004F3FC6 /* CategoryRowView.swift in Sources */,
+				42D0433D2D802B30004F3FC6 /* CategoryRow.swift in Sources */,
 				42F8F7262C122C3200C0CE9B /* CalendarManager.swift in Sources */,
 				42840CF12C9B312900E62068 /* VibrateService.swift in Sources */,
 				42F8F73E2C18C2E500C0CE9B /* Date+Extension.swift in Sources */,
+				42210E572D8042400069A0CD /* CategorySelectionView.swift in Sources */,
 				42EB69432BFE00A200FF4E7F /* CategoriesGridViewModel.swift in Sources */,
 				42369D1A2D7B0BE100744D95 /* SelectorButtonView.swift in Sources */,
 				42369D202D7B2E4B00744D95 /* SegmentCtrlItemView.swift in Sources */,

@@ -8,7 +8,8 @@
 import Foundation
 
 // Main Category with Subcategories
-//struct CategoryGroup {
-//    let type: CategoryType
-//    let subcategories: [Category]
-//}
+struct CategoryGroup {
+    let type: CategoryType
+    let sections: [CategorySection]?
+    let subcategories: [Category]
+}
