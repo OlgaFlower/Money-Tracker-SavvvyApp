@@ -90,6 +90,3 @@ struct ChartHalfDonut: GaugeStyle {
     }
 }
 
-#Preview {
-    TodayView()
-}

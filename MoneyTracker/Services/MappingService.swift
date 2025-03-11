@@ -18,7 +18,7 @@ final class MappingService {
             MoneyModel(
                 id: record.id,
                 recordType: record.isIncome ? .income : .expense,
-                category: Category(
+                category: Category_old(
                     moneyGroupType: record.typeTag.tagToGroupType(),
                     name: record.categoryName,
                     icon: record.categoryIcon

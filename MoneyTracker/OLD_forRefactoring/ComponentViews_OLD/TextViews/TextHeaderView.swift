@@ -1,30 +1,30 @@
+////
+////  TextHeaderView.swift
+////  MoneyTracker
+////
+////  Created by Olha Bereziuk on 17.08.24.
+////
 //
-//  TextHeaderView.swift
-//  MoneyTracker
+//import SwiftUI
 //
-//  Created by Olha Bereziuk on 17.08.24.
+//struct TextHeaderView: View {
+//    
+//    let text: String
+//    var alignCenter: Bool = false
+//    
+//    var body: some View {
+//        HStack {
+//            Text(self.text.uppercased())
+//                .font(.customFont(style: .medium, size: .title))
+//                .foregroundStyle(.white)
+//                .padding(.leading, self.alignCenter ? 0 : 16)
+//            if !self.alignCenter {
+//                Spacer()
+//            }
+//        }
+//    }
+//}
 //
-
-import SwiftUI
-
-struct TextHeaderView: View {
-    
-    let text: String
-    var alignCenter: Bool = false
-    
-    var body: some View {
-        HStack {
-            Text(self.text.uppercased())
-                .font(.customFont(style: .medium, size: .title))
-                .foregroundStyle(.white)
-                .padding(.leading, self.alignCenter ? 0 : 16)
-            if !self.alignCenter {
-                Spacer()
-            }
-        }
-    }
-}
-
-#Preview {
-    TextHeaderView(text: "EXPENSES TODAY")
-}
+//#Preview {
+//    TextHeaderView(text: "EXPENSES TODAY")
+//}

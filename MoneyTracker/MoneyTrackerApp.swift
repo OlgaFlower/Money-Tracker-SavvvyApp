@@ -1,6 +1,6 @@
 //
 //  MoneyTrackerApp.swift
-//  MoneyTracker
+//  Monika
 //
 //  Created by Olha Bereziuk on 15.03.24.
 //

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RegularIncome: String {
+enum RegularIncome_Old: String {
     case salary
     case scholarship
     case governmentAid

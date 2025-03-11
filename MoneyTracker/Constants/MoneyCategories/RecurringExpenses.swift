@@ -40,187 +40,187 @@ enum RecurringExpenses {
         }
     }
     
-    var items: [Category] {
+    var items: [Category_old] {
         switch self {
         case .savings:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Moneybox",
                     icon: "diamond.lefthalf.filled")
             ]
         case .housing:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Rent",
                     icon: "house"),
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Mortgage",
                     icon: "house"),
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Property tax",
                     icon: "house")
             ]
         case .tech:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Cell phone",
                     icon: "phone.badge.waveform"),
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "iCloud+",
                     icon: "phone.badge.waveform"),
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Google Drive",
                     icon: "phone.badge.waveform"),
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Google Photo",
                     icon: "phone.badge.waveform")
             ]
         case .entertainment:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Apple Music",
                     icon: "film.stack"),
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Netflix",
-                    icon: "film.stack"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Youtube Premium",
-                    icon: "film.stack"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Amazon Prime",
-                    icon: "film.stack"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Spotify",
-                    icon: "film.stack"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "News",
-                    icon: "film.stack"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Hobbies",
                     icon: "film.stack")
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Youtube Premium",
+//                    icon: "film.stack"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Amazon Prime",
+//                    icon: "film.stack"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Spotify",
+//                    icon: "film.stack"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "News",
+//                    icon: "film.stack"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Hobbies",
+//                    icon: "film.stack")
             ]
         case .utilities:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Electricity",
                     icon: "filemenu.and.selection"),
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Water",
-                    icon: "filemenu.and.selection"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Gas",
-                    icon: "filemenu.and.selection"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Heating",
                     icon: "filemenu.and.selection")
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Gas",
+//                    icon: "filemenu.and.selection"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Heating",
+//                    icon: "filemenu.and.selection")
             ]
         case .health:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Health insurance",
-                    icon: "stethoscope"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Medicines",
-                    icon: "stethoscope"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Gym",
                     icon: "stethoscope")
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Medicines",
+//                    icon: "stethoscope"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Gym",
+//                    icon: "stethoscope")
             ]
         case .car:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Car insurance",
-                    icon: "car.side"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Parking",
-                    icon: "car.side"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Tax",
                     icon: "car.side")
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Parking",
+//                    icon: "car.side"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Tax",
+//                    icon: "car.side")
             ]
         case .mobility:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Month ticket",
                     icon: "tram")
             ]
         case .food:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Food service",
                     icon: "fork.knife.circle")
             ]
         case .insurance:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Property insurance",
-                    icon: "shield.lefthalf.filled"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Life insurance",
-                    icon: "shield.lefthalf.filled"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Health insurance",
-                    icon: "shield.lefthalf.filled"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Dental insurance",
                     icon: "shield.lefthalf.filled")
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Life insurance",
+//                    icon: "shield.lefthalf.filled"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Health insurance",
+//                    icon: "shield.lefthalf.filled"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Dental insurance",
+//                    icon: "shield.lefthalf.filled")
             ]
         case .education:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Tuition",
                     icon: "bubbles.and.sparkles")
             ]
         case .kids:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Day care",
-                    icon: "figure.and.child.holdinghands"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "School fee",
-                    icon: "figure.and.child.holdinghands"),
-                Category(
-                    moneyGroupType: .recurringExpense,
-                    name: "Tutor",
                     icon: "figure.and.child.holdinghands")
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "School fee",
+//                    icon: "figure.and.child.holdinghands"),
+//                Category(
+//                    moneyGroupType: .recurringExpense,
+//                    name: "Tutor",
+//                    icon: "figure.and.child.holdinghands")
             ]
         case .pets:
             return [
-                Category(
+                Category_old(
                     moneyGroupType: .recurringExpense,
                     name: "Pet insurance",
                     icon: "pawprint")

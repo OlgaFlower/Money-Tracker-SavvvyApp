@@ -10,7 +10,7 @@ import SwiftUI
 struct MoneyModel: Identifiable, Equatable {
     var id: String = ""
     var recordType: RecordType = .expense
-    var category: Category = Category(
+    var category: Category_old = Category_old(
         moneyGroupType: .none,
         name: "CATEGORY",
         icon: "sun.min"
