@@ -112,7 +112,6 @@
 		42CA524D2C2B558C0024DF8B /* IconView_Old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA524C2C2B558C0024DF8B /* IconView_Old.swift */; };
 		42CA52512C2C41D10024DF8B /* HorizontalBudgetBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52502C2C41D10024DF8B /* HorizontalBudgetBoardView.swift */; };
 		42CA52532C2C48110024DF8B /* TodayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52522C2C48110024DF8B /* TodayChartView.swift */; };
-		42CA52572C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42CA52562C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf */; };
 		42CA525A2C2C5D190024DF8B /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA52592C2C5D190024DF8B /* CustomFont.swift */; };
 		42CA525C2C2C5EAF0024DF8B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA525B2C2C5EAF0024DF8B /* Fonts.swift */; };
 		42D043372D80265A004F3FC6 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D043362D80265A004F3FC6 /* CategoriesView.swift */; };
@@ -920,7 +919,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				424275112BA4FF73001873A3 /* Preview Assets.xcassets in Resources */,
-				42CA52572C2C5A8D0024DF8B /* Montserrat-VariableFont_wght.ttf in Resources */,
 				4242750E2BA4FF73001873A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
