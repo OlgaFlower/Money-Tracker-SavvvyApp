@@ -13,13 +13,13 @@ struct CategoryIconView: View {
     let color: Color
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 16)
-            .foregroundStyle(self.color.opacity(0.15))
-            .frame(width: 32, height: 32)
+        RoundedRectangle(cornerRadius: 17)
+            .foregroundStyle(.blue.opacity(0.9))
+            .frame(width: 34, height: 34)
             .overlay (
                 Image(systemName: self.icon)
-                    .foregroundColor(self.color)
-                    .frame(width: 28, height: 28)
+                    .foregroundColor(.white)
+                    .frame(width: 20, height: 20)
             )
     }
 }

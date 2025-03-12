@@ -126,4 +126,12 @@ struct CategoryConstants {
             Category(name: "Royalties", icon: "music.note", color: .green)
         ]
     )
+    
+    // MARK: - All Categories
+        static let allCategories: [CategoryGroup] = [
+            expense,
+            recurringExpense,
+            oneTimeIncome,
+            regularIncome
+        ]
 }

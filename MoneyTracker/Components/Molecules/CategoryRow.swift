@@ -10,6 +10,7 @@ import SwiftUI
 struct CategoryRow: View {
     
     let category: Category
+    let onSelect: () -> Void
     
     var body: some View {
         HStack(spacing: 10) {
@@ -20,6 +21,11 @@ struct CategoryRow: View {
             CategoryLabel(text: category.name)
             Spacer()
         }
+        .contentShape(Rectangle())
+        .frame(height: 40)
+        .onTapGesture {
+            onSelect()
+        }
     }
 }
 
@@ -29,6 +35,7 @@ struct CategoryRow: View {
             name: "Eating out",
             icon: "cup.and.saucer.fill",
             color: .brown
-        )
+        ),
+        onSelect: {}
     )
 }

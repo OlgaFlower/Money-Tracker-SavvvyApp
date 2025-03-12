@@ -9,16 +9,35 @@ import SwiftUI
 
 struct CategoriesView: View {
     
-    @State private var selectedCategoryType: CategoryType = .expense
+    @Binding var record: Record
+    @Binding var isSelected: Bool
+    let selectedCategoryType: CategoryType
     
+    private var categoryGroup: CategoryGroup? {
+        return CategoryConstants.allCategories.first { $0.type == selectedCategoryType }
+    }
     
     var body: some View {
-        VStack {
-            
+        if let categoryGroup = categoryGroup {
+            CategoryList(
+                categoryGroup: categoryGroup,
+                onCategorySelected: { category in
+                    self.record.category = category
+                    self.isSelected.toggle()
+                }
+            )
+        } else {
+            Text("No categories available")
+                .foregroundColor(.gray)
+                .padding()
         }
     }
 }
 
 #Preview {
-    CategoriesView()
+    CategoriesView(
+        record: .constant(Record()),
+        isSelected: .constant(false),
+        selectedCategoryType: .expense
+    )
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct NewRecordView: View {
     
     @StateObject var viewModel: NewRecordViewModel
+    @State private var showCategorySelection = false
     @FocusState private var focusedField: TextFieldCase?
     
     var onDismiss: () -> Void
@@ -42,6 +43,13 @@ struct NewRecordView: View {
                 self.saveBtn
             }
         }
+        .sheet(isPresented: self.$showCategorySelection, content: {
+            CategoriesView(
+                record: self.$viewModel.newRecord, 
+                isSelected: self.$showCategorySelection,
+                selectedCategoryType: self.viewModel.newRecord.categoryType
+            )
+        })
     }
     
     // MARK: - Views
@@ -79,9 +87,10 @@ struct NewRecordView: View {
                 set: { _ in }
             ),
             action: ({
-                // TODO: -
+                self.showCategorySelection.toggle()
             })
         )
+        .padding(.bottom)
     }
     
     private var recurringSelector: some View {

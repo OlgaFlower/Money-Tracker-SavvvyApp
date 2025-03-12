@@ -10,22 +10,29 @@ import SwiftUI
 struct CategoryList: View {
     
     let categoryGroup: CategoryGroup
+    let onCategorySelected: (Category) -> Void
     
     var body: some View {
         List {
             // If sections exist (for Recurring Expenses), show them
             if let sections = categoryGroup.sections {
+                
                 ForEach(sections) { section in
                     Section(header: Text(section.title)) {
+                        
                         ForEach(section.categories) { category in
-                            CategoryRow(category: category)
+                            CategoryRow(category: category) {
+                                onCategorySelected(category)
+                            }
                         }
                     }
                 }
             } else {
                 // Otherwise, show a plain list (for Expenses, Regular Income, One-time Income)
                 ForEach(categoryGroup.subcategories) { category in
-                    CategoryRow(category: category)
+                    CategoryRow(category: category) {
+                        onCategorySelected(category)
+                    }
                 }
             }
         }
@@ -44,6 +51,7 @@ struct CategoryList: View {
                 Category(name: "Cell Phone", icon: "phone.fill", color: .blue),
                 Category(name: "Apple One", icon: "applelogo", color: .black)
             ])
-        ], subcategories: []
-    ))
+        ],
+        subcategories: []
+    ), onCategorySelected: {_ in })
 }
