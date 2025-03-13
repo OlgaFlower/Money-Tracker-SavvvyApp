@@ -114,11 +114,13 @@ struct NewRecordView: View {
     
     private var recurringDateRangeSelector: some View {
         RecurringRangeSelectorView(
-            recurringRange: self.$viewModel.recurringRange) {
-                self.viewModel.reduceRange()
-            } onPlusTap: {
-                self.viewModel.increaseRange()
-            }
+            recurringRange: self.$viewModel.recurringRange,
+            recurringUnit: self.$viewModel.recurringUnit,
+            onMinusTap: self.viewModel.reduceRange,
+            onPlusTap: self.viewModel.increaseRange,
+            onLeftChevronTap: self.viewModel.previousUnit,
+            onRightChevronTap: self.viewModel.nextUnit
+        )
     }
     
     private var descriptionView: some View {

@@ -10,15 +10,19 @@ import SwiftUI
 struct RecurringRangeSelectorView: View {
     
     @Binding var recurringRange: Int
+    @Binding var recurringUnit: RecurringUnit
+    
     var onMinusTap: () -> Void
     var onPlusTap: () -> Void
+    var onLeftChevronTap: () -> Void
+    var onRightChevronTap: () -> Void
     
     var body: some View {
         HStack {
             ArrowBtnView(
                 iconName: "chevron.left",
                 action: {
-                    // TODO: -
+                    onLeftChevronTap()
                 }
             )
             
@@ -27,18 +31,18 @@ struct RecurringRangeSelectorView: View {
             RecurringFormTxtView(text: "Every")
             
             RecurringFormTxtView(
-                text: "\(recurringRange)",
+                text: "\(self.recurringRange)",
                 fontSize: 18,
                 weight: .medium,
                 color: .blue
             )
             
             RecurringFormTxtView(
-                text: "Days",
+                text: self.recurringUnit.rawValue,
                 fontSize: 16,
                 weight: .medium
             )
-                .padding(.trailing, 4)
+            .padding(.trailing, 4)
             
             PlusMinusBtnView(
                 onMinusTap: onMinusTap,
@@ -50,7 +54,7 @@ struct RecurringRangeSelectorView: View {
             ArrowBtnView(
                 iconName: "chevron.right",
                 action: {
-                    // TODO: -
+                    onRightChevronTap()
                 }
             )
         }
@@ -61,8 +65,11 @@ struct RecurringRangeSelectorView: View {
 
 #Preview {
     RecurringRangeSelectorView(
-        recurringRange: .constant(10),
+        recurringRange: .constant(3),
+        recurringUnit: .constant(.months),
         onMinusTap: {},
-        onPlusTap: {}
+        onPlusTap: {},
+        onLeftChevronTap: {},
+        onRightChevronTap: {}
     )
 }

@@ -63,6 +63,8 @@
 		4242751B2BA4FF73001873A3 /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4242751A2BA4FF73001873A3 /* MoneyTrackerTests.swift */; };
 		424275252BA4FF73001873A3 /* MoneyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */; };
 		424275272BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */; };
+		424C60572D83612D00147CB2 /* RecurringUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C60562D83612D00147CB2 /* RecurringUnit.swift */; };
+		424C60592D83673B00147CB2 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C60582D83673B00147CB2 /* Record.swift */; };
 		424EC7B12CA852CF00CF76E2 /* MappingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424EC7B02CA852CF00CF76E2 /* MappingService.swift */; };
 		424EC7B32CA94E2200CF76E2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424EC7B22CA94E2200CF76E2 /* DataService.swift */; };
 		4251FA502BAB94C90087ABE7 /* Views+NavBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */; };
@@ -214,6 +216,8 @@
 		424275202BA4FF73001873A3 /* MonikaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonikaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424275242BA4FF73001873A3 /* MoneyTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITests.swift; sourceTree = "<group>"; };
 		424275262BA4FF73001873A3 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		424C60562D83612D00147CB2 /* RecurringUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringUnit.swift; sourceTree = "<group>"; };
+		424C60582D83673B00147CB2 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		424EC7B02CA852CF00CF76E2 /* MappingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingService.swift; sourceTree = "<group>"; };
 		424EC7B22CA94E2200CF76E2 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		4251FA4F2BAB94C90087ABE7 /* Views+NavBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+NavBarTitleColor.swift"; sourceTree = "<group>"; };
@@ -337,7 +341,6 @@
 			children = (
 				42D043402D802BF8004F3FC6 /* Category.swift */,
 				42210E512D803FF70069A0CD /* CategorySection.swift */,
-				42210E4D2D80354F0069A0CD /* CategoryType.swift */,
 				42D0433E2D802B6D004F3FC6 /* CategoryGroup.swift */,
 			);
 			path = Categories;
@@ -346,6 +349,8 @@
 		42210E592D8045480069A0CD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				42210E4D2D80354F0069A0CD /* CategoryType.swift */,
+				424C60562D83612D00147CB2 /* RecurringUnit.swift */,
 				42210E5A2D8045670069A0CD /* CategoryConstants.swift */,
 			);
 			path = Constants;
@@ -512,6 +517,7 @@
 				42A11C292BB7173B003B617D /* MoneyModel_Old.swift */,
 				42369D992D7F129300744D95 /* TextFieldCase.swift */,
 				42210E5C2D804B990069A0CD /* TextfieldInputCase.swift */,
+				424C60582D83673B00147CB2 /* Record.swift */,
 				42210E582D8045010069A0CD /* Categories */,
 			);
 			path = Models;
@@ -946,6 +952,7 @@
 			files = (
 				422F56D52D1A103000CC3BD7 /* NewRecordViewModel.swift in Sources */,
 				42A11C2F2BB935E5003B617D /* TodayView.swift in Sources */,
+				424C60592D83673B00147CB2 /* Record.swift in Sources */,
 				423DF4212BD5A1BF00CBB6D5 /* BackgroundGradView.swift in Sources */,
 				4241F47B2BB574FE0048A29B /* HorizontalAlignment+UnderlineLeading.swift in Sources */,
 				42369D402D7B790D00744D95 /* DescriptionInputView.swift in Sources */,
@@ -1035,6 +1042,7 @@
 				42A11C2A2BB7173B003B617D /* MoneyModel_Old.swift in Sources */,
 				42369D3E2D7B78CC00744D95 /* DescriptionBackgroundView.swift in Sources */,
 				42C9EB0A2C71B4CF00D5D6EA /* TextTitleView.swift in Sources */,
+				424C60572D83612D00147CB2 /* RecurringUnit.swift in Sources */,
 				42EB69402BFD033600FF4E7F /* GeneralExpenses.swift in Sources */,
 				42210E5B2D8045670069A0CD /* CategoryConstants.swift in Sources */,
 				42369D8E2D7F01AE00744D95 /* CurrencyTextView.swift in Sources */,

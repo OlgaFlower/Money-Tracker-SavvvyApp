@@ -25,18 +25,19 @@ final class NewRecordViewModel: ObservableObject {
     @Published var inputAmount = ""
     @Published var currencySign = UserPreferences.currencySign
     @Published var recurringCatTapped = false
-    @Published var recurringRange: Int = 1
+    @Published var recurringRange: Int = 1 // 1 -> 2 -> 3
+    @Published var recurringUnit: RecurringUnit = .days // Days -> Weeks -> Months -> Years
     
     let controlOptions = ["Expense", "Income"]
     
     var regularCatPrepared: Bool {
         (self.newRecord.categoryType == .generalExpense || self.newRecord.categoryType == .oneTimeIncome)
-                && !self.newRecord.category.name.isEmpty
+        && !self.newRecord.category.name.isEmpty
     }
     
     var recurringCatPrepared: Bool {
         (self.newRecord.categoryType == .recurringExpense || self.newRecord.categoryType == .regularIncome)
-                && !self.newRecord.category.name.isEmpty
+        && !self.newRecord.category.name.isEmpty
     }
     
     var regularCatTitle: String {
@@ -65,6 +66,22 @@ final class NewRecordViewModel: ObservableObject {
     func increaseRange() {
         self.recurringRange += 1
     }
+    
+    // Backward
+    func previousUnit() {
+        let allUnits = RecurringUnit.allCases
+        guard let currentIndex = allUnits.firstIndex(of: recurringUnit) else { return }
+        let newIndex = (currentIndex - 1 + allUnits.count) % allUnits.count
+        recurringUnit = allUnits[newIndex]
+    }
+    
+    // Forward
+    func nextUnit() {
+            let allUnits = RecurringUnit.allCases
+            guard let currentIndex = allUnits.firstIndex(of: recurringUnit) else { return }
+            let newIndex = (currentIndex + 1) % allUnits.count
+            recurringUnit = allUnits[newIndex]
+        }
     
     func setupNewRecordCategoryType() {
         if self.segemntedControlTag == 0, !self.recurringCatTapped {
