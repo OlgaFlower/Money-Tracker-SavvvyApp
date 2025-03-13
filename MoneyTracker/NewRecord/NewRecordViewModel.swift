@@ -44,8 +44,9 @@ final class NewRecordViewModel: ObservableObject {
         return self.regularCatPrepared ? self.newRecord.category.name : title
     }
     
-    var regularCatIcon: String {
-        self.regularCatPrepared ? self.newRecord.category.icon : "cart.circle.fill"
+    var generalCatIcon: String {
+        let inactiveIcon = segemntedControlTag == 0 ? "cart.circle.fill" : "dollarsign.circle.fill"
+        return self.regularCatPrepared ? self.newRecord.category.icon : inactiveIcon
     }
     
     var recurringCatTitle: String {
@@ -65,7 +66,7 @@ final class NewRecordViewModel: ObservableObject {
         self.recurringRange += 1
     }
     
-    func setupCategoryType() {
+    func setupNewRecordCategoryType() {
         if self.segemntedControlTag == 0, !self.recurringCatTapped {
             self.newRecord.categoryType = .generalExpense
         }

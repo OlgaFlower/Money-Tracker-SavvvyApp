@@ -80,14 +80,15 @@ struct NewRecordView: View {
     private var generalCategorySelector: some View {
         SelectorButtonView(
             title: self.viewModel.regularCatTitle,
-            iconName: self.viewModel.regularCatIcon,
+            iconName: self.viewModel.generalCatIcon,
             isSelected: Binding(
                 get: { self.viewModel.regularCatPrepared },
                 set: { _ in }
             ),
             action: ({
+                self.viewModel.setCategoryToDefault()
                 self.viewModel.recurringCatTapped = false
-                self.viewModel.setupCategoryType()
+                self.viewModel.setupNewRecordCategoryType()
                 self.showCategorySelection.toggle()
             })
         )
@@ -103,8 +104,9 @@ struct NewRecordView: View {
                 set: { _ in }
             ),
             action: ({
+                self.viewModel.setCategoryToDefault()
                 self.viewModel.recurringCatTapped = true
-                self.viewModel.setupCategoryType()
+                self.viewModel.setupNewRecordCategoryType()
                 self.showCategorySelection.toggle()
             })
         )
