@@ -26,7 +26,7 @@ struct NewRecordView: View {
                     self.generalCategorySelector
                     self.recurringCategorySelector
                     
-                    if self.viewModel.regularCatPrepared {
+                    if self.viewModel.recurringCatPrepared {
                         self.recurringDateRangeSelector
                     }
                     
