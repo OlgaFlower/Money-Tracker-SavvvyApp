@@ -23,10 +23,10 @@ struct NewRecordView: View {
                     self.cancelBtnView
                     self.segmentedControlView
                     self.currencyView
-                    self.categorySelector
-                    self.recurringSelector
+                    self.generalCategorySelector
+                    self.recurringCategorySelector
                     
-                    if self.viewModel.regularCatSelected {
+                    if self.viewModel.regularCatPrepared {
                         self.recurringDateRangeSelector
                     }
                     
@@ -46,8 +46,7 @@ struct NewRecordView: View {
         .sheet(isPresented: self.$showCategorySelection, content: {
             CategoriesView(
                 record: self.$viewModel.newRecord, 
-                isSelected: self.$showCategorySelection,
-                selectedCategoryType: self.viewModel.newRecord.categoryType
+                isSelected: self.$showCategorySelection
             )
         })
     }
@@ -62,10 +61,10 @@ struct NewRecordView: View {
     
     private var segmentedControlView: some View {
         CustomSegmentedControlView(
-            tag: self.$viewModel.preselectedTag,
+            tag: self.$viewModel.segemntedControlTag,
             controlOptions: self.viewModel.controlOptions
         )
-        .onChange(of: self.viewModel.preselectedTag) { _, _ in
+        .onChange(of: self.viewModel.segemntedControlTag) { _, _ in
             self.viewModel.setCategoryToDefault()
         }
     }
@@ -78,31 +77,35 @@ struct NewRecordView: View {
         .focused(self.$focusedField, equals: .currency)
     }
     
-    private var categorySelector: some View {
+    private var generalCategorySelector: some View {
         SelectorButtonView(
             title: self.viewModel.regularCatTitle,
             iconName: self.viewModel.regularCatIcon,
             isSelected: Binding(
-                get: { self.viewModel.regularCatSelected },
+                get: { self.viewModel.regularCatPrepared },
                 set: { _ in }
             ),
             action: ({
+                self.viewModel.recurringCatTapped = false
+                self.viewModel.setupCategoryType()
                 self.showCategorySelection.toggle()
             })
         )
         .padding(.bottom)
     }
     
-    private var recurringSelector: some View {
+    private var recurringCategorySelector: some View {
         SelectorButtonView(
             title: self.viewModel.recurringCatTitle,
             iconName: self.viewModel.recurringCatIcon,
             isSelected: Binding(
-                get: { self.viewModel.recurringCatSelected },
+                get: { self.viewModel.recurringCatPrepared },
                 set: { _ in }
             ),
             action: ({
-                // TODO: -
+                self.viewModel.recurringCatTapped = true
+                self.viewModel.setupCategoryType()
+                self.showCategorySelection.toggle()
             })
         )
     }

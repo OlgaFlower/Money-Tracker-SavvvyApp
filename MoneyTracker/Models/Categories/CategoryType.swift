@@ -8,7 +8,7 @@
 import Foundation
 
 enum CategoryType: String, CaseIterable, Identifiable {
-    case expense = "Expense"
+    case generalExpense = "Expense"
     case recurringExpense = "Recurring Expense"
     case oneTimeIncome = "One-off Income"
     case regularIncome = "Regular Income"

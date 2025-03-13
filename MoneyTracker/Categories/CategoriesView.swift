@@ -11,10 +11,9 @@ struct CategoriesView: View {
     
     @Binding var record: Record
     @Binding var isSelected: Bool
-    let selectedCategoryType: CategoryType
     
     private var categoryGroup: CategoryGroup? {
-        return CategoryConstants.allCategories.first { $0.type == selectedCategoryType }
+        return CategoryConstants.allCategories.first { $0.type == record.categoryType }
     }
     
     var body: some View {
@@ -37,7 +36,6 @@ struct CategoriesView: View {
 #Preview {
     CategoriesView(
         record: .constant(Record()),
-        isSelected: .constant(false),
-        selectedCategoryType: .expense
+        isSelected: .constant(false)
     )
 }

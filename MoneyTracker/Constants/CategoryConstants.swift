@@ -13,7 +13,7 @@ struct CategoryConstants {
     
     // MARK: - Expenses (One-time Purchases)
     static let expense = CategoryGroup(
-        type: .expense,
+        type: .generalExpense,
         sections: nil,
         subcategories: [
             // Daily Expenses

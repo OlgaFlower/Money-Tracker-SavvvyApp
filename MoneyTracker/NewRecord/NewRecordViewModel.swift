@@ -9,7 +9,7 @@ import Foundation
 
 struct Record {
     var id: UUID = UUID()
-    var categoryType: CategoryType = .expense
+    var categoryType: CategoryType = .generalExpense
     var category = Category(
         name: "",
         icon: "",
@@ -21,38 +21,40 @@ struct Record {
 final class NewRecordViewModel: ObservableObject {
     
     @Published var newRecord = Record()
+    @Published var segemntedControlTag: Int = 0 // Segmented control - Expense/Income
     @Published var inputAmount = ""
     @Published var currencySign = UserPreferences.currencySign
-    
+    @Published var recurringCatTapped = false
     @Published var recurringRange: Int = 1
-    @Published var preselectedTag: Int = 0 // Segmented control
     
     let controlOptions = ["Expense", "Income"]
     
-    var regularCatSelected: Bool {
-        (self.newRecord.categoryType == .expense || self.newRecord.categoryType == .oneTimeIncome)
+    var regularCatPrepared: Bool {
+        (self.newRecord.categoryType == .generalExpense || self.newRecord.categoryType == .oneTimeIncome)
                 && !self.newRecord.category.name.isEmpty
     }
     
-    var recurringCatSelected: Bool {
+    var recurringCatPrepared: Bool {
         (self.newRecord.categoryType == .recurringExpense || self.newRecord.categoryType == .regularIncome)
                 && !self.newRecord.category.name.isEmpty
     }
     
     var regularCatTitle: String {
-        self.regularCatSelected ? self.newRecord.category.name : "Regular"
+        let title = segemntedControlTag == 0 ? "General" : "One-Time"
+        return self.regularCatPrepared ? self.newRecord.category.name : title
     }
     
     var regularCatIcon: String {
-        self.regularCatSelected ? self.newRecord.category.icon : "cart.circle.fill"
+        self.regularCatPrepared ? self.newRecord.category.icon : "cart.circle.fill"
     }
     
     var recurringCatTitle: String {
-        self.recurringCatSelected ? self.newRecord.category.name : "Recurring"
+        let title = segemntedControlTag == 0 ? "Recurring" : "Regular"
+        return self.recurringCatPrepared ? self.newRecord.category.name : title
     }
     
     var recurringCatIcon: String {
-        self.recurringCatSelected ? self.newRecord.category.icon : "repeat.circle.fill"
+        self.recurringCatPrepared ? self.newRecord.category.icon : "repeat.circle.fill"
     }
     
     func reduceRange() {
@@ -61,6 +63,21 @@ final class NewRecordViewModel: ObservableObject {
     
     func increaseRange() {
         self.recurringRange += 1
+    }
+    
+    func setupCategoryType() {
+        if self.segemntedControlTag == 0, !self.recurringCatTapped {
+            self.newRecord.categoryType = .generalExpense
+        }
+        if self.segemntedControlTag == 0, self.recurringCatTapped {
+            self.newRecord.categoryType = .recurringExpense
+        }
+        if self.segemntedControlTag == 1, !self.recurringCatTapped {
+            self.newRecord.categoryType = .oneTimeIncome
+        }
+        if self.segemntedControlTag == 1, self.recurringCatTapped {
+            self.newRecord.categoryType = .regularIncome
+        }
     }
     
     func setCategoryToDefault() {
