@@ -20,9 +20,20 @@ struct UserInputMoneyAmountView: View {
                 inputAmount: $inputAmount,
                 isKeyboardFocused: _isKeyboardFocused
             )
-                .onChange(of: inputAmount) {
+            .onChange(of: inputAmount) { _, newValue in
+                // Remove any non-digit characters.
+                let cleanNumber = newValue.replacingOccurrences(
+                    of: "[^0-9]",
+                    with: "",
+                    options: .regularExpression
+                )
+                // If the first (and only) digit is "0", clear the input.
+                if cleanNumber.count == 1 && cleanNumber == "0" {
+                    inputAmount = ""
+                } else {
                     formatAndUpdate()
                 }
+            }
         }
     }
 }
