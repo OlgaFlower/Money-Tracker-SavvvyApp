@@ -12,7 +12,7 @@ struct TabItems: View {
     var body: some View {
         Group {
             NavigationStack {
-                HomeView()
+                HomeView(viewModel: HomeViewModel())
             }
             .tabItem {
                 Label(

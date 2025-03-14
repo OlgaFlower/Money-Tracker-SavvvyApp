@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     // MARK: - States
+    @StateObject var viewModel: HomeViewModel
     @State var isButtonActive: Bool = true
     @State private var isNewRecordPresented = false
     
@@ -38,9 +39,13 @@ struct HomeView: View {
             NewRecordView(
                 viewModel: NewRecordViewModel(),
                 onDismiss: {
-                self.isNewRecordPresented.toggle()
-            })
+                    self.isNewRecordPresented.toggle()
+                    self.viewModel.fetchRecords()
+                })
         })
+        .onAppear {
+            self.viewModel.fetchRecords()
+        }
     }
     
     //MARK: - Views
@@ -71,5 +76,5 @@ struct HomeView: View {
 
 // MARK: - Preview
 #Preview {
-    HomeView()
+    HomeView(viewModel: HomeViewModel())
 }

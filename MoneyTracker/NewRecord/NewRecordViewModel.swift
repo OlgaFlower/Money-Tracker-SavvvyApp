@@ -6,37 +6,42 @@
 //
 
 import Foundation
-
-struct Record {
-    var id: UUID = UUID()
-    var categoryType: CategoryType = .generalExpense
-    var category = Category(
-        name: "",
-        icon: "",
-        color: .blue
-    )
-    var description: String = ""
-}
+import CoreData
 
 final class NewRecordViewModel: ObservableObject {
     
-    @Published var newRecord = Record()
-    @Published var segemntedControlTag: Int = 0 // Segmented control - Expense/Income
+    @Published var newRecord = Record(
+        categoryType: CategoryType.generalExpense.rawValue,
+        category: Category(
+            name: "",
+            icon: ""
+        ),
+        note: "",
+        moneyAmount: 0,
+        timestamp: Date(),
+        recurringUnit: "",
+        recurringRange: 0
+    )
+    
+    @Published var segemntedControlTag: Int = 0 // Segmented control - Expense/Income (0/1)
     @Published var inputAmount = ""
     @Published var currencySign = UserPreferences.currencySign
     @Published var recurringCatTapped = false
     @Published var recurringRange: Int = 1 // 1 -> 2 -> 3
     @Published var recurringUnit: RecurringUnit = .days // Days -> Weeks -> Months -> Years
+    @Published var categoryType: CategoryType = .generalExpense
     
     let controlOptions = ["Expense", "Income"]
     
     var regularCatPrepared: Bool {
-        (self.newRecord.categoryType == .generalExpense || self.newRecord.categoryType == .oneTimeIncome)
+        guard let type = CategoryType(rawValue: self.newRecord.categoryType) else { return false }
+        return (type == .generalExpense || type == .oneTimeIncome)
         && !self.newRecord.category.name.isEmpty
     }
     
     var recurringCatPrepared: Bool {
-        (self.newRecord.categoryType == .recurringExpense || self.newRecord.categoryType == .regularIncome)
+        guard let type = CategoryType(rawValue: self.newRecord.categoryType) else { return false }
+        return (type == .recurringExpense || type == .regularIncome)
         && !self.newRecord.category.name.isEmpty
     }
     
@@ -77,28 +82,48 @@ final class NewRecordViewModel: ObservableObject {
     
     // Forward
     func nextUnit() {
-            let allUnits = RecurringUnit.allCases
-            guard let currentIndex = allUnits.firstIndex(of: recurringUnit) else { return }
-            let newIndex = (currentIndex + 1) % allUnits.count
-            recurringUnit = allUnits[newIndex]
-        }
+        let allUnits = RecurringUnit.allCases
+        guard let currentIndex = allUnits.firstIndex(of: recurringUnit) else { return }
+        let newIndex = (currentIndex + 1) % allUnits.count
+        recurringUnit = allUnits[newIndex]
+    }
     
     func setupNewRecordCategoryType() {
         if self.segemntedControlTag == 0, !self.recurringCatTapped {
-            self.newRecord.categoryType = .generalExpense
+            self.newRecord.categoryType = CategoryType.generalExpense.rawValue
+            print(self.newRecord.categoryType)
         }
         if self.segemntedControlTag == 0, self.recurringCatTapped {
-            self.newRecord.categoryType = .recurringExpense
+            self.newRecord.categoryType = CategoryType.recurringExpense.rawValue
+            print(self.newRecord.categoryType)
         }
         if self.segemntedControlTag == 1, !self.recurringCatTapped {
-            self.newRecord.categoryType = .oneTimeIncome
+            self.newRecord.categoryType = CategoryType.oneTimeIncome.rawValue
+            print(self.newRecord.categoryType)
         }
         if self.segemntedControlTag == 1, self.recurringCatTapped {
-            self.newRecord.categoryType = .regularIncome
+            self.newRecord.categoryType = CategoryType.regularIncome.rawValue
+            print(self.newRecord.categoryType)
         }
     }
     
     func setCategoryToDefault() {
-        self.newRecord.category = Category(name: "", icon: "", color: .blue)
+        self.newRecord.category = Category(name: "", icon: "")
+    }
+    
+    func saveNewRecord(context: NSManagedObjectContext) {
+        let moneyAmount = self.inputAmount.toInt64()
+        if moneyAmount != 0,
+           !self.newRecord.category.name.isEmpty {
+            
+            self.newRecord.moneyAmount = moneyAmount
+            self.newRecord.recurringUnit = self.recurringUnit.rawValue
+            self.newRecord.recurringRange = Int64(self.recurringRange)
+            
+            print(newRecord)
+            
+            CoreDataManager.shared.makeNewRecord(from: self.newRecord, using: context)
+            print("saved")
+        }
     }
 }

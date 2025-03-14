@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NewRecordView: View {
     
+    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: NewRecordViewModel
     @State private var showCategorySelection = false
     @FocusState private var focusedField: TextFieldCase?
@@ -45,7 +47,7 @@ struct NewRecordView: View {
         }
         .sheet(isPresented: self.$showCategorySelection, content: {
             CategoriesView(
-                record: self.$viewModel.newRecord, 
+                record: self.$viewModel.newRecord,
                 isSelected: self.$showCategorySelection
             )
         })
@@ -124,7 +126,7 @@ struct NewRecordView: View {
     }
     
     private var descriptionView: some View {
-        DescriptionView(text: self.$viewModel.newRecord.description)
+        DescriptionView(text: self.$viewModel.newRecord.note)
             .focused(self.$focusedField, equals: .description)
             .padding(.top, 24)
     }
@@ -133,7 +135,8 @@ struct NewRecordView: View {
         VStack {
             Spacer()
             PinkButtonView(title: "Save") {
-                // TODO: -
+                self.viewModel.saveNewRecord(context: self.viewContext)
+                dismiss()
             }
             .padding(.bottom, 24)
         }

@@ -44,12 +44,12 @@ struct CategoryList: View {
         type: .recurringExpense,
         sections: [
             CategorySection(title: "Housing", categories: [
-                Category(name: "Rent", icon: "house.fill", color: .orange),
-                Category(name: "Mortgage", icon: "building.fill", color: .pink)
+                Category(name: "Rent", icon: "house.fill"),
+                Category(name: "Mortgage", icon: "building.fill")
             ]),
             CategorySection(title: "Tech", categories: [
-                Category(name: "Cell Phone", icon: "phone.fill", color: .blue),
-                Category(name: "Apple One", icon: "applelogo", color: .black)
+                Category(name: "Cell Phone", icon: "phone.fill"),
+                Category(name: "Apple One", icon: "applelogo")
             ])
         ],
         subcategories: []
