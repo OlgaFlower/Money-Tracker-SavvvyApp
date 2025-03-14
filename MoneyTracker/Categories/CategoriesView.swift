@@ -13,7 +13,8 @@ struct CategoriesView: View {
     @Binding var isSelected: Bool
     
     private var categoryGroup: CategoryGroup? {
-        return CategoryConstants.allCategories.first { $0.type == record.categoryType }
+        guard let recordCategory = CategoryType(rawValue: record.categoryType) else { return nil }
+        return CategoryConstants.allCategories.first { $0.type == recordCategory }
     }
     
     var body: some View {
@@ -35,7 +36,20 @@ struct CategoriesView: View {
 
 #Preview {
     CategoriesView(
-        record: .constant(Record()),
+        record: .constant(
+            Record(
+                categoryType: (CategoryType(rawValue: 0) ?? .generalExpense).rawValue,
+                category: Category(
+                    name: "Category name",
+                    icon: "sun"
+                ),
+                note: "Some Note",
+                moneyAmount: 17,
+                timestamp: Date(),
+                recurringUnit: "months",
+                recurringRange: 5
+            )
+        ),
         isSelected: .constant(false)
     )
 }

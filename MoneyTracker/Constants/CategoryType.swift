@@ -7,11 +7,24 @@
 
 import Foundation
 
-enum CategoryType: String, CaseIterable, Identifiable {
-    case generalExpense = "Expense"
-    case recurringExpense = "Recurring Expense"
-    case oneTimeIncome = "One-off Income"
-    case regularIncome = "Regular Income"
+enum CategoryType: Int16, CaseIterable, Identifiable {
+    case generalExpense = 0
+    case recurringExpense = 1
+    case oneTimeIncome = 2
+    case regularIncome = 3
     
-    var id: String { self.rawValue }
+    var id: Int16 { self.rawValue }
+    
+    var title: String {
+        switch self {
+        case .generalExpense:
+            return "Expense"
+        case .recurringExpense:
+            return "Recurring Expense"
+        case .oneTimeIncome:
+            return "One-off Income"
+        case .regularIncome:
+            return "Regular Income"
+        }
+    }
 }

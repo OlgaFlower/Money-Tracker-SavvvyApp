@@ -16,7 +16,7 @@ struct CategoryRow: View {
         HStack(spacing: 10) {
             CategoryIconView(
                 icon: category.icon,
-                color: category.color
+                color: .green
             )
             CategoryLabel(text: category.name)
             Spacer()
@@ -33,8 +33,7 @@ struct CategoryRow: View {
     CategoryRow(
         category: Category(
             name: "Eating out",
-            icon: "cup.and.saucer.fill",
-            color: .brown
+            icon: "cup.and.saucer.fill"
         ),
         onSelect: {}
     )
