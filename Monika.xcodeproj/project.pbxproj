@@ -611,8 +611,7 @@
 				427A90722D0EDB7800633C5C /* HomeHeaderView.swift */,
 				427A90742D0EE97F00633C5C /* WelcomeView.swift */,
 				427A90792D0F284600633C5C /* LazyView.swift */,
-				424C60602D8581BA00147CB2 /* ChartView.swift */,
-				424C605E2D85817900147CB2 /* ChartHalfDonut.swift */,
+				4283BEB62D8727DE00C282A5 /* Chart */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -641,6 +640,15 @@
 				422F56D42D1A103000CC3BD7 /* NewRecordViewModel.swift */,
 			);
 			path = NewRecord;
+			sourceTree = "<group>";
+		};
+		4283BEB62D8727DE00C282A5 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				424C605E2D85817900147CB2 /* ChartHalfDonut.swift */,
+				424C60602D8581BA00147CB2 /* ChartView.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		42840CEF2C9B30D100E62068 /* Actions */ = {
