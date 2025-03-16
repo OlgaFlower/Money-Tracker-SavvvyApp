@@ -14,6 +14,8 @@ struct HomeView: View {
     @State var isButtonActive: Bool = true
     @State private var isNewRecordPresented = false
     
+    let showWelcomeView = false
+    
     // MARK: - Body
     var body: some View {
         
@@ -22,7 +24,17 @@ struct HomeView: View {
             HomeHeaderView()
                 .padding(.horizontal, 20)
             VStack {
-                WelcomeView()
+                if showWelcomeView {
+                    WelcomeView()
+                } else {
+                    ChartView(
+                        animatedLeftover: 800,
+                        animatedBudget: 878,
+                        leftoverTextColor: .pink,
+                        chartAnimated: false
+                    )
+                    .frame(width: 250, height: 250)
+                }
                 
             }
             VStack {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChartHalfDonut: GaugeStyle {
+struct ChartHalfDonut_old: GaugeStyle {
     // "EUR" - default value
     @AppStorage("userCurrency") var currency: String = "EUR"
     
