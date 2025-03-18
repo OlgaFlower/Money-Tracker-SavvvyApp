@@ -41,8 +41,13 @@ final class NewRecordViewModel: ObservableObject {
     
     var recurringCatPrepared: Bool {
         guard let type = CategoryType(rawValue: self.newRecord.categoryType) else { return false }
+        
         return (type == .recurringExpense || type == .regularIncome)
         && !self.newRecord.category.name.isEmpty
+    }
+    
+    var activateSaveBtn: Bool {
+        ((self.regularCatPrepared || self.recurringCatPrepared) && !self.inputAmount.isEmpty)
     }
     
     var regularCatTitle: String {
@@ -62,6 +67,10 @@ final class NewRecordViewModel: ObservableObject {
     
     var recurringCatIcon: String {
         self.recurringCatPrepared ? self.newRecord.category.icon : "repeat.circle.fill"
+    }
+    
+    var isSaveBtnActive: Bool {
+        self.newRecord.moneyAmount != 0 && !self.newRecord.category.name.isEmpty
     }
     
     func reduceRange() {

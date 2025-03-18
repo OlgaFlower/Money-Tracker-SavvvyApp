@@ -10,11 +10,11 @@ import SwiftUI
 struct ButtonContentView: View {
     
     var title: String
-    var isActive: Bool
+    @Binding var isActive: Bool
     
     var body: some View {
         ZStack {
-            ButtonBackgroundView(isActive: self.isActive)
+            ButtonBackgroundView(isActive: self.$isActive)
             ButtonTitleView(
                 title: self.title,
                 isActive: self.isActive
@@ -27,12 +27,12 @@ struct ButtonContentView: View {
     Group {
         ButtonContentView(
             title: "Save",
-            isActive: true
+            isActive: .constant(true)
         )
         
         ButtonContentView(
             title: "Save",
-            isActive: false
+            isActive: .constant(false)
         )
     }
 }

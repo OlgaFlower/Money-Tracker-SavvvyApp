@@ -1,15 +1,15 @@
 //
-//  PinkButtonView.swift
+//  PinkActiveButtonView.swift
 //  Monika
 //
-//  Created by Olha Bereziuk on 07.03.25.
+//  Created by Olha Bereziuk on 18.03.25.
 //
 
 import SwiftUI
 
-struct PinkButtonView: View {
+struct PinkActiveButtonView: View {
     
-    @Binding var isBtnActive: Bool
+    @State var isBtnActive = true
     var title: String
     var action: () -> Void
     
@@ -28,9 +28,9 @@ struct PinkButtonView: View {
 }
 
 #Preview {
-    PinkButtonView(
-        isBtnActive: .constant(false),
-        title: "Save",
+    PinkActiveButtonView(
+        isBtnActive: true,
+        title: "Next",
         action: {}
     )
 }

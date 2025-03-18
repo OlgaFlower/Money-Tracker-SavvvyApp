@@ -56,10 +56,11 @@ final class CoreDataManager {
         let request = NSFetchRequest<Money>(entityName: "Money")
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Money.timestamp, ascending: true)]
         request.predicate = NSPredicate(
-            format: "timestamp >= %@ AND timestamp < %@ AND isIncome == %d",
+            format: "timestamp >= %@ AND timestamp < %@ AND (categoryType == %d OR categoryType == %d)",
             Calendar.current.startOfDay(for: date) as NSDate,
             Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: date))! as NSDate,
-            false
+            0,
+            1
         )
         do {
             let result = try PersistenceController.shared.container.viewContext.fetch(request)
@@ -92,8 +93,9 @@ final class CoreDataManager {
         let request = NSFetchRequest<Money>(entityName: "Money")
         
         let timestampPredicate = NSPredicate(format: "timestamp >= %@ AND timestamp < %@", startOfMonth as NSDate, startOfNextMonth as NSDate)
-        let isIncomePredicate = NSPredicate(format: "isIncome == %d", true)
-        let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [timestampPredicate, isIncomePredicate])
+        let categoryTypePredicate = NSPredicate(format: "categoryType == %d OR categoryType == %d", 2, 3)
+        
+        let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [timestampPredicate, categoryTypePredicate])
         request.predicate = combinedPredicate
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Money.timestamp, ascending: true)]
         
@@ -103,6 +105,7 @@ final class CoreDataManager {
         } catch let error {
             print("Error fetching month income records: \(error)")
         }
+        
         return []
     }
     

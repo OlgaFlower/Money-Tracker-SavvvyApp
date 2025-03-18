@@ -28,8 +28,8 @@ struct HomeView: View {
                     WelcomeView()
                 } else {
                     ChartView(
-                        animatedLeftover: 800,
-                        animatedBudget: 878,
+                        animatedLeftover: self.viewModel.leftover,
+                        animatedBudget: self.viewModel.dayBudget,
                         leftoverTextColor: .pink,
                         chartAnimated: false
                     )
@@ -50,13 +50,14 @@ struct HomeView: View {
         .fullScreenCover(isPresented: self.$isNewRecordPresented, content: {
             NewRecordView(
                 viewModel: NewRecordViewModel(),
-                onDismiss: {
+                recordsUpdated: self.$viewModel.recordsUpdated) {
                     self.isNewRecordPresented.toggle()
-                    self.viewModel.fetchRecords()
-                })
+                }
         })
-        .onAppear {
-            self.viewModel.fetchRecords()
+        .onChange(of: self.viewModel.recordsUpdated) { _, newValue in
+            if newValue {
+                self.viewModel.updateValues()
+            }
         }
     }
     

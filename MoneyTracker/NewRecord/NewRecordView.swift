@@ -14,6 +14,7 @@ struct NewRecordView: View {
     @StateObject var viewModel: NewRecordViewModel
     @State private var showCategorySelection = false
     @FocusState private var focusedField: TextFieldCase?
+    @Binding var recordsUpdated: Bool
     
     var onDismiss: () -> Void
     
@@ -134,8 +135,15 @@ struct NewRecordView: View {
     private var saveBtn: some View {
         VStack {
             Spacer()
-            PinkButtonView(title: "Save") {
+            PinkButtonView(
+                isBtnActive: Binding<Bool>(
+                    get: { self.viewModel.activateSaveBtn },
+                    set: { _ in }
+                ),
+                title: "Save"
+            ) {
                 self.viewModel.saveNewRecord(context: self.viewContext)
+                self.recordsUpdated = true
                 dismiss()
             }
             .padding(.bottom, 24)
@@ -147,6 +155,7 @@ struct NewRecordView: View {
 #Preview {
     NewRecordView(
         viewModel: NewRecordViewModel(),
+        recordsUpdated: .constant(true),
         onDismiss: {}
     )
 }
