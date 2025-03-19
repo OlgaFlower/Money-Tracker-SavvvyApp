@@ -22,9 +22,9 @@ final class DataService: ObservableObject {
     private let calendarManager: CalendarManager
     
     // MARK: - Computed properties
-    var todayExpensesRecords: [MoneyModel] {
-        self.dataManager.fetchExpensesForDay(date: Date.now)
-    }
+    var todayExpensesRecords: [Record] {
+            self.dataManager.fetchExpensesForDay(date: Date.now)
+        }
     
     // MARK: - Init
     private init(
@@ -43,11 +43,11 @@ final class DataService: ObservableObject {
         self.todayLeftover = self.calcTodayLeftover()
     }
     
-    func getRecordById(recordId: String) -> MoneyModel? {
+    func getRecordById(recordId: String) -> Record? {
         return self.dataManager.fetchRecordById(recordId: recordId)
     }
     
-    func getRecords(for date: Date) -> [MoneyModel] {
+    func getRecords(for date: Date) -> [Record] {
         return self.dataManager.fetchRecords(for: date)
     }
     
@@ -61,29 +61,19 @@ final class DataService: ObservableObject {
         )
     }
     
-    func saveEditedRecord(
-        id: String,
-        timestamp: Date,
-        moneyAmount: Int64,
-        categoryName: String,
-        categoryIcon: String,
-        notes: String?,
-        typeTag: Int16,
-        using managedObjectContext: NSManagedObjectContext
-    ) {
-        self.dataManager.makeNewRecordWith(
-            id: id,
-            moneyAmount: moneyAmount,
-            currency: "",
-            isIncome: false,
-            categoryName: categoryName,
-            categoryIcon: categoryIcon,
-            timestamp: timestamp,
-            notes: notes,
-            typeTag: typeTag,
-            using: managedObjectContext
-        )
-    }
+//    func saveEditedRecord(record: Record, using managedObjectContext: NSManagedObjectContext) {
+//        if let record = dataManager.fetchRecordById(recordId: record.id.uuidString) {
+//            Money.update(money: managedObjectContext, from: record)
+//            do {
+//                try managedObjectContext.save()
+//                print("Record updated successfully!")
+//            } catch {
+//                print("Error updating record: \(error.localizedDescription)")
+//            }
+//        } else {
+//            print("No matching Money object found for record id: \(record.id.uuidString)")
+//        }
+//    }
 }
 
 // MARK: - Extension

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ButtonBackgroundView: View {
     
-    var isActive: Bool
+    @Binding var isActive: Bool
     
     var body: some View {
         ZStack {
@@ -25,7 +25,7 @@ struct ButtonBackgroundView: View {
 
 #Preview {
     Group {
-        ButtonBackgroundView(isActive: true)
-        ButtonBackgroundView(isActive: false)
+        ButtonBackgroundView(isActive: .constant(true))
+        ButtonBackgroundView(isActive: .constant(false))
     }
 }

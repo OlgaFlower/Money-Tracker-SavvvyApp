@@ -31,13 +31,6 @@ struct ContentView: View {
             }
         }
     }
-    
-    // MARK: - Views
-    
-    private func makeTabBarIcon(_ iconName: String) -> some View {
-        Image(iconName)
-            .renderingMode(.template)
-    }
 }
 
 #Preview {

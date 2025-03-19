@@ -9,10 +9,12 @@ import SwiftUI
 
 struct NewRecordView: View {
     
+    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: NewRecordViewModel
-    @State private var preselectedTag: Int = 0
-    @State private var descriptionText: String = ""
+    @State private var showCategorySelection = false
     @FocusState private var focusedField: TextFieldCase?
+    @Binding var recordsUpdated: Bool
     
     var onDismiss: () -> Void
     
@@ -24,10 +26,10 @@ struct NewRecordView: View {
                     self.cancelBtnView
                     self.segmentedControlView
                     self.currencyView
-                    self.categorySelector
-                    self.recurringSelector
+                    self.generalCategorySelector
+                    self.recurringCategorySelector
                     
-                    if self.viewModel.regularCatSelected {
+                    if self.viewModel.recurringCatPrepared {
                         self.recurringDateRangeSelector
                     }
                     
@@ -44,6 +46,12 @@ struct NewRecordView: View {
                 self.saveBtn
             }
         }
+        .sheet(isPresented: self.$showCategorySelection, content: {
+            CategoriesView(
+                record: self.$viewModel.newRecord,
+                isSelected: self.$showCategorySelection
+            )
+        })
     }
     
     // MARK: - Views
@@ -56,9 +64,12 @@ struct NewRecordView: View {
     
     private var segmentedControlView: some View {
         CustomSegmentedControlView(
-            tag: self.$preselectedTag,
-            controlOptions: ["Expense", "Income"]
+            tag: self.$viewModel.segemntedControlTag,
+            controlOptions: self.viewModel.controlOptions
         )
+        .onChange(of: self.viewModel.segemntedControlTag) { _, _ in
+            self.viewModel.setCategoryToDefault()
+        }
     }
     
     private var currencyView: some View {
@@ -69,45 +80,54 @@ struct NewRecordView: View {
         .focused(self.$focusedField, equals: .currency)
     }
     
-    private var categorySelector: some View {
+    private var generalCategorySelector: some View {
         SelectorButtonView(
-            title: "Regular",
-            iconName: "cart.circle.fill",
+            title: self.viewModel.regularCatTitle,
+            iconName: self.viewModel.generalCatIcon,
             isSelected: Binding(
-                get: { self.viewModel.regularCatSelected },
+                get: { self.viewModel.regularCatPrepared },
                 set: { _ in }
             ),
             action: ({
-                // TODO: -
+                self.viewModel.setCategoryToDefault()
+                self.viewModel.recurringCatTapped = false
+                self.viewModel.setupNewRecordCategoryType()
+                self.showCategorySelection.toggle()
             })
         )
+        .padding(.bottom)
     }
     
-    private var recurringSelector: some View {
+    private var recurringCategorySelector: some View {
         SelectorButtonView(
-            title: "Recurring",
-            iconName: "repeat.circle.fill",
+            title: self.viewModel.recurringCatTitle,
+            iconName: self.viewModel.recurringCatIcon,
             isSelected: Binding(
-                get: { self.viewModel.recurringCatSelected },
+                get: { self.viewModel.recurringCatPrepared },
                 set: { _ in }
             ),
             action: ({
-                // TODO: -
+                self.viewModel.setCategoryToDefault()
+                self.viewModel.recurringCatTapped = true
+                self.viewModel.setupNewRecordCategoryType()
+                self.showCategorySelection.toggle()
             })
         )
     }
     
     private var recurringDateRangeSelector: some View {
         RecurringRangeSelectorView(
-            recurringRange: self.$viewModel.recurringRange) {
-                self.viewModel.reduceRange()
-            } onPlusTap: {
-                self.viewModel.increaseRange()
-            }
+            recurringRange: self.$viewModel.recurringRange,
+            recurringUnit: self.$viewModel.recurringUnit,
+            onMinusTap: self.viewModel.reduceRange,
+            onPlusTap: self.viewModel.increaseRange,
+            onLeftChevronTap: self.viewModel.previousUnit,
+            onRightChevronTap: self.viewModel.nextUnit
+        )
     }
     
     private var descriptionView: some View {
-        DescriptionView(text: self.$descriptionText)
+        DescriptionView(text: self.$viewModel.newRecord.note)
             .focused(self.$focusedField, equals: .description)
             .padding(.top, 24)
     }
@@ -115,8 +135,16 @@ struct NewRecordView: View {
     private var saveBtn: some View {
         VStack {
             Spacer()
-            PinkButtonView(title: "Save") {
-                // TODO: -
+            PinkButtonView(
+                isBtnActive: Binding<Bool>(
+                    get: { self.viewModel.activateSaveBtn },
+                    set: { _ in }
+                ),
+                title: "Save"
+            ) {
+                self.viewModel.saveNewRecord(context: self.viewContext)
+                self.recordsUpdated = true
+                dismiss()
             }
             .padding(.bottom, 24)
         }
@@ -127,6 +155,7 @@ struct NewRecordView: View {
 #Preview {
     NewRecordView(
         viewModel: NewRecordViewModel(),
+        recordsUpdated: .constant(true),
         onDismiss: {}
     )
 }

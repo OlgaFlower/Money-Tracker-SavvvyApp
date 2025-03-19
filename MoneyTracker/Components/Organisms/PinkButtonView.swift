@@ -9,39 +9,17 @@ import SwiftUI
 
 struct PinkButtonView: View {
     
-    @State private var isActiveBtnState: Bool = true
-    private var isActiveBinding: Binding<Bool>?
+    @Binding var isBtnActive: Bool
     var title: String
     var action: () -> Void
     
-    // MARK: - Initializers
-    init(
-        isActive: Binding<Bool>,
-        title: String,
-        action: @escaping () -> Void
-    ) {
-        self.isActiveBinding = isActive
-        self.title = title
-        self.action = action
-    }
-    
-    init(
-        title: String,
-        action: @escaping () -> Void
-    ) {
-        self.title = title
-        self.action = action
-    }
-    
-    // MARK: - Body
     var body: some View {
-        let isActive = self.isActiveBinding?.wrappedValue ?? self.isActiveBtnState
         
         ButtonContentView(
             title: self.title,
-            isActive: isActive
+            isActive: self.$isBtnActive
         )
-        .animation(.easeInOut(duration: 0.5), value: isActive)
+        .animation(.easeInOut(duration: 0.5), value: self.isBtnActive)
         .onTapGesture {
             VibrateService.vibrateMedium()
             action()
@@ -51,6 +29,7 @@ struct PinkButtonView: View {
 
 #Preview {
     PinkButtonView(
+        isBtnActive: .constant(false),
         title: "Save",
         action: {}
     )

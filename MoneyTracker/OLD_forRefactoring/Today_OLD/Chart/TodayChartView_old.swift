@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TodayChartView: View {
+struct TodayChartView_old: View {
     
     // MARK: - Properties
     var animatedLeftover: Double
@@ -30,11 +30,11 @@ struct TodayChartView: View {
             Text("LEFTOVER")
                 .font(.customFont(style: .regular, size: .body))
                 .foregroundStyle(.white.opacity(0.9))
-            Text(" \(String(describing: self.animatedLeftover).formatAsCurrency())")
+            Text(self.animatedLeftover.formatAsCurrency())
                 .contentTransition(.numericText())
                 .animation(.linear, value: self.animatedLeftover)
         }
-        .gaugeStyle(ChartHalfDonut(
+        .gaugeStyle(ChartHalfDonut_old(
             leftoverColor: self.leftoverTextColor,
             animateChart: self.chartAnimated)
         )
@@ -43,7 +43,7 @@ struct TodayChartView: View {
 
 // MARK: - Preview
 #Preview {
-    TodayChartView(
+    TodayChartView_old(
         animatedLeftover: 9.90,
         animatedBudget: 7.88,
         leftoverTextColor: .red,

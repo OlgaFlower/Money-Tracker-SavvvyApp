@@ -7,9 +7,9 @@
 
 import Foundation
 
-class RecurringCategoryCellViewModel {
-
-    let recurringGroups: [RecurringCategories] = {
-        Categories.fetchRecurringExpenses()
-    }()
-}
+//class RecurringCategoryCellViewModel {
+//
+//    let recurringGroups: [RecurringCategories] = {
+//        Categories.fetchRecurringExpenses()
+//    }()
+//}

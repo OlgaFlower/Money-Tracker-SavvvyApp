@@ -1,42 +1,42 @@
+////
+////  BackgroundGradView.swift
+////  MoneyTracker
+////
+////  Created by Olha Bereziuk on 21.04.24.
+////
 //
-//  BackgroundGradView.swift
-//  MoneyTracker
+//import SwiftUI
 //
-//  Created by Olha Bereziuk on 21.04.24.
+//struct BackgroundGradView: View {
+//    var body: some View {
+//        ZStack {
+//            GeometryReader { geometry in
+//                Rectangle()
+//                    .fill(
+//                        LinearGradient(
+//                            gradient: Gradient(colors: [.darkBlue, .lightBlue]),
+//                            startPoint: .topLeading,
+//                            endPoint: .bottomTrailing
+//                        )
+//                    )
+//                    .frame(
+//                        width: geometry.size.width + 20,
+//                        height: geometry.size.height + 20
+//                    )
+//                    .position(
+//                        x: geometry.size.width / 2,
+//                        y: geometry.size.height / 2
+//                    )
+//            }
+//            .ignoresSafeArea()
+//            
+//            Rectangle()
+//                .fill(.darkBlue.opacity(0.6))
+//                .ignoresSafeArea()
+//        }
+//    }
+//}
 //
-
-import SwiftUI
-
-struct BackgroundGradView: View {
-    var body: some View {
-        ZStack {
-            GeometryReader { geometry in
-                Rectangle()
-                    .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: [.darkBlue, .lightBlue]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .frame(
-                        width: geometry.size.width + 20,
-                        height: geometry.size.height + 20
-                    )
-                    .position(
-                        x: geometry.size.width / 2,
-                        y: geometry.size.height / 2
-                    )
-            }
-            .ignoresSafeArea()
-            
-            Rectangle()
-                .fill(.darkBlue.opacity(0.6))
-                .ignoresSafeArea()
-        }
-    }
-}
-
-#Preview {
-    BackgroundGradView()
-}
+//#Preview {
+//    BackgroundGradView()
+//}

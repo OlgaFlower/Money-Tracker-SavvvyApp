@@ -10,8 +10,11 @@ import SwiftUI
 struct HomeView: View {
     
     // MARK: - States
+    @StateObject var viewModel: HomeViewModel
     @State var isButtonActive: Bool = true
     @State private var isNewRecordPresented = false
+    
+    let showWelcomeView = false
     
     // MARK: - Body
     var body: some View {
@@ -21,7 +24,17 @@ struct HomeView: View {
             HomeHeaderView()
                 .padding(.horizontal, 20)
             VStack {
-                WelcomeView()
+                if showWelcomeView {
+                    WelcomeView()
+                } else {
+                    ChartView(
+                        animatedLeftover: self.viewModel.leftover,
+                        animatedBudget: self.viewModel.dayBudget,
+                        leftoverTextColor: .pink,
+                        chartAnimated: false
+                    )
+                    .frame(width: 250, height: 250)
+                }
                 
             }
             VStack {
@@ -37,10 +50,15 @@ struct HomeView: View {
         .fullScreenCover(isPresented: self.$isNewRecordPresented, content: {
             NewRecordView(
                 viewModel: NewRecordViewModel(),
-                onDismiss: {
-                self.isNewRecordPresented.toggle()
-            })
+                recordsUpdated: self.$viewModel.recordsUpdated) {
+                    self.isNewRecordPresented.toggle()
+                }
         })
+        .onChange(of: self.viewModel.recordsUpdated) { _, newValue in
+            if newValue {
+                self.viewModel.updateValues()
+            }
+        }
     }
     
     //MARK: - Views
@@ -71,5 +89,5 @@ struct HomeView: View {
 
 // MARK: - Preview
 #Preview {
-    HomeView()
+    HomeView(viewModel: HomeViewModel())
 }

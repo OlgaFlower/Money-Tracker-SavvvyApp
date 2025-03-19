@@ -120,8 +120,8 @@ struct OnboardingView: View {
                 self.path.append("Country")
             })
         )
-            .padding(.horizontal, 27)
-            .padding(.top, 28)
+        .padding(.horizontal, 27)
+        .padding(.top, 28)
     }
     
     // Currency
@@ -137,8 +137,8 @@ struct OnboardingView: View {
                 self.path.append("Currency")
             })
         )
-            .padding(.horizontal, 27)
-            .padding(.top, 12)
+        .padding(.horizontal, 27)
+        .padding(.top, 12)
     }
     
     // Lnguage
@@ -154,14 +154,16 @@ struct OnboardingView: View {
                 self.path.append("Language")
             })
         )
-            .padding(.horizontal, 27)
-            .padding(.top, 12)
+        .padding(.horizontal, 27)
+        .padding(.top, 12)
     }
     
     private var nextButton: some View {
         VStack {
             Spacer()
-            PinkButtonView(title: "Start") {
+            PinkActiveButtonView(
+                title: "Start"
+            ) {
                 self.viewModel.savePreferences()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.viewModel.vibrate()
